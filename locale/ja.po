@@ -560,9 +560,8 @@ msgstr "S3 認証情報が削除されました"
 # 
 # File: usr/share/isovault/ui/components.py, line: 33
 #: NEEDS WORK
-#, python-brace-format
-msgid "Progress: {message}"
-msgstr "進捗: {message}"
+msgid "Progress"
+msgstr "進捗"
 # 
 # File: usr/share/isovault/ui/components.py, line: 43
 #: NEEDS WORK

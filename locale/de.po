@@ -562,9 +562,8 @@ msgstr "S3-Anmeldeinformationen entfernt"
 # 
 # File: usr/share/isovault/ui/components.py, line: 33
 #: NEEDS WORK
-#, python-brace-format
-msgid "Progress: {message}"
-msgstr "Fortschritt: {message}"
+msgid "Progress"
+msgstr "Fortschritt"
 # 
 # File: usr/share/isovault/ui/components.py, line: 43
 #: NEEDS WORK

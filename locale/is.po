@@ -560,9 +560,8 @@ msgstr "S3 auðkenni fjarlægð"
 # 
 # File: usr/share/isovault/ui/components.py, line: 33
 #: NEEDS WORK
-#, python-brace-format
-msgid "Progress: {message}"
-msgstr "Vinnsla: {message}"
+msgid "Progress"
+msgstr "Framvinda"
 # 
 # File: usr/share/isovault/ui/components.py, line: 43
 #: NEEDS WORK

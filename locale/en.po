@@ -565,9 +565,8 @@ msgstr "S3 credentials removed"
 
 #
 # File: usr/share/isovault/ui/components.py, line: 33
-#, python-brace-format
-msgid "Progress: {message}"
-msgstr "Progress: {message}"
+msgid "Progress"
+msgstr "Progress"
 
 #
 # File: usr/share/isovault/ui/components.py, line: 43

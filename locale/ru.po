@@ -560,9 +560,8 @@ msgstr "S3 учетные данные удалены"
 # 
 # File: usr/share/isovault/ui/components.py, line: 33
 #: NEEDS WORK
-#, python-brace-format
-msgid "Progress: {message}"
-msgstr "Прогресс: {message}"
+msgid "Progress"
+msgstr "Прогресс"
 # 
 # File: usr/share/isovault/ui/components.py, line: 43
 #: NEEDS WORK

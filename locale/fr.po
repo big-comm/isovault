@@ -560,9 +560,8 @@ msgstr "Identifiants S3 supprimés"
 # 
 # File: usr/share/isovault/ui/components.py, line: 33
 #: NEEDS WORK
-#, python-brace-format
-msgid "Progress: {message}"
-msgstr "Progrès : {message}"
+msgid "Progress"
+msgstr "Progrès"
 # 
 # File: usr/share/isovault/ui/components.py, line: 43
 #: NEEDS WORK

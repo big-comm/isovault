@@ -560,9 +560,8 @@ msgstr "Αφαιρέθηκαν τα διαπιστευτήρια S3"
 # 
 # File: usr/share/isovault/ui/components.py, line: 33
 #: NEEDS WORK
-#, python-brace-format
-msgid "Progress: {message}"
-msgstr "Πρόοδος: {message}"
+msgid "Progress"
+msgstr "Πρόοδος"
 # 
 # File: usr/share/isovault/ui/components.py, line: 43
 #: NEEDS WORK

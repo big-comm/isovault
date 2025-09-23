@@ -560,9 +560,8 @@ msgstr "Credenziali S3 rimosse"
 # 
 # File: usr/share/isovault/ui/components.py, line: 33
 #: NEEDS WORK
-#, python-brace-format
-msgid "Progress: {message}"
-msgstr "Progresso: {message}"
+msgid "Progress"
+msgstr "Progresso"
 # 
 # File: usr/share/isovault/ui/components.py, line: 43
 #: NEEDS WORK

@@ -560,9 +560,8 @@ msgstr "S3 자격 증명 제거됨"
 # 
 # File: usr/share/isovault/ui/components.py, line: 33
 #: NEEDS WORK
-#, python-brace-format
-msgid "Progress: {message}"
-msgstr "진행 상황: {message}"
+msgid "Progress"
+msgstr "진행 상황"
 # 
 # File: usr/share/isovault/ui/components.py, line: 43
 #: NEEDS WORK

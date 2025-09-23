@@ -560,9 +560,8 @@ msgstr "S3 凭证已移除"
 # 
 # File: usr/share/isovault/ui/components.py, line: 33
 #: NEEDS WORK
-#, python-brace-format
-msgid "Progress: {message}"
-msgstr "进度：{message}"
+msgid "Progress"
+msgstr "进度"
 # 
 # File: usr/share/isovault/ui/components.py, line: 43
 #: NEEDS WORK

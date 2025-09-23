@@ -560,9 +560,8 @@ msgstr "S3 poverenia odstránené"
 # 
 # File: usr/share/isovault/ui/components.py, line: 33
 #: NEEDS WORK
-#, python-brace-format
-msgid "Progress: {message}"
-msgstr "Pokrok: {message}"
+msgid "Progress"
+msgstr "Pokrok"
 # 
 # File: usr/share/isovault/ui/components.py, line: 43
 #: NEEDS WORK

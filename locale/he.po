@@ -560,9 +560,8 @@ msgstr "הסמכות S3 הוסרו"
 # 
 # File: usr/share/isovault/ui/components.py, line: 33
 #: NEEDS WORK
-#, python-brace-format
-msgid "Progress: {message}"
-msgstr "התקדמות: {message}"
+msgid "Progress"
+msgstr "התקדמות"
 # 
 # File: usr/share/isovault/ui/components.py, line: 43
 #: NEEDS WORK

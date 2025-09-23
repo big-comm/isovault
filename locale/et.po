@@ -560,9 +560,8 @@ msgstr "S3 mandaolekud eemaldatud"
 # 
 # File: usr/share/isovault/ui/components.py, line: 33
 #: NEEDS WORK
-#, python-brace-format
-msgid "Progress: {message}"
-msgstr "Edenemine: {message}"
+msgid "Progress"
+msgstr "Edenemine"
 # 
 # File: usr/share/isovault/ui/components.py, line: 43
 #: NEEDS WORK
