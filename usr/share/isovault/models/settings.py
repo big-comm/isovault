@@ -7,6 +7,7 @@ import os
 import configparser
 from typing import Dict, Any, Optional
 from config import APP_CONFIG, DEFAULT_S3_CONFIG, DEFAULT_WEB_CONFIG
+from utils.i18n import _
 
 
 class SettingsManager:
@@ -36,7 +37,8 @@ class SettingsManager:
             },
             'web': {
                 'base_url': DEFAULT_WEB_CONFIG['base_url'],
-                'index_file': DEFAULT_WEB_CONFIG['index_file']
+                'index_file': DEFAULT_WEB_CONFIG['index_file'],
+                'show_index_files': False
             },
             'ui': {
                 'show_progress_details': True,
@@ -49,7 +51,7 @@ class SettingsManager:
         """Load settings from config file"""
         try:
             if not os.path.exists(self.config_file):
-                print(f"Config file not found: {self.config_file}")
+                print(_("Config file not found: {config_file}").format(config_file=self.config_file))
                 return False
             
             config = configparser.ConfigParser()
@@ -68,11 +70,11 @@ class SettingsManager:
                         else:
                             self.settings[section_name][key] = value
             
-            print(f"Settings loaded from: {self.config_file}")
+            print(_("Settings loaded from: {config_file}").format(config_file=self.config_file))
             return True
             
         except Exception as e:
-            print(f"Error loading settings: {e}")
+            print(_("Error loading settings: {error}").format(error=e))
             return False
     
     def save_settings(self) -> bool:
@@ -93,11 +95,11 @@ class SettingsManager:
             with open(self.config_file, 'w') as f:
                 config.write(f)
             
-            print(f"Settings saved to: {self.config_file}")
+            print(_("Settings saved to: {config_file}").format(config_file=self.config_file))
             return True
             
         except Exception as e:
-            print(f"Error saving settings: {e}")
+            print(_("Error saving settings: {error}").format(error=e))
             return False
     
     def get_s3_config(self) -> Dict[str, str]:
@@ -114,7 +116,8 @@ class SettingsManager:
         """Get Web configuration dictionary"""
         return {
             'base_url': self.get('web', 'base_url'),
-            'index_file': self.get('web', 'index_file')
+            'index_file': self.get('web', 'index_file'),
+            'show_index_files': self.get('web', 'show_index_files', False)
         }
     
     def get(self, section: str, key: str, default: Any = None) -> Any:
@@ -132,18 +135,18 @@ class SettingsManager:
         s3_config = self.get_s3_config()
         
         if not s3_config['access_key']:
-            return False, "Access key is required"
+            return False, _("Access key is required")
         
         if not s3_config['secret_key']:
-            return False, "Secret key is required"
+            return False, _("Secret key is required")
         
         if not s3_config['endpoint_url']:
-            return False, "Endpoint URL is required"
+            return False, _("Endpoint URL is required")
         
         if not s3_config['bucket_name']:
-            return False, "Bucket name is required"
+            return False, _("Bucket name is required")
         
-        return True, "Configuration is valid"
+        return True, _("Configuration is valid")
     
     def has_s3_credentials(self) -> bool:
         """Check if S3 credentials are configured"""

@@ -16,6 +16,7 @@ import signal
 
 from config import APP_CONFIG
 from ui import ISOVaultWindow
+from utils.i18n import _
 
 
 class ISOVaultApplication(Adw.Application):
@@ -42,7 +43,7 @@ class ISOVaultApplication(Adw.Application):
             ord('v'),
             GLib.OptionFlags.NONE,
             GLib.OptionArg.NONE,
-            "Show version information",
+            _("Show version information"),
             None
         )
         
@@ -51,7 +52,7 @@ class ISOVaultApplication(Adw.Application):
             ord('d'),
             GLib.OptionFlags.NONE,
             GLib.OptionArg.NONE,
-            "Enable debug mode",
+            _("Enable debug mode"),
             None
         )
         
@@ -59,7 +60,10 @@ class ISOVaultApplication(Adw.Application):
     
     def _on_startup(self, app):
         """Handle application startup"""
-        print(f"Starting {APP_CONFIG['app_name']} v{APP_CONFIG['version']}")
+        print(_("Starting {app_name} v{version}").format(
+            app_name=APP_CONFIG['app_name'], 
+            version=APP_CONFIG['version']
+        ))
         
         # Set up application-level resources
         self._setup_css()
@@ -74,7 +78,7 @@ class ISOVaultApplication(Adw.Application):
     
     def _on_shutdown(self, app):
         """Handle application shutdown"""
-        print(f"Shutting down {APP_CONFIG['app_name']}")
+        print(_("Shutting down {app_name}").format(app_name=APP_CONFIG['app_name']))
         
         # Save window state and settings
         if self.window and hasattr(self.window, 'settings_manager'):
@@ -94,7 +98,7 @@ class ISOVaultApplication(Adw.Application):
             return 0
         
         if options.contains("debug"):
-            print("Debug mode enabled")
+            print(_("Debug mode enabled"))
             os.environ['G_MESSAGES_DEBUG'] = 'all'
             import logging
             logging.basicConfig(level=logging.DEBUG)
@@ -177,7 +181,7 @@ class ISOVaultApplication(Adw.Application):
                     Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
                 )
         except Exception as e:
-            print(f"Warning: Could not apply CSS: {e}")
+            print(_("Warning: Could not apply CSS: {error}").format(error=e))
     
     def _setup_keyboard_shortcuts(self):
         """Setup application keyboard shortcuts"""
@@ -191,7 +195,7 @@ class ISOVaultApplication(Adw.Application):
             # Quit shortcut
             self.set_accels_for_action("app.quit", ["<Ctrl>q"])
         except Exception as e:
-            print(f"Warning: Could not set keyboard shortcuts: {e}")
+            print(_("Warning: Could not set keyboard shortcuts: {error}").format(error=e))
     
     def do_activate(self):
         """GTK activate signal handler"""
@@ -210,7 +214,7 @@ class ISOVaultApplication(Adw.Application):
 
 def handle_signal(signum, frame):
     """Handle system signals gracefully"""
-    print(f"\nReceived signal {signum}, shutting down gracefully...")
+    print(_("\nReceived signal {signum}, shutting down gracefully...").format(signum=signum))
     
     # Get the current application instance
     app = Gio.Application.get_default()
@@ -235,10 +239,10 @@ def check_dependencies():
         missing_deps.append("configparser")
     
     if missing_deps:
-        print("Error: Missing required dependencies:")
+        print(_("Error: Missing required dependencies:"))
         for dep in missing_deps:
             print(f"  - {dep}")
-        print("\nInstall them with: pip install " + " ".join(missing_deps))
+        print(_("\nInstall them with: pip install {deps}").format(deps=" ".join(missing_deps)))
         return False
     
     return True
@@ -250,21 +254,21 @@ def setup_environment():
         # Set application name for better integration
         GLib.set_application_name(APP_CONFIG['app_name'])
     except Exception as e:
-        print(f"Warning: Could not set application name: {e}")
+        print(_("Warning: Could not set application name: {error}").format(error=e))
     
     # Set up signal handlers for graceful shutdown
     try:
         signal.signal(signal.SIGINT, handle_signal)
         signal.signal(signal.SIGTERM, handle_signal)
     except Exception as e:
-        print(f"Warning: Could not set signal handlers: {e}")
+        print(_("Warning: Could not set signal handlers: {error}").format(error=e))
     
     # Ensure config directory exists
     try:
         config_dir = os.path.dirname(APP_CONFIG['config_file'])
         os.makedirs(config_dir, exist_ok=True)
     except Exception as e:
-        print(f"Warning: Could not create config directory: {e}")
+        print(_("Warning: Could not create config directory: {error}").format(error=e))
 
 
 def main():
@@ -281,10 +285,10 @@ def main():
         app = ISOVaultApplication()
         return app.run(sys.argv)
     except KeyboardInterrupt:
-        print("\nInterrupted by user")
+        print(_("\nInterrupted by user"))
         return 0
     except Exception as e:
-        print(f"Fatal error: {e}")
+        print(_("Fatal error: {error}").format(error=e))
         import traceback
         traceback.print_exc()
         return 1

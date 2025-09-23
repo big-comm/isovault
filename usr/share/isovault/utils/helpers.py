@@ -9,7 +9,8 @@ from datetime import datetime
 import threading
 import time
 
-from config import WEB_CONFIG
+from config import DEFAULT_WEB_CONFIG
+from utils.i18n import _
 
 
 class BatchProcessor:
@@ -53,7 +54,7 @@ class BatchProcessor:
                     
             except Exception as e:
                 self.errors.append((item, str(e)))
-                print(f"Error processing item {item}: {e}")
+                print(_("Error processing item {item}: {error}").format(item=item, error=e))
             
             self.current_index = index + 1
         
@@ -82,21 +83,21 @@ class ConnectionTester:
             Tuple of (success, message)
         """
         if not s3_service:
-            return False, "No S3 service configured"
+            return False, _("No S3 service configured")
         
         try:
             # Use threading to implement timeout
-            result = {'success': False, 'message': 'Timeout'}
+            result = {'success': False, 'message': _('Timeout')}
             
             def test_connection():
                 try:
                     if s3_service.test_connection():
                         result['success'] = True
-                        result['message'] = 'Connection successful'
+                        result['message'] = _('Connection successful')
                     else:
-                        result['message'] = 'Connection failed'
+                        result['message'] = _('Connection failed')
                 except Exception as e:
-                    result['message'] = f'Connection error: {str(e)}'
+                    result['message'] = _('Connection error: {error}').format(error=str(e))
             
             thread = threading.Thread(target=test_connection)
             thread.daemon = True
@@ -104,12 +105,12 @@ class ConnectionTester:
             thread.join(timeout)
             
             if thread.is_alive():
-                return False, 'Connection timeout'
+                return False, _('Connection timeout')
             
             return result['success'], result['message']
             
         except Exception as e:
-            return False, f'Test error: {str(e)}'
+            return False, _('Test error: {error}').format(error=str(e))
     
     @staticmethod
     def validate_endpoint_url(url: str) -> Tuple[bool, str]:
@@ -123,10 +124,10 @@ class ConnectionTester:
             Tuple of (is_valid, message)
         """
         if not url:
-            return False, "URL is required"
+            return False, _("URL is required")
         
         if not url.startswith(('http://', 'https://')):
-            return False, "URL must start with http:// or https://"
+            return False, _("URL must start with http:// or https://")
         
         # Basic URL format validation
         url_pattern = re.compile(
@@ -138,9 +139,9 @@ class ConnectionTester:
             r'(?:/?|[/?]\S+)$', re.IGNORECASE)
         
         if not url_pattern.match(url):
-            return False, "Invalid URL format"
+            return False, _("Invalid URL format")
         
-        return True, "Valid URL format"
+        return True, _("Valid URL format")
 
 
 class URLGenerator:
@@ -159,7 +160,7 @@ class URLGenerator:
         """
         if file_key.startswith('/'):
             file_key = file_key[1:]  # Remove leading slash
-        return f"{WEB_CONFIG['base_url']}/{file_key}"
+        return f"{DEFAULT_WEB_CONFIG['base_url']}/{file_key}"
     
     @staticmethod
     def generate_download_filename(original_name: str, add_timestamp: bool = False) -> str:
@@ -271,7 +272,7 @@ class MD5Helper:
             return base_name
             
         except Exception as e:
-            print(f"Error extracting MD5 from {filename}: {e}")
+            print(_("Error extracting MD5 from {filename}: {error}").format(filename=filename, error=e))
             return filename
 
 

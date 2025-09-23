@@ -13,6 +13,7 @@ from pathlib import Path
 import os
 
 from config import DISTRO_FOLDERS, SUPPORTED_EXTENSIONS
+from utils.i18n import _
 
 
 class DialogManager:
@@ -36,7 +37,7 @@ class DialogManager:
             last_directory: Last used directory
         """
         dialog = Gtk.FileChooserNative(
-            title="Select ISO or MD5 files to upload",
+            title=_("Select ISO or MD5 files to upload"),
             transient_for=self.parent_window,
             action=Gtk.FileChooserAction.OPEN
         )
@@ -64,7 +65,7 @@ class DialogManager:
             callback: Callback function for save path
         """
         dialog = Gtk.FileChooserNative(
-            title=f"Save {filename}",
+            title=_("Save {filename}").format(filename=filename),
             transient_for=self.parent_window,
             action=Gtk.FileChooserAction.SAVE
         )
@@ -98,12 +99,12 @@ class DialogManager:
             callback: Callback function for confirmation
         """
         dialog = Adw.AlertDialog(
-            heading="Delete File",
-            body=f"Are you sure you want to delete '{filename}'?\n\nThis action cannot be undone."
+            heading=_("Delete File"),
+            body=_("Are you sure you want to delete '{filename}'?\n\nThis action cannot be undone.").format(filename=filename)
         )
         
-        dialog.add_response("cancel", "Cancel")
-        dialog.add_response("delete", "Delete")
+        dialog.add_response("cancel", _("Cancel"))
+        dialog.add_response("delete", _("Delete"))
         dialog.set_default_response("cancel")
         dialog.set_close_response("cancel")
         dialog.set_response_appearance("delete", Adw.ResponseAppearance.DESTRUCTIVE)
@@ -121,7 +122,7 @@ class DialogManager:
             version=APP_CONFIG['version'],
             developer_name="BigCommunity",
             website="https://communitybig.org",
-            comments="ISO file manager for CDN77 storage",
+            comments=_("ISO file manager for CDN77 storage"),
             license_type=Gtk.License.GPL_3_0
         )
         
@@ -140,7 +141,7 @@ class DialogManager:
             body=message
         )
         
-        dialog.add_response("ok", "OK")
+        dialog.add_response("ok", _("OK"))
         dialog.set_default_response("ok")
         dialog.set_close_response("ok")
         
@@ -160,7 +161,7 @@ class DialogManager:
             body=message
         )
         
-        dialog.add_response("ok", "OK")
+        dialog.add_response("ok", _("OK"))
         dialog.set_default_response("ok")
         dialog.set_close_response("ok")
         
@@ -173,7 +174,7 @@ class DialogManager:
         """Add file filters to dialog"""
         # Add filter for supported files
         filter_files = Gtk.FileFilter()
-        filter_files.set_name("Supported files (ISO, MD5)")
+        filter_files.set_name(_("Supported files (ISO, MD5)"))
         for ext in SUPPORTED_EXTENSIONS:
             if ext.startswith('.'):
                 filter_files.add_pattern(f"*{ext}")
@@ -182,7 +183,7 @@ class DialogManager:
         
         # Add "All files" filter
         filter_all = Gtk.FileFilter()
-        filter_all.set_name("All files")
+        filter_all.set_name(_("All files"))
         filter_all.add_pattern("*")
         dialog.add_filter(filter_all)
     
@@ -207,9 +208,9 @@ class DialogManager:
                     
                     callback(file_paths, parent_path)
                 else:
-                    self.show_error_dialog("Upload Error", "Failed to get file paths")
+                    self.show_error_dialog(_("Upload Error"), _("Failed to get file paths"))
             else:
-                self.show_info_dialog("Upload", "No files selected")
+                self.show_info_dialog(_("Upload"), _("No files selected"))
         
         dialog.destroy()
     
@@ -223,24 +224,24 @@ class DialogManager:
                 if save_path:
                     callback(save_path)
                 else:
-                    self.show_error_dialog("Download Error", "Failed to get save path")
+                    self.show_error_dialog(_("Download Error"), _("Failed to get save path"))
         
         dialog.destroy()
     
     def _show_single_file_folder_dialog(self, file_path: str, callback: Callable) -> None:
         """Show folder selection dialog for single file"""
         filename = Path(file_path).name
-        print(f"Showing folder selection for: {file_path}")
+        print(_("Showing folder selection for: {file_path}").format(file_path=file_path))
         
         dialog = Adw.AlertDialog(
-            heading="Select Destination Folder",
-            body=f"Choose which folder to upload '{filename}' to:"
+            heading=_("Select Destination Folder"),
+            body=_("Choose which folder to upload '{filename}' to:").format(filename=filename)
         )
         
         for folder in DISTRO_FOLDERS:
             dialog.add_response(folder.lower(), folder)
         
-        dialog.add_response("cancel", "Cancel")
+        dialog.add_response("cancel", _("Cancel"))
         dialog.set_default_response("cancel")
         dialog.set_close_response("cancel")
         
@@ -252,22 +253,26 @@ class DialogManager:
         file_count = len(file_paths)
         file_names = [Path(path).name for path in file_paths]
         
-        print(f"Showing folder selection for {file_count} files: {file_names}")
+        print(_("Showing folder selection for {file_count} files: {file_names}").format(
+            file_count=file_count, file_names=file_names
+        ))
         
         # Create file list for display (show max 5 files)
         file_list = "\n".join([f"• {name}" for name in file_names[:5]])
         if file_count > 5:
-            file_list += f"\n... and {file_count - 5} more files"
+            file_list += _("\n... and {more_count} more files").format(more_count=file_count - 5)
         
         dialog = Adw.AlertDialog(
-            heading="Select Destination Folder",
-            body=f"Choose which folder to upload {file_count} files to:\n\n{file_list}"
+            heading=_("Select Destination Folder"),
+            body=_("Choose which folder to upload {file_count} files to:\n\n{file_list}").format(
+                file_count=file_count, file_list=file_list
+            )
         )
         
         for folder in DISTRO_FOLDERS:
             dialog.add_response(folder.lower(), folder)
         
-        dialog.add_response("cancel", "Cancel")
+        dialog.add_response("cancel", _("Cancel"))
         dialog.set_default_response("cancel")
         dialog.set_close_response("cancel")
         
@@ -277,38 +282,44 @@ class DialogManager:
     def _on_single_folder_response(self, dialog: Adw.AlertDialog, response: str, 
                                  file_path: str, callback: Callable) -> None:
         """Handle single file folder selection response"""
-        print(f"Single folder dialog response: '{response}' for file: {file_path}")
+        print(_("Single folder dialog response: '{response}' for file: {file_path}").format(
+            response=response, file_path=file_path
+        ))
         
         if response != "cancel":
             folder_map = {folder.lower(): folder for folder in DISTRO_FOLDERS}
             
             if response in folder_map:
                 folder = folder_map[response]
-                print(f"Selected folder: {folder}")
+                print(_("Selected folder: {folder}").format(folder=folder))
                 callback(file_path, folder)
             else:
-                print(f"Unknown response: {response}")
-                self.show_error_dialog("Error", f"Unknown folder selection: {response}")
+                print(_("Unknown response: {response}").format(response=response))
+                self.show_error_dialog(_("Error"), _("Unknown folder selection: {response}").format(response=response))
         else:
-            print("Upload cancelled by user")
+            print(_("Upload cancelled by user"))
     
     def _on_multiple_folder_response(self, dialog: Adw.AlertDialog, response: str, 
                                    file_paths: List[str], callback: Callable) -> None:
         """Handle multiple files folder selection response"""
-        print(f"Multiple folder dialog response: '{response}' for {len(file_paths)} files")
+        print(_("Multiple folder dialog response: '{response}' for {file_count} files").format(
+            response=response, file_count=len(file_paths)
+        ))
         
         if response != "cancel":
             folder_map = {folder.lower(): folder for folder in DISTRO_FOLDERS}
             
             if response in folder_map:
                 folder = folder_map[response]
-                print(f"Selected folder: {folder} for {len(file_paths)} files")
+                print(_("Selected folder: {folder} for {file_count} files").format(
+                    folder=folder, file_count=len(file_paths)
+                ))
                 callback(file_paths, folder)
             else:
-                print(f"Unknown response: {response}")
-                self.show_error_dialog("Error", f"Unknown folder selection: {response}")
+                print(_("Unknown response: {response}").format(response=response))
+                self.show_error_dialog(_("Error"), _("Unknown folder selection: {response}").format(response=response))
         else:
-            print("Batch upload cancelled by user")
+            print(_("Batch upload cancelled by user"))
 
 
 class ValidationDialogMixin:
@@ -337,19 +348,19 @@ class ValidationDialogMixin:
             invalid_list.append(f"• {filename}: {error}")
         
         if invalid_count > 5:
-            invalid_list.append(f"... and {invalid_count - 5} more files")
+            invalid_list.append(_("... and {more_count} more files").format(more_count=invalid_count - 5))
         
-        message = f"Found {invalid_count} invalid files"
+        message = _("Found {invalid_count} invalid files").format(invalid_count=invalid_count)
         if valid_count > 0:
-            message += f" ({valid_count} valid files will be uploaded)"
+            message += _(" ({valid_count} valid files will be uploaded)").format(valid_count=valid_count)
         message += ":\n\n" + "\n".join(invalid_list)
         
         dialog = Adw.AlertDialog(
-            heading="File Validation Results",
+            heading=_("File Validation Results"),
             body=message
         )
         
-        dialog.add_response("ok", "Continue" if valid_count > 0 else "OK")
+        dialog.add_response("ok", _("Continue") if valid_count > 0 else _("OK"))
         dialog.set_default_response("ok")
         dialog.set_close_response("ok")
         

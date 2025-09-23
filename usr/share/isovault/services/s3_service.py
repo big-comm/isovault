@@ -11,6 +11,7 @@ from datetime import datetime
 
 from config import DISTRO_FOLDERS
 from .file_validator import FileValidator
+from utils.i18n import _
 
 
 class S3Service:
@@ -27,12 +28,13 @@ class S3Service:
         self.s3_client = None
         self.bucket_name = s3_config.get('bucket_name')
         self.config = s3_config
-        self.web_config = web_config or {'base_url': '', 'index_file': 'index.html'}
+        self.web_config = web_config or {'base_url': '', 'index_file': 'index.html', 'show_index_files': False}
         self._connect()
     
     def update_web_config(self, web_config: Dict[str, str]) -> None:
         """Update web configuration"""
-        self.web_config = web_config
+        self.web_config = web_config or {'base_url': '', 'index_file': 'index.html', 'show_index_files': False}
+        print(f"Updated web config: show_index_files = {self.web_config.get('show_index_files')}")
     
     def _connect(self) -> bool:
         """Initialize S3 client connection"""
@@ -124,17 +126,17 @@ class S3Service:
             True if upload successful
         """
         if not self.s3_client:
-            print("No S3 connection available")
+            print(_("No S3 connection available"))
             return False
         
         # Validate file
         is_valid, message = FileValidator.validate_file(file_path)
         if not is_valid:
-            print(f"Upload validation failed: {message}")
+            print(_("Upload validation failed: {message}").format(message=message))
             return False
         
         if folder not in DISTRO_FOLDERS:
-            print(f"Invalid folder. Must be one of: {DISTRO_FOLDERS}")
+            print(_("Invalid folder. Must be one of: {folders}").format(folders=DISTRO_FOLDERS))
             return False
         
         try:
@@ -169,10 +171,10 @@ class S3Service:
             return True
             
         except ClientError as e:
-            print(f"Upload failed: {e}")
+            print(_("Upload failed: {error}").format(error=e))
             return False
         except Exception as e:
-            print(f"Upload error: {e}")
+            print(_("Upload error: {error}").format(error=e))
             return False
     
     def list_files(self, folder: Optional[str] = None) -> List[Dict]:
@@ -186,7 +188,7 @@ class S3Service:
             List of file dictionaries
         """
         if not self.s3_client:
-            print("No S3 connection available")
+            print(_("No S3 connection available"))
             return []
         
         try:
@@ -222,6 +224,11 @@ class S3Service:
                     if folder and folder_name != folder:
                         continue
                     
+                    # Filter out index.html files if show_index_files is False
+                    show_index_files = self.web_config.get('show_index_files', False)
+                    if not show_index_files and file_name.lower() == 'index.html':
+                        continue
+                    
                     files.append({
                         'name': file_name,
                         'folder': folder_name,
@@ -235,7 +242,7 @@ class S3Service:
             return sorted(files, key=lambda x: x['modified'], reverse=True)
             
         except ClientError as e:
-            print(f"Error listing files: {e}")
+            print(_("Error listing files: {error}").format(error=e))
             return []
     
     def delete_file(self, file_key: str) -> bool:
@@ -260,7 +267,7 @@ class S3Service:
             return True
             
         except ClientError as e:
-            print(f"Delete failed: {e}")
+            print(_("Delete failed: {error}").format(error=e))
             return False
     
     def download_file(self, file_key: str, local_path: str, 
@@ -306,7 +313,7 @@ class S3Service:
             return True
             
         except ClientError as e:
-            print(f"Download failed: {e}")
+            print(_("Download failed: {error}").format(error=e))
             return False
     
     def get_file_info(self, file_key: str) -> Optional[Dict]:
@@ -329,7 +336,7 @@ class S3Service:
             }
             
         except ClientError as e:
-            print(f"Error getting file info: {e}")
+            print(_("Error getting file info: {error}").format(error=e))
             return None
     
     def get_public_url(self, file_key: str) -> str:
@@ -369,7 +376,7 @@ class S3Service:
             return True
             
         except ClientError as e:
-            print(f"Error uploading content: {e}")
+            print(_("Error uploading content: {error}").format(error=e))
             return False
     
     def read_file_content(self, file_key: str) -> Optional[str]:
@@ -385,5 +392,5 @@ class S3Service:
             return response['Body'].read().decode('utf-8')
             
         except ClientError as e:
-            print(f"Error reading file content: {e}")
+            print(_("Error reading file content: {error}").format(error=e))
             return None

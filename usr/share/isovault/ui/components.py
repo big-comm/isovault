@@ -10,6 +10,7 @@ from gi.repository import Gtk, Adw, Gio, Pango
 from typing import Optional, Callable
 from config import UI_CONSTANTS
 from models import FileItem
+from utils.i18n import _
 
 
 class ProgressManager:
@@ -29,7 +30,7 @@ class ProgressManager:
     
     def show(self, message: str) -> None:
         """Show progress bar with message"""
-        print(f"Progress: {message}")
+        print(_("Progress: {message}").format(message=message))
         self.status_label.set_text(message)
         self.progress_bar.set_visible(True)
         self.progress_bar.set_fraction(0.0)
@@ -39,14 +40,14 @@ class ProgressManager:
     def update(self, progress: float) -> None:
         """Update progress bar"""
         if self.is_visible:
-            print(f"Progress update: {progress:.1f}%")
+            print(_("Progress update: {progress:.1f}%").format(progress=progress))
             fraction = progress / 100.0
             self.progress_bar.set_fraction(fraction)
             self.progress_bar.set_text(f"{progress:.1f}%")
     
     def hide(self) -> None:
         """Hide progress bar"""
-        print("Hiding progress")
+        print(_("Hiding progress"))
         self.progress_bar.set_visible(False)
         self.progress_bar.set_fraction(0.0)
         self.progress_bar.set_text("")
@@ -119,7 +120,7 @@ class FileListComponent:
         name_factory = Gtk.SignalListItemFactory()
         name_factory.connect("setup", self._on_name_setup)
         name_factory.connect("bind", self._on_name_bind)
-        name_column = Gtk.ColumnViewColumn(title="File Name", factory=name_factory)
+        name_column = Gtk.ColumnViewColumn(title=_("File Name"), factory=name_factory)
         name_column.set_expand(True)
         name_column.set_resizable(True)
         self.column_view.append_column(name_column)
@@ -128,7 +129,7 @@ class FileListComponent:
         folder_factory = Gtk.SignalListItemFactory()
         folder_factory.connect("setup", self._on_folder_setup)
         folder_factory.connect("bind", self._on_folder_bind)
-        folder_column = Gtk.ColumnViewColumn(title="Folder", factory=folder_factory)
+        folder_column = Gtk.ColumnViewColumn(title=_("Folder"), factory=folder_factory)
         folder_column.set_resizable(True)
         self.column_view.append_column(folder_column)
         
@@ -136,7 +137,7 @@ class FileListComponent:
         size_factory = Gtk.SignalListItemFactory()
         size_factory.connect("setup", self._on_size_setup)
         size_factory.connect("bind", self._on_size_bind)
-        size_column = Gtk.ColumnViewColumn(title="Size", factory=size_factory)
+        size_column = Gtk.ColumnViewColumn(title=_("Size"), factory=size_factory)
         size_column.set_resizable(True)
         self.column_view.append_column(size_column)
         
@@ -144,7 +145,7 @@ class FileListComponent:
         modified_factory = Gtk.SignalListItemFactory()
         modified_factory.connect("setup", self._on_modified_setup)
         modified_factory.connect("bind", self._on_modified_bind)
-        modified_column = Gtk.ColumnViewColumn(title="Modified", factory=modified_factory)
+        modified_column = Gtk.ColumnViewColumn(title=_("Modified"), factory=modified_factory)
         modified_column.set_resizable(True)
         self.column_view.append_column(modified_column)
     
@@ -253,13 +254,13 @@ class ToolbarComponent:
         toolbar.set_margin_end(12)
         
         # Filter label
-        filter_label = Gtk.Label(label="Filter by folder:")
+        filter_label = Gtk.Label(label=_("Filter by folder:"))
         toolbar.append(filter_label)
         
         # Folder filter dropdown
         self.folder_dropdown = Gtk.DropDown()
         folder_model = Gtk.StringList()
-        folder_model.append("All folders")
+        folder_model.append(_("All folders"))
         from config import DISTRO_FOLDERS
         for folder in DISTRO_FOLDERS:
             folder_model.append(folder)
@@ -273,21 +274,21 @@ class ToolbarComponent:
         toolbar.append(spacer)
         
         # Copy Link button
-        self.copy_link_btn = Gtk.Button(label="Copy Link")
+        self.copy_link_btn = Gtk.Button(label=_("Copy Link"))
         self.copy_link_btn.set_icon_name("edit-copy-symbolic")
         self.copy_link_btn.set_sensitive(False)
         self.copy_link_btn.connect("clicked", self._on_copy_link_clicked)
         toolbar.append(self.copy_link_btn)
         
         # Download button
-        self.download_btn = Gtk.Button(label="Download")
+        self.download_btn = Gtk.Button(label=_("Download"))
         self.download_btn.set_icon_name("folder-download-symbolic")
         self.download_btn.set_sensitive(False)
         self.download_btn.connect("clicked", self._on_download_clicked)
         toolbar.append(self.download_btn)
         
         # Delete button
-        self.delete_btn = Gtk.Button(label="Delete")
+        self.delete_btn = Gtk.Button(label=_("Delete"))
         self.delete_btn.set_icon_name("user-trash-symbolic")
         self.delete_btn.add_css_class("destructive-action")
         self.delete_btn.set_sensitive(False)
@@ -353,7 +354,7 @@ class HeaderBarComponent:
         # Upload button (primary action)
         upload_btn = Gtk.Button()
         upload_btn.set_icon_name("document-send-symbolic")
-        upload_btn.set_tooltip_text("Upload ISO file")
+        upload_btn.set_tooltip_text(_("Upload ISO file"))
         upload_btn.add_css_class("suggested-action")
         upload_btn.connect("clicked", self._on_upload_clicked)
         header_bar.pack_start(upload_btn)
@@ -361,21 +362,21 @@ class HeaderBarComponent:
         # Menu button (hamburger menu)
         menu_btn = Gtk.MenuButton()
         menu_btn.set_icon_name("open-menu-symbolic")
-        menu_btn.set_tooltip_text("Application menu")
+        menu_btn.set_tooltip_text(_("Application menu"))
         
         # Create menu model - Fixed for GTK4
         menu_model = Gio.Menu()
         
         # Main section
         main_section = Gio.Menu()
-        main_section.append("Preferences", "app.preferences")
-        main_section.append("Force Update Index", "app.force_index")
-        main_section.append("Refresh", "app.refresh")
+        main_section.append(_("Preferences"), "app.preferences")
+        main_section.append(_("Force Update Index"), "app.force_index")
+        main_section.append(_("Refresh"), "app.refresh")
         menu_model.append_section(None, main_section)
         
         # About section (separated)
         about_section = Gio.Menu()
-        about_section.append("About", "app.about")
+        about_section.append(_("About"), "app.about")
         menu_model.append_section(None, about_section)
         
         menu_btn.set_menu_model(menu_model)

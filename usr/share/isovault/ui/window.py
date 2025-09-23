@@ -20,6 +20,7 @@ from .components import (
 )
 from .dialogs import DialogManager, ValidationDialogMixin
 from .preferences import PreferencesDialog
+from utils.i18n import _
 
 
 class ISOVaultWindow(Adw.ApplicationWindow):
@@ -54,7 +55,7 @@ class ISOVaultWindow(Adw.ApplicationWindow):
     
     def _setup_window(self) -> None:
         """Setup window properties"""
-        self.set_title(APP_CONFIG['window_title'])
+        self.set_title(_(APP_CONFIG['window_title']))
         
         # Load window size from settings
         width, height = self.settings_manager.get_window_size()
@@ -104,7 +105,7 @@ class ISOVaultWindow(Adw.ApplicationWindow):
         # Status label and progress in same horizontal box
         self.status_bar = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=12)
         
-        self.status_label = Gtk.Label(label="Ready")
+        self.status_label = Gtk.Label(label=_("Ready"))
         self.status_label.set_halign(Gtk.Align.START)
         self.status_label.set_hexpand(True)
         self.status_bar.append(self.status_label)
@@ -125,16 +126,17 @@ class ISOVaultWindow(Adw.ApplicationWindow):
     def _setup_services(self) -> None:
         """Setup S3 service and related services"""
         s3_config = self.settings_manager.get_s3_config()
+        web_config = self.settings_manager.get_web_config()
         
         if self.settings_manager.has_s3_credentials():
-            self.s3_service = S3Service(s3_config)
+            self.s3_service = S3Service(s3_config, web_config)
             self.html_generator = HTMLGenerator(self.s3_service)
             
             # Test connection and create folders in background
             threading.Thread(target=self._test_connection_and_setup, daemon=True).start()
         else:
             print("No S3 credentials configured")
-            self.show_toast("Please configure S3 credentials in Preferences")
+            self.show_toast(_("Please configure S3 credentials in Preferences"))
     
     def _setup_actions(self) -> None:
         """Setup application actions"""
@@ -190,7 +192,7 @@ class ISOVaultWindow(Adw.ApplicationWindow):
     
     def _on_connection_failed(self) -> bool:
         """Handle failed S3 connection"""
-        self.show_toast("Warning: Could not connect to S3 storage")
+        self.show_toast(_("Warning: Could not connect to S3 storage"))
         return False  # Remove from GLib idle
     
     # UI Event Handlers
@@ -205,7 +207,7 @@ class ISOVaultWindow(Adw.ApplicationWindow):
     def on_upload_clicked(self) -> None:
         """Handle upload button click"""
         if not self.s3_service:
-            self.show_toast("Please configure S3 credentials first")
+            self.show_toast(_("Please configure S3 credentials first"))
             return
         
         last_dir = self.settings_manager.get('general', 'last_directory')
@@ -225,7 +227,7 @@ class ISOVaultWindow(Adw.ApplicationWindow):
         clipboard.set(public_url)
         
         # Show confirmation
-        self.show_toast(f"Link copied: {public_url}")
+        self.show_toast(_("Link copied: {url}").format(url=public_url))
     
     def on_download_clicked(self) -> None:
         """Handle download button click"""
@@ -286,7 +288,7 @@ class ISOVaultWindow(Adw.ApplicationWindow):
     def _upload_single_file(self, file_path: str, folder: str) -> None:
         """Upload single file"""
         filename = Path(file_path).name
-        self.progress_manager.show(f"Uploading {filename}...")
+        self.progress_manager.show(_("Uploading {filename}...").format(filename=filename))
         
         def upload_thread():
             def progress_callback(progress):
@@ -303,7 +305,9 @@ class ISOVaultWindow(Adw.ApplicationWindow):
     
     def _upload_multiple_files(self, file_paths: List[str], folder: str) -> None:
         """Upload multiple files in sequence"""
-        print(f"Starting batch upload: {len(file_paths)} files to folder: {folder}")
+        print(_("Starting batch upload: {file_count} files to folder: {folder}").format(
+            file_count=len(file_paths), folder=folder
+        ))
         
         self.current_batch = {
             'files': file_paths,
@@ -329,7 +333,11 @@ class ISOVaultWindow(Adw.ApplicationWindow):
         filename = Path(current_file).name
         
         # Update progress message
-        progress_msg = f"Uploading {batch['current_index'] + 1}/{batch['total_count']}: {filename}"
+        progress_msg = _("Uploading {current}/{total}: {filename}").format(
+            current=batch['current_index'] + 1,
+            total=batch['total_count'],
+            filename=filename
+        )
         self.progress_manager.show(progress_msg)
         
         def upload_thread():
@@ -343,7 +351,7 @@ class ISOVaultWindow(Adw.ApplicationWindow):
                 success = self.s3_service.upload_file(current_file, batch['folder'], progress_callback)
                 GLib.idle_add(self._single_file_upload_complete, success, filename)
             except Exception as e:
-                print(f"Batch upload error for {filename}: {e}")
+                print(_("Batch upload error for {filename}: {error}").format(filename=filename, error=e))
                 GLib.idle_add(self._single_file_upload_complete, False, filename)
         
         threading.Thread(target=upload_thread, daemon=True).start()
@@ -374,9 +382,11 @@ class ISOVaultWindow(Adw.ApplicationWindow):
         failed = batch['failed']
         
         if failed == 0:
-            self.show_toast(f"Successfully uploaded all {total} files!")
+            self.show_toast(_("Successfully uploaded all {total} files!").format(total=total))
         else:
-            self.show_toast(f"Upload complete: {completed} successful, {failed} failed")
+            self.show_toast(_("Upload complete: {completed} successful, {failed} failed").format(
+                completed=completed, failed=failed
+            ))
         
         # Refresh file list
         if self.settings_manager.get('general', 'auto_refresh', True):
@@ -394,7 +404,7 @@ class ISOVaultWindow(Adw.ApplicationWindow):
         self.progress_manager.hide()
         
         if success:
-            self.show_toast(f"Successfully uploaded {filename}")
+            self.show_toast(_("Successfully uploaded {filename}").format(filename=filename))
             
             # Refresh file list
             if self.settings_manager.get('general', 'auto_refresh', True):
@@ -404,13 +414,13 @@ class ISOVaultWindow(Adw.ApplicationWindow):
             if self.settings_manager.get('ui', 'auto_update_index', True):
                 self._update_html_index()
         else:
-            self.show_toast(f"Failed to upload {filename}")
+            self.show_toast(_("Failed to upload {filename}").format(filename=filename))
         
         return False
     
     def _start_download(self, file_item: FileItem, save_path: str) -> None:
         """Start file download"""
-        self.progress_manager.show(f"Downloading {file_item.name}...")
+        self.progress_manager.show(_("Downloading {filename}...").format(filename=file_item.name))
         
         def download_thread():
             def progress_callback(progress):
@@ -426,9 +436,9 @@ class ISOVaultWindow(Adw.ApplicationWindow):
         self.progress_manager.hide()
         
         if success:
-            self.show_toast(f"Successfully downloaded {filename}")
+            self.show_toast(_("Successfully downloaded {filename}").format(filename=filename))
         else:
-            self.show_toast(f"Failed to download {filename}")
+            self.show_toast(_("Failed to download {filename}").format(filename=filename))
         
         return False
     
@@ -439,7 +449,7 @@ class ISOVaultWindow(Adw.ApplicationWindow):
     
     def _delete_file(self, file_item: FileItem) -> None:
         """Delete file from S3"""
-        self.progress_manager.show(f"Deleting {file_item.name}...")
+        self.progress_manager.show(_("Deleting {filename}...").format(filename=file_item.name))
         
         def delete_thread():
             success = self.s3_service.delete_file(file_item.key)
@@ -452,7 +462,7 @@ class ISOVaultWindow(Adw.ApplicationWindow):
         self.progress_manager.hide()
         
         if success:
-            self.show_toast(f"Successfully deleted {filename}")
+            self.show_toast(_("Successfully deleted {filename}").format(filename=filename))
             
             # Refresh file list
             if self.settings_manager.get('general', 'auto_refresh', True):
@@ -462,7 +472,7 @@ class ISOVaultWindow(Adw.ApplicationWindow):
             if self.settings_manager.get('ui', 'auto_update_index', True):
                 self._update_html_index()
         else:
-            self.show_toast(f"Failed to delete {filename}")
+            self.show_toast(_("Failed to delete {filename}").format(filename=filename))
         
         return False
     
@@ -472,9 +482,9 @@ class ISOVaultWindow(Adw.ApplicationWindow):
             return False
         
         current_folder = self.toolbar_component.get_selected_folder()
-        print(f"Refreshing files for folder: {current_folder}")
+        print(_("Refreshing files for folder: {folder}").format(folder=current_folder))
         
-        self.progress_manager.show("Loading files...")
+        self.progress_manager.show(_("Loading files..."))
         
         def refresh_thread():
             try:
@@ -494,7 +504,7 @@ class ISOVaultWindow(Adw.ApplicationWindow):
     def _refresh_connection_error(self) -> bool:
         """Handle refresh connection error"""
         self.progress_manager.hide()
-        self.show_toast("Failed to connect to S3 storage. Check credentials and connection.")
+        self.show_toast(_("Failed to connect to S3 storage. Check credentials and connection."))
         return False
     
     def _files_loaded(self, files: List[dict], folder_filter: Optional[str]) -> bool:
@@ -506,8 +516,14 @@ class ISOVaultWindow(Adw.ApplicationWindow):
         
         # Update status
         count = len(files)
-        folder_text = f" in {folder_filter}" if folder_filter else ""
-        self.status_label.set_text(f"{count} file{'s' if count != 1 else ''}{folder_text}")
+        folder_text = _(" in {folder}").format(folder=folder_filter) if folder_filter else ""
+        
+        if count == 1:
+            status_text = _("1 file{folder_text}").format(folder_text=folder_text)
+        else:
+            status_text = _("{count} files{folder_text}").format(count=count, folder_text=folder_text)
+        
+        self.status_label.set_text(status_text)
         
         return False
     
@@ -571,16 +587,16 @@ class ISOVaultWindow(Adw.ApplicationWindow):
     def _on_force_index_action(self, action, param) -> None:
         """Handle force index update action"""
         if not self.s3_service:
-            self.show_toast("Please configure S3 credentials first")
+            self.show_toast(_("Please configure S3 credentials first"))
             return
         
-        self.progress_manager.show("Updating index files...")
+        self.progress_manager.show(_("Updating index files..."))
         self._update_html_index()
         
         # Show completion after a delay
         def show_result():
             self.progress_manager.hide()
-            self.show_toast("Index files updated!")
+            self.show_toast(_("Index files updated!"))
             return False
         
         GLib.timeout_add(3000, show_result)
@@ -597,22 +613,28 @@ class ISOVaultWindow(Adw.ApplicationWindow):
         """Handle settings changes"""
         print("Settings changed, updating services...")
         
-        # Reinitialize S3 service with new settings
+        # Get updated configurations
         s3_config = self.settings_manager.get_s3_config()
+        web_config = self.settings_manager.get_web_config()
         
         if self.settings_manager.has_s3_credentials():
-            self.s3_service = S3Service(s3_config)
-            self.html_generator = HTMLGenerator(self.s3_service)
+            # If S3Service exists, just update web config
+            if self.s3_service:
+                self.s3_service.update_web_config(web_config)
+            else:
+                # Create new S3Service if it doesn't exist
+                self.s3_service = S3Service(s3_config, web_config)
+                self.html_generator = HTMLGenerator(self.s3_service)
+                
+                # Test new connection
+                threading.Thread(target=self._test_connection_and_setup, daemon=True).start()
             
-            # Test new connection
-            threading.Thread(target=self._test_connection_and_setup, daemon=True).start()
-            
-            # Refresh data
+            # Refresh data to apply new filters
             self.refresh_files()
         else:
             self.s3_service = None
             self.html_generator = None
-            self.show_toast("S3 credentials removed")
+            self.show_toast(_("S3 credentials removed"))
     
     def _on_window_size_changed(self, window, param) -> None:
         """Handle window size changes"""
