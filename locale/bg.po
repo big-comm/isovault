@@ -2,7 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the isovault package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -14,1145 +14,1138 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-#
+"X-Generator: attranslate\n"
+# 
 # File: usr/share/isovault/utils/helpers.py, line: 57
+#: NEEDS WORK
 #, python-brace-format
 msgid "Error processing item {item}: {error}"
-msgstr "Error processing item {item}: {error}"
-
-#
+msgstr "Грешка при обработка на елемент {item}: {error}"
+# 
 # File: usr/share/isovault/utils/helpers.py, line: 86
+#: NEEDS WORK
 msgid "No S3 service configured"
-msgstr "No S3 service configured"
-
-#
+msgstr "Не е конфигуриран S3 услуга"
+# 
 # File: usr/share/isovault/utils/helpers.py, line: 90
+#: NEEDS WORK
 msgid "Timeout"
-msgstr "Timeout"
-
-#
+msgstr "Изчакване"
+# 
 # File: usr/share/isovault/utils/helpers.py, line: 96
+#: NEEDS WORK
 msgid "Connection successful"
-msgstr "Connection successful"
-
-#
+msgstr "Свързването е успешно"
+# 
 # File: usr/share/isovault/utils/helpers.py, line: 98
+#: NEEDS WORK
 msgid "Connection failed"
-msgstr "Connection failed"
-
-#
+msgstr "Свързването не успя"
+# 
 # #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
-#
+# 
 # File: usr/share/isovault/utils/helpers.py, line: 100
 # File: usr/share/isovault/ui/preferences.py, line: 320
+#: NEEDS WORK
 #, python-brace-format
 msgid "Connection error: {error}"
-msgstr "Connection error: {error}"
-
-#
+msgstr "Грешка при свързване: {error}"
+# 
 # File: usr/share/isovault/utils/helpers.py, line: 108
+#: NEEDS WORK
 msgid "Connection timeout"
-msgstr "Connection timeout"
-
-#
+msgstr "Време за изчакване на връзката"
+# 
 # File: usr/share/isovault/utils/helpers.py, line: 113
+#: NEEDS WORK
 #, python-brace-format
 msgid "Test error: {error}"
-msgstr "Test error: {error}"
-
-#
+msgstr "Тестова грешка: {error}"
+# 
 # File: usr/share/isovault/utils/helpers.py, line: 127
+#: NEEDS WORK
 msgid "URL is required"
-msgstr "URL is required"
-
-#
+msgstr "Изисква се URL адрес"
+# 
 # File: usr/share/isovault/utils/helpers.py, line: 130
+#: NEEDS WORK
 msgid "URL must start with http:// or https://"
-msgstr "URL must start with http:// or https://"
-
-#
+msgstr "URL трябва да започва с http:// или https://"
+# 
 # File: usr/share/isovault/utils/helpers.py, line: 142
+#: NEEDS WORK
 msgid "Invalid URL format"
-msgstr "Invalid URL format"
-
-#
+msgstr "Невалиден формат на URL"
+# 
 # File: usr/share/isovault/utils/helpers.py, line: 144
+#: NEEDS WORK
 msgid "Valid URL format"
-msgstr "Valid URL format"
-
-#
+msgstr "Валиден формат на URL"
+# 
 # #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
-#
+# 
 # File: usr/share/isovault/utils/helpers.py, line: 275
 # File: usr/share/isovault/services/html_generator.py, line: 608
+#: NEEDS WORK
 #, python-brace-format
 msgid "Error extracting MD5 from {filename}: {error}"
-msgstr "Error extracting MD5 from {filename}: {error}"
-
-#
+msgstr "Грешка при извличане на MD5 от {filename}: {error}"
+# 
 # File: usr/share/isovault/services/s3_service.py, line: 129
 # File: usr/share/isovault/services/s3_service.py, line: 191
+#: NEEDS WORK
 msgid "No S3 connection available"
-msgstr "No S3 connection available"
-
-#
+msgstr "Няма налична S3 връзка"
+# 
 # File: usr/share/isovault/services/s3_service.py, line: 135
+#: NEEDS WORK
 #, python-brace-format
 msgid "Upload validation failed: {message}"
-msgstr "Upload validation failed: {message}"
-
-#
+msgstr "Неуспешна валидация на качването: {message}"
+# 
 # File: usr/share/isovault/services/s3_service.py, line: 139
+#: NEEDS WORK
 #, python-brace-format
 msgid "Invalid folder. Must be one of: {folders}"
-msgstr "Invalid folder. Must be one of: {folders}"
-
-#
+msgstr "Невалидна папка. Трябва да бъде една от: {folders}"
+# 
 # File: usr/share/isovault/services/s3_service.py, line: 174
+#: NEEDS WORK
 #, python-brace-format
 msgid "Upload failed: {error}"
-msgstr "Upload failed: {error}"
-
-#
+msgstr "Неуспешно качване: {error}"
+# 
 # File: usr/share/isovault/services/s3_service.py, line: 177
+#: NEEDS WORK
 #, python-brace-format
 msgid "Upload error: {error}"
-msgstr "Upload error: {error}"
-
-#
+msgstr "Грешка при качване: {error}"
+# 
 # File: usr/share/isovault/services/s3_service.py, line: 245
+#: NEEDS WORK
 #, python-brace-format
 msgid "Error listing files: {error}"
-msgstr "Error listing files: {error}"
-
-#
+msgstr "Грешка при изброяване на файлове: {error}"
+# 
 # File: usr/share/isovault/services/s3_service.py, line: 270
+#: NEEDS WORK
 #, python-brace-format
 msgid "Delete failed: {error}"
-msgstr "Delete failed: {error}"
-
-#
+msgstr "Изтриването не успя: {error}"
+# 
 # File: usr/share/isovault/services/s3_service.py, line: 316
+#: NEEDS WORK
 #, python-brace-format
 msgid "Download failed: {error}"
-msgstr "Download failed: {error}"
-
-#
+msgstr "Неуспешно изтегляне: {error}"
+# 
 # File: usr/share/isovault/services/s3_service.py, line: 339
+#: NEEDS WORK
 #, python-brace-format
 msgid "Error getting file info: {error}"
-msgstr "Error getting file info: {error}"
-
-#
+msgstr "Грешка при получаване на информация за файла: {error}"
+# 
 # File: usr/share/isovault/services/s3_service.py, line: 379
+#: NEEDS WORK
 #, python-brace-format
 msgid "Error uploading content: {error}"
-msgstr "Error uploading content: {error}"
-
-#
+msgstr "Грешка при качване на съдържание: {error}"
+# 
 # File: usr/share/isovault/services/s3_service.py, line: 395
+#: NEEDS WORK
 #, python-brace-format
 msgid "Error reading file content: {error}"
-msgstr "Error reading file content: {error}"
-
-#
+msgstr "Грешка при четене на съдържанието на файла: {error}"
+# 
 # File: usr/share/isovault/services/file_validator.py, line: 27
+#: NEEDS WORK
 msgid "File does not exist"
-msgstr "File does not exist"
-
-#
+msgstr "Файлът не съществува"
+# 
 # File: usr/share/isovault/services/file_validator.py, line: 31
+#: NEEDS WORK
 msgid "Path is not a file"
-msgstr "Path is not a file"
-
-#
+msgstr "Пътят не е файл"
+# 
 # File: usr/share/isovault/services/file_validator.py, line: 37
+#: NEEDS WORK
 #, python-brace-format
 msgid "Unsupported file type. Only {supported} are allowed"
-msgstr "Unsupported file type. Only {supported} are allowed"
-
-#
+msgstr "Неподдържан тип файл. Само {supported} са разрешени."
+# 
 # File: usr/share/isovault/services/file_validator.py, line: 43
+#: NEEDS WORK
 #, python-brace-format
 msgid "File too large. Maximum size: {max_size}GB"
-msgstr "File too large. Maximum size: {max_size}GB"
-
-#
+msgstr "Файлът е твърде голям. Максимален размер: {max_size}GB"
+# 
 # File: usr/share/isovault/services/file_validator.py, line: 46
+#: NEEDS WORK
 msgid "File is empty"
-msgstr "File is empty"
-
-#
+msgstr "Файлът е празен"
+# 
 # File: usr/share/isovault/services/file_validator.py, line: 48
+#: NEEDS WORK
 msgid "File is valid"
-msgstr "File is valid"
-
-#
+msgstr "Файлът е валиден"
+# 
 # File: usr/share/isovault/services/file_validator.py, line: 88
+#: NEEDS WORK
 msgid "ISO Image"
-msgstr "ISO Image"
-
-#
+msgstr "ISO изображение"
+# 
 # #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
-#
+# 
 # File: usr/share/isovault/services/file_validator.py, line: 90
 # File: usr/share/isovault/services/html_generator.py, line: 443
+#: NEEDS WORK
 msgid "MD5 Checksum"
-msgstr "MD5 Checksum"
-
-#
+msgstr "MD5 контролна сума"
+# 
 # File: usr/share/isovault/services/file_validator.py, line: 92
+#: NEEDS WORK
 msgid "Unknown"
-msgstr "Unknown"
-
-#
+msgstr "Неизвестен"
+# 
 # File: usr/share/isovault/services/file_validator.py, line: 98
+#: NEEDS WORK
 msgid "0 B"
-msgstr "0 B"
-
-#
+msgstr "0 Б"
+# 
 # File: usr/share/isovault/services/file_validator.py, line: 100
+#: NEEDS WORK
 msgid "B"
-msgstr "B"
-
-#
+msgstr "Б"
+# 
 # File: usr/share/isovault/services/file_validator.py, line: 100
+#: NEEDS WORK
 msgid "KB"
-msgstr "KB"
-
-#
+msgstr "КБ"
+# 
 # File: usr/share/isovault/services/file_validator.py, line: 100
+#: NEEDS WORK
 msgid "MB"
-msgstr "MB"
-
-#
+msgstr "МБ"
+# 
 # File: usr/share/isovault/services/file_validator.py, line: 100
+#: NEEDS WORK
 msgid "GB"
-msgstr "GB"
-
-#
+msgstr "Великобритания"
+# 
 # File: usr/share/isovault/services/file_validator.py, line: 100
+#: NEEDS WORK
 msgid "TB"
-msgstr "TB"
-
-#
+msgstr "ТБ"
+# 
 # File: usr/share/isovault/services/file_validator.py, line: 108
+#: NEEDS WORK
 #, python-brace-format
 msgid "{size:.1f} {unit}"
 msgstr "{size:.1f} {unit}"
-
-#
+# 
 # File: usr/share/isovault/services/html_generator.py, line: 51
+#: NEEDS WORK
 msgid "BigCommunity ISO Repository"
-msgstr "BigCommunity ISO Repository"
-
-#
+msgstr "BigCommunity ISO Репозиториум"
+# 
 # File: usr/share/isovault/services/html_generator.py, line: 70
+#: NEEDS WORK
 #, python-brace-format
 msgid "{folder_name} - BigCommunity ISO Repository"
-msgstr "{folder_name} - BigCommunity ISO Repository"
-
-#
+msgstr "{folder_name} - Репозиториум ISO на BigCommunity"
+# 
 # File: usr/share/isovault/services/html_generator.py, line: 325
 # File: usr/share/isovault/services/html_generator.py, line: 388
+#: NEEDS WORK
 msgid "Linux Distribution ISO Repository"
-msgstr "Linux Distribution ISO Repository"
-
-#
+msgstr "Репозиториум на ISO дистрибуции на Linux"
+# 
 # File: usr/share/isovault/services/html_generator.py, line: 331
+#: NEEDS WORK
 #, python-brace-format
 msgid "{total_isos} ISO files available"
-msgstr "{total_isos} ISO files available"
-
-#
+msgstr "{total_isos} ISO файла налични"
+# 
 # File: usr/share/isovault/services/html_generator.py, line: 331
+#: NEEDS WORK
 msgid "Updated"
-msgstr "Updated"
-
-#
+msgstr "Актуализиран"
+# 
 # File: usr/share/isovault/services/html_generator.py, line: 338
+#: NEEDS WORK
 msgid "Search ISOs..."
-msgstr "Search ISOs..."
-
-#
+msgstr "Търсене на ISO файлове..."
+# 
 # File: usr/share/isovault/services/html_generator.py, line: 354
+#: NEEDS WORK
 msgid "No ISO files available yet"
-msgstr "No ISO files available yet"
-
-#
+msgstr "Няма налични ISO файлове все още"
+# 
 # File: usr/share/isovault/services/html_generator.py, line: 394
+#: NEEDS WORK
 msgid "← Back to All Folders"
-msgstr "← Back to All Folders"
-
-#
+msgstr "← Назад към всички папки"
+# 
 # File: usr/share/isovault/services/html_generator.py, line: 413
+#: NEEDS WORK
 msgid "No files in this folder"
-msgstr "No files in this folder"
-
-#
+msgstr "Няма файлове в тази папка"
+# 
 # File: usr/share/isovault/services/html_generator.py, line: 452
 # File: usr/share/isovault/services/html_generator.py, line: 474
+#: NEEDS WORK
 msgid "Download ISO"
-msgstr "Download ISO"
-
-#
+msgstr "Изтеглете ISO"
+# 
 # File: usr/share/isovault/services/html_generator.py, line: 463
+#: NEEDS WORK
 msgid "Generated by ISOVault"
-msgstr "Generated by ISOVault"
-
-#
+msgstr "Създадено от ISOVault"
+# 
 # File: usr/share/isovault/services/html_generator.py, line: 472
+#: NEEDS WORK
 msgid "Downloading..."
-msgstr "Downloading..."
-
-#
+msgstr "Изтегляне..."
+# 
 # File: usr/share/isovault/main.py, line: 46
+#: NEEDS WORK
 msgid "Show version information"
-msgstr "Show version information"
-
-#
+msgstr "Покажи информация за версията"
+# 
 # File: usr/share/isovault/main.py, line: 55
+#: NEEDS WORK
 msgid "Enable debug mode"
-msgstr "Enable debug mode"
-
-#
+msgstr "Активирайте режим на отстраняване на грешки"
+# 
 # File: usr/share/isovault/main.py, line: 63
+#: NEEDS WORK
 #, python-brace-format
 msgid "Starting {app_name} v{version}"
-msgstr "Starting {app_name} v{version}"
-
-#
+msgstr "Стартиране на {app_name} v{version}"
+# 
 # File: usr/share/isovault/main.py, line: 81
+#: NEEDS WORK
 #, python-brace-format
 msgid "Shutting down {app_name}"
-msgstr "Shutting down {app_name}"
-
-#
+msgstr "Изключване на {app_name}"
+# 
 # File: usr/share/isovault/main.py, line: 101
+#: NEEDS WORK
 msgid "Debug mode enabled"
-msgstr "Debug mode enabled"
-
-#
+msgstr "Режим на отстраняване на грешки активиран"
+# 
 # File: usr/share/isovault/main.py, line: 184
+#: NEEDS WORK
 #, python-brace-format
 msgid "Warning: Could not apply CSS: {error}"
-msgstr "Warning: Could not apply CSS: {error}"
-
-#
+msgstr "Предупреждение: Не можа да се приложи CSS: {error}"
+# 
 # File: usr/share/isovault/main.py, line: 198
+#: NEEDS WORK
 #, python-brace-format
 msgid "Warning: Could not set keyboard shortcuts: {error}"
-msgstr "Warning: Could not set keyboard shortcuts: {error}"
-
-#
+msgstr "Предупреждение: Не можа да се зададат клавишни комбинации: {error}"
+# 
 # File: usr/share/isovault/main.py, line: 217
+#: NEEDS WORK
 #, python-brace-format
 msgid ""
 "\n"
 "Received signal {signum}, shutting down gracefully..."
-msgstr ""
-"\n"
-"Received signal {signum}, shutting down gracefully..."
-
-#
+msgstr "Получен сигнал {signum}, изключване на системата по безопасен начин..."
+# 
 # File: usr/share/isovault/main.py, line: 242
+#: NEEDS WORK
 msgid "Error: Missing required dependencies:"
-msgstr "Error: Missing required dependencies:"
-
-#
+msgstr "Грешка: Липсват задължителни зависимости:"
+# 
 # File: usr/share/isovault/main.py, line: 245
+#: NEEDS WORK
 #, python-brace-format
 msgid ""
 "\n"
 "Install them with: pip install {deps}"
-msgstr ""
-"\n"
-"Install them with: pip install {deps}"
-
-#
+msgstr "Инсталирайте ги с: pip install {deps}"
+# 
 # File: usr/share/isovault/main.py, line: 257
+#: NEEDS WORK
 #, python-brace-format
 msgid "Warning: Could not set application name: {error}"
-msgstr "Warning: Could not set application name: {error}"
-
-#
+msgstr "Предупреждение: Не можа да се зададе име на приложението: {error}"
+# 
 # File: usr/share/isovault/main.py, line: 264
+#: NEEDS WORK
 #, python-brace-format
 msgid "Warning: Could not set signal handlers: {error}"
-msgstr "Warning: Could not set signal handlers: {error}"
-
-#
+msgstr "Предупреждение: Не можа да се зададат обработчици на сигнали: {error}"
+# 
 # File: usr/share/isovault/main.py, line: 271
+#: NEEDS WORK
 #, python-brace-format
 msgid "Warning: Could not create config directory: {error}"
-msgstr "Warning: Could not create config directory: {error}"
-
-#
+msgstr "Предупреждение: Не можа да се създаде конфигурационна директория: {error}"
+# 
 # File: usr/share/isovault/main.py, line: 288
+#: NEEDS WORK
 msgid ""
 "\n"
 "Interrupted by user"
-msgstr ""
-"\n"
-"Interrupted by user"
-
-#
+msgstr "Прекъснато от потребителя"
+# 
 # File: usr/share/isovault/main.py, line: 291
+#: NEEDS WORK
 #, python-brace-format
 msgid "Fatal error: {error}"
-msgstr "Fatal error: {error}"
-
-#
+msgstr "Фатална грешка: {error}"
+# 
 # File: usr/share/isovault/ui/window.py, line: 108
+#: NEEDS WORK
 msgid "Ready"
-msgstr "Ready"
-
-#
+msgstr "Готово"
+# 
 # File: usr/share/isovault/ui/window.py, line: 139
+#: NEEDS WORK
 msgid "Please configure S3 credentials in Preferences"
-msgstr "Please configure S3 credentials in Preferences"
-
-#
+msgstr "Моля, конфигурирайте S3 удостоверения в Настройки"
+# 
 # File: usr/share/isovault/ui/window.py, line: 195
+#: NEEDS WORK
 msgid "Warning: Could not connect to S3 storage"
-msgstr "Warning: Could not connect to S3 storage"
-
-#
+msgstr "Внимание: Неуспешно свързване с S3 хранилище"
+# 
 # File: usr/share/isovault/ui/window.py, line: 210
 # File: usr/share/isovault/ui/window.py, line: 590
+#: NEEDS WORK
 msgid "Please configure S3 credentials first"
-msgstr "Please configure S3 credentials first"
-
-#
+msgstr "Моля, първо конфигурирайте S3 удостоверенията."
+# 
 # File: usr/share/isovault/ui/window.py, line: 230
+#: NEEDS WORK
 #, python-brace-format
 msgid "Link copied: {url}"
-msgstr "Link copied: {url}"
-
-#
+msgstr "Линкът е копиран: {url}"
+# 
 # File: usr/share/isovault/ui/window.py, line: 291
+#: NEEDS WORK
 #, python-brace-format
 msgid "Uploading {filename}..."
-msgstr "Uploading {filename}..."
-
-#
+msgstr "Качване на {filename}..."
+# 
 # File: usr/share/isovault/ui/window.py, line: 308
+#: NEEDS WORK
 #, python-brace-format
 msgid "Starting batch upload: {file_count} files to folder: {folder}"
-msgstr "Starting batch upload: {file_count} files to folder: {folder}"
-
-#
+msgstr "Започване на партидно качване: {file_count} файла в папка: {folder}"
+# 
 # File: usr/share/isovault/ui/window.py, line: 336
+#: NEEDS WORK
 #, python-brace-format
 msgid "Uploading {current}/{total}: {filename}"
-msgstr "Uploading {current}/{total}: {filename}"
-
-#
+msgstr "Качване {current}/{total}: {filename}"
+# 
 # File: usr/share/isovault/ui/window.py, line: 354
+#: NEEDS WORK
 #, python-brace-format
 msgid "Batch upload error for {filename}: {error}"
-msgstr "Batch upload error for {filename}: {error}"
-
-#
+msgstr "Грешка при партидно качване за {filename}: {error}"
+# 
 # File: usr/share/isovault/ui/window.py, line: 385
+#: NEEDS WORK
 #, python-brace-format
 msgid "Successfully uploaded all {total} files!"
-msgstr "Successfully uploaded all {total} files!"
-
-#
+msgstr "Успешно качени всички {total} файла!"
+# 
 # File: usr/share/isovault/ui/window.py, line: 387
+#: NEEDS WORK
 #, python-brace-format
 msgid "Upload complete: {completed} successful, {failed} failed"
-msgstr "Upload complete: {completed} successful, {failed} failed"
-
-#
+msgstr "Качването е завършено: {completed} успешно, {failed} неуспешно"
+# 
 # File: usr/share/isovault/ui/window.py, line: 407
+#: NEEDS WORK
 #, python-brace-format
 msgid "Successfully uploaded {filename}"
-msgstr "Successfully uploaded {filename}"
-
-#
+msgstr "Успешно качен {filename}"
+# 
 # File: usr/share/isovault/ui/window.py, line: 417
+#: NEEDS WORK
 #, python-brace-format
 msgid "Failed to upload {filename}"
-msgstr "Failed to upload {filename}"
-
-#
+msgstr "Неуспешно качване на {filename}"
+# 
 # File: usr/share/isovault/ui/window.py, line: 423
+#: NEEDS WORK
 #, python-brace-format
 msgid "Downloading {filename}..."
-msgstr "Downloading {filename}..."
-
-#
+msgstr "Изтегляне на {filename}..."
+# 
 # File: usr/share/isovault/ui/window.py, line: 439
+#: NEEDS WORK
 #, python-brace-format
 msgid "Successfully downloaded {filename}"
-msgstr "Successfully downloaded {filename}"
-
-#
+msgstr "Успешно изтеглено {filename}"
+# 
 # File: usr/share/isovault/ui/window.py, line: 441
+#: NEEDS WORK
 #, python-brace-format
 msgid "Failed to download {filename}"
-msgstr "Failed to download {filename}"
-
-#
+msgstr "Неуспешно изтегляне на {filename}"
+# 
 # File: usr/share/isovault/ui/window.py, line: 452
+#: NEEDS WORK
 #, python-brace-format
 msgid "Deleting {filename}..."
-msgstr "Deleting {filename}..."
-
-#
+msgstr "Изтриване на {filename}..."
+# 
 # File: usr/share/isovault/ui/window.py, line: 465
+#: NEEDS WORK
 #, python-brace-format
 msgid "Successfully deleted {filename}"
-msgstr "Successfully deleted {filename}"
-
-#
+msgstr "Успешно изтрито {filename}"
+# 
 # File: usr/share/isovault/ui/window.py, line: 475
+#: NEEDS WORK
 #, python-brace-format
 msgid "Failed to delete {filename}"
-msgstr "Failed to delete {filename}"
-
-#
+msgstr "Неуспешно изтриване на {filename}"
+# 
 # File: usr/share/isovault/ui/window.py, line: 485
+#: NEEDS WORK
 #, python-brace-format
 msgid "Refreshing files for folder: {folder}"
-msgstr "Refreshing files for folder: {folder}"
-
-#
+msgstr "Обновяване на файловете за папка: {folder}"
+# 
 # File: usr/share/isovault/ui/window.py, line: 487
+#: NEEDS WORK
 msgid "Loading files..."
-msgstr "Loading files..."
-
-#
+msgstr "Зареждане на файлове..."
+# 
 # File: usr/share/isovault/ui/window.py, line: 507
+#: NEEDS WORK
 msgid "Failed to connect to S3 storage. Check credentials and connection."
-msgstr "Failed to connect to S3 storage. Check credentials and connection."
-
-#
+msgstr "Неуспешно свързване с S3 хранилище. Проверете удостоверенията и връзката."
+# 
 # File: usr/share/isovault/ui/window.py, line: 519
+#: NEEDS WORK
 #, python-brace-format
 msgid " in {folder}"
-msgstr " in {folder}"
-
-#
+msgstr "в {папка}"
+# 
 # File: usr/share/isovault/ui/window.py, line: 522
+#: NEEDS WORK
 #, python-brace-format
 msgid "1 file{folder_text}"
-msgstr "1 file{folder_text}"
-
-#
+msgstr "1 файл{folder_text}"
+# 
 # File: usr/share/isovault/ui/window.py, line: 524
+#: NEEDS WORK
 #, python-brace-format
 msgid "{count} files{folder_text}"
-msgstr "{count} files{folder_text}"
-
-#
+msgstr "{count} файла{folder_text}"
+# 
 # File: usr/share/isovault/ui/window.py, line: 593
+#: NEEDS WORK
 msgid "Updating index files..."
-msgstr "Updating index files..."
-
-#
+msgstr "Актуализиране на индексни файлове..."
+# 
 # File: usr/share/isovault/ui/window.py, line: 599
+#: NEEDS WORK
 msgid "Index files updated!"
-msgstr "Index files updated!"
-
-#
+msgstr "Индекс файловете са актуализирани!"
+# 
 # File: usr/share/isovault/ui/window.py, line: 637
+#: NEEDS WORK
 msgid "S3 credentials removed"
-msgstr "S3 credentials removed"
-
-#
+msgstr "S3 удостоверения премахнати"
+# 
 # File: usr/share/isovault/ui/components.py, line: 33
+#: NEEDS WORK
 #, python-brace-format
 msgid "Progress: {message}"
-msgstr "Progress: {message}"
-
-#
+msgstr "Напредък: {message}"
+# 
 # File: usr/share/isovault/ui/components.py, line: 43
+#: NEEDS WORK
 #, python-brace-format
 msgid "Progress update: {progress:.1f}%"
-msgstr "Progress update: {progress:.1f}%"
-
-#
+msgstr "Актуализация на напредъка: {progress:.1f}%"
+# 
 # File: usr/share/isovault/ui/components.py, line: 50
+#: NEEDS WORK
 msgid "Hiding progress"
-msgstr "Hiding progress"
-
-#
+msgstr "Скриване на напредъка"
+# 
 # File: usr/share/isovault/ui/components.py, line: 123
+#: NEEDS WORK
 msgid "File Name"
-msgstr "File Name"
-
-#
+msgstr "Име на файла"
+# 
 # File: usr/share/isovault/ui/components.py, line: 132
+#: NEEDS WORK
 msgid "Folder"
-msgstr "Folder"
-
-#
+msgstr "Папка"
+# 
 # File: usr/share/isovault/ui/components.py, line: 140
+#: NEEDS WORK
 msgid "Size"
-msgstr "Size"
-
-#
+msgstr "Размер"
+# 
 # File: usr/share/isovault/ui/components.py, line: 148
+#: NEEDS WORK
 msgid "Modified"
-msgstr "Modified"
-
-#
+msgstr "Променен"
+# 
 # File: usr/share/isovault/ui/components.py, line: 257
+#: NEEDS WORK
 msgid "Filter by folder:"
-msgstr "Filter by folder:"
-
-#
+msgstr "Филтрирай по папка:"
+# 
 # File: usr/share/isovault/ui/components.py, line: 263
+#: NEEDS WORK
 msgid "All folders"
-msgstr "All folders"
-
-#
+msgstr "Всички папки"
+# 
 # File: usr/share/isovault/ui/components.py, line: 277
+#: NEEDS WORK
 msgid "Copy Link"
-msgstr "Copy Link"
-
-#
+msgstr "Копирай линк"
+# 
 # File: usr/share/isovault/ui/components.py, line: 284
+#: NEEDS WORK
 msgid "Download"
-msgstr "Download"
-
-#
+msgstr "Изтегляне"
+# 
 # #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
-#
+# 
 # File: usr/share/isovault/ui/components.py, line: 291
 # File: usr/share/isovault/ui/dialogs.py, line: 107
+#: NEEDS WORK
 msgid "Delete"
-msgstr "Delete"
-
-#
+msgstr "Изтрий"
+# 
 # File: usr/share/isovault/ui/components.py, line: 357
+#: NEEDS WORK
 msgid "Upload ISO file"
-msgstr "Upload ISO file"
-
-#
+msgstr "Качете ISO файл"
+# 
 # File: usr/share/isovault/ui/components.py, line: 365
+#: NEEDS WORK
 msgid "Application menu"
-msgstr "Application menu"
-
-#
+msgstr "Меню на приложението"
+# 
 # #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
-#
+# 
 # File: usr/share/isovault/ui/components.py, line: 372
 # File: usr/share/isovault/ui/preferences.py, line: 30
+#: NEEDS WORK
 msgid "Preferences"
-msgstr "Preferences"
-
-#
+msgstr "Настройки"
+# 
 # File: usr/share/isovault/ui/components.py, line: 373
+#: NEEDS WORK
 msgid "Force Update Index"
-msgstr "Force Update Index"
-
-#
+msgstr "Принудително обновяване на индекса"
+# 
 # File: usr/share/isovault/ui/components.py, line: 374
+#: NEEDS WORK
 msgid "Refresh"
-msgstr "Refresh"
-
-#
+msgstr "Обнови"
+# 
 # File: usr/share/isovault/ui/components.py, line: 379
+#: NEEDS WORK
 msgid "About"
-msgstr "About"
-
-#
+msgstr "За програмата"
+# 
 # File: usr/share/isovault/ui/preferences.py, line: 53
+#: NEEDS WORK
 msgid "S3 Config"
-msgstr "S3 Config"
-
-#
+msgstr "S3 Конфигурация"
+# 
 # File: usr/share/isovault/ui/preferences.py, line: 60
+#: NEEDS WORK
 msgid "CDN77 S3 Credentials"
-msgstr "CDN77 S3 Credentials"
-
-#
+msgstr "CDN77 S3 Удостоверения"
+# 
 # File: usr/share/isovault/ui/preferences.py, line: 61
+#: NEEDS WORK
 msgid "Configure your CDN77 S3 storage credentials"
-msgstr "Configure your CDN77 S3 storage credentials"
-
-#
+msgstr "Конфигурирайте вашите CDN77 S3 хранилищни удостоверения"
+# 
 # File: usr/share/isovault/ui/preferences.py, line: 66
+#: NEEDS WORK
 msgid "Access Key"
-msgstr "Access Key"
-
-#
+msgstr "Ключ за достъп"
+# 
 # File: usr/share/isovault/ui/preferences.py, line: 73
+#: NEEDS WORK
 msgid "Secret Key"
-msgstr "Secret Key"
-
-#
+msgstr "Тайна ключ"
+# 
 # File: usr/share/isovault/ui/preferences.py, line: 80
+#: NEEDS WORK
 msgid "S3 Configuration"
-msgstr "S3 Configuration"
-
-#
+msgstr "S3 Конфигурация"
+# 
 # File: usr/share/isovault/ui/preferences.py, line: 81
+#: NEEDS WORK
 msgid "S3 endpoint and bucket settings"
-msgstr "S3 endpoint and bucket settings"
-
-#
+msgstr "Настройки на S3 крайна точка и кофа"
+# 
 # File: usr/share/isovault/ui/preferences.py, line: 86
+#: NEEDS WORK
 msgid "Endpoint URL"
-msgstr "Endpoint URL"
-
-#
+msgstr "URL на крайна точка"
+# 
 # File: usr/share/isovault/ui/preferences.py, line: 93
+#: NEEDS WORK
 msgid "Region"
-msgstr "Region"
-
-#
+msgstr "Регион"
+# 
 # File: usr/share/isovault/ui/preferences.py, line: 100
+#: NEEDS WORK
 msgid "Bucket Name"
-msgstr "Bucket Name"
-
-#
+msgstr "Име на кофа"
+# 
 # File: usr/share/isovault/ui/preferences.py, line: 107
 # File: usr/share/isovault/ui/preferences.py, line: 110
 # File: usr/share/isovault/ui/preferences.py, line: 328
+#: NEEDS WORK
 msgid "Test Connection"
-msgstr "Test Connection"
-
-#
+msgstr "Тест на връзка"
+# 
 # File: usr/share/isovault/ui/preferences.py, line: 108
+#: NEEDS WORK
 msgid "Verify S3 credentials and connection"
-msgstr "Verify S3 credentials and connection"
-
-#
+msgstr "Потвърдете S3 удостоверенията и връзката"
+# 
 # File: usr/share/isovault/ui/preferences.py, line: 121
+#: NEEDS WORK
 msgid "Web Config"
-msgstr "Web Config"
-
-#
+msgstr "Уеб конфигурация"
+# 
 # File: usr/share/isovault/ui/preferences.py, line: 128
+#: NEEDS WORK
 msgid "Web Settings"
-msgstr "Web Settings"
-
-#
+msgstr "Уеб настройки"
+# 
 # File: usr/share/isovault/ui/preferences.py, line: 129
+#: NEEDS WORK
 msgid "Configure web URLs for public file access"
-msgstr "Configure web URLs for public file access"
-
-#
+msgstr "Конфигурирайте уеб URL адреси за публичен достъп до файлове"
+# 
 # File: usr/share/isovault/ui/preferences.py, line: 134
+#: NEEDS WORK
 msgid "Base URL"
-msgstr "Base URL"
-
-#
+msgstr "Основен URL"
+# 
 # File: usr/share/isovault/ui/preferences.py, line: 141
+#: NEEDS WORK
 msgid "Index File"
-msgstr "Index File"
-
-#
+msgstr "Индексен файл"
+# 
 # File: usr/share/isovault/ui/preferences.py, line: 148
+#: NEEDS WORK
 msgid "Show Index Files"
-msgstr "Show Index Files"
-
-#
+msgstr "Покажи индексни файлове"
+# 
 # File: usr/share/isovault/ui/preferences.py, line: 149
+#: NEEDS WORK
 msgid "Display index.html files in the file list"
-msgstr "Display index.html files in the file list"
-
-#
+msgstr "Покажи index.html файлове в списъка с файлове"
+# 
 # File: usr/share/isovault/ui/preferences.py, line: 157
+#: NEEDS WORK
 msgid "General"
-msgstr "General"
-
-#
+msgstr "Общи"
+# 
 # File: usr/share/isovault/ui/preferences.py, line: 164
+#: NEEDS WORK
 msgid "Application Behavior"
-msgstr "Application Behavior"
-
-#
+msgstr "Поведение на приложението"
+# 
 # File: usr/share/isovault/ui/preferences.py, line: 169
+#: NEEDS WORK
 msgid "Auto Refresh"
-msgstr "Auto Refresh"
-
-#
+msgstr "Автоматично опресняване"
+# 
 # File: usr/share/isovault/ui/preferences.py, line: 170
+#: NEEDS WORK
 msgid "Automatically refresh file list after operations"
-msgstr "Automatically refresh file list after operations"
-
-#
+msgstr "Автоматично обновявайте списъка с файлове след операции"
+# 
 # File: usr/share/isovault/ui/preferences.py, line: 178
+#: NEEDS WORK
 msgid "Interface"
-msgstr "Interface"
-
-#
+msgstr "Интерфейс"
+# 
 # File: usr/share/isovault/ui/preferences.py, line: 185
+#: NEEDS WORK
 msgid "Progress and Feedback"
-msgstr "Progress and Feedback"
-
-#
+msgstr "Напредък и обратна връзка"
+# 
 # File: usr/share/isovault/ui/preferences.py, line: 190
+#: NEEDS WORK
 msgid "Show Progress Details"
-msgstr "Show Progress Details"
-
-#
+msgstr "Покажи детайли за напредъка"
+# 
 # File: usr/share/isovault/ui/preferences.py, line: 191
+#: NEEDS WORK
 msgid "Display detailed progress information during operations"
-msgstr "Display detailed progress information during operations"
-
-#
+msgstr "Показване на подробна информация за напредъка по време на операции"
+# 
 # File: usr/share/isovault/ui/preferences.py, line: 198
+#: NEEDS WORK
 msgid "Safety"
-msgstr "Safety"
-
-#
+msgstr "Безопасност"
+# 
 # File: usr/share/isovault/ui/preferences.py, line: 203
+#: NEEDS WORK
 msgid "Confirm Deletions"
-msgstr "Confirm Deletions"
-
-#
+msgstr "Потвърдете изтриванията"
+# 
 # File: usr/share/isovault/ui/preferences.py, line: 204
+#: NEEDS WORK
 msgid "Show confirmation dialog before deleting files"
-msgstr "Show confirmation dialog before deleting files"
-
-#
+msgstr "Покажете диалог за потвърждение преди изтриване на файлове"
+# 
 # File: usr/share/isovault/ui/preferences.py, line: 211
+#: NEEDS WORK
 msgid "Automation"
-msgstr "Automation"
-
-#
+msgstr "Автоматизация"
+# 
 # File: usr/share/isovault/ui/preferences.py, line: 216
+#: NEEDS WORK
 msgid "Auto Update Index"
-msgstr "Auto Update Index"
-
-#
+msgstr "Автоматично обновяване на индекса"
+# 
 # File: usr/share/isovault/ui/preferences.py, line: 217
+#: NEEDS WORK
 msgid "Automatically update web index after file operations"
-msgstr "Automatically update web index after file operations"
-
-#
+msgstr "Автоматично актуализиране на уеб индекса след файлови операции"
+# 
 # File: usr/share/isovault/ui/preferences.py, line: 224
 # File: usr/share/isovault/ui/preferences.py, line: 232
 # File: usr/share/isovault/ui/preferences.py, line: 356
+#: NEEDS WORK
 msgid "Reset"
-msgstr "Reset"
-
-#
+msgstr "Нулиране"
+# 
 # File: usr/share/isovault/ui/preferences.py, line: 229
+#: NEEDS WORK
 msgid "Reset to Defaults"
-msgstr "Reset to Defaults"
-
-#
+msgstr "Нулиране на настройки по подразбиране"
+# 
 # File: usr/share/isovault/ui/preferences.py, line: 230
+#: NEEDS WORK
 msgid "Reset all settings to their default values"
-msgstr "Reset all settings to their default values"
-
-#
+msgstr "Нулирайте всички настройки до техните стойности по подразбиране"
+# 
 # File: usr/share/isovault/ui/preferences.py, line: 295
+#: NEEDS WORK
 msgid "Testing..."
-msgstr "Testing..."
-
-#
+msgstr "Тестване..."
+# 
 # File: usr/share/isovault/ui/preferences.py, line: 313
+#: NEEDS WORK
 msgid "Connection successful!"
-msgstr "Connection successful!"
-
-#
+msgstr "Свързването е успешно!"
+# 
 # File: usr/share/isovault/ui/preferences.py, line: 313
+#: NEEDS WORK
 msgid "Connection failed. Check your credentials."
-msgstr "Connection failed. Check your credentials."
-
-#
+msgstr "Неуспешна връзка. Проверете вашите удостоверения."
+# 
 # File: usr/share/isovault/ui/preferences.py, line: 332
+#: NEEDS WORK
 msgid "Connection Test Result"
-msgstr "Connection Test Result"
-
-#
+msgstr "Резултат от теста за свързаност"
+# 
 # #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
-#
+# 
 # File: usr/share/isovault/ui/preferences.py, line: 336
 # File: usr/share/isovault/ui/dialogs.py, line: 144
 # File: usr/share/isovault/ui/dialogs.py, line: 164
 # File: usr/share/isovault/ui/dialogs.py, line: 363
+#: NEEDS WORK
 msgid "OK"
-msgstr "OK"
-
-#
+msgstr "ОК"
+# 
 # File: usr/share/isovault/ui/preferences.py, line: 351
+#: NEEDS WORK
 msgid "Reset Settings"
-msgstr "Reset Settings"
-
-#
+msgstr "Нулиране на настройки"
+# 
 # File: usr/share/isovault/ui/preferences.py, line: 352
+#: NEEDS WORK
 msgid ""
 "Are you sure you want to reset all settings to their default values?\n"
 "\n"
 "This action cannot be undone."
 msgstr ""
-"Are you sure you want to reset all settings to their default values?\n"
+"Сигурни ли сте, че искате да нулирате всички настройки до техните стойности по подразбиране?\n"
 "\n"
-"This action cannot be undone."
-
-#
+"Тази операция не може да бъде отменена."
+# 
 # #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
-#
+# 
 # File: usr/share/isovault/ui/preferences.py, line: 355
 # File: usr/share/isovault/ui/dialogs.py, line: 106
 # File: usr/share/isovault/ui/dialogs.py, line: 244
 # File: usr/share/isovault/ui/dialogs.py, line: 275
+#: NEEDS WORK
 msgid "Cancel"
-msgstr "Cancel"
-
-#
+msgstr "Отмяна"
+# 
 # File: usr/share/isovault/ui/dialogs.py, line: 40
+#: NEEDS WORK
 msgid "Select ISO or MD5 files to upload"
-msgstr "Select ISO or MD5 files to upload"
-
-#
+msgstr "Изберете ISO или MD5 файлове за качване"
+# 
 # File: usr/share/isovault/ui/dialogs.py, line: 68
+#: NEEDS WORK
 #, python-brace-format
 msgid "Save {filename}"
-msgstr "Save {filename}"
-
-#
+msgstr "Запази {filename}"
+# 
 # File: usr/share/isovault/ui/dialogs.py, line: 102
+#: NEEDS WORK
 msgid "Delete File"
-msgstr "Delete File"
-
-#
+msgstr "Изтрий файл"
+# 
 # File: usr/share/isovault/ui/dialogs.py, line: 103
+#: NEEDS WORK
 #, python-brace-format
 msgid ""
 "Are you sure you want to delete '{filename}'?\n"
 "\n"
 "This action cannot be undone."
 msgstr ""
-"Are you sure you want to delete '{filename}'?\n"
+"Сигурни ли сте, че искате да изтриете '{filename}'?\n"
 "\n"
-"This action cannot be undone."
-
-#
+"Тази операция не може да бъде отменена."
+# 
 # File: usr/share/isovault/ui/dialogs.py, line: 125
+#: NEEDS WORK
 msgid "ISO file manager for CDN77 storage"
-msgstr "ISO file manager for CDN77 storage"
-
-#
+msgstr "ISO файлов мениджър за CDN77 хранилище"
+# 
 # File: usr/share/isovault/ui/dialogs.py, line: 177
+#: NEEDS WORK
 msgid "Supported files (ISO, MD5)"
-msgstr "Supported files (ISO, MD5)"
-
-#
+msgstr "Поддържани файлове (ISO, MD5)"
+# 
 # File: usr/share/isovault/ui/dialogs.py, line: 186
+#: NEEDS WORK
 msgid "All files"
-msgstr "All files"
-
-#
+msgstr "Всички файлове"
+# 
 # File: usr/share/isovault/ui/dialogs.py, line: 211
+#: NEEDS WORK
 msgid "Upload Error"
-msgstr "Upload Error"
-
-#
+msgstr "Грешка при качване"
+# 
 # File: usr/share/isovault/ui/dialogs.py, line: 211
+#: NEEDS WORK
 msgid "Failed to get file paths"
-msgstr "Failed to get file paths"
-
-#
+msgstr "Неуспешно получаване на пътища до файлове"
+# 
 # File: usr/share/isovault/ui/dialogs.py, line: 213
+#: NEEDS WORK
 msgid "Upload"
-msgstr "Upload"
-
-#
+msgstr "Качване"
+# 
 # File: usr/share/isovault/ui/dialogs.py, line: 213
+#: NEEDS WORK
 msgid "No files selected"
-msgstr "No files selected"
-
-#
+msgstr "Няма избрани файлове"
+# 
 # File: usr/share/isovault/ui/dialogs.py, line: 227
+#: NEEDS WORK
 msgid "Download Error"
-msgstr "Download Error"
-
-#
+msgstr "Грешка при изтегляне"
+# 
 # File: usr/share/isovault/ui/dialogs.py, line: 227
+#: NEEDS WORK
 msgid "Failed to get save path"
-msgstr "Failed to get save path"
-
-#
+msgstr "Неуспешно получаване на пътя за запазване"
+# 
 # File: usr/share/isovault/ui/dialogs.py, line: 234
+#: NEEDS WORK
 #, python-brace-format
 msgid "Showing folder selection for: {file_path}"
-msgstr "Showing folder selection for: {file_path}"
-
-#
+msgstr "Показване на избор на папка за: {file_path}"
+# 
 # File: usr/share/isovault/ui/dialogs.py, line: 237
 # File: usr/share/isovault/ui/dialogs.py, line: 266
+#: NEEDS WORK
 msgid "Select Destination Folder"
-msgstr "Select Destination Folder"
-
-#
+msgstr "Изберете папка за целта"
+# 
 # File: usr/share/isovault/ui/dialogs.py, line: 238
+#: NEEDS WORK
 #, python-brace-format
 msgid "Choose which folder to upload '{filename}' to:"
-msgstr "Choose which folder to upload '{filename}' to:"
-
-#
+msgstr "Изберете в коя папка да качите '{filename}':"
+# 
 # File: usr/share/isovault/ui/dialogs.py, line: 256
+#: NEEDS WORK
 #, python-brace-format
 msgid "Showing folder selection for {file_count} files: {file_names}"
-msgstr "Showing folder selection for {file_count} files: {file_names}"
-
-#
+msgstr "Показване на избор на папка за {file_count} файла: {file_names}"
+# 
 # File: usr/share/isovault/ui/dialogs.py, line: 263
+#: NEEDS WORK
 #, python-brace-format
 msgid ""
 "\n"
 "... and {more_count} more files"
-msgstr ""
-"\n"
-"... and {more_count} more files"
-
-#
+msgstr "... и {more_count} допълнителни файла"
+# 
 # File: usr/share/isovault/ui/dialogs.py, line: 267
+#: NEEDS WORK
 #, python-brace-format
 msgid ""
 "Choose which folder to upload {file_count} files to:\n"
 "\n"
 "{file_list}"
 msgstr ""
-"Choose which folder to upload {file_count} files to:\n"
+"Изберете в коя папка да качите {file_count} файла:\n"
 "\n"
 "{file_list}"
-
-#
+# 
 # File: usr/share/isovault/ui/dialogs.py, line: 285
+#: NEEDS WORK
 #, python-brace-format
 msgid "Single folder dialog response: '{response}' for file: {file_path}"
-msgstr "Single folder dialog response: '{response}' for file: {file_path}"
-
-#
+msgstr "Единичен диалогов прозорец за папка отговор: '{response}' за файл: {file_path}"
+# 
 # File: usr/share/isovault/ui/dialogs.py, line: 294
+#: NEEDS WORK
 #, python-brace-format
 msgid "Selected folder: {folder}"
-msgstr "Selected folder: {folder}"
-
-#
+msgstr "Избрана папка: {folder}"
+# 
 # File: usr/share/isovault/ui/dialogs.py, line: 297
 # File: usr/share/isovault/ui/dialogs.py, line: 319
+#: NEEDS WORK
 #, python-brace-format
 msgid "Unknown response: {response}"
-msgstr "Unknown response: {response}"
-
-#
+msgstr "Непознат отговор: {response}"
+# 
 # File: usr/share/isovault/ui/dialogs.py, line: 298
 # File: usr/share/isovault/ui/dialogs.py, line: 320
+#: NEEDS WORK
 msgid "Error"
-msgstr "Error"
-
-#
+msgstr "Грешка"
+# 
 # File: usr/share/isovault/ui/dialogs.py, line: 298
 # File: usr/share/isovault/ui/dialogs.py, line: 320
+#: NEEDS WORK
 #, python-brace-format
 msgid "Unknown folder selection: {response}"
-msgstr "Unknown folder selection: {response}"
-
-#
+msgstr "Непозната селекция на папка: {response}"
+# 
 # File: usr/share/isovault/ui/dialogs.py, line: 300
+#: NEEDS WORK
 msgid "Upload cancelled by user"
-msgstr "Upload cancelled by user"
-
-#
+msgstr "Качването е отменено от потребителя"
+# 
 # File: usr/share/isovault/ui/dialogs.py, line: 305
+#: NEEDS WORK
 #, python-brace-format
 msgid "Multiple folder dialog response: '{response}' for {file_count} files"
-msgstr "Multiple folder dialog response: '{response}' for {file_count} files"
-
-#
+msgstr "Диалогов прозорец за множество папки: '{response}' за {file_count} файла"
+# 
 # File: usr/share/isovault/ui/dialogs.py, line: 314
+#: NEEDS WORK
 #, python-brace-format
 msgid "Selected folder: {folder} for {file_count} files"
-msgstr "Selected folder: {folder} for {file_count} files"
-
-#
+msgstr "Избрана папка: {folder} за {file_count} файла"
+# 
 # File: usr/share/isovault/ui/dialogs.py, line: 322
+#: NEEDS WORK
 msgid "Batch upload cancelled by user"
-msgstr "Batch upload cancelled by user"
-
-#
+msgstr "Партидното качване е отменено от потребителя"
+# 
 # File: usr/share/isovault/ui/dialogs.py, line: 351
+#: NEEDS WORK
 #, python-brace-format
 msgid "... and {more_count} more files"
-msgstr "... and {more_count} more files"
-
-#
+msgstr "... и {more_count} допълнителни файла"
+# 
 # File: usr/share/isovault/ui/dialogs.py, line: 353
+#: NEEDS WORK
 #, python-brace-format
 msgid "Found {invalid_count} invalid files"
-msgstr "Found {invalid_count} invalid files"
-
-#
+msgstr "Намерени са {invalid_count} невалидни файлове"
+# 
 # File: usr/share/isovault/ui/dialogs.py, line: 355
+#: NEEDS WORK
 #, python-brace-format
 msgid " ({valid_count} valid files will be uploaded)"
-msgstr " ({valid_count} valid files will be uploaded)"
-
-#
+msgstr "({valid_count} валидни файла ще бъдат качени)"
+# 
 # File: usr/share/isovault/ui/dialogs.py, line: 359
+#: NEEDS WORK
 msgid "File Validation Results"
-msgstr "File Validation Results"
-
-#
+msgstr "Резултати от валидиране на файл"
+# 
 # File: usr/share/isovault/ui/dialogs.py, line: 363
+#: NEEDS WORK
 msgid "Continue"
-msgstr "Continue"
-
-#
+msgstr "Продължи"
+# 
 # File: usr/share/isovault/models/settings.py, line: 54
+#: NEEDS WORK
 #, python-brace-format
 msgid "Config file not found: {config_file}"
-msgstr "Config file not found: {config_file}"
-
-#
+msgstr "Конфигурационният файл не е намерен: {config_file}"
+# 
 # File: usr/share/isovault/models/settings.py, line: 73
+#: NEEDS WORK
 #, python-brace-format
 msgid "Settings loaded from: {config_file}"
-msgstr "Settings loaded from: {config_file}"
-
-#
+msgstr "Настройки заредени от: {config_file}"
+# 
 # File: usr/share/isovault/models/settings.py, line: 77
+#: NEEDS WORK
 #, python-brace-format
 msgid "Error loading settings: {error}"
-msgstr "Error loading settings: {error}"
-
-#
+msgstr "Грешка при зареждане на настройките: {error}"
+# 
 # File: usr/share/isovault/models/settings.py, line: 98
+#: NEEDS WORK
 #, python-brace-format
 msgid "Settings saved to: {config_file}"
-msgstr "Settings saved to: {config_file}"
-
-#
+msgstr "Настройки запазени в: {config_file}"
+# 
 # File: usr/share/isovault/models/settings.py, line: 102
+#: NEEDS WORK
 #, python-brace-format
 msgid "Error saving settings: {error}"
-msgstr "Error saving settings: {error}"
-
-#
+msgstr "Грешка при запазване на настройките: {error}"
+# 
 # File: usr/share/isovault/models/settings.py, line: 138
+#: NEEDS WORK
 msgid "Access key is required"
-msgstr "Access key is required"
-
-#
+msgstr "Изисква се достъп до ключа"
+# 
 # File: usr/share/isovault/models/settings.py, line: 141
+#: NEEDS WORK
 msgid "Secret key is required"
-msgstr "Secret key is required"
-
-#
+msgstr "Изисква се таен ключ"
+# 
 # File: usr/share/isovault/models/settings.py, line: 144
+#: NEEDS WORK
 msgid "Endpoint URL is required"
-msgstr "Endpoint URL is required"
-
-#
+msgstr "Изисква се URL адрес на крайна точка"
+# 
 # File: usr/share/isovault/models/settings.py, line: 147
+#: NEEDS WORK
 msgid "Bucket name is required"
-msgstr "Bucket name is required"
-
-#
+msgstr "Името на кофата е задължително"
+# 
 # File: usr/share/isovault/models/settings.py, line: 149
+#: NEEDS WORK
 msgid "Configuration is valid"
-msgstr "Configuration is valid"
+msgstr "Конфигурацията е валидна"
