@@ -30,7 +30,7 @@ class ProgressManager:
     
     def show(self, message: str) -> None:
         """Show progress bar with message"""
-        print(_("Progress: {message}").format(message=message))
+        print(f"{_('Progress')}: {message}")
         self.status_label.set_text(message)
         self.progress_bar.set_visible(True)
         self.progress_bar.set_fraction(0.0)
