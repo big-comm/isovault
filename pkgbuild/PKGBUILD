@@ -1,9 +1,15 @@
 # Maintainer: Tales A. Mendonça <talesam@gmail.com>
 
-pkgname=pkgbuild-template-translate
-pkgdesc="Package template for BigCommunity"
+pkgname=isovault
+pkgdesc="Manage ISOs on DNS server using S3 bucket"
 # Uncomment and edit the following lines as needed
-#depends=('')
+depends=(
+    'gtk4'
+    'libadwaita'
+    'python'
+    'python-boto3'
+    'gettext'
+)
 #makedepends=('')
 #optdepends=('')
 #conflicts=('')
