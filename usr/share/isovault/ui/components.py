@@ -151,46 +151,81 @@ class FileListComponent:
     
     # Column factory setup methods
     def _on_name_setup(self, factory, list_item):
+        box = Gtk.Box(hexpand=True)
         label = Gtk.Label()
         label.set_halign(Gtk.Align.START)
+        label.set_hexpand(True)
         label.set_ellipsize(Pango.EllipsizeMode.END)
-        list_item.set_child(label)
+        box.append(label)
+        list_item.set_child(box)
     
     def _on_name_bind(self, factory, list_item):
         file_item = list_item.get_item()
-        label = list_item.get_child()
+        box = list_item.get_child()
+        label = box.get_first_child()
         label.set_text(file_item.name)
+        label.set_tooltip_text(file_item.name)
+        self._apply_folder_class(box, file_item.folder)
     
     def _on_folder_setup(self, factory, list_item):
+        box = Gtk.Box(hexpand=True)
         label = Gtk.Label()
         label.set_halign(Gtk.Align.START)
-        list_item.set_child(label)
+        label.set_hexpand(True)
+        box.append(label)
+        list_item.set_child(box)
     
     def _on_folder_bind(self, factory, list_item):
         file_item = list_item.get_item()
-        label = list_item.get_child()
+        box = list_item.get_child()
+        label = box.get_first_child()
         label.set_text(file_item.folder)
+        self._apply_folder_class(box, file_item.folder)
     
     def _on_size_setup(self, factory, list_item):
+        box = Gtk.Box(hexpand=True)
         label = Gtk.Label()
         label.set_halign(Gtk.Align.END)
-        list_item.set_child(label)
+        label.set_hexpand(True)
+        box.append(label)
+        list_item.set_child(box)
     
     def _on_size_bind(self, factory, list_item):
         file_item = list_item.get_item()
-        label = list_item.get_child()
+        box = list_item.get_child()
+        label = box.get_first_child()
         label.set_text(file_item.size_formatted)
+        self._apply_folder_class(box, file_item.folder)
     
     def _on_modified_setup(self, factory, list_item):
+        box = Gtk.Box(hexpand=True)
         label = Gtk.Label()
         label.set_halign(Gtk.Align.START)
-        list_item.set_child(label)
+        label.set_hexpand(True)
+        box.append(label)
+        list_item.set_child(box)
     
     def _on_modified_bind(self, factory, list_item):
         file_item = list_item.get_item()
-        label = list_item.get_child()
+        box = list_item.get_child()
+        label = box.get_first_child()
         formatted_date = file_item.modified.strftime("%Y-%m-%d %H:%M")
         label.set_text(formatted_date)
+        self._apply_folder_class(box, file_item.folder)
+
+    def _apply_folder_class(self, widget, folder):
+        """Apply CSS class based on folder name for row coloring"""
+        for cls in ("folder-gnome", "folder-cinnamon", "folder-xfce", "folder-root"):
+            widget.remove_css_class(cls)
+        folder_lower = folder.lower()
+        if folder_lower == "gnome":
+            widget.add_css_class("folder-gnome")
+        elif folder_lower == "cinnamon":
+            widget.add_css_class("folder-cinnamon")
+        elif folder_lower == "xfce":
+            widget.add_css_class("folder-xfce")
+        elif folder_lower == "root":
+            widget.add_css_class("folder-root")
     
     def _on_selection_changed(self, selection_model, pspec):
         """Handle file selection changes"""
@@ -230,161 +265,14 @@ class FileListComponent:
 
 
 class ToolbarComponent:
-    """Manages the toolbar with filter and action buttons"""
-    
-    def __init__(self, parent_window):
-        """
-        Initialize toolbar component.
-        
-        Args:
-            parent_window: Parent window instance
-        """
-        self.parent_window = parent_window
-        self.folder_dropdown = None
-        self.copy_link_btn = None
-        self.download_btn = None
-        self.delete_btn = None
-    
-    def create_toolbar(self) -> Gtk.Box:
-        """Create and return the toolbar widget"""
-        toolbar = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=12)
-        toolbar.set_margin_top(12)
-        toolbar.set_margin_bottom(12)
-        toolbar.set_margin_start(12)
-        toolbar.set_margin_end(12)
-        
-        # Filter label
-        filter_label = Gtk.Label(label=_("Filter by folder:"))
-        toolbar.append(filter_label)
-        
-        # Folder filter dropdown
-        self.folder_dropdown = Gtk.DropDown()
-        folder_model = Gtk.StringList()
-        folder_model.append(_("All folders"))
-        from config import DISTRO_FOLDERS
-        for folder in DISTRO_FOLDERS:
-            folder_model.append(folder)
-        self.folder_dropdown.set_model(folder_model)
-        self.folder_dropdown.connect("notify::selected", self._on_folder_filter_changed)
-        toolbar.append(self.folder_dropdown)
-        
-        # Spacer
-        spacer = Gtk.Box()
-        spacer.set_hexpand(True)
-        toolbar.append(spacer)
-        
-        # Copy Link button
-        self.copy_link_btn = Gtk.Button(label=_("Copy Link"))
-        self.copy_link_btn.set_icon_name("edit-copy-symbolic")
-        self.copy_link_btn.set_sensitive(False)
-        self.copy_link_btn.connect("clicked", self._on_copy_link_clicked)
-        toolbar.append(self.copy_link_btn)
-        
-        # Download button
-        self.download_btn = Gtk.Button(label=_("Download"))
-        self.download_btn.set_icon_name("folder-download-symbolic")
-        self.download_btn.set_sensitive(False)
-        self.download_btn.connect("clicked", self._on_download_clicked)
-        toolbar.append(self.download_btn)
-        
-        # Delete button
-        self.delete_btn = Gtk.Button(label=_("Delete"))
-        self.delete_btn.set_icon_name("user-trash-symbolic")
-        self.delete_btn.add_css_class("destructive-action")
-        self.delete_btn.set_sensitive(False)
-        self.delete_btn.connect("clicked", self._on_delete_clicked)
-        toolbar.append(self.delete_btn)
-        
-        return toolbar
-    
-    def set_buttons_sensitive(self, sensitive: bool) -> None:
-        """Enable/disable action buttons based on selection"""
-        self.copy_link_btn.set_sensitive(sensitive)
-        self.download_btn.set_sensitive(sensitive)
-        self.delete_btn.set_sensitive(sensitive)
-    
-    def _on_folder_filter_changed(self, dropdown, pspec):
-        """Handle folder filter changes"""
-        if hasattr(self.parent_window, 'on_folder_filter_changed'):
-            self.parent_window.on_folder_filter_changed()
-    
-    def _on_copy_link_clicked(self, button):
-        """Handle copy link button click"""
-        if hasattr(self.parent_window, 'on_copy_link_clicked'):
-            self.parent_window.on_copy_link_clicked()
-    
-    def _on_download_clicked(self, button):
-        """Handle download button click"""
-        if hasattr(self.parent_window, 'on_download_clicked'):
-            self.parent_window.on_download_clicked()
-    
-    def _on_delete_clicked(self, button):
-        """Handle delete button click"""
-        if hasattr(self.parent_window, 'on_delete_clicked'):
-            self.parent_window.on_delete_clicked()
-    
-    def get_selected_folder(self) -> Optional[str]:
-        """Get currently selected folder from dropdown"""
-        selected = self.folder_dropdown.get_selected()
-        if selected == 0:  # "All folders"
-            return None
-        else:
-            from config import DISTRO_FOLDERS
-            return DISTRO_FOLDERS[selected - 1]
+    """Legacy toolbar component - kept for backward compatibility.
+    Functionality moved to ISOVaultWindow sidebar."""
+
+    pass
 
 
 class HeaderBarComponent:
-    """Manages the header bar with menu and actions"""
-    
-    def __init__(self, parent_window):
-        """
-        Initialize header bar component.
-        
-        Args:
-            parent_window: Parent window instance
-        """
-        self.parent_window = parent_window
-    
-    def create_header_bar(self) -> Adw.HeaderBar:
-        """Create and return the header bar widget"""
-        header_bar = Adw.HeaderBar()
-        from config import APP_CONFIG
-        header_bar.set_title_widget(Gtk.Label(label=APP_CONFIG['app_name']))
-        
-        # Upload button (primary action)
-        upload_btn = Gtk.Button()
-        upload_btn.set_icon_name("document-send-symbolic")
-        upload_btn.set_tooltip_text(_("Upload ISO file"))
-        upload_btn.add_css_class("suggested-action")
-        upload_btn.connect("clicked", self._on_upload_clicked)
-        header_bar.pack_start(upload_btn)
-        
-        # Menu button (hamburger menu)
-        menu_btn = Gtk.MenuButton()
-        menu_btn.set_icon_name("open-menu-symbolic")
-        menu_btn.set_tooltip_text(_("Application menu"))
-        
-        # Create menu model - Fixed for GTK4
-        menu_model = Gio.Menu()
-        
-        # Main section
-        main_section = Gio.Menu()
-        main_section.append(_("Preferences"), "app.preferences")
-        main_section.append(_("Force Update Index"), "app.force_index")
-        main_section.append(_("Refresh"), "app.refresh")
-        menu_model.append_section(None, main_section)
-        
-        # About section (separated)
-        about_section = Gio.Menu()
-        about_section.append(_("About"), "app.about")
-        menu_model.append_section(None, about_section)
-        
-        menu_btn.set_menu_model(menu_model)
-        header_bar.pack_end(menu_btn)
-        
-        return header_bar
-    
-    def _on_upload_clicked(self, button):
-        """Handle upload button click"""
-        if hasattr(self.parent_window, 'on_upload_clicked'):
-            self.parent_window.on_upload_clicked()
+    """Legacy header bar component - kept for backward compatibility.
+    Functionality moved to ISOVaultWindow._build_content()."""
+
+    pass

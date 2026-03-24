@@ -2,6 +2,8 @@
 HTML generation service for creating index pages.
 """
 
+import html
+import re
 from typing import List, Dict, Optional
 from datetime import datetime
 from config import DISTRO_FOLDERS
@@ -425,31 +427,42 @@ class HTMLGenerator:
         
         file_url = self._get_public_url(iso_info['key'])
         file_date = iso_info['modified'].strftime('%Y-%m-%d')
-        
+
+        # Escape all user-controlled values to prevent XSS
+        safe_name = html.escape(iso_info["name"])
+        safe_url = html.escape(file_url, quote=True)
+        safe_date = html.escape(file_date)
+        safe_size = html.escape(iso_info["size_formatted"])
+
         card = f"""
-                <div class="file-card" onclick="window.open('{file_url}', '_blank')">
-                    <div class="file-name">{iso_info['name']}</div>
+                <div class="file-card" onclick="window.open('{safe_url}', '_blank')">
+                    <div class="file-name">{safe_name}</div>
                     <div class="file-info">
-                        <span class="file-size">{iso_info['size_formatted']}</span>
-                        <span class="file-date">{file_date}</span>
+                        <span class="file-size">{safe_size}</span>
+                        <span class="file-date">{safe_date}</span>
                     </div>
 """
         
         # Add MD5 hash if available
         if md5_info:
             md5_hash = self._read_md5_content(md5_info['key'])
+            # Validate MD5 is a proper hex string to prevent injection
+            if re.fullmatch(r"[a-fA-F0-9]{32}", md5_hash):
+                safe_md5 = md5_hash.lower()
+            else:
+                safe_md5 = html.escape(md5_hash)
             card += f"""
                     <div class="md5-container">
-                        <div class="md5-label">{_("MD5 Checksum")}</div>
-                        <div class="md5-hash" onclick="event.stopPropagation(); navigator.clipboard.writeText('{md5_hash}'); this.style.background='#d4edda';">
-                            {md5_hash}
+                        <div class="md5-label">{html.escape(_("MD5 Checksum"))}</div>
+                        <div class="md5-hash" onclick="event.stopPropagation(); navigator.clipboard.writeText('{safe_md5}'); this.style.background='#d4edda';">
+                            {safe_md5}
                         </div>
                     </div>
 """
         
         card += f"""
-                    <button class="download-btn" onclick="event.stopPropagation(); window.open('{file_url}', '_blank')">
-                        {_("Download ISO")}
+                    <button class="download-btn" onclick="event.stopPropagation(); window.open('{safe_url}', '_blank')">
+                        {html.escape(_("Download ISO"))}
                     </button>
                 </div>
 """
@@ -568,7 +581,6 @@ class HTMLGenerator:
                 if content:
                     # MD5 files usually contain just the hash and filename
                     # Extract the 32-character hash
-                    import re
                     md5_pattern = r'[a-fA-F0-9]{32}'
                     match = re.search(md5_pattern, content)
                     if match:
@@ -593,9 +605,8 @@ class HTMLGenerator:
             # If it's just a 32-character hash
             if len(base_name) == 32 and all(c in '0123456789abcdefABCDEF' for c in base_name):
                 return base_name.lower()
-            
+
             # Try to extract hash from complex filenames
-            import re
             md5_pattern = r'[a-fA-F0-9]{32}'
             match = re.search(md5_pattern, filename)
             if match:

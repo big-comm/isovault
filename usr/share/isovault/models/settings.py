@@ -9,6 +9,22 @@ from typing import Dict, Any, Optional
 from config import APP_CONFIG, DEFAULT_S3_CONFIG, DEFAULT_WEB_CONFIG
 from utils.i18n import _
 
+# Try to import libsecret for additional secure credential storage
+try:
+    import gi
+
+    gi.require_version("Secret", "1")
+    from gi.repository import Secret
+
+    _SECRET_SCHEMA = Secret.Schema.new(
+        "org.communitybig.isovault",
+        Secret.SchemaFlags.NONE,
+        {"key_type": Secret.SchemaAttributeType.STRING},
+    )
+    _HAS_LIBSECRET = True
+except Exception:
+    _HAS_LIBSECRET = False
+
 
 class SettingsManager:
     """Manages application settings and S3 configuration"""
@@ -69,7 +85,19 @@ class SettingsManager:
                             self.settings[section_name][key] = config.getint(section_name, key)
                         else:
                             self.settings[section_name][key] = value
-            
+
+            # If config has no credentials, try keyring as additional source
+            if not self.settings["s3"].get("access_key") and _HAS_LIBSECRET:
+                try:
+                    for key_type in ("access_key", "secret_key"):
+                        value = Secret.password_lookup_sync(
+                            _SECRET_SCHEMA, {"key_type": key_type}, None
+                        )
+                        if value:
+                            self.settings["s3"][key_type] = value
+                except Exception:
+                    pass
+
             print(_("Settings loaded from: {config_file}").format(config_file=self.config_file))
             return True
             
@@ -94,7 +122,24 @@ class SettingsManager:
             
             with open(self.config_file, 'w') as f:
                 config.write(f)
-            
+
+            # Also store credentials in keyring as additional secure layer
+            if _HAS_LIBSECRET:
+                try:
+                    for key_type in ("access_key", "secret_key"):
+                        value = self.settings["s3"].get(key_type, "")
+                        if value:
+                            Secret.password_store_sync(
+                                _SECRET_SCHEMA,
+                                {"key_type": key_type},
+                                Secret.COLLECTION_DEFAULT,
+                                f"isovault-{key_type}",
+                                value,
+                                None,
+                            )
+                except Exception:
+                    pass  # Keyring is optional, config file is the primary store
+
             print(_("Settings saved to: {config_file}").format(config_file=self.config_file))
             return True
             

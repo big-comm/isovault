@@ -6,8 +6,8 @@ APP_CONFIG = {
     'app_name': 'ISOVault',
     'version': '1.0.0',
     'window_title': 'ISOVault - ISO Manager',
-    'window_width': 900,
-    'window_height': 600,
+    'window_width': 1200,
+    'window_height': 700,
     'config_file': os.path.expanduser('~/.config/isovault.conf')
 }
 

@@ -120,39 +120,8 @@ class ISOVaultApplication(Adw.Application):
             color: @accent_color;
         }
         
-        .file-card {
-            transition: all 0.2s ease;
-        }
-        
-        .file-card:hover {
-            background: alpha(@accent_color, 0.1);
-        }
-        
-        .destructive-action {
-            color: @error_color;
-        }
-        
-        .destructive-action:hover {
-            background: alpha(@error_color, 0.1);
-        }
-        
-        .suggested-action {
-            background: @accent_color;
-            color: @accent_fg_color;
-        }
-        
         .progress-bar {
             border-radius: 4px;
-        }
-        
-        .status-bar {
-            border-top: 1px solid @borders;
-            background: @headerbar_bg_color;
-        }
-        
-        /* Make dialogs more modern */
-        dialog.background {
-            border-radius: 12px;
         }
         
         /* Improve file list appearance */
@@ -166,6 +135,35 @@ class ISOVaultApplication(Adw.Application):
         
         columnview row:selected {
             background: alpha(@accent_color, 0.15);
+        }
+        
+        /* Folder-based row colors */
+        .folder-gnome {
+            background: alpha(#9b59b6, 0.18);
+            border-radius: 2px;
+            padding: 4px 6px;
+            margin: -4px -6px;
+        }
+        
+        .folder-cinnamon {
+            background: alpha(#D2691E, 0.15);
+            border-radius: 2px;
+            padding: 4px 6px;
+            margin: -4px -6px;
+        }
+        
+        .folder-xfce {
+            background: alpha(#3498db, 0.18);
+            border-radius: 2px;
+            padding: 4px 6px;
+            margin: -4px -6px;
+        }
+        
+        .folder-root {
+            background: alpha(@accent_color, 0.10);
+            border-radius: 2px;
+            padding: 4px 6px;
+            margin: -4px -6px;
         }
         """
         

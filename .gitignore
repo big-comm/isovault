@@ -58,3 +58,11 @@ Thumbs.db
 tmp/
 temp/
 *.tmp
+
+# Dev/Audit artifacts
+.audit/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+tests/
+PLANNING.md

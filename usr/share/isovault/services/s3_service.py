@@ -197,46 +197,62 @@ class S3Service:
                 prefix = f"{folder}/"
             else:
                 prefix = ""
-            
-            response = self.s3_client.list_objects_v2(
-                Bucket=self.bucket_name,
-                Prefix=prefix
-            )
+
+            # Paginate through all results
+            all_objects = []
+            continuation_token = None
+            while True:
+                kwargs = {
+                    "Bucket": self.bucket_name,
+                    "Prefix": prefix,
+                }
+                if continuation_token:
+                    kwargs["ContinuationToken"] = continuation_token
+
+                response = self.s3_client.list_objects_v2(**kwargs)
+
+                if "Contents" in response:
+                    all_objects.extend(response["Contents"])
+
+                if response.get("IsTruncated"):
+                    continuation_token = response.get("NextContinuationToken")
+                else:
+                    break
             
             files = []
-            if 'Contents' in response:
-                for obj in response['Contents']:
-                    # Skip folder objects (ending with /)
-                    if obj['Key'].endswith('/'):
-                        continue
-                    
-                    # Extract folder and filename
-                    parts = obj['Key'].split('/')
-                    if len(parts) > 1:
-                        folder_name = parts[0]
-                        file_name = parts[-1]
-                    else:
-                        # File in root directory
-                        folder_name = 'Root'
-                        file_name = obj['Key']
-                    
-                    # Apply folder filter
-                    if folder and folder_name != folder:
-                        continue
-                    
-                    # Filter out index.html files if show_index_files is False
-                    show_index_files = self.web_config.get('show_index_files', False)
-                    if not show_index_files and file_name.lower() == 'index.html':
-                        continue
-                    
-                    files.append({
-                        'name': file_name,
-                        'folder': folder_name,
-                        'key': obj['Key'],
-                        'size': obj['Size'],
-                        'modified': obj['LastModified'],
-                        'size_formatted': FileValidator.format_file_size(obj['Size'])
-                    })
+            show_index_files = self.web_config.get("show_index_files", False)
+
+            for obj in all_objects:
+                # Skip folder objects (ending with /)
+                if obj["Key"].endswith("/"):
+                    continue
+
+                # Extract folder and filename
+                parts = obj["Key"].split("/")
+                if len(parts) > 1:
+                    folder_name = parts[0]
+                    file_name = parts[-1]
+                else:
+                    # File in root directory
+                    folder_name = "Root"
+                    file_name = obj["Key"]
+
+                # Apply folder filter
+                if folder and folder_name != folder:
+                    continue
+
+                # Filter out index.html files if show_index_files is False
+                if not show_index_files and file_name.lower() == "index.html":
+                    continue
+
+                files.append({
+                    "name": file_name,
+                    "folder": folder_name,
+                    "key": obj["Key"],
+                    "size": obj["Size"],
+                    "modified": obj["LastModified"],
+                    "size_formatted": FileValidator.format_file_size(obj["Size"]),
+                })
             
             # Sort by modified date (newest first)
             return sorted(files, key=lambda x: x['modified'], reverse=True)
