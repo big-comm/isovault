@@ -16,6 +16,152 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: attranslate\n"
 # 
+# File: usr/share/isovault/main.py, line: 46
+#: NEEDS WORK
+msgid "Show version information"
+msgstr "Visa versionsinformation"
+# 
+# File: usr/share/isovault/main.py, line: 55
+#: NEEDS WORK
+msgid "Enable debug mode"
+msgstr "Aktivera felsökningsläge"
+# 
+# File: usr/share/isovault/main.py, line: 63
+#: NEEDS WORK
+#, python-brace-format
+msgid "Starting {app_name} v{version}"
+msgstr "Startar {app_name} v{version}"
+# 
+# File: usr/share/isovault/main.py, line: 81
+#: NEEDS WORK
+#, python-brace-format
+msgid "Shutting down {app_name}"
+msgstr "Stänger ner {app_name}"
+# 
+# File: usr/share/isovault/main.py, line: 101
+#: NEEDS WORK
+msgid "Debug mode enabled"
+msgstr "Felsökningsläge aktiverat"
+# 
+# File: usr/share/isovault/main.py, line: 184
+#: NEEDS WORK
+#, python-brace-format
+msgid "Warning: Could not apply CSS: {error}"
+msgstr "Varning: Kunde inte tillämpa CSS: {error}"
+# 
+# File: usr/share/isovault/main.py, line: 198
+#: NEEDS WORK
+#, python-brace-format
+msgid "Warning: Could not set keyboard shortcuts: {error}"
+msgstr "Varning: Kunde inte ställa in tangentbordsgenvägar: {error}"
+# 
+# File: usr/share/isovault/main.py, line: 217
+#: NEEDS WORK
+#, python-brace-format
+msgid ""
+"\n"
+"Received signal {signum}, shutting down gracefully..."
+msgstr "Mottagen signal {signum}, stänger ner på ett kontrollerat sätt..."
+# 
+# File: usr/share/isovault/main.py, line: 242
+#: NEEDS WORK
+msgid "Error: Missing required dependencies:"
+msgstr "Fel: Saknade nödvändiga beroenden:"
+# 
+# File: usr/share/isovault/main.py, line: 245
+#: NEEDS WORK
+#, python-brace-format
+msgid ""
+"\n"
+"Install them with: pip install {deps}"
+msgstr "Installera dem med: pip install {deps}"
+# 
+# File: usr/share/isovault/main.py, line: 257
+#: NEEDS WORK
+#, python-brace-format
+msgid "Warning: Could not set application name: {error}"
+msgstr "Varning: Kunde inte ställa in applikationsnamn: {error}"
+# 
+# File: usr/share/isovault/main.py, line: 264
+#: NEEDS WORK
+#, python-brace-format
+msgid "Warning: Could not set signal handlers: {error}"
+msgstr "Varning: Kunde inte ställa in signalhanterare: {error}"
+# 
+# File: usr/share/isovault/main.py, line: 271
+#: NEEDS WORK
+#, python-brace-format
+msgid "Warning: Could not create config directory: {error}"
+msgstr "Varning: Kunde inte skapa konfigurationskatalog: {error}"
+# 
+# File: usr/share/isovault/main.py, line: 288
+#: NEEDS WORK
+msgid ""
+"\n"
+"Interrupted by user"
+msgstr "Avbruten av användaren"
+# 
+# File: usr/share/isovault/main.py, line: 291
+#: NEEDS WORK
+#, python-brace-format
+msgid "Fatal error: {error}"
+msgstr "Fatalfel: {error}"
+# 
+# File: usr/share/isovault/models/settings.py, line: 54
+#: NEEDS WORK
+#, python-brace-format
+msgid "Config file not found: {config_file}"
+msgstr "Konfigurationsfil hittades inte: {config_file}"
+# 
+# File: usr/share/isovault/models/settings.py, line: 73
+#: NEEDS WORK
+#, python-brace-format
+msgid "Settings loaded from: {config_file}"
+msgstr "Inställningar laddade från: {config_file}"
+# 
+# File: usr/share/isovault/models/settings.py, line: 77
+#: NEEDS WORK
+#, python-brace-format
+msgid "Error loading settings: {error}"
+msgstr "Fel vid inläsning av inställningar: {error}"
+# 
+# File: usr/share/isovault/models/settings.py, line: 98
+#: NEEDS WORK
+#, python-brace-format
+msgid "Settings saved to: {config_file}"
+msgstr "Inställningar sparade till: {config_file}"
+# 
+# File: usr/share/isovault/models/settings.py, line: 102
+#: NEEDS WORK
+#, python-brace-format
+msgid "Error saving settings: {error}"
+msgstr "Fel vid sparande av inställningar: {error}"
+# 
+# File: usr/share/isovault/models/settings.py, line: 138
+#: NEEDS WORK
+msgid "Access key is required"
+msgstr "Åtkomstnyckel krävs"
+# 
+# File: usr/share/isovault/models/settings.py, line: 141
+#: NEEDS WORK
+msgid "Secret key is required"
+msgstr "Hemlig nyckel krävs"
+# 
+# File: usr/share/isovault/models/settings.py, line: 144
+#: NEEDS WORK
+msgid "Endpoint URL is required"
+msgstr "Endpoint-URL krävs"
+# 
+# File: usr/share/isovault/models/settings.py, line: 147
+#: NEEDS WORK
+msgid "Bucket name is required"
+msgstr "Bucketnamn krävs"
+# 
+# File: usr/share/isovault/models/settings.py, line: 149
+#: NEEDS WORK
+msgid "Configuration is valid"
+msgstr "Konfigurationen är giltig"
+# 
 # File: usr/share/isovault/utils/helpers.py, line: 57
 #: NEEDS WORK
 #, python-brace-format
@@ -90,72 +236,6 @@ msgstr "Giltig URL-format"
 #, python-brace-format
 msgid "Error extracting MD5 from {filename}: {error}"
 msgstr "Fel vid extrahering av MD5 från {filename}: {error}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 129
-# File: usr/share/isovault/services/s3_service.py, line: 191
-#: NEEDS WORK
-msgid "No S3 connection available"
-msgstr "Ingen S3-anslutning tillgänglig"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 135
-#: NEEDS WORK
-#, python-brace-format
-msgid "Upload validation failed: {message}"
-msgstr "Uppladdningsvalidering misslyckades: {message}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 139
-#: NEEDS WORK
-#, python-brace-format
-msgid "Invalid folder. Must be one of: {folders}"
-msgstr "Ogiltig mapp. Måste vara en av: {folders}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 174
-#: NEEDS WORK
-#, python-brace-format
-msgid "Upload failed: {error}"
-msgstr "Uppladdning misslyckades: {error}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 177
-#: NEEDS WORK
-#, python-brace-format
-msgid "Upload error: {error}"
-msgstr "Uppladdningsfel: {error}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 245
-#: NEEDS WORK
-#, python-brace-format
-msgid "Error listing files: {error}"
-msgstr "Fel vid uppräkning av filer: {error}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 270
-#: NEEDS WORK
-#, python-brace-format
-msgid "Delete failed: {error}"
-msgstr "Borttagning misslyckades: {error}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 316
-#: NEEDS WORK
-#, python-brace-format
-msgid "Download failed: {error}"
-msgstr "Nedladdning misslyckades: {error}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 339
-#: NEEDS WORK
-#, python-brace-format
-msgid "Error getting file info: {error}"
-msgstr "Fel vid hämtning av filinformation: {error}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 379
-#: NEEDS WORK
-#, python-brace-format
-msgid "Error uploading content: {error}"
-msgstr "Fel vid uppladdning av innehåll: {error}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 395
-#: NEEDS WORK
-#, python-brace-format
-msgid "Error reading file content: {error}"
-msgstr "Fel vid läsning av filinnehåll: {error}"
 # 
 # File: usr/share/isovault/services/file_validator.py, line: 27
 #: NEEDS WORK
@@ -307,312 +387,109 @@ msgstr "Genererad av ISOVault"
 msgid "Downloading..."
 msgstr "Laddar ner..."
 # 
-# File: usr/share/isovault/main.py, line: 46
+# File: usr/share/isovault/services/s3_service.py, line: 129
+# File: usr/share/isovault/services/s3_service.py, line: 191
 #: NEEDS WORK
-msgid "Show version information"
-msgstr "Visa versionsinformation"
+msgid "No S3 connection available"
+msgstr "Ingen S3-anslutning tillgänglig"
 # 
-# File: usr/share/isovault/main.py, line: 55
-#: NEEDS WORK
-msgid "Enable debug mode"
-msgstr "Aktivera felsökningsläge"
-# 
-# File: usr/share/isovault/main.py, line: 63
+# File: usr/share/isovault/services/s3_service.py, line: 135
 #: NEEDS WORK
 #, python-brace-format
-msgid "Starting {app_name} v{version}"
-msgstr "Startar {app_name} v{version}"
+msgid "Upload validation failed: {message}"
+msgstr "Uppladdningsvalidering misslyckades: {message}"
 # 
-# File: usr/share/isovault/main.py, line: 81
+# File: usr/share/isovault/services/s3_service.py, line: 139
 #: NEEDS WORK
 #, python-brace-format
-msgid "Shutting down {app_name}"
-msgstr "Stänger ner {app_name}"
+msgid "Invalid folder. Must be one of: {folders}"
+msgstr "Ogiltig mapp. Måste vara en av: {folders}"
 # 
-# File: usr/share/isovault/main.py, line: 101
-#: NEEDS WORK
-msgid "Debug mode enabled"
-msgstr "Felsökningsläge aktiverat"
-# 
-# File: usr/share/isovault/main.py, line: 184
+# File: usr/share/isovault/services/s3_service.py, line: 174
 #: NEEDS WORK
 #, python-brace-format
-msgid "Warning: Could not apply CSS: {error}"
-msgstr "Varning: Kunde inte tillämpa CSS: {error}"
+msgid "Upload failed: {error}"
+msgstr "Uppladdning misslyckades: {error}"
 # 
-# File: usr/share/isovault/main.py, line: 198
+# File: usr/share/isovault/services/s3_service.py, line: 177
 #: NEEDS WORK
 #, python-brace-format
-msgid "Warning: Could not set keyboard shortcuts: {error}"
-msgstr "Varning: Kunde inte ställa in tangentbordsgenvägar: {error}"
+msgid "Upload error: {error}"
+msgstr "Uppladdningsfel: {error}"
 # 
-# File: usr/share/isovault/main.py, line: 217
+# File: usr/share/isovault/services/s3_service.py, line: 245
+#: NEEDS WORK
+#, python-brace-format
+msgid "Error listing files: {error}"
+msgstr "Fel vid uppräkning av filer: {error}"
+# 
+# File: usr/share/isovault/services/s3_service.py, line: 270
+#: NEEDS WORK
+#, python-brace-format
+msgid "Delete failed: {error}"
+msgstr "Borttagning misslyckades: {error}"
+# 
+# File: usr/share/isovault/services/s3_service.py, line: 316
+#: NEEDS WORK
+#, python-brace-format
+msgid "Download failed: {error}"
+msgstr "Nedladdning misslyckades: {error}"
+# 
+# File: usr/share/isovault/services/s3_service.py, line: 339
+#: NEEDS WORK
+#, python-brace-format
+msgid "Error getting file info: {error}"
+msgstr "Fel vid hämtning av filinformation: {error}"
+# 
+# File: usr/share/isovault/services/s3_service.py, line: 379
+#: NEEDS WORK
+#, python-brace-format
+msgid "Error uploading content: {error}"
+msgstr "Fel vid uppladdning av innehåll: {error}"
+# 
+# File: usr/share/isovault/services/s3_service.py, line: 395
+#: NEEDS WORK
+#, python-brace-format
+msgid "Error reading file content: {error}"
+msgstr "Fel vid läsning av filinnehåll: {error}"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 40
+#: NEEDS WORK
+msgid "Select ISO or MD5 files to upload"
+msgstr "Välj ISO- eller MD5-filer att ladda upp"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 68
+#: NEEDS WORK
+#, python-brace-format
+msgid "Save {filename}"
+msgstr "Spara {filename}"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 102
+#: NEEDS WORK
+msgid "Delete File"
+msgstr "Ta bort fil"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 103
 #: NEEDS WORK
 #, python-brace-format
 msgid ""
+"Are you sure you want to delete '{filename}'?\n"
 "\n"
-"Received signal {signum}, shutting down gracefully..."
-msgstr "Mottagen signal {signum}, stänger ner på ett kontrollerat sätt..."
-# 
-# File: usr/share/isovault/main.py, line: 242
-#: NEEDS WORK
-msgid "Error: Missing required dependencies:"
-msgstr "Fel: Saknade nödvändiga beroenden:"
-# 
-# File: usr/share/isovault/main.py, line: 245
-#: NEEDS WORK
-#, python-brace-format
-msgid ""
+"This action cannot be undone."
+msgstr ""
+"Är du säker på att du vill ta bort '{filename}'?\n"
 "\n"
-"Install them with: pip install {deps}"
-msgstr "Installera dem med: pip install {deps}"
+"Denna åtgärd kan inte ångras."
 # 
-# File: usr/share/isovault/main.py, line: 257
-#: NEEDS WORK
-#, python-brace-format
-msgid "Warning: Could not set application name: {error}"
-msgstr "Varning: Kunde inte ställa in applikationsnamn: {error}"
+# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
 # 
-# File: usr/share/isovault/main.py, line: 264
+# File: usr/share/isovault/ui/preferences.py, line: 355
+# File: usr/share/isovault/ui/dialogs.py, line: 106
+# File: usr/share/isovault/ui/dialogs.py, line: 244
+# File: usr/share/isovault/ui/dialogs.py, line: 275
 #: NEEDS WORK
-#, python-brace-format
-msgid "Warning: Could not set signal handlers: {error}"
-msgstr "Varning: Kunde inte ställa in signalhanterare: {error}"
-# 
-# File: usr/share/isovault/main.py, line: 271
-#: NEEDS WORK
-#, python-brace-format
-msgid "Warning: Could not create config directory: {error}"
-msgstr "Varning: Kunde inte skapa konfigurationskatalog: {error}"
-# 
-# File: usr/share/isovault/main.py, line: 288
-#: NEEDS WORK
-msgid ""
-"\n"
-"Interrupted by user"
-msgstr "Avbruten av användaren"
-# 
-# File: usr/share/isovault/main.py, line: 291
-#: NEEDS WORK
-#, python-brace-format
-msgid "Fatal error: {error}"
-msgstr "Fatalfel: {error}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 108
-#: NEEDS WORK
-msgid "Ready"
-msgstr "Klar"
-# 
-# File: usr/share/isovault/ui/window.py, line: 139
-#: NEEDS WORK
-msgid "Please configure S3 credentials in Preferences"
-msgstr "Vänligen konfigurera S3-uppgifter i Inställningar"
-# 
-# File: usr/share/isovault/ui/window.py, line: 195
-#: NEEDS WORK
-msgid "Warning: Could not connect to S3 storage"
-msgstr "Varning: Kunde inte ansluta till S3-lagring"
-# 
-# File: usr/share/isovault/ui/window.py, line: 210
-# File: usr/share/isovault/ui/window.py, line: 590
-#: NEEDS WORK
-msgid "Please configure S3 credentials first"
-msgstr "Vänligen konfigurera S3-uppgifter först"
-# 
-# File: usr/share/isovault/ui/window.py, line: 230
-#: NEEDS WORK
-#, python-brace-format
-msgid "Link copied: {url}"
-msgstr "Länk kopierad: {url}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 291
-#: NEEDS WORK
-#, python-brace-format
-msgid "Uploading {filename}..."
-msgstr "Laddar upp {filename}..."
-# 
-# File: usr/share/isovault/ui/window.py, line: 308
-#: NEEDS WORK
-#, python-brace-format
-msgid "Starting batch upload: {file_count} files to folder: {folder}"
-msgstr "Startar batchuppladdning: {file_count} filer till mapp: {folder}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 336
-#: NEEDS WORK
-#, python-brace-format
-msgid "Uploading {current}/{total}: {filename}"
-msgstr "Laddar upp {current}/{total}: {filename}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 354
-#: NEEDS WORK
-#, python-brace-format
-msgid "Batch upload error for {filename}: {error}"
-msgstr "Batchuppladdningsfel för {filename}: {error}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 385
-#: NEEDS WORK
-#, python-brace-format
-msgid "Successfully uploaded all {total} files!"
-msgstr "Framgångsrikt uppladdade alla {total} filer!"
-# 
-# File: usr/share/isovault/ui/window.py, line: 387
-#: NEEDS WORK
-#, python-brace-format
-msgid "Upload complete: {completed} successful, {failed} failed"
-msgstr "Uppladdning klar: {completed} lyckad, {failed} misslyckad"
-# 
-# File: usr/share/isovault/ui/window.py, line: 407
-#: NEEDS WORK
-#, python-brace-format
-msgid "Successfully uploaded {filename}"
-msgstr "Framgångsrikt uppladdad {filename}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 417
-#: NEEDS WORK
-#, python-brace-format
-msgid "Failed to upload {filename}"
-msgstr "Misslyckades med att ladda upp {filename}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 423
-#: NEEDS WORK
-#, python-brace-format
-msgid "Downloading {filename}..."
-msgstr "Laddar ner {filename}..."
-# 
-# File: usr/share/isovault/ui/window.py, line: 439
-#: NEEDS WORK
-#, python-brace-format
-msgid "Successfully downloaded {filename}"
-msgstr "Nedladdningen av {filename} lyckades"
-# 
-# File: usr/share/isovault/ui/window.py, line: 441
-#: NEEDS WORK
-#, python-brace-format
-msgid "Failed to download {filename}"
-msgstr "Misslyckades med att ladda ner {filename}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 452
-#: NEEDS WORK
-#, python-brace-format
-msgid "Deleting {filename}..."
-msgstr "Tar bort {filename}..."
-# 
-# File: usr/share/isovault/ui/window.py, line: 465
-#: NEEDS WORK
-#, python-brace-format
-msgid "Successfully deleted {filename}"
-msgstr "Framgångsrikt raderad {filename}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 475
-#: NEEDS WORK
-#, python-brace-format
-msgid "Failed to delete {filename}"
-msgstr "Misslyckades med att ta bort {filename}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 485
-#: NEEDS WORK
-#, python-brace-format
-msgid "Refreshing files for folder: {folder}"
-msgstr "Uppdaterar filer för mapp: {folder}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 487
-#: NEEDS WORK
-msgid "Loading files..."
-msgstr "Laddar filer..."
-# 
-# File: usr/share/isovault/ui/window.py, line: 507
-#: NEEDS WORK
-msgid "Failed to connect to S3 storage. Check credentials and connection."
-msgstr "Misslyckades med att ansluta till S3-lagring. Kontrollera autentiseringsuppgifter och anslutning."
-# 
-# File: usr/share/isovault/ui/window.py, line: 519
-#: NEEDS WORK
-#, python-brace-format
-msgid " in {folder}"
-msgstr "i {mapp}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 522
-#: NEEDS WORK
-#, python-brace-format
-msgid "1 file{folder_text}"
-msgstr "1 fil{mapp_text}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 524
-#: NEEDS WORK
-#, python-brace-format
-msgid "{count} files{folder_text}"
-msgstr "{count} filer{folder_text}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 593
-#: NEEDS WORK
-msgid "Updating index files..."
-msgstr "Uppdaterar indexfiler..."
-# 
-# File: usr/share/isovault/ui/window.py, line: 599
-#: NEEDS WORK
-msgid "Index files updated!"
-msgstr "Indexfiler uppdaterade!"
-# 
-# File: usr/share/isovault/ui/window.py, line: 637
-#: NEEDS WORK
-msgid "S3 credentials removed"
-msgstr "S3-uppgifter borttagna"
-# 
-# File: usr/share/isovault/ui/components.py, line: 33
-#: NEEDS WORK
-msgid "Progress"
-msgstr "Framsteg"
-# 
-# File: usr/share/isovault/ui/components.py, line: 43
-#: NEEDS WORK
-#, python-brace-format
-msgid "Progress update: {progress:.1f}%"
-msgstr "Uppdatering av framsteg: {progress:.1f}%"
-# 
-# File: usr/share/isovault/ui/components.py, line: 50
-#: NEEDS WORK
-msgid "Hiding progress"
-msgstr "Dölja framsteg"
-# 
-# File: usr/share/isovault/ui/components.py, line: 123
-#: NEEDS WORK
-msgid "File Name"
-msgstr "Filnamn"
-# 
-# File: usr/share/isovault/ui/components.py, line: 132
-#: NEEDS WORK
-msgid "Folder"
-msgstr "Mapp"
-# 
-# File: usr/share/isovault/ui/components.py, line: 140
-#: NEEDS WORK
-msgid "Size"
-msgstr "Storlek"
-# 
-# File: usr/share/isovault/ui/components.py, line: 148
-#: NEEDS WORK
-msgid "Modified"
-msgstr "Modifierad"
-# 
-# File: usr/share/isovault/ui/components.py, line: 257
-#: NEEDS WORK
-msgid "Filter by folder:"
-msgstr "Filtrera efter mapp:"
-# 
-# File: usr/share/isovault/ui/components.py, line: 263
-#: NEEDS WORK
-msgid "All folders"
-msgstr "Alla mappar"
-# 
-# File: usr/share/isovault/ui/components.py, line: 277
-#: NEEDS WORK
-msgid "Copy Link"
-msgstr "Kopiera länk"
-# 
-# File: usr/share/isovault/ui/components.py, line: 284
-#: NEEDS WORK
-msgid "Download"
-msgstr "Ladda ner"
+msgid "Cancel"
+msgstr "Avbryt"
 # 
 # #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
 # 
@@ -622,15 +499,186 @@ msgstr "Ladda ner"
 msgid "Delete"
 msgstr "Ta bort"
 # 
-# File: usr/share/isovault/ui/components.py, line: 357
+# File: usr/share/isovault/ui/dialogs.py, line: 125
 #: NEEDS WORK
-msgid "Upload ISO file"
-msgstr "Ladda upp ISO-fil"
+msgid "ISO file manager for CDN77 storage"
+msgstr "ISO filhanterare för CDN77 lagring"
 # 
-# File: usr/share/isovault/ui/components.py, line: 365
+# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
+# 
+# File: usr/share/isovault/ui/preferences.py, line: 336
+# File: usr/share/isovault/ui/dialogs.py, line: 144
+# File: usr/share/isovault/ui/dialogs.py, line: 164
+# File: usr/share/isovault/ui/dialogs.py, line: 363
 #: NEEDS WORK
-msgid "Application menu"
-msgstr "Applikationsmeny"
+msgid "OK"
+msgstr "OK"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 177
+#: NEEDS WORK
+msgid "Supported files (ISO, MD5)"
+msgstr "Stödda filer (ISO, MD5)"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 186
+#: NEEDS WORK
+msgid "All files"
+msgstr "Alla filer"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 211
+#: NEEDS WORK
+msgid "Upload Error"
+msgstr "Uppladdningsfel"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 211
+#: NEEDS WORK
+msgid "Failed to get file paths"
+msgstr "Misslyckades med att hämta filvägar"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 213
+#: NEEDS WORK
+msgid "Upload"
+msgstr "Ladda upp"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 213
+#: NEEDS WORK
+msgid "No files selected"
+msgstr "Inga filer valda"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 227
+#: NEEDS WORK
+msgid "Download Error"
+msgstr "Nedladdningsfel"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 227
+#: NEEDS WORK
+msgid "Failed to get save path"
+msgstr "Misslyckades med att hämta sparväg"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 234
+#: NEEDS WORK
+#, python-brace-format
+msgid "Showing folder selection for: {file_path}"
+msgstr "Visar mappval för: {file_path}"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 237
+# File: usr/share/isovault/ui/dialogs.py, line: 266
+#: NEEDS WORK
+msgid "Select Destination Folder"
+msgstr "Välj destinationsmapp"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 238
+#: NEEDS WORK
+#, python-brace-format
+msgid "Choose which folder to upload '{filename}' to:"
+msgstr "Välj vilken mapp du vill ladda upp '{filename}' till:"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 256
+#: NEEDS WORK
+#, python-brace-format
+msgid "Showing folder selection for {file_count} files: {file_names}"
+msgstr "Visar mappval för {file_count} filer: {file_names}"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 263
+#: NEEDS WORK
+#, python-brace-format
+msgid ""
+"\n"
+"... and {more_count} more files"
+msgstr "... och {more_count} fler filer"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 267
+#: NEEDS WORK
+#, python-brace-format
+msgid ""
+"Choose which folder to upload {file_count} files to:\n"
+"\n"
+"{file_list}"
+msgstr ""
+"Välj vilken mapp du vill ladda upp {file_count} filer till:\n"
+"\n"
+"{file_list}"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 285
+#: NEEDS WORK
+#, python-brace-format
+msgid "Single folder dialog response: '{response}' for file: {file_path}"
+msgstr "Enkel mappdialogsvar: '{response}' för fil: {file_path}"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 294
+#: NEEDS WORK
+#, python-brace-format
+msgid "Selected folder: {folder}"
+msgstr "Vald mapp: {folder}"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 297
+# File: usr/share/isovault/ui/dialogs.py, line: 319
+#: NEEDS WORK
+#, python-brace-format
+msgid "Unknown response: {response}"
+msgstr "Okänt svar: {response}"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 298
+# File: usr/share/isovault/ui/dialogs.py, line: 320
+#: NEEDS WORK
+msgid "Error"
+msgstr "Fel"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 298
+# File: usr/share/isovault/ui/dialogs.py, line: 320
+#: NEEDS WORK
+#, python-brace-format
+msgid "Unknown folder selection: {response}"
+msgstr "Okänd mappval: {response}"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 300
+#: NEEDS WORK
+msgid "Upload cancelled by user"
+msgstr "Uppladdning avbruten av användaren"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 305
+#: NEEDS WORK
+#, python-brace-format
+msgid "Multiple folder dialog response: '{response}' for {file_count} files"
+msgstr "Flera mappdialogsvar: '{response}' för {file_count} filer"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 314
+#: NEEDS WORK
+#, python-brace-format
+msgid "Selected folder: {folder} for {file_count} files"
+msgstr "Vald mapp: {folder} för {file_count} filer"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 322
+#: NEEDS WORK
+msgid "Batch upload cancelled by user"
+msgstr "Batchuppladdning avbruten av användaren"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 351
+#: NEEDS WORK
+#, python-brace-format
+msgid "... and {more_count} more files"
+msgstr "... och {more_count} fler filer"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 353
+#: NEEDS WORK
+#, python-brace-format
+msgid "Found {invalid_count} invalid files"
+msgstr "Hittade {invalid_count} ogiltiga filer"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 355
+#: NEEDS WORK
+#, python-brace-format
+msgid " ({valid_count} valid files will be uploaded)"
+msgstr "({valid_count} giltiga filer kommer att laddas upp)"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 359
+#: NEEDS WORK
+msgid "File Validation Results"
+msgstr "Filvalideringsresultat"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 363
+#: NEEDS WORK
+msgid "Continue"
+msgstr "Fortsätt"
 # 
 # #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
 # 
@@ -639,21 +687,6 @@ msgstr "Applikationsmeny"
 #: NEEDS WORK
 msgid "Preferences"
 msgstr "Inställningar"
-# 
-# File: usr/share/isovault/ui/components.py, line: 373
-#: NEEDS WORK
-msgid "Force Update Index"
-msgstr "Tvinga uppdatera index"
-# 
-# File: usr/share/isovault/ui/components.py, line: 374
-#: NEEDS WORK
-msgid "Refresh"
-msgstr "Uppdatera"
-# 
-# File: usr/share/isovault/ui/components.py, line: 379
-#: NEEDS WORK
-msgid "About"
-msgstr "Om"
 # 
 # File: usr/share/isovault/ui/preferences.py, line: 53
 #: NEEDS WORK
@@ -859,16 +892,6 @@ msgstr "Anslutning misslyckades. Kontrollera dina referenser."
 msgid "Connection Test Result"
 msgstr "Anslutningstestresultat"
 # 
-# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
-# 
-# File: usr/share/isovault/ui/preferences.py, line: 336
-# File: usr/share/isovault/ui/dialogs.py, line: 144
-# File: usr/share/isovault/ui/dialogs.py, line: 164
-# File: usr/share/isovault/ui/dialogs.py, line: 363
-#: NEEDS WORK
-msgid "OK"
-msgstr "OK"
-# 
 # File: usr/share/isovault/ui/preferences.py, line: 351
 #: NEEDS WORK
 msgid "Reset Settings"
@@ -885,266 +908,290 @@ msgstr ""
 "\n"
 "Denna åtgärd kan inte ångras."
 # 
-# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
-# 
-# File: usr/share/isovault/ui/preferences.py, line: 355
-# File: usr/share/isovault/ui/dialogs.py, line: 106
-# File: usr/share/isovault/ui/dialogs.py, line: 244
-# File: usr/share/isovault/ui/dialogs.py, line: 275
+# File: usr/share/isovault/ui/window.py, line: 117
 #: NEEDS WORK
-msgid "Cancel"
-msgstr "Avbryt"
+msgid "Filter by folder"
+msgstr "Filtrera efter mapp"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 40
+# File: usr/share/isovault/ui/components.py, line: 263
 #: NEEDS WORK
-msgid "Select ISO or MD5 files to upload"
-msgstr "Välj ISO- eller MD5-filer att ladda upp"
+msgid "All folders"
+msgstr "Alla mappar"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 68
+# File: usr/share/isovault/ui/components.py, line: 277
 #: NEEDS WORK
-#, python-brace-format
-msgid "Save {filename}"
-msgstr "Spara {filename}"
+msgid "Copy Link"
+msgstr "Kopiera länk"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 102
+# File: usr/share/isovault/ui/window.py, line: 130
 #: NEEDS WORK
-msgid "Delete File"
-msgstr "Ta bort fil"
+msgid "Copy public URL"
+msgstr "Kopiera offentlig URL"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 103
+# File: usr/share/isovault/ui/components.py, line: 284
 #: NEEDS WORK
-#, python-brace-format
-msgid ""
-"Are you sure you want to delete '{filename}'?\n"
-"\n"
-"This action cannot be undone."
-msgstr ""
-"Är du säker på att du vill ta bort '{filename}'?\n"
-"\n"
-"Denna åtgärd kan inte ångras."
+msgid "Download"
+msgstr "Ladda ner"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 125
+# File: usr/share/isovault/ui/window.py, line: 143
 #: NEEDS WORK
-msgid "ISO file manager for CDN77 storage"
-msgstr "ISO filhanterare för CDN77 lagring"
+msgid "Save file locally"
+msgstr "Spara fil lokalt"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 177
+# File: usr/share/isovault/ui/window.py, line: 156
 #: NEEDS WORK
-msgid "Supported files (ISO, MD5)"
-msgstr "Stödda filer (ISO, MD5)"
+msgid "Remove from storage"
+msgstr "Ta bort från lagring"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 186
+# File: usr/share/isovault/ui/window.py, line: 228
 #: NEEDS WORK
-msgid "All files"
-msgstr "Alla filer"
+msgid "Upload ISO"
+msgstr "Ladda upp ISO"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 211
+# File: usr/share/isovault/ui/components.py, line: 365
 #: NEEDS WORK
-msgid "Upload Error"
-msgstr "Uppladdningsfel"
+msgid "Application menu"
+msgstr "Applikationsmeny"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 211
+# File: usr/share/isovault/ui/components.py, line: 373
 #: NEEDS WORK
-msgid "Failed to get file paths"
-msgstr "Misslyckades med att hämta filvägar"
+msgid "Force Update Index"
+msgstr "Tvinga uppdatera index"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 213
+# File: usr/share/isovault/ui/components.py, line: 374
 #: NEEDS WORK
-msgid "Upload"
-msgstr "Ladda upp"
+msgid "Refresh"
+msgstr "Uppdatera"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 213
+# File: usr/share/isovault/ui/components.py, line: 379
 #: NEEDS WORK
-msgid "No files selected"
-msgstr "Inga filer valda"
+msgid "About"
+msgstr "Om"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 227
+# File: usr/share/isovault/ui/window.py, line: 108
 #: NEEDS WORK
-msgid "Download Error"
-msgstr "Nedladdningsfel"
+msgid "Ready"
+msgstr "Klar"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 227
+# File: usr/share/isovault/ui/window.py, line: 139
 #: NEEDS WORK
-msgid "Failed to get save path"
-msgstr "Misslyckades med att hämta sparväg"
+msgid "Please configure S3 credentials in Preferences"
+msgstr "Vänligen konfigurera S3-uppgifter i Inställningar"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 234
+# File: usr/share/isovault/ui/window.py, line: 366
 #: NEEDS WORK
-#, python-brace-format
-msgid "Showing folder selection for: {file_path}"
-msgstr "Visar mappval för: {file_path}"
+msgid "Connection test failed"
+msgstr "Anslutningstest misslyckades"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 237
-# File: usr/share/isovault/ui/dialogs.py, line: 266
+# File: usr/share/isovault/ui/window.py, line: 195
 #: NEEDS WORK
-msgid "Select Destination Folder"
-msgstr "Välj destinationsmapp"
+msgid "Warning: Could not connect to S3 storage"
+msgstr "Varning: Kunde inte ansluta till S3-lagring"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 238
+# File: usr/share/isovault/ui/window.py, line: 210
+# File: usr/share/isovault/ui/window.py, line: 590
+#: NEEDS WORK
+msgid "Please configure S3 credentials first"
+msgstr "Vänligen konfigurera S3-uppgifter först"
+# 
+# File: usr/share/isovault/ui/window.py, line: 230
 #: NEEDS WORK
 #, python-brace-format
-msgid "Choose which folder to upload '{filename}' to:"
-msgstr "Välj vilken mapp du vill ladda upp '{filename}' till:"
+msgid "Link copied: {url}"
+msgstr "Länk kopierad: {url}"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 256
+# File: usr/share/isovault/ui/window.py, line: 291
 #: NEEDS WORK
 #, python-brace-format
-msgid "Showing folder selection for {file_count} files: {file_names}"
-msgstr "Visar mappval för {file_count} filer: {file_names}"
+msgid "Uploading {filename}..."
+msgstr "Laddar upp {filename}..."
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 263
+# File: usr/share/isovault/ui/window.py, line: 479
 #: NEEDS WORK
 #, python-brace-format
-msgid ""
-"\n"
-"... and {more_count} more files"
-msgstr "... och {more_count} fler filer"
+msgid "Upload failed for {filename}"
+msgstr "Uppladdning misslyckades för {filename}"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 267
+# File: usr/share/isovault/ui/window.py, line: 308
 #: NEEDS WORK
 #, python-brace-format
-msgid ""
-"Choose which folder to upload {file_count} files to:\n"
-"\n"
-"{file_list}"
-msgstr ""
-"Välj vilken mapp du vill ladda upp {file_count} filer till:\n"
-"\n"
-"{file_list}"
+msgid "Starting batch upload: {file_count} files to folder: {folder}"
+msgstr "Startar batchuppladdning: {file_count} filer till mapp: {folder}"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 285
+# File: usr/share/isovault/ui/window.py, line: 336
 #: NEEDS WORK
 #, python-brace-format
-msgid "Single folder dialog response: '{response}' for file: {file_path}"
-msgstr "Enkel mappdialogsvar: '{response}' för fil: {file_path}"
+msgid "Uploading {current}/{total}: {filename}"
+msgstr "Laddar upp {current}/{total}: {filename}"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 294
+# File: usr/share/isovault/ui/window.py, line: 533
 #: NEEDS WORK
 #, python-brace-format
-msgid "Selected folder: {folder}"
-msgstr "Vald mapp: {folder}"
+msgid "Batch upload error for {filename}"
+msgstr "Batchuppladdningsfel för {filename}"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 297
-# File: usr/share/isovault/ui/dialogs.py, line: 319
+# File: usr/share/isovault/ui/window.py, line: 385
 #: NEEDS WORK
 #, python-brace-format
-msgid "Unknown response: {response}"
-msgstr "Okänt svar: {response}"
+msgid "Successfully uploaded all {total} files!"
+msgstr "Framgångsrikt uppladdade alla {total} filer!"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 298
-# File: usr/share/isovault/ui/dialogs.py, line: 320
-#: NEEDS WORK
-msgid "Error"
-msgstr "Fel"
-# 
-# File: usr/share/isovault/ui/dialogs.py, line: 298
-# File: usr/share/isovault/ui/dialogs.py, line: 320
+# File: usr/share/isovault/ui/window.py, line: 387
 #: NEEDS WORK
 #, python-brace-format
-msgid "Unknown folder selection: {response}"
-msgstr "Okänd mappval: {response}"
+msgid "Upload complete: {completed} successful, {failed} failed"
+msgstr "Uppladdning klar: {completed} lyckad, {failed} misslyckad"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 300
-#: NEEDS WORK
-msgid "Upload cancelled by user"
-msgstr "Uppladdning avbruten av användaren"
-# 
-# File: usr/share/isovault/ui/dialogs.py, line: 305
+# File: usr/share/isovault/ui/window.py, line: 407
 #: NEEDS WORK
 #, python-brace-format
-msgid "Multiple folder dialog response: '{response}' for {file_count} files"
-msgstr "Flera mappdialogsvar: '{response}' för {file_count} filer"
+msgid "Successfully uploaded {filename}"
+msgstr "Framgångsrikt uppladdad {filename}"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 314
+# File: usr/share/isovault/ui/window.py, line: 417
 #: NEEDS WORK
 #, python-brace-format
-msgid "Selected folder: {folder} for {file_count} files"
-msgstr "Vald mapp: {folder} för {file_count} filer"
+msgid "Failed to upload {filename}"
+msgstr "Misslyckades med att ladda upp {filename}"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 322
-#: NEEDS WORK
-msgid "Batch upload cancelled by user"
-msgstr "Batchuppladdning avbruten av användaren"
-# 
-# File: usr/share/isovault/ui/dialogs.py, line: 351
+# File: usr/share/isovault/ui/window.py, line: 423
 #: NEEDS WORK
 #, python-brace-format
-msgid "... and {more_count} more files"
-msgstr "... och {more_count} fler filer"
+msgid "Downloading {filename}..."
+msgstr "Laddar ner {filename}..."
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 353
+# File: usr/share/isovault/ui/window.py, line: 611
 #: NEEDS WORK
 #, python-brace-format
-msgid "Found {invalid_count} invalid files"
-msgstr "Hittade {invalid_count} ogiltiga filer"
+msgid "Download failed for {filename}"
+msgstr "Nedladdning misslyckades för {filename}"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 355
+# File: usr/share/isovault/ui/window.py, line: 439
 #: NEEDS WORK
 #, python-brace-format
-msgid " ({valid_count} valid files will be uploaded)"
-msgstr "({valid_count} giltiga filer kommer att laddas upp)"
+msgid "Successfully downloaded {filename}"
+msgstr "Nedladdningen av {filename} lyckades"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 359
-#: NEEDS WORK
-msgid "File Validation Results"
-msgstr "Filvalideringsresultat"
-# 
-# File: usr/share/isovault/ui/dialogs.py, line: 363
-#: NEEDS WORK
-msgid "Continue"
-msgstr "Fortsätt"
-# 
-# File: usr/share/isovault/models/settings.py, line: 54
+# File: usr/share/isovault/ui/window.py, line: 441
 #: NEEDS WORK
 #, python-brace-format
-msgid "Config file not found: {config_file}"
-msgstr "Konfigurationsfil hittades inte: {config_file}"
+msgid "Failed to download {filename}"
+msgstr "Misslyckades med att ladda ner {filename}"
 # 
-# File: usr/share/isovault/models/settings.py, line: 73
+# File: usr/share/isovault/ui/window.py, line: 452
 #: NEEDS WORK
 #, python-brace-format
-msgid "Settings loaded from: {config_file}"
-msgstr "Inställningar laddade från: {config_file}"
+msgid "Deleting {filename}..."
+msgstr "Tar bort {filename}..."
 # 
-# File: usr/share/isovault/models/settings.py, line: 77
+# File: usr/share/isovault/ui/window.py, line: 646
 #: NEEDS WORK
 #, python-brace-format
-msgid "Error loading settings: {error}"
-msgstr "Fel vid inläsning av inställningar: {error}"
+msgid "Delete failed for {filename}"
+msgstr "Borttagning misslyckades för {filename}"
 # 
-# File: usr/share/isovault/models/settings.py, line: 98
+# File: usr/share/isovault/ui/window.py, line: 465
 #: NEEDS WORK
 #, python-brace-format
-msgid "Settings saved to: {config_file}"
-msgstr "Inställningar sparade till: {config_file}"
+msgid "Successfully deleted {filename}"
+msgstr "Framgångsrikt raderad {filename}"
 # 
-# File: usr/share/isovault/models/settings.py, line: 102
+# File: usr/share/isovault/ui/window.py, line: 475
 #: NEEDS WORK
 #, python-brace-format
-msgid "Error saving settings: {error}"
-msgstr "Fel vid sparande av inställningar: {error}"
+msgid "Failed to delete {filename}"
+msgstr "Misslyckades med att ta bort {filename}"
 # 
-# File: usr/share/isovault/models/settings.py, line: 138
+# File: usr/share/isovault/ui/window.py, line: 485
 #: NEEDS WORK
-msgid "Access key is required"
-msgstr "Åtkomstnyckel krävs"
+#, python-brace-format
+msgid "Refreshing files for folder: {folder}"
+msgstr "Uppdaterar filer för mapp: {folder}"
 # 
-# File: usr/share/isovault/models/settings.py, line: 141
+# File: usr/share/isovault/ui/window.py, line: 487
 #: NEEDS WORK
-msgid "Secret key is required"
-msgstr "Hemlig nyckel krävs"
+msgid "Loading files..."
+msgstr "Laddar filer..."
 # 
-# File: usr/share/isovault/models/settings.py, line: 144
+# File: usr/share/isovault/ui/window.py, line: 686
 #: NEEDS WORK
-msgid "Endpoint URL is required"
-msgstr "Endpoint-URL krävs"
+msgid "Failed to refresh file list"
+msgstr "Misslyckades med att uppdatera fillistan"
 # 
-# File: usr/share/isovault/models/settings.py, line: 147
+# File: usr/share/isovault/ui/window.py, line: 507
 #: NEEDS WORK
-msgid "Bucket name is required"
-msgstr "Bucketnamn krävs"
+msgid "Failed to connect to S3 storage. Check credentials and connection."
+msgstr "Misslyckades med att ansluta till S3-lagring. Kontrollera autentiseringsuppgifter och anslutning."
 # 
-# File: usr/share/isovault/models/settings.py, line: 149
+# File: usr/share/isovault/ui/window.py, line: 522
 #: NEEDS WORK
-msgid "Configuration is valid"
-msgstr "Konfigurationen är giltig"
+#, python-brace-format
+msgid "1 file{folder_text}"
+msgstr "1 fil{mapp_text}"
+# 
+# File: usr/share/isovault/ui/window.py, line: 524
+#: NEEDS WORK
+#, python-brace-format
+msgid "{count} files{folder_text}"
+msgstr "{count} filer{folder_text}"
+# 
+# File: usr/share/isovault/ui/window.py, line: 748
+#: NEEDS WORK
+msgid "Failed to update index files"
+msgstr "Misslyckades med att uppdatera indexfiler"
+# 
+# File: usr/share/isovault/ui/window.py, line: 593
+#: NEEDS WORK
+msgid "Updating index files..."
+msgstr "Uppdaterar indexfiler..."
+# 
+# File: usr/share/isovault/ui/window.py, line: 599
+#: NEEDS WORK
+msgid "Index files updated!"
+msgstr "Indexfiler uppdaterade!"
+# 
+# File: usr/share/isovault/ui/window.py, line: 637
+#: NEEDS WORK
+msgid "S3 credentials removed"
+msgstr "S3-uppgifter borttagna"
+# 
+# File: usr/share/isovault/ui/window.py, line: 839
+#: NEEDS WORK
+msgid "An unexpected error occurred"
+msgstr "Ett oväntat fel inträffade"
+# 
+# File: usr/share/isovault/ui/components.py, line: 33
+#: NEEDS WORK
+msgid "Progress"
+msgstr "Framsteg"
+# 
+# File: usr/share/isovault/ui/components.py, line: 43
+#: NEEDS WORK
+#, python-brace-format
+msgid "Progress update: {progress:.1f}%"
+msgstr "Uppdatering av framsteg: {progress:.1f}%"
+# 
+# File: usr/share/isovault/ui/components.py, line: 50
+#: NEEDS WORK
+msgid "Hiding progress"
+msgstr "Dölja framsteg"
+# 
+# File: usr/share/isovault/ui/components.py, line: 123
+#: NEEDS WORK
+msgid "File Name"
+msgstr "Filnamn"
+# 
+# File: usr/share/isovault/ui/components.py, line: 132
+#: NEEDS WORK
+msgid "Folder"
+msgstr "Mapp"
+# 
+# File: usr/share/isovault/ui/components.py, line: 140
+#: NEEDS WORK
+msgid "Size"
+msgstr "Storlek"
+# 
+# File: usr/share/isovault/ui/components.py, line: 148
+#: NEEDS WORK
+msgid "Modified"
+msgstr "Modifierad"

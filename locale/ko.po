@@ -16,6 +16,152 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: attranslate\n"
 # 
+# File: usr/share/isovault/main.py, line: 46
+#: NEEDS WORK
+msgid "Show version information"
+msgstr "버전 정보 표시"
+# 
+# File: usr/share/isovault/main.py, line: 55
+#: NEEDS WORK
+msgid "Enable debug mode"
+msgstr "디버그 모드 활성화"
+# 
+# File: usr/share/isovault/main.py, line: 63
+#: NEEDS WORK
+#, python-brace-format
+msgid "Starting {app_name} v{version}"
+msgstr "{app_name} v{version} 시작 중"
+# 
+# File: usr/share/isovault/main.py, line: 81
+#: NEEDS WORK
+#, python-brace-format
+msgid "Shutting down {app_name}"
+msgstr "{app_name} 종료 중"
+# 
+# File: usr/share/isovault/main.py, line: 101
+#: NEEDS WORK
+msgid "Debug mode enabled"
+msgstr "디버그 모드 활성화됨"
+# 
+# File: usr/share/isovault/main.py, line: 184
+#: NEEDS WORK
+#, python-brace-format
+msgid "Warning: Could not apply CSS: {error}"
+msgstr "경고: CSS를 적용할 수 없습니다: {error}"
+# 
+# File: usr/share/isovault/main.py, line: 198
+#: NEEDS WORK
+#, python-brace-format
+msgid "Warning: Could not set keyboard shortcuts: {error}"
+msgstr "경고: 키보드 단축키를 설정할 수 없습니다: {error}"
+# 
+# File: usr/share/isovault/main.py, line: 217
+#: NEEDS WORK
+#, python-brace-format
+msgid ""
+"\n"
+"Received signal {signum}, shutting down gracefully..."
+msgstr "신호 {signum}을(를) 수신했습니다. 정상적으로 종료합니다..."
+# 
+# File: usr/share/isovault/main.py, line: 242
+#: NEEDS WORK
+msgid "Error: Missing required dependencies:"
+msgstr "오류: 필수 종속성이 누락되었습니다:"
+# 
+# File: usr/share/isovault/main.py, line: 245
+#: NEEDS WORK
+#, python-brace-format
+msgid ""
+"\n"
+"Install them with: pip install {deps}"
+msgstr "다음과 같이 설치하세요: pip install {deps}"
+# 
+# File: usr/share/isovault/main.py, line: 257
+#: NEEDS WORK
+#, python-brace-format
+msgid "Warning: Could not set application name: {error}"
+msgstr "경고: 애플리케이션 이름을 설정할 수 없습니다: {error}"
+# 
+# File: usr/share/isovault/main.py, line: 264
+#: NEEDS WORK
+#, python-brace-format
+msgid "Warning: Could not set signal handlers: {error}"
+msgstr "경고: 신호 처리기를 설정할 수 없습니다: {error}"
+# 
+# File: usr/share/isovault/main.py, line: 271
+#: NEEDS WORK
+#, python-brace-format
+msgid "Warning: Could not create config directory: {error}"
+msgstr "경고: 구성 디렉터리를 생성할 수 없습니다: {error}"
+# 
+# File: usr/share/isovault/main.py, line: 288
+#: NEEDS WORK
+msgid ""
+"\n"
+"Interrupted by user"
+msgstr "사용자에 의해 중단됨"
+# 
+# File: usr/share/isovault/main.py, line: 291
+#: NEEDS WORK
+#, python-brace-format
+msgid "Fatal error: {error}"
+msgstr "치명적인 오류: {error}"
+# 
+# File: usr/share/isovault/models/settings.py, line: 54
+#: NEEDS WORK
+#, python-brace-format
+msgid "Config file not found: {config_file}"
+msgstr "구성 파일을 찾을 수 없습니다: {config_file}"
+# 
+# File: usr/share/isovault/models/settings.py, line: 73
+#: NEEDS WORK
+#, python-brace-format
+msgid "Settings loaded from: {config_file}"
+msgstr "설정이 로드되었습니다: {config_file}"
+# 
+# File: usr/share/isovault/models/settings.py, line: 77
+#: NEEDS WORK
+#, python-brace-format
+msgid "Error loading settings: {error}"
+msgstr "설정 로드 오류: {error}"
+# 
+# File: usr/share/isovault/models/settings.py, line: 98
+#: NEEDS WORK
+#, python-brace-format
+msgid "Settings saved to: {config_file}"
+msgstr "설정이 저장되었습니다: {config_file}"
+# 
+# File: usr/share/isovault/models/settings.py, line: 102
+#: NEEDS WORK
+#, python-brace-format
+msgid "Error saving settings: {error}"
+msgstr "설정 저장 오류: {error}"
+# 
+# File: usr/share/isovault/models/settings.py, line: 138
+#: NEEDS WORK
+msgid "Access key is required"
+msgstr "액세스 키가 필요합니다"
+# 
+# File: usr/share/isovault/models/settings.py, line: 141
+#: NEEDS WORK
+msgid "Secret key is required"
+msgstr "비밀 키가 필요합니다"
+# 
+# File: usr/share/isovault/models/settings.py, line: 144
+#: NEEDS WORK
+msgid "Endpoint URL is required"
+msgstr "엔드포인트 URL이 필요합니다."
+# 
+# File: usr/share/isovault/models/settings.py, line: 147
+#: NEEDS WORK
+msgid "Bucket name is required"
+msgstr "버킷 이름은 필수입니다"
+# 
+# File: usr/share/isovault/models/settings.py, line: 149
+#: NEEDS WORK
+msgid "Configuration is valid"
+msgstr "구성이 유효합니다"
+# 
 # File: usr/share/isovault/utils/helpers.py, line: 57
 #: NEEDS WORK
 #, python-brace-format
@@ -90,72 +236,6 @@ msgstr "유효한 URL 형식"
 #, python-brace-format
 msgid "Error extracting MD5 from {filename}: {error}"
 msgstr "{filename}에서 MD5 추출 오류: {error}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 129
-# File: usr/share/isovault/services/s3_service.py, line: 191
-#: NEEDS WORK
-msgid "No S3 connection available"
-msgstr "S3 연결을 사용할 수 없습니다."
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 135
-#: NEEDS WORK
-#, python-brace-format
-msgid "Upload validation failed: {message}"
-msgstr "업로드 유효성 검사 실패: {message}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 139
-#: NEEDS WORK
-#, python-brace-format
-msgid "Invalid folder. Must be one of: {folders}"
-msgstr "유효하지 않은 폴더입니다. 다음 중 하나여야 합니다: {folders}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 174
-#: NEEDS WORK
-#, python-brace-format
-msgid "Upload failed: {error}"
-msgstr "업로드 실패: {error}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 177
-#: NEEDS WORK
-#, python-brace-format
-msgid "Upload error: {error}"
-msgstr "업로드 오류: {error}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 245
-#: NEEDS WORK
-#, python-brace-format
-msgid "Error listing files: {error}"
-msgstr "파일 나열 오류: {error}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 270
-#: NEEDS WORK
-#, python-brace-format
-msgid "Delete failed: {error}"
-msgstr "삭제 실패: {error}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 316
-#: NEEDS WORK
-#, python-brace-format
-msgid "Download failed: {error}"
-msgstr "다운로드 실패: {error}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 339
-#: NEEDS WORK
-#, python-brace-format
-msgid "Error getting file info: {error}"
-msgstr "파일 정보 가져오기 오류: {error}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 379
-#: NEEDS WORK
-#, python-brace-format
-msgid "Error uploading content: {error}"
-msgstr "콘텐츠 업로드 오류: {error}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 395
-#: NEEDS WORK
-#, python-brace-format
-msgid "Error reading file content: {error}"
-msgstr "파일 내용 읽기 오류: {error}"
 # 
 # File: usr/share/isovault/services/file_validator.py, line: 27
 #: NEEDS WORK
@@ -307,312 +387,109 @@ msgstr "ISOVault에 의해 생성됨"
 msgid "Downloading..."
 msgstr "다운로드 중..."
 # 
-# File: usr/share/isovault/main.py, line: 46
+# File: usr/share/isovault/services/s3_service.py, line: 129
+# File: usr/share/isovault/services/s3_service.py, line: 191
 #: NEEDS WORK
-msgid "Show version information"
-msgstr "버전 정보 표시"
+msgid "No S3 connection available"
+msgstr "S3 연결을 사용할 수 없습니다."
 # 
-# File: usr/share/isovault/main.py, line: 55
-#: NEEDS WORK
-msgid "Enable debug mode"
-msgstr "디버그 모드 활성화"
-# 
-# File: usr/share/isovault/main.py, line: 63
+# File: usr/share/isovault/services/s3_service.py, line: 135
 #: NEEDS WORK
 #, python-brace-format
-msgid "Starting {app_name} v{version}"
-msgstr "{app_name} v{version} 시작 중"
+msgid "Upload validation failed: {message}"
+msgstr "업로드 유효성 검사 실패: {message}"
 # 
-# File: usr/share/isovault/main.py, line: 81
+# File: usr/share/isovault/services/s3_service.py, line: 139
 #: NEEDS WORK
 #, python-brace-format
-msgid "Shutting down {app_name}"
-msgstr "{app_name} 종료 중"
+msgid "Invalid folder. Must be one of: {folders}"
+msgstr "유효하지 않은 폴더입니다. 다음 중 하나여야 합니다: {folders}"
 # 
-# File: usr/share/isovault/main.py, line: 101
-#: NEEDS WORK
-msgid "Debug mode enabled"
-msgstr "디버그 모드 활성화됨"
-# 
-# File: usr/share/isovault/main.py, line: 184
+# File: usr/share/isovault/services/s3_service.py, line: 174
 #: NEEDS WORK
 #, python-brace-format
-msgid "Warning: Could not apply CSS: {error}"
-msgstr "경고: CSS를 적용할 수 없습니다: {error}"
+msgid "Upload failed: {error}"
+msgstr "업로드 실패: {error}"
 # 
-# File: usr/share/isovault/main.py, line: 198
+# File: usr/share/isovault/services/s3_service.py, line: 177
 #: NEEDS WORK
 #, python-brace-format
-msgid "Warning: Could not set keyboard shortcuts: {error}"
-msgstr "경고: 키보드 단축키를 설정할 수 없습니다: {error}"
+msgid "Upload error: {error}"
+msgstr "업로드 오류: {error}"
 # 
-# File: usr/share/isovault/main.py, line: 217
+# File: usr/share/isovault/services/s3_service.py, line: 245
+#: NEEDS WORK
+#, python-brace-format
+msgid "Error listing files: {error}"
+msgstr "파일 나열 오류: {error}"
+# 
+# File: usr/share/isovault/services/s3_service.py, line: 270
+#: NEEDS WORK
+#, python-brace-format
+msgid "Delete failed: {error}"
+msgstr "삭제 실패: {error}"
+# 
+# File: usr/share/isovault/services/s3_service.py, line: 316
+#: NEEDS WORK
+#, python-brace-format
+msgid "Download failed: {error}"
+msgstr "다운로드 실패: {error}"
+# 
+# File: usr/share/isovault/services/s3_service.py, line: 339
+#: NEEDS WORK
+#, python-brace-format
+msgid "Error getting file info: {error}"
+msgstr "파일 정보 가져오기 오류: {error}"
+# 
+# File: usr/share/isovault/services/s3_service.py, line: 379
+#: NEEDS WORK
+#, python-brace-format
+msgid "Error uploading content: {error}"
+msgstr "콘텐츠 업로드 오류: {error}"
+# 
+# File: usr/share/isovault/services/s3_service.py, line: 395
+#: NEEDS WORK
+#, python-brace-format
+msgid "Error reading file content: {error}"
+msgstr "파일 내용 읽기 오류: {error}"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 40
+#: NEEDS WORK
+msgid "Select ISO or MD5 files to upload"
+msgstr "ISO 또는 MD5 파일을 업로드할 선택하십시오."
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 68
+#: NEEDS WORK
+#, python-brace-format
+msgid "Save {filename}"
+msgstr "저장 {filename}"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 102
+#: NEEDS WORK
+msgid "Delete File"
+msgstr "파일 삭제"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 103
 #: NEEDS WORK
 #, python-brace-format
 msgid ""
+"Are you sure you want to delete '{filename}'?\n"
 "\n"
-"Received signal {signum}, shutting down gracefully..."
-msgstr "신호 {signum}을(를) 수신했습니다. 정상적으로 종료합니다..."
-# 
-# File: usr/share/isovault/main.py, line: 242
-#: NEEDS WORK
-msgid "Error: Missing required dependencies:"
-msgstr "오류: 필수 종속성이 누락되었습니다:"
-# 
-# File: usr/share/isovault/main.py, line: 245
-#: NEEDS WORK
-#, python-brace-format
-msgid ""
+"This action cannot be undone."
+msgstr ""
+"'{filename}'을(를) 삭제하시겠습니까?\n"
 "\n"
-"Install them with: pip install {deps}"
-msgstr "다음과 같이 설치하세요: pip install {deps}"
+"이 작업은 실행 취소할 수 없습니다."
 # 
-# File: usr/share/isovault/main.py, line: 257
-#: NEEDS WORK
-#, python-brace-format
-msgid "Warning: Could not set application name: {error}"
-msgstr "경고: 애플리케이션 이름을 설정할 수 없습니다: {error}"
+# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
 # 
-# File: usr/share/isovault/main.py, line: 264
+# File: usr/share/isovault/ui/preferences.py, line: 355
+# File: usr/share/isovault/ui/dialogs.py, line: 106
+# File: usr/share/isovault/ui/dialogs.py, line: 244
+# File: usr/share/isovault/ui/dialogs.py, line: 275
 #: NEEDS WORK
-#, python-brace-format
-msgid "Warning: Could not set signal handlers: {error}"
-msgstr "경고: 신호 처리기를 설정할 수 없습니다: {error}"
-# 
-# File: usr/share/isovault/main.py, line: 271
-#: NEEDS WORK
-#, python-brace-format
-msgid "Warning: Could not create config directory: {error}"
-msgstr "경고: 구성 디렉터리를 생성할 수 없습니다: {error}"
-# 
-# File: usr/share/isovault/main.py, line: 288
-#: NEEDS WORK
-msgid ""
-"\n"
-"Interrupted by user"
-msgstr "사용자에 의해 중단됨"
-# 
-# File: usr/share/isovault/main.py, line: 291
-#: NEEDS WORK
-#, python-brace-format
-msgid "Fatal error: {error}"
-msgstr "치명적인 오류: {error}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 108
-#: NEEDS WORK
-msgid "Ready"
-msgstr "준비 완료"
-# 
-# File: usr/share/isovault/ui/window.py, line: 139
-#: NEEDS WORK
-msgid "Please configure S3 credentials in Preferences"
-msgstr "환경 설정에서 S3 자격 증명을 구성해 주십시오."
-# 
-# File: usr/share/isovault/ui/window.py, line: 195
-#: NEEDS WORK
-msgid "Warning: Could not connect to S3 storage"
-msgstr "경고: S3 저장소에 연결할 수 없습니다."
-# 
-# File: usr/share/isovault/ui/window.py, line: 210
-# File: usr/share/isovault/ui/window.py, line: 590
-#: NEEDS WORK
-msgid "Please configure S3 credentials first"
-msgstr "먼저 S3 자격 증명을 구성해 주세요."
-# 
-# File: usr/share/isovault/ui/window.py, line: 230
-#: NEEDS WORK
-#, python-brace-format
-msgid "Link copied: {url}"
-msgstr "링크가 복사되었습니다: {url}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 291
-#: NEEDS WORK
-#, python-brace-format
-msgid "Uploading {filename}..."
-msgstr "{filename} 업로드 중..."
-# 
-# File: usr/share/isovault/ui/window.py, line: 308
-#: NEEDS WORK
-#, python-brace-format
-msgid "Starting batch upload: {file_count} files to folder: {folder}"
-msgstr "배치 업로드 시작: {file_count} 파일을 폴더: {folder}에 업로드 중"
-# 
-# File: usr/share/isovault/ui/window.py, line: 336
-#: NEEDS WORK
-#, python-brace-format
-msgid "Uploading {current}/{total}: {filename}"
-msgstr "업로드 중 {current}/{total}: {filename}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 354
-#: NEEDS WORK
-#, python-brace-format
-msgid "Batch upload error for {filename}: {error}"
-msgstr "{filename}에 대한 일괄 업로드 오류: {error}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 385
-#: NEEDS WORK
-#, python-brace-format
-msgid "Successfully uploaded all {total} files!"
-msgstr "모든 {total} 파일이 성공적으로 업로드되었습니다!"
-# 
-# File: usr/share/isovault/ui/window.py, line: 387
-#: NEEDS WORK
-#, python-brace-format
-msgid "Upload complete: {completed} successful, {failed} failed"
-msgstr "업로드 완료: {completed} 성공, {failed} 실패"
-# 
-# File: usr/share/isovault/ui/window.py, line: 407
-#: NEEDS WORK
-#, python-brace-format
-msgid "Successfully uploaded {filename}"
-msgstr "{filename}이(가) 성공적으로 업로드되었습니다."
-# 
-# File: usr/share/isovault/ui/window.py, line: 417
-#: NEEDS WORK
-#, python-brace-format
-msgid "Failed to upload {filename}"
-msgstr "{filename} 업로드에 실패했습니다."
-# 
-# File: usr/share/isovault/ui/window.py, line: 423
-#: NEEDS WORK
-#, python-brace-format
-msgid "Downloading {filename}..."
-msgstr "{filename} 다운로드 중..."
-# 
-# File: usr/share/isovault/ui/window.py, line: 439
-#: NEEDS WORK
-#, python-brace-format
-msgid "Successfully downloaded {filename}"
-msgstr "{filename}이(가) 성공적으로 다운로드되었습니다."
-# 
-# File: usr/share/isovault/ui/window.py, line: 441
-#: NEEDS WORK
-#, python-brace-format
-msgid "Failed to download {filename}"
-msgstr "{filename} 다운로드에 실패했습니다."
-# 
-# File: usr/share/isovault/ui/window.py, line: 452
-#: NEEDS WORK
-#, python-brace-format
-msgid "Deleting {filename}..."
-msgstr "{filename} 삭제 중..."
-# 
-# File: usr/share/isovault/ui/window.py, line: 465
-#: NEEDS WORK
-#, python-brace-format
-msgid "Successfully deleted {filename}"
-msgstr "{filename}이(가) 성공적으로 삭제되었습니다."
-# 
-# File: usr/share/isovault/ui/window.py, line: 475
-#: NEEDS WORK
-#, python-brace-format
-msgid "Failed to delete {filename}"
-msgstr "{filename}을(를) 삭제하지 못했습니다."
-# 
-# File: usr/share/isovault/ui/window.py, line: 485
-#: NEEDS WORK
-#, python-brace-format
-msgid "Refreshing files for folder: {folder}"
-msgstr "폴더의 파일 새로 고침: {folder}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 487
-#: NEEDS WORK
-msgid "Loading files..."
-msgstr "파일 로딩 중..."
-# 
-# File: usr/share/isovault/ui/window.py, line: 507
-#: NEEDS WORK
-msgid "Failed to connect to S3 storage. Check credentials and connection."
-msgstr "S3 스토리지에 연결하지 못했습니다. 자격 증명 및 연결을 확인하세요."
-# 
-# File: usr/share/isovault/ui/window.py, line: 519
-#: NEEDS WORK
-#, python-brace-format
-msgid " in {folder}"
-msgstr "{폴더}에"
-# 
-# File: usr/share/isovault/ui/window.py, line: 522
-#: NEEDS WORK
-#, python-brace-format
-msgid "1 file{folder_text}"
-msgstr "1 파일{folder_text}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 524
-#: NEEDS WORK
-#, python-brace-format
-msgid "{count} files{folder_text}"
-msgstr "{count} 파일{folder_text}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 593
-#: NEEDS WORK
-msgid "Updating index files..."
-msgstr "인덱스 파일 업데이트 중..."
-# 
-# File: usr/share/isovault/ui/window.py, line: 599
-#: NEEDS WORK
-msgid "Index files updated!"
-msgstr "인덱스 파일이 업데이트되었습니다!"
-# 
-# File: usr/share/isovault/ui/window.py, line: 637
-#: NEEDS WORK
-msgid "S3 credentials removed"
-msgstr "S3 자격 증명 제거됨"
-# 
-# File: usr/share/isovault/ui/components.py, line: 33
-#: NEEDS WORK
-msgid "Progress"
-msgstr "진행 상황"
-# 
-# File: usr/share/isovault/ui/components.py, line: 43
-#: NEEDS WORK
-#, python-brace-format
-msgid "Progress update: {progress:.1f}%"
-msgstr "진행 상황 업데이트: {progress:.1f}%"
-# 
-# File: usr/share/isovault/ui/components.py, line: 50
-#: NEEDS WORK
-msgid "Hiding progress"
-msgstr "진행 숨기기"
-# 
-# File: usr/share/isovault/ui/components.py, line: 123
-#: NEEDS WORK
-msgid "File Name"
-msgstr "파일 이름"
-# 
-# File: usr/share/isovault/ui/components.py, line: 132
-#: NEEDS WORK
-msgid "Folder"
-msgstr "폴더"
-# 
-# File: usr/share/isovault/ui/components.py, line: 140
-#: NEEDS WORK
-msgid "Size"
-msgstr "크기"
-# 
-# File: usr/share/isovault/ui/components.py, line: 148
-#: NEEDS WORK
-msgid "Modified"
-msgstr "수정됨"
-# 
-# File: usr/share/isovault/ui/components.py, line: 257
-#: NEEDS WORK
-msgid "Filter by folder:"
-msgstr "폴더로 필터링:"
-# 
-# File: usr/share/isovault/ui/components.py, line: 263
-#: NEEDS WORK
-msgid "All folders"
-msgstr "모든 폴더"
-# 
-# File: usr/share/isovault/ui/components.py, line: 277
-#: NEEDS WORK
-msgid "Copy Link"
-msgstr "링크 복사"
-# 
-# File: usr/share/isovault/ui/components.py, line: 284
-#: NEEDS WORK
-msgid "Download"
-msgstr "다운로드"
+msgid "Cancel"
+msgstr "취소"
 # 
 # #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
 # 
@@ -622,15 +499,186 @@ msgstr "다운로드"
 msgid "Delete"
 msgstr "삭제"
 # 
-# File: usr/share/isovault/ui/components.py, line: 357
+# File: usr/share/isovault/ui/dialogs.py, line: 125
 #: NEEDS WORK
-msgid "Upload ISO file"
-msgstr "ISO 파일 업로드"
+msgid "ISO file manager for CDN77 storage"
+msgstr "CDN77 스토리지용 ISO 파일 관리자"
 # 
-# File: usr/share/isovault/ui/components.py, line: 365
+# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
+# 
+# File: usr/share/isovault/ui/preferences.py, line: 336
+# File: usr/share/isovault/ui/dialogs.py, line: 144
+# File: usr/share/isovault/ui/dialogs.py, line: 164
+# File: usr/share/isovault/ui/dialogs.py, line: 363
 #: NEEDS WORK
-msgid "Application menu"
-msgstr "애플리케이션 메뉴"
+msgid "OK"
+msgstr "확인"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 177
+#: NEEDS WORK
+msgid "Supported files (ISO, MD5)"
+msgstr "지원되는 파일 (ISO, MD5)"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 186
+#: NEEDS WORK
+msgid "All files"
+msgstr "모든 파일"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 211
+#: NEEDS WORK
+msgid "Upload Error"
+msgstr "업로드 오류"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 211
+#: NEEDS WORK
+msgid "Failed to get file paths"
+msgstr "파일 경로를 가져오는 데 실패했습니다."
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 213
+#: NEEDS WORK
+msgid "Upload"
+msgstr "업로드"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 213
+#: NEEDS WORK
+msgid "No files selected"
+msgstr "선택된 파일이 없습니다"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 227
+#: NEEDS WORK
+msgid "Download Error"
+msgstr "다운로드 오류"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 227
+#: NEEDS WORK
+msgid "Failed to get save path"
+msgstr "저장 경로를 가져오는 데 실패했습니다."
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 234
+#: NEEDS WORK
+#, python-brace-format
+msgid "Showing folder selection for: {file_path}"
+msgstr "폴더 선택 표시: {file_path}"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 237
+# File: usr/share/isovault/ui/dialogs.py, line: 266
+#: NEEDS WORK
+msgid "Select Destination Folder"
+msgstr "대상 폴더 선택"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 238
+#: NEEDS WORK
+#, python-brace-format
+msgid "Choose which folder to upload '{filename}' to:"
+msgstr "'{filename}'을(를) 업로드할 폴더를 선택하세요:"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 256
+#: NEEDS WORK
+#, python-brace-format
+msgid "Showing folder selection for {file_count} files: {file_names}"
+msgstr "{file_names} 파일에 대한 폴더 선택 표시: {file_count}"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 263
+#: NEEDS WORK
+#, python-brace-format
+msgid ""
+"\n"
+"... and {more_count} more files"
+msgstr "... 및 {more_count}개의 추가 파일"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 267
+#: NEEDS WORK
+#, python-brace-format
+msgid ""
+"Choose which folder to upload {file_count} files to:\n"
+"\n"
+"{file_list}"
+msgstr ""
+"업로드할 {file_count} 파일의 폴더를 선택하세요:\n"
+"\n"
+"{file_list}"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 285
+#: NEEDS WORK
+#, python-brace-format
+msgid "Single folder dialog response: '{response}' for file: {file_path}"
+msgstr "단일 폴더 대화 상자 응답: '{response}' 파일: {file_path}"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 294
+#: NEEDS WORK
+#, python-brace-format
+msgid "Selected folder: {folder}"
+msgstr "선택한 폴더: {folder}"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 297
+# File: usr/share/isovault/ui/dialogs.py, line: 319
+#: NEEDS WORK
+#, python-brace-format
+msgid "Unknown response: {response}"
+msgstr "알 수 없는 응답: {response}"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 298
+# File: usr/share/isovault/ui/dialogs.py, line: 320
+#: NEEDS WORK
+msgid "Error"
+msgstr "오류"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 298
+# File: usr/share/isovault/ui/dialogs.py, line: 320
+#: NEEDS WORK
+#, python-brace-format
+msgid "Unknown folder selection: {response}"
+msgstr "알 수 없는 폴더 선택: {response}"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 300
+#: NEEDS WORK
+msgid "Upload cancelled by user"
+msgstr "사용자에 의해 업로드가 취소되었습니다."
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 305
+#: NEEDS WORK
+#, python-brace-format
+msgid "Multiple folder dialog response: '{response}' for {file_count} files"
+msgstr "다중 폴더 대화 상자 응답: '{response}' {file_count}개의 파일에 대해"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 314
+#: NEEDS WORK
+#, python-brace-format
+msgid "Selected folder: {folder} for {file_count} files"
+msgstr "선택한 폴더: {folder}의 {file_count} 파일"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 322
+#: NEEDS WORK
+msgid "Batch upload cancelled by user"
+msgstr "사용자에 의해 배치 업로드가 취소되었습니다."
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 351
+#: NEEDS WORK
+#, python-brace-format
+msgid "... and {more_count} more files"
+msgstr "... 및 {more_count}개의 추가 파일"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 353
+#: NEEDS WORK
+#, python-brace-format
+msgid "Found {invalid_count} invalid files"
+msgstr "{invalid_count}개의 잘못된 파일을 찾았습니다."
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 355
+#: NEEDS WORK
+#, python-brace-format
+msgid " ({valid_count} valid files will be uploaded)"
+msgstr "({valid_count} 유효한 파일이 업로드됩니다)"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 359
+#: NEEDS WORK
+msgid "File Validation Results"
+msgstr "파일 검증 결과"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 363
+#: NEEDS WORK
+msgid "Continue"
+msgstr "계속"
 # 
 # #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
 # 
@@ -639,21 +687,6 @@ msgstr "애플리케이션 메뉴"
 #: NEEDS WORK
 msgid "Preferences"
 msgstr "환경 설정"
-# 
-# File: usr/share/isovault/ui/components.py, line: 373
-#: NEEDS WORK
-msgid "Force Update Index"
-msgstr "강제 업데이트 인덱스"
-# 
-# File: usr/share/isovault/ui/components.py, line: 374
-#: NEEDS WORK
-msgid "Refresh"
-msgstr "새로 고침"
-# 
-# File: usr/share/isovault/ui/components.py, line: 379
-#: NEEDS WORK
-msgid "About"
-msgstr "정보"
 # 
 # File: usr/share/isovault/ui/preferences.py, line: 53
 #: NEEDS WORK
@@ -859,16 +892,6 @@ msgstr "연결 실패. 자격 증명을 확인하세요."
 msgid "Connection Test Result"
 msgstr "연결 테스트 결과"
 # 
-# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
-# 
-# File: usr/share/isovault/ui/preferences.py, line: 336
-# File: usr/share/isovault/ui/dialogs.py, line: 144
-# File: usr/share/isovault/ui/dialogs.py, line: 164
-# File: usr/share/isovault/ui/dialogs.py, line: 363
-#: NEEDS WORK
-msgid "OK"
-msgstr "확인"
-# 
 # File: usr/share/isovault/ui/preferences.py, line: 351
 #: NEEDS WORK
 msgid "Reset Settings"
@@ -885,266 +908,290 @@ msgstr ""
 "\n"
 "이 작업은 실행 취소할 수 없습니다."
 # 
-# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
-# 
-# File: usr/share/isovault/ui/preferences.py, line: 355
-# File: usr/share/isovault/ui/dialogs.py, line: 106
-# File: usr/share/isovault/ui/dialogs.py, line: 244
-# File: usr/share/isovault/ui/dialogs.py, line: 275
+# File: usr/share/isovault/ui/window.py, line: 117
 #: NEEDS WORK
-msgid "Cancel"
-msgstr "취소"
+msgid "Filter by folder"
+msgstr "폴더로 필터링"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 40
+# File: usr/share/isovault/ui/components.py, line: 263
 #: NEEDS WORK
-msgid "Select ISO or MD5 files to upload"
-msgstr "ISO 또는 MD5 파일을 업로드할 선택하십시오."
+msgid "All folders"
+msgstr "모든 폴더"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 68
+# File: usr/share/isovault/ui/components.py, line: 277
 #: NEEDS WORK
-#, python-brace-format
-msgid "Save {filename}"
-msgstr "저장 {filename}"
+msgid "Copy Link"
+msgstr "링크 복사"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 102
+# File: usr/share/isovault/ui/window.py, line: 130
 #: NEEDS WORK
-msgid "Delete File"
-msgstr "파일 삭제"
+msgid "Copy public URL"
+msgstr "공용 URL 복사"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 103
+# File: usr/share/isovault/ui/components.py, line: 284
 #: NEEDS WORK
-#, python-brace-format
-msgid ""
-"Are you sure you want to delete '{filename}'?\n"
-"\n"
-"This action cannot be undone."
-msgstr ""
-"'{filename}'을(를) 삭제하시겠습니까?\n"
-"\n"
-"이 작업은 실행 취소할 수 없습니다."
+msgid "Download"
+msgstr "다운로드"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 125
+# File: usr/share/isovault/ui/window.py, line: 143
 #: NEEDS WORK
-msgid "ISO file manager for CDN77 storage"
-msgstr "CDN77 스토리지용 ISO 파일 관리자"
+msgid "Save file locally"
+msgstr "로컬에 파일 저장"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 177
+# File: usr/share/isovault/ui/window.py, line: 156
 #: NEEDS WORK
-msgid "Supported files (ISO, MD5)"
-msgstr "지원되는 파일 (ISO, MD5)"
+msgid "Remove from storage"
+msgstr "저장소에서 제거"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 186
+# File: usr/share/isovault/ui/window.py, line: 228
 #: NEEDS WORK
-msgid "All files"
-msgstr "모든 파일"
+msgid "Upload ISO"
+msgstr "ISO 업로드"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 211
+# File: usr/share/isovault/ui/components.py, line: 365
 #: NEEDS WORK
-msgid "Upload Error"
-msgstr "업로드 오류"
+msgid "Application menu"
+msgstr "애플리케이션 메뉴"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 211
+# File: usr/share/isovault/ui/components.py, line: 373
 #: NEEDS WORK
-msgid "Failed to get file paths"
-msgstr "파일 경로를 가져오는 데 실패했습니다."
+msgid "Force Update Index"
+msgstr "강제 업데이트 인덱스"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 213
+# File: usr/share/isovault/ui/components.py, line: 374
 #: NEEDS WORK
-msgid "Upload"
-msgstr "업로드"
+msgid "Refresh"
+msgstr "새로 고침"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 213
+# File: usr/share/isovault/ui/components.py, line: 379
 #: NEEDS WORK
-msgid "No files selected"
-msgstr "선택된 파일이 없습니다"
+msgid "About"
+msgstr "정보"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 227
+# File: usr/share/isovault/ui/window.py, line: 108
 #: NEEDS WORK
-msgid "Download Error"
-msgstr "다운로드 오류"
+msgid "Ready"
+msgstr "준비 완료"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 227
+# File: usr/share/isovault/ui/window.py, line: 139
 #: NEEDS WORK
-msgid "Failed to get save path"
-msgstr "저장 경로를 가져오는 데 실패했습니다."
+msgid "Please configure S3 credentials in Preferences"
+msgstr "환경 설정에서 S3 자격 증명을 구성해 주십시오."
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 234
+# File: usr/share/isovault/ui/window.py, line: 366
 #: NEEDS WORK
-#, python-brace-format
-msgid "Showing folder selection for: {file_path}"
-msgstr "폴더 선택 표시: {file_path}"
+msgid "Connection test failed"
+msgstr "연결 테스트 실패"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 237
-# File: usr/share/isovault/ui/dialogs.py, line: 266
+# File: usr/share/isovault/ui/window.py, line: 195
 #: NEEDS WORK
-msgid "Select Destination Folder"
-msgstr "대상 폴더 선택"
+msgid "Warning: Could not connect to S3 storage"
+msgstr "경고: S3 저장소에 연결할 수 없습니다."
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 238
+# File: usr/share/isovault/ui/window.py, line: 210
+# File: usr/share/isovault/ui/window.py, line: 590
+#: NEEDS WORK
+msgid "Please configure S3 credentials first"
+msgstr "먼저 S3 자격 증명을 구성해 주세요."
+# 
+# File: usr/share/isovault/ui/window.py, line: 230
 #: NEEDS WORK
 #, python-brace-format
-msgid "Choose which folder to upload '{filename}' to:"
-msgstr "'{filename}'을(를) 업로드할 폴더를 선택하세요:"
+msgid "Link copied: {url}"
+msgstr "링크가 복사되었습니다: {url}"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 256
+# File: usr/share/isovault/ui/window.py, line: 291
 #: NEEDS WORK
 #, python-brace-format
-msgid "Showing folder selection for {file_count} files: {file_names}"
-msgstr "{file_names} 파일에 대한 폴더 선택 표시: {file_count}"
+msgid "Uploading {filename}..."
+msgstr "{filename} 업로드 중..."
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 263
+# File: usr/share/isovault/ui/window.py, line: 479
 #: NEEDS WORK
 #, python-brace-format
-msgid ""
-"\n"
-"... and {more_count} more files"
-msgstr "... 및 {more_count}개의 추가 파일"
+msgid "Upload failed for {filename}"
+msgstr "{filename} 업로드 실패"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 267
+# File: usr/share/isovault/ui/window.py, line: 308
 #: NEEDS WORK
 #, python-brace-format
-msgid ""
-"Choose which folder to upload {file_count} files to:\n"
-"\n"
-"{file_list}"
-msgstr ""
-"업로드할 {file_count} 파일의 폴더를 선택하세요:\n"
-"\n"
-"{file_list}"
+msgid "Starting batch upload: {file_count} files to folder: {folder}"
+msgstr "배치 업로드 시작: {file_count} 파일을 폴더: {folder}에 업로드 중"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 285
+# File: usr/share/isovault/ui/window.py, line: 336
 #: NEEDS WORK
 #, python-brace-format
-msgid "Single folder dialog response: '{response}' for file: {file_path}"
-msgstr "단일 폴더 대화 상자 응답: '{response}' 파일: {file_path}"
+msgid "Uploading {current}/{total}: {filename}"
+msgstr "업로드 중 {current}/{total}: {filename}"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 294
+# File: usr/share/isovault/ui/window.py, line: 533
 #: NEEDS WORK
 #, python-brace-format
-msgid "Selected folder: {folder}"
-msgstr "선택한 폴더: {folder}"
+msgid "Batch upload error for {filename}"
+msgstr "{filename}에 대한 일괄 업로드 오류"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 297
-# File: usr/share/isovault/ui/dialogs.py, line: 319
+# File: usr/share/isovault/ui/window.py, line: 385
 #: NEEDS WORK
 #, python-brace-format
-msgid "Unknown response: {response}"
-msgstr "알 수 없는 응답: {response}"
+msgid "Successfully uploaded all {total} files!"
+msgstr "모든 {total} 파일이 성공적으로 업로드되었습니다!"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 298
-# File: usr/share/isovault/ui/dialogs.py, line: 320
-#: NEEDS WORK
-msgid "Error"
-msgstr "오류"
-# 
-# File: usr/share/isovault/ui/dialogs.py, line: 298
-# File: usr/share/isovault/ui/dialogs.py, line: 320
+# File: usr/share/isovault/ui/window.py, line: 387
 #: NEEDS WORK
 #, python-brace-format
-msgid "Unknown folder selection: {response}"
-msgstr "알 수 없는 폴더 선택: {response}"
+msgid "Upload complete: {completed} successful, {failed} failed"
+msgstr "업로드 완료: {completed} 성공, {failed} 실패"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 300
-#: NEEDS WORK
-msgid "Upload cancelled by user"
-msgstr "사용자에 의해 업로드가 취소되었습니다."
-# 
-# File: usr/share/isovault/ui/dialogs.py, line: 305
+# File: usr/share/isovault/ui/window.py, line: 407
 #: NEEDS WORK
 #, python-brace-format
-msgid "Multiple folder dialog response: '{response}' for {file_count} files"
-msgstr "다중 폴더 대화 상자 응답: '{response}' {file_count}개의 파일에 대해"
+msgid "Successfully uploaded {filename}"
+msgstr "{filename}이(가) 성공적으로 업로드되었습니다."
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 314
+# File: usr/share/isovault/ui/window.py, line: 417
 #: NEEDS WORK
 #, python-brace-format
-msgid "Selected folder: {folder} for {file_count} files"
-msgstr "선택한 폴더: {folder}의 {file_count} 파일"
+msgid "Failed to upload {filename}"
+msgstr "{filename} 업로드에 실패했습니다."
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 322
-#: NEEDS WORK
-msgid "Batch upload cancelled by user"
-msgstr "사용자에 의해 배치 업로드가 취소되었습니다."
-# 
-# File: usr/share/isovault/ui/dialogs.py, line: 351
+# File: usr/share/isovault/ui/window.py, line: 423
 #: NEEDS WORK
 #, python-brace-format
-msgid "... and {more_count} more files"
-msgstr "... 및 {more_count}개의 추가 파일"
+msgid "Downloading {filename}..."
+msgstr "{filename} 다운로드 중..."
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 353
+# File: usr/share/isovault/ui/window.py, line: 611
 #: NEEDS WORK
 #, python-brace-format
-msgid "Found {invalid_count} invalid files"
-msgstr "{invalid_count}개의 잘못된 파일을 찾았습니다."
+msgid "Download failed for {filename}"
+msgstr "{filename} 다운로드 실패"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 355
+# File: usr/share/isovault/ui/window.py, line: 439
 #: NEEDS WORK
 #, python-brace-format
-msgid " ({valid_count} valid files will be uploaded)"
-msgstr "({valid_count} 유효한 파일이 업로드됩니다)"
+msgid "Successfully downloaded {filename}"
+msgstr "{filename}이(가) 성공적으로 다운로드되었습니다."
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 359
-#: NEEDS WORK
-msgid "File Validation Results"
-msgstr "파일 검증 결과"
-# 
-# File: usr/share/isovault/ui/dialogs.py, line: 363
-#: NEEDS WORK
-msgid "Continue"
-msgstr "계속"
-# 
-# File: usr/share/isovault/models/settings.py, line: 54
+# File: usr/share/isovault/ui/window.py, line: 441
 #: NEEDS WORK
 #, python-brace-format
-msgid "Config file not found: {config_file}"
-msgstr "구성 파일을 찾을 수 없습니다: {config_file}"
+msgid "Failed to download {filename}"
+msgstr "{filename} 다운로드에 실패했습니다."
 # 
-# File: usr/share/isovault/models/settings.py, line: 73
+# File: usr/share/isovault/ui/window.py, line: 452
 #: NEEDS WORK
 #, python-brace-format
-msgid "Settings loaded from: {config_file}"
-msgstr "설정이 로드되었습니다: {config_file}"
+msgid "Deleting {filename}..."
+msgstr "{filename} 삭제 중..."
 # 
-# File: usr/share/isovault/models/settings.py, line: 77
+# File: usr/share/isovault/ui/window.py, line: 646
 #: NEEDS WORK
 #, python-brace-format
-msgid "Error loading settings: {error}"
-msgstr "설정 로드 오류: {error}"
+msgid "Delete failed for {filename}"
+msgstr "{filename} 삭제 실패"
 # 
-# File: usr/share/isovault/models/settings.py, line: 98
+# File: usr/share/isovault/ui/window.py, line: 465
 #: NEEDS WORK
 #, python-brace-format
-msgid "Settings saved to: {config_file}"
-msgstr "설정이 저장되었습니다: {config_file}"
+msgid "Successfully deleted {filename}"
+msgstr "{filename}이(가) 성공적으로 삭제되었습니다."
 # 
-# File: usr/share/isovault/models/settings.py, line: 102
+# File: usr/share/isovault/ui/window.py, line: 475
 #: NEEDS WORK
 #, python-brace-format
-msgid "Error saving settings: {error}"
-msgstr "설정 저장 오류: {error}"
+msgid "Failed to delete {filename}"
+msgstr "{filename}을(를) 삭제하지 못했습니다."
 # 
-# File: usr/share/isovault/models/settings.py, line: 138
+# File: usr/share/isovault/ui/window.py, line: 485
 #: NEEDS WORK
-msgid "Access key is required"
-msgstr "액세스 키가 필요합니다"
+#, python-brace-format
+msgid "Refreshing files for folder: {folder}"
+msgstr "폴더의 파일 새로 고침: {folder}"
 # 
-# File: usr/share/isovault/models/settings.py, line: 141
+# File: usr/share/isovault/ui/window.py, line: 487
 #: NEEDS WORK
-msgid "Secret key is required"
-msgstr "비밀 키가 필요합니다"
+msgid "Loading files..."
+msgstr "파일 로딩 중..."
 # 
-# File: usr/share/isovault/models/settings.py, line: 144
+# File: usr/share/isovault/ui/window.py, line: 686
 #: NEEDS WORK
-msgid "Endpoint URL is required"
-msgstr "엔드포인트 URL이 필요합니다."
+msgid "Failed to refresh file list"
+msgstr "파일 목록을 새로 고치지 못했습니다."
 # 
-# File: usr/share/isovault/models/settings.py, line: 147
+# File: usr/share/isovault/ui/window.py, line: 507
 #: NEEDS WORK
-msgid "Bucket name is required"
-msgstr "버킷 이름은 필수입니다"
+msgid "Failed to connect to S3 storage. Check credentials and connection."
+msgstr "S3 스토리지에 연결하지 못했습니다. 자격 증명 및 연결을 확인하세요."
 # 
-# File: usr/share/isovault/models/settings.py, line: 149
+# File: usr/share/isovault/ui/window.py, line: 522
 #: NEEDS WORK
-msgid "Configuration is valid"
-msgstr "구성이 유효합니다"
+#, python-brace-format
+msgid "1 file{folder_text}"
+msgstr "1 파일{folder_text}"
+# 
+# File: usr/share/isovault/ui/window.py, line: 524
+#: NEEDS WORK
+#, python-brace-format
+msgid "{count} files{folder_text}"
+msgstr "{count} 파일{folder_text}"
+# 
+# File: usr/share/isovault/ui/window.py, line: 748
+#: NEEDS WORK
+msgid "Failed to update index files"
+msgstr "인덱스 파일을 업데이트하지 못했습니다."
+# 
+# File: usr/share/isovault/ui/window.py, line: 593
+#: NEEDS WORK
+msgid "Updating index files..."
+msgstr "인덱스 파일 업데이트 중..."
+# 
+# File: usr/share/isovault/ui/window.py, line: 599
+#: NEEDS WORK
+msgid "Index files updated!"
+msgstr "인덱스 파일이 업데이트되었습니다!"
+# 
+# File: usr/share/isovault/ui/window.py, line: 637
+#: NEEDS WORK
+msgid "S3 credentials removed"
+msgstr "S3 자격 증명 제거됨"
+# 
+# File: usr/share/isovault/ui/window.py, line: 839
+#: NEEDS WORK
+msgid "An unexpected error occurred"
+msgstr "예기치 않은 오류가 발생했습니다."
+# 
+# File: usr/share/isovault/ui/components.py, line: 33
+#: NEEDS WORK
+msgid "Progress"
+msgstr "진행 상황"
+# 
+# File: usr/share/isovault/ui/components.py, line: 43
+#: NEEDS WORK
+#, python-brace-format
+msgid "Progress update: {progress:.1f}%"
+msgstr "진행 상황 업데이트: {progress:.1f}%"
+# 
+# File: usr/share/isovault/ui/components.py, line: 50
+#: NEEDS WORK
+msgid "Hiding progress"
+msgstr "진행 숨기기"
+# 
+# File: usr/share/isovault/ui/components.py, line: 123
+#: NEEDS WORK
+msgid "File Name"
+msgstr "파일 이름"
+# 
+# File: usr/share/isovault/ui/components.py, line: 132
+#: NEEDS WORK
+msgid "Folder"
+msgstr "폴더"
+# 
+# File: usr/share/isovault/ui/components.py, line: 140
+#: NEEDS WORK
+msgid "Size"
+msgstr "크기"
+# 
+# File: usr/share/isovault/ui/components.py, line: 148
+#: NEEDS WORK
+msgid "Modified"
+msgstr "수정됨"

@@ -16,6 +16,152 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: attranslate\n"
 # 
+# File: usr/share/isovault/main.py, line: 46
+#: NEEDS WORK
+msgid "Show version information"
+msgstr "Εμφάνιση πληροφοριών έκδοσης"
+# 
+# File: usr/share/isovault/main.py, line: 55
+#: NEEDS WORK
+msgid "Enable debug mode"
+msgstr "Ενεργοποίηση λειτουργίας αποσφαλμάτωσης"
+# 
+# File: usr/share/isovault/main.py, line: 63
+#: NEEDS WORK
+#, python-brace-format
+msgid "Starting {app_name} v{version}"
+msgstr "Ξεκινώντας {app_name} v{version}"
+# 
+# File: usr/share/isovault/main.py, line: 81
+#: NEEDS WORK
+#, python-brace-format
+msgid "Shutting down {app_name}"
+msgstr "Κλείσιμο {app_name}"
+# 
+# File: usr/share/isovault/main.py, line: 101
+#: NEEDS WORK
+msgid "Debug mode enabled"
+msgstr "Ενεργοποιημένη λειτουργία αποσφαλμάτωσης"
+# 
+# File: usr/share/isovault/main.py, line: 184
+#: NEEDS WORK
+#, python-brace-format
+msgid "Warning: Could not apply CSS: {error}"
+msgstr "Προειδοποίηση: Δεν ήταν δυνατή η εφαρμογή CSS: {error}"
+# 
+# File: usr/share/isovault/main.py, line: 198
+#: NEEDS WORK
+#, python-brace-format
+msgid "Warning: Could not set keyboard shortcuts: {error}"
+msgstr "Προειδοποίηση: Δεν ήταν δυνατή η ρύθμιση των συντομεύσεων πληκτρολογίου: {error}"
+# 
+# File: usr/share/isovault/main.py, line: 217
+#: NEEDS WORK
+#, python-brace-format
+msgid ""
+"\n"
+"Received signal {signum}, shutting down gracefully..."
+msgstr "Λάβατε σήμα {signum}, κλείσιμο με ασφάλεια..."
+# 
+# File: usr/share/isovault/main.py, line: 242
+#: NEEDS WORK
+msgid "Error: Missing required dependencies:"
+msgstr "Σφάλμα: Λείπουν απαιτούμενες εξαρτήσεις:"
+# 
+# File: usr/share/isovault/main.py, line: 245
+#: NEEDS WORK
+#, python-brace-format
+msgid ""
+"\n"
+"Install them with: pip install {deps}"
+msgstr "Εγκαταστήστε τα με: pip install {deps}"
+# 
+# File: usr/share/isovault/main.py, line: 257
+#: NEEDS WORK
+#, python-brace-format
+msgid "Warning: Could not set application name: {error}"
+msgstr "Προειδοποίηση: Δεν ήταν δυνατή η ρύθμιση του ονόματος εφαρμογής: {error}"
+# 
+# File: usr/share/isovault/main.py, line: 264
+#: NEEDS WORK
+#, python-brace-format
+msgid "Warning: Could not set signal handlers: {error}"
+msgstr "Προειδοποίηση: Δεν ήταν δυνατή η ρύθμιση των χειριστών σήματος: {error}"
+# 
+# File: usr/share/isovault/main.py, line: 271
+#: NEEDS WORK
+#, python-brace-format
+msgid "Warning: Could not create config directory: {error}"
+msgstr "Προειδοποίηση: Δεν ήταν δυνατή η δημιουργία του καταλόγου ρυθμίσεων: {error}"
+# 
+# File: usr/share/isovault/main.py, line: 288
+#: NEEDS WORK
+msgid ""
+"\n"
+"Interrupted by user"
+msgstr "Διακόπηκε από τον χρήστη"
+# 
+# File: usr/share/isovault/main.py, line: 291
+#: NEEDS WORK
+#, python-brace-format
+msgid "Fatal error: {error}"
+msgstr "Καταστροφικό σφάλμα: {error}"
+# 
+# File: usr/share/isovault/models/settings.py, line: 54
+#: NEEDS WORK
+#, python-brace-format
+msgid "Config file not found: {config_file}"
+msgstr "Δεν βρέθηκε το αρχείο ρυθμίσεων: {config_file}"
+# 
+# File: usr/share/isovault/models/settings.py, line: 73
+#: NEEDS WORK
+#, python-brace-format
+msgid "Settings loaded from: {config_file}"
+msgstr "Ρυθμίσεις φορτώθηκαν από: {config_file}"
+# 
+# File: usr/share/isovault/models/settings.py, line: 77
+#: NEEDS WORK
+#, python-brace-format
+msgid "Error loading settings: {error}"
+msgstr "Σφάλμα κατά τη φόρτωση ρυθμίσεων: {error}"
+# 
+# File: usr/share/isovault/models/settings.py, line: 98
+#: NEEDS WORK
+#, python-brace-format
+msgid "Settings saved to: {config_file}"
+msgstr "Ρυθμίσεις αποθηκεύτηκαν στο: {config_file}"
+# 
+# File: usr/share/isovault/models/settings.py, line: 102
+#: NEEDS WORK
+#, python-brace-format
+msgid "Error saving settings: {error}"
+msgstr "Σφάλμα κατά την αποθήκευση ρυθμίσεων: {error}"
+# 
+# File: usr/share/isovault/models/settings.py, line: 138
+#: NEEDS WORK
+msgid "Access key is required"
+msgstr "Απαιτείται κλειδί πρόσβασης"
+# 
+# File: usr/share/isovault/models/settings.py, line: 141
+#: NEEDS WORK
+msgid "Secret key is required"
+msgstr "Απαιτείται μυστικό κλειδί"
+# 
+# File: usr/share/isovault/models/settings.py, line: 144
+#: NEEDS WORK
+msgid "Endpoint URL is required"
+msgstr "Η διεύθυνση URL του τερματικού είναι υποχρεωτική"
+# 
+# File: usr/share/isovault/models/settings.py, line: 147
+#: NEEDS WORK
+msgid "Bucket name is required"
+msgstr "Το όνομα του κάδου είναι υποχρεωτικό"
+# 
+# File: usr/share/isovault/models/settings.py, line: 149
+#: NEEDS WORK
+msgid "Configuration is valid"
+msgstr "Η διαμόρφωση είναι έγκυρη"
+# 
 # File: usr/share/isovault/utils/helpers.py, line: 57
 #: NEEDS WORK
 #, python-brace-format
@@ -90,72 +236,6 @@ msgstr "Έγκυρη μορφή URL"
 #, python-brace-format
 msgid "Error extracting MD5 from {filename}: {error}"
 msgstr "Σφάλμα κατά την εξαγωγή MD5 από {filename}: {error}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 129
-# File: usr/share/isovault/services/s3_service.py, line: 191
-#: NEEDS WORK
-msgid "No S3 connection available"
-msgstr "Δεν είναι διαθέσιμη σύνδεση S3"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 135
-#: NEEDS WORK
-#, python-brace-format
-msgid "Upload validation failed: {message}"
-msgstr "Η επικύρωση της μεταφόρτωσης απέτυχε: {message}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 139
-#: NEEDS WORK
-#, python-brace-format
-msgid "Invalid folder. Must be one of: {folders}"
-msgstr "Μη έγκυρος φάκελος. Πρέπει να είναι ένας από τους: {folders}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 174
-#: NEEDS WORK
-#, python-brace-format
-msgid "Upload failed: {error}"
-msgstr "Η μεταφόρτωση απέτυχε: {error}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 177
-#: NEEDS WORK
-#, python-brace-format
-msgid "Upload error: {error}"
-msgstr "Σφάλμα κατά την ανέβασμα: {error}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 245
-#: NEEDS WORK
-#, python-brace-format
-msgid "Error listing files: {error}"
-msgstr "Σφάλμα κατά την καταχώριση αρχείων: {error}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 270
-#: NEEDS WORK
-#, python-brace-format
-msgid "Delete failed: {error}"
-msgstr "Η διαγραφή απέτυχε: {error}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 316
-#: NEEDS WORK
-#, python-brace-format
-msgid "Download failed: {error}"
-msgstr "Η λήψη απέτυχε: {error}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 339
-#: NEEDS WORK
-#, python-brace-format
-msgid "Error getting file info: {error}"
-msgstr "Σφάλμα κατά την απόκτηση πληροφοριών αρχείου: {error}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 379
-#: NEEDS WORK
-#, python-brace-format
-msgid "Error uploading content: {error}"
-msgstr "Σφάλμα κατά την ανέβασμα περιεχομένου: {error}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 395
-#: NEEDS WORK
-#, python-brace-format
-msgid "Error reading file content: {error}"
-msgstr "Σφάλμα κατά την ανάγνωση του περιεχομένου του αρχείου: {error}"
 # 
 # File: usr/share/isovault/services/file_validator.py, line: 27
 #: NEEDS WORK
@@ -307,312 +387,109 @@ msgstr "Δημιουργήθηκε από το ISOVault"
 msgid "Downloading..."
 msgstr "Κατεβάζω..."
 # 
-# File: usr/share/isovault/main.py, line: 46
+# File: usr/share/isovault/services/s3_service.py, line: 129
+# File: usr/share/isovault/services/s3_service.py, line: 191
 #: NEEDS WORK
-msgid "Show version information"
-msgstr "Εμφάνιση πληροφοριών έκδοσης"
+msgid "No S3 connection available"
+msgstr "Δεν είναι διαθέσιμη σύνδεση S3"
 # 
-# File: usr/share/isovault/main.py, line: 55
-#: NEEDS WORK
-msgid "Enable debug mode"
-msgstr "Ενεργοποίηση λειτουργίας αποσφαλμάτωσης"
-# 
-# File: usr/share/isovault/main.py, line: 63
+# File: usr/share/isovault/services/s3_service.py, line: 135
 #: NEEDS WORK
 #, python-brace-format
-msgid "Starting {app_name} v{version}"
-msgstr "Ξεκινώντας {app_name} v{version}"
+msgid "Upload validation failed: {message}"
+msgstr "Η επικύρωση της μεταφόρτωσης απέτυχε: {message}"
 # 
-# File: usr/share/isovault/main.py, line: 81
+# File: usr/share/isovault/services/s3_service.py, line: 139
 #: NEEDS WORK
 #, python-brace-format
-msgid "Shutting down {app_name}"
-msgstr "Κλείσιμο {app_name}"
+msgid "Invalid folder. Must be one of: {folders}"
+msgstr "Μη έγκυρος φάκελος. Πρέπει να είναι ένας από τους: {folders}"
 # 
-# File: usr/share/isovault/main.py, line: 101
-#: NEEDS WORK
-msgid "Debug mode enabled"
-msgstr "Ενεργοποιημένη λειτουργία αποσφαλμάτωσης"
-# 
-# File: usr/share/isovault/main.py, line: 184
+# File: usr/share/isovault/services/s3_service.py, line: 174
 #: NEEDS WORK
 #, python-brace-format
-msgid "Warning: Could not apply CSS: {error}"
-msgstr "Προειδοποίηση: Δεν ήταν δυνατή η εφαρμογή CSS: {error}"
+msgid "Upload failed: {error}"
+msgstr "Η μεταφόρτωση απέτυχε: {error}"
 # 
-# File: usr/share/isovault/main.py, line: 198
+# File: usr/share/isovault/services/s3_service.py, line: 177
 #: NEEDS WORK
 #, python-brace-format
-msgid "Warning: Could not set keyboard shortcuts: {error}"
-msgstr "Προειδοποίηση: Δεν ήταν δυνατή η ρύθμιση των συντομεύσεων πληκτρολογίου: {error}"
+msgid "Upload error: {error}"
+msgstr "Σφάλμα κατά την ανέβασμα: {error}"
 # 
-# File: usr/share/isovault/main.py, line: 217
+# File: usr/share/isovault/services/s3_service.py, line: 245
+#: NEEDS WORK
+#, python-brace-format
+msgid "Error listing files: {error}"
+msgstr "Σφάλμα κατά την καταχώριση αρχείων: {error}"
+# 
+# File: usr/share/isovault/services/s3_service.py, line: 270
+#: NEEDS WORK
+#, python-brace-format
+msgid "Delete failed: {error}"
+msgstr "Η διαγραφή απέτυχε: {error}"
+# 
+# File: usr/share/isovault/services/s3_service.py, line: 316
+#: NEEDS WORK
+#, python-brace-format
+msgid "Download failed: {error}"
+msgstr "Η λήψη απέτυχε: {error}"
+# 
+# File: usr/share/isovault/services/s3_service.py, line: 339
+#: NEEDS WORK
+#, python-brace-format
+msgid "Error getting file info: {error}"
+msgstr "Σφάλμα κατά την απόκτηση πληροφοριών αρχείου: {error}"
+# 
+# File: usr/share/isovault/services/s3_service.py, line: 379
+#: NEEDS WORK
+#, python-brace-format
+msgid "Error uploading content: {error}"
+msgstr "Σφάλμα κατά την ανέβασμα περιεχομένου: {error}"
+# 
+# File: usr/share/isovault/services/s3_service.py, line: 395
+#: NEEDS WORK
+#, python-brace-format
+msgid "Error reading file content: {error}"
+msgstr "Σφάλμα κατά την ανάγνωση του περιεχομένου του αρχείου: {error}"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 40
+#: NEEDS WORK
+msgid "Select ISO or MD5 files to upload"
+msgstr "Επιλέξτε αρχεία ISO ή MD5 για μεταφόρτωση"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 68
+#: NEEDS WORK
+#, python-brace-format
+msgid "Save {filename}"
+msgstr "Αποθήκευση {filename}"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 102
+#: NEEDS WORK
+msgid "Delete File"
+msgstr "Διαγραφή Αρχείου"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 103
 #: NEEDS WORK
 #, python-brace-format
 msgid ""
+"Are you sure you want to delete '{filename}'?\n"
 "\n"
-"Received signal {signum}, shutting down gracefully..."
-msgstr "Λάβατε σήμα {signum}, κλείσιμο με ασφάλεια..."
-# 
-# File: usr/share/isovault/main.py, line: 242
-#: NEEDS WORK
-msgid "Error: Missing required dependencies:"
-msgstr "Σφάλμα: Λείπουν απαιτούμενες εξαρτήσεις:"
-# 
-# File: usr/share/isovault/main.py, line: 245
-#: NEEDS WORK
-#, python-brace-format
-msgid ""
+"This action cannot be undone."
+msgstr ""
+"Είστε σίγουροι ότι θέλετε να διαγράψετε το '{filename}';\n"
 "\n"
-"Install them with: pip install {deps}"
-msgstr "Εγκαταστήστε τα με: pip install {deps}"
+"Αυτή η ενέργεια δεν μπορεί να αναιρεθεί."
 # 
-# File: usr/share/isovault/main.py, line: 257
-#: NEEDS WORK
-#, python-brace-format
-msgid "Warning: Could not set application name: {error}"
-msgstr "Προειδοποίηση: Δεν ήταν δυνατή η ρύθμιση του ονόματος εφαρμογής: {error}"
+# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
 # 
-# File: usr/share/isovault/main.py, line: 264
+# File: usr/share/isovault/ui/preferences.py, line: 355
+# File: usr/share/isovault/ui/dialogs.py, line: 106
+# File: usr/share/isovault/ui/dialogs.py, line: 244
+# File: usr/share/isovault/ui/dialogs.py, line: 275
 #: NEEDS WORK
-#, python-brace-format
-msgid "Warning: Could not set signal handlers: {error}"
-msgstr "Προειδοποίηση: Δεν ήταν δυνατή η ρύθμιση των χειριστών σήματος: {error}"
-# 
-# File: usr/share/isovault/main.py, line: 271
-#: NEEDS WORK
-#, python-brace-format
-msgid "Warning: Could not create config directory: {error}"
-msgstr "Προειδοποίηση: Δεν ήταν δυνατή η δημιουργία του καταλόγου ρυθμίσεων: {error}"
-# 
-# File: usr/share/isovault/main.py, line: 288
-#: NEEDS WORK
-msgid ""
-"\n"
-"Interrupted by user"
-msgstr "Διακόπηκε από τον χρήστη"
-# 
-# File: usr/share/isovault/main.py, line: 291
-#: NEEDS WORK
-#, python-brace-format
-msgid "Fatal error: {error}"
-msgstr "Καταστροφικό σφάλμα: {error}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 108
-#: NEEDS WORK
-msgid "Ready"
-msgstr "Έτοιμο"
-# 
-# File: usr/share/isovault/ui/window.py, line: 139
-#: NEEDS WORK
-msgid "Please configure S3 credentials in Preferences"
-msgstr "Παρακαλώ ρυθμίστε τα διαπιστευτήρια S3 στις Προτιμήσεις"
-# 
-# File: usr/share/isovault/ui/window.py, line: 195
-#: NEEDS WORK
-msgid "Warning: Could not connect to S3 storage"
-msgstr "Προειδοποίηση: Δεν ήταν δυνατή η σύνδεση με την αποθήκευση S3"
-# 
-# File: usr/share/isovault/ui/window.py, line: 210
-# File: usr/share/isovault/ui/window.py, line: 590
-#: NEEDS WORK
-msgid "Please configure S3 credentials first"
-msgstr "Παρακαλώ ρυθμίστε πρώτα τα διαπιστευτήρια S3"
-# 
-# File: usr/share/isovault/ui/window.py, line: 230
-#: NEEDS WORK
-#, python-brace-format
-msgid "Link copied: {url}"
-msgstr "Σύνδεσμος αντιγράφηκε: {url}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 291
-#: NEEDS WORK
-#, python-brace-format
-msgid "Uploading {filename}..."
-msgstr "Ανεβάζω {filename}..."
-# 
-# File: usr/share/isovault/ui/window.py, line: 308
-#: NEEDS WORK
-#, python-brace-format
-msgid "Starting batch upload: {file_count} files to folder: {folder}"
-msgstr "Έναρξη μαζικής μεταφόρτωσης: {file_count} αρχεία στον φάκελο: {folder}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 336
-#: NEEDS WORK
-#, python-brace-format
-msgid "Uploading {current}/{total}: {filename}"
-msgstr "Ανέβασμα {current}/{total}: {filename}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 354
-#: NEEDS WORK
-#, python-brace-format
-msgid "Batch upload error for {filename}: {error}"
-msgstr "Σφάλμα μαζικής μεταφόρτωσης για {filename}: {error}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 385
-#: NEEDS WORK
-#, python-brace-format
-msgid "Successfully uploaded all {total} files!"
-msgstr "Επιτυχώς ανέβασα όλα τα {total} αρχεία!"
-# 
-# File: usr/share/isovault/ui/window.py, line: 387
-#: NEEDS WORK
-#, python-brace-format
-msgid "Upload complete: {completed} successful, {failed} failed"
-msgstr "Η μεταφόρτωση ολοκληρώθηκε: {completed} επιτυχείς, {failed} αποτυχημένες"
-# 
-# File: usr/share/isovault/ui/window.py, line: 407
-#: NEEDS WORK
-#, python-brace-format
-msgid "Successfully uploaded {filename}"
-msgstr "Επιτυχώς ανέβηκε το {filename}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 417
-#: NEEDS WORK
-#, python-brace-format
-msgid "Failed to upload {filename}"
-msgstr "Αποτυχία φόρτωσης {filename}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 423
-#: NEEDS WORK
-#, python-brace-format
-msgid "Downloading {filename}..."
-msgstr "Κατεβάζω {filename}..."
-# 
-# File: usr/share/isovault/ui/window.py, line: 439
-#: NEEDS WORK
-#, python-brace-format
-msgid "Successfully downloaded {filename}"
-msgstr "Επιτυχής λήψη {filename}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 441
-#: NEEDS WORK
-#, python-brace-format
-msgid "Failed to download {filename}"
-msgstr "Αποτυχία λήψης {filename}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 452
-#: NEEDS WORK
-#, python-brace-format
-msgid "Deleting {filename}..."
-msgstr "Διαγραφή {filename}..."
-# 
-# File: usr/share/isovault/ui/window.py, line: 465
-#: NEEDS WORK
-#, python-brace-format
-msgid "Successfully deleted {filename}"
-msgstr "Επιτυχώς διαγράφηκε το {filename}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 475
-#: NEEDS WORK
-#, python-brace-format
-msgid "Failed to delete {filename}"
-msgstr "Αποτυχία διαγραφής {filename}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 485
-#: NEEDS WORK
-#, python-brace-format
-msgid "Refreshing files for folder: {folder}"
-msgstr "Ανανεώνοντας αρχεία για τον φάκελο: {folder}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 487
-#: NEEDS WORK
-msgid "Loading files..."
-msgstr "Φόρτωση αρχείων..."
-# 
-# File: usr/share/isovault/ui/window.py, line: 507
-#: NEEDS WORK
-msgid "Failed to connect to S3 storage. Check credentials and connection."
-msgstr "Αποτυχία σύνδεσης με την αποθήκευση S3. Ελέγξτε τα διαπιστευτήρια και τη σύνδεση."
-# 
-# File: usr/share/isovault/ui/window.py, line: 519
-#: NEEDS WORK
-#, python-brace-format
-msgid " in {folder}"
-msgstr "στον {φάκελο}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 522
-#: NEEDS WORK
-#, python-brace-format
-msgid "1 file{folder_text}"
-msgstr "1 αρχείο{folder_text}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 524
-#: NEEDS WORK
-#, python-brace-format
-msgid "{count} files{folder_text}"
-msgstr "{count} αρχεία{folder_text}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 593
-#: NEEDS WORK
-msgid "Updating index files..."
-msgstr "Ενημέρωση αρχείων ευρετηρίου..."
-# 
-# File: usr/share/isovault/ui/window.py, line: 599
-#: NEEDS WORK
-msgid "Index files updated!"
-msgstr "Τα αρχεία ευρετηρίου ενημερώθηκαν!"
-# 
-# File: usr/share/isovault/ui/window.py, line: 637
-#: NEEDS WORK
-msgid "S3 credentials removed"
-msgstr "Αφαιρέθηκαν τα διαπιστευτήρια S3"
-# 
-# File: usr/share/isovault/ui/components.py, line: 33
-#: NEEDS WORK
-msgid "Progress"
-msgstr "Πρόοδος"
-# 
-# File: usr/share/isovault/ui/components.py, line: 43
-#: NEEDS WORK
-#, python-brace-format
-msgid "Progress update: {progress:.1f}%"
-msgstr "Ενημέρωση προόδου: {progress:.1f}%"
-# 
-# File: usr/share/isovault/ui/components.py, line: 50
-#: NEEDS WORK
-msgid "Hiding progress"
-msgstr "Απόκρυψη προόδου"
-# 
-# File: usr/share/isovault/ui/components.py, line: 123
-#: NEEDS WORK
-msgid "File Name"
-msgstr "Όνομα Αρχείου"
-# 
-# File: usr/share/isovault/ui/components.py, line: 132
-#: NEEDS WORK
-msgid "Folder"
-msgstr "Φάκελος"
-# 
-# File: usr/share/isovault/ui/components.py, line: 140
-#: NEEDS WORK
-msgid "Size"
-msgstr "Μέγεθος"
-# 
-# File: usr/share/isovault/ui/components.py, line: 148
-#: NEEDS WORK
-msgid "Modified"
-msgstr "Τροποποιημένο"
-# 
-# File: usr/share/isovault/ui/components.py, line: 257
-#: NEEDS WORK
-msgid "Filter by folder:"
-msgstr "Φίλτρο κατά φάκελο:"
-# 
-# File: usr/share/isovault/ui/components.py, line: 263
-#: NEEDS WORK
-msgid "All folders"
-msgstr "Όλοι οι φάκελοι"
-# 
-# File: usr/share/isovault/ui/components.py, line: 277
-#: NEEDS WORK
-msgid "Copy Link"
-msgstr "Αντιγραφή Συνδέσμου"
-# 
-# File: usr/share/isovault/ui/components.py, line: 284
-#: NEEDS WORK
-msgid "Download"
-msgstr "Λήψη"
+msgid "Cancel"
+msgstr "Ακύρωση"
 # 
 # #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
 # 
@@ -622,15 +499,186 @@ msgstr "Λήψη"
 msgid "Delete"
 msgstr "Διαγραφή"
 # 
-# File: usr/share/isovault/ui/components.py, line: 357
+# File: usr/share/isovault/ui/dialogs.py, line: 125
 #: NEEDS WORK
-msgid "Upload ISO file"
-msgstr "Ανέβασμα αρχείου ISO"
+msgid "ISO file manager for CDN77 storage"
+msgstr "Διαχειριστής αρχείων ISO για αποθήκευση CDN77"
 # 
-# File: usr/share/isovault/ui/components.py, line: 365
+# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
+# 
+# File: usr/share/isovault/ui/preferences.py, line: 336
+# File: usr/share/isovault/ui/dialogs.py, line: 144
+# File: usr/share/isovault/ui/dialogs.py, line: 164
+# File: usr/share/isovault/ui/dialogs.py, line: 363
 #: NEEDS WORK
-msgid "Application menu"
-msgstr "Μενού εφαρμογής"
+msgid "OK"
+msgstr "Εντάξει"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 177
+#: NEEDS WORK
+msgid "Supported files (ISO, MD5)"
+msgstr "Υποστηριζόμενα αρχεία (ISO, MD5)"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 186
+#: NEEDS WORK
+msgid "All files"
+msgstr "Όλα τα αρχεία"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 211
+#: NEEDS WORK
+msgid "Upload Error"
+msgstr "Σφάλμα Μεταφόρτωσης"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 211
+#: NEEDS WORK
+msgid "Failed to get file paths"
+msgstr "Αποτυχία λήψης διαδρομών αρχείων"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 213
+#: NEEDS WORK
+msgid "Upload"
+msgstr "Ανέβασμα"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 213
+#: NEEDS WORK
+msgid "No files selected"
+msgstr "Δεν έχουν επιλεγεί αρχεία"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 227
+#: NEEDS WORK
+msgid "Download Error"
+msgstr "Σφάλμα Λήψης"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 227
+#: NEEDS WORK
+msgid "Failed to get save path"
+msgstr "Αποτυχία λήψης διαδρομής αποθήκευσης"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 234
+#: NEEDS WORK
+#, python-brace-format
+msgid "Showing folder selection for: {file_path}"
+msgstr "Εμφάνιση επιλογής φακέλου για: {file_path}"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 237
+# File: usr/share/isovault/ui/dialogs.py, line: 266
+#: NEEDS WORK
+msgid "Select Destination Folder"
+msgstr "Επιλέξτε Φάκελο Προορισμού"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 238
+#: NEEDS WORK
+#, python-brace-format
+msgid "Choose which folder to upload '{filename}' to:"
+msgstr "Επιλέξτε σε ποιον φάκελο να ανεβάσετε το '{filename}':"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 256
+#: NEEDS WORK
+#, python-brace-format
+msgid "Showing folder selection for {file_count} files: {file_names}"
+msgstr "Εμφάνιση επιλογής φακέλου για {file_count} αρχεία: {file_names}"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 263
+#: NEEDS WORK
+#, python-brace-format
+msgid ""
+"\n"
+"... and {more_count} more files"
+msgstr "... και {more_count} ακόμη αρχεία"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 267
+#: NEEDS WORK
+#, python-brace-format
+msgid ""
+"Choose which folder to upload {file_count} files to:\n"
+"\n"
+"{file_list}"
+msgstr ""
+"Επιλέξτε ποιον φάκελο να ανεβάσετε {file_count} αρχεία σε:\n"
+"\n"
+"{file_list}"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 285
+#: NEEDS WORK
+#, python-brace-format
+msgid "Single folder dialog response: '{response}' for file: {file_path}"
+msgstr "Απάντηση διαλόγου για φάκελο: '{response}' για το αρχείο: {file_path}"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 294
+#: NEEDS WORK
+#, python-brace-format
+msgid "Selected folder: {folder}"
+msgstr "Επιλεγμένος φάκελος: {folder}"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 297
+# File: usr/share/isovault/ui/dialogs.py, line: 319
+#: NEEDS WORK
+#, python-brace-format
+msgid "Unknown response: {response}"
+msgstr "Άγνωστη απάντηση: {response}"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 298
+# File: usr/share/isovault/ui/dialogs.py, line: 320
+#: NEEDS WORK
+msgid "Error"
+msgstr "Σφάλμα"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 298
+# File: usr/share/isovault/ui/dialogs.py, line: 320
+#: NEEDS WORK
+#, python-brace-format
+msgid "Unknown folder selection: {response}"
+msgstr "Άγνωστη επιλογή φακέλου: {response}"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 300
+#: NEEDS WORK
+msgid "Upload cancelled by user"
+msgstr "Η μεταφόρτωση ακυρώθηκε από τον χρήστη"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 305
+#: NEEDS WORK
+#, python-brace-format
+msgid "Multiple folder dialog response: '{response}' for {file_count} files"
+msgstr "Πολλαπλή απάντηση διαλόγου φακέλου: '{response}' για {file_count} αρχεία"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 314
+#: NEEDS WORK
+#, python-brace-format
+msgid "Selected folder: {folder} for {file_count} files"
+msgstr "Επιλεγμένος φάκελος: {folder} για {file_count} αρχεία"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 322
+#: NEEDS WORK
+msgid "Batch upload cancelled by user"
+msgstr "Η μαζική μεταφόρτωση ακυρώθηκε από τον χρήστη"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 351
+#: NEEDS WORK
+#, python-brace-format
+msgid "... and {more_count} more files"
+msgstr "... και {more_count} ακόμη αρχεία"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 353
+#: NEEDS WORK
+#, python-brace-format
+msgid "Found {invalid_count} invalid files"
+msgstr "Βρέθηκαν {invalid_count} μη έγκυρα αρχεία"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 355
+#: NEEDS WORK
+#, python-brace-format
+msgid " ({valid_count} valid files will be uploaded)"
+msgstr "({valid_count} έγκυρα αρχεία θα μεταφορτωθούν)"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 359
+#: NEEDS WORK
+msgid "File Validation Results"
+msgstr "Αποτελέσματα Επικύρωσης Αρχείου"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 363
+#: NEEDS WORK
+msgid "Continue"
+msgstr "Συνέχεια"
 # 
 # #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
 # 
@@ -639,21 +687,6 @@ msgstr "Μενού εφαρμογής"
 #: NEEDS WORK
 msgid "Preferences"
 msgstr "Προτιμήσεις"
-# 
-# File: usr/share/isovault/ui/components.py, line: 373
-#: NEEDS WORK
-msgid "Force Update Index"
-msgstr "Επιβολή Ενημέρωσης Ευρετηρίου"
-# 
-# File: usr/share/isovault/ui/components.py, line: 374
-#: NEEDS WORK
-msgid "Refresh"
-msgstr "Ανανέωση"
-# 
-# File: usr/share/isovault/ui/components.py, line: 379
-#: NEEDS WORK
-msgid "About"
-msgstr "Σχετικά"
 # 
 # File: usr/share/isovault/ui/preferences.py, line: 53
 #: NEEDS WORK
@@ -859,16 +892,6 @@ msgstr "Η σύνδεση απέτυχε. Ελέγξτε τα διαπιστευ
 msgid "Connection Test Result"
 msgstr "Αποτέλεσμα Δοκιμής Σύνδεσης"
 # 
-# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
-# 
-# File: usr/share/isovault/ui/preferences.py, line: 336
-# File: usr/share/isovault/ui/dialogs.py, line: 144
-# File: usr/share/isovault/ui/dialogs.py, line: 164
-# File: usr/share/isovault/ui/dialogs.py, line: 363
-#: NEEDS WORK
-msgid "OK"
-msgstr "Εντάξει"
-# 
 # File: usr/share/isovault/ui/preferences.py, line: 351
 #: NEEDS WORK
 msgid "Reset Settings"
@@ -885,266 +908,290 @@ msgstr ""
 "\n"
 "Αυτή η ενέργεια δεν μπορεί να αναιρεθεί."
 # 
-# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
-# 
-# File: usr/share/isovault/ui/preferences.py, line: 355
-# File: usr/share/isovault/ui/dialogs.py, line: 106
-# File: usr/share/isovault/ui/dialogs.py, line: 244
-# File: usr/share/isovault/ui/dialogs.py, line: 275
+# File: usr/share/isovault/ui/window.py, line: 117
 #: NEEDS WORK
-msgid "Cancel"
-msgstr "Ακύρωση"
+msgid "Filter by folder"
+msgstr "Φίλτρο κατά φάκελο"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 40
+# File: usr/share/isovault/ui/components.py, line: 263
 #: NEEDS WORK
-msgid "Select ISO or MD5 files to upload"
-msgstr "Επιλέξτε αρχεία ISO ή MD5 για μεταφόρτωση"
+msgid "All folders"
+msgstr "Όλοι οι φάκελοι"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 68
+# File: usr/share/isovault/ui/components.py, line: 277
 #: NEEDS WORK
-#, python-brace-format
-msgid "Save {filename}"
-msgstr "Αποθήκευση {filename}"
+msgid "Copy Link"
+msgstr "Αντιγραφή Συνδέσμου"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 102
+# File: usr/share/isovault/ui/window.py, line: 130
 #: NEEDS WORK
-msgid "Delete File"
-msgstr "Διαγραφή Αρχείου"
+msgid "Copy public URL"
+msgstr "Αντιγραφή δημόσιου URL"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 103
+# File: usr/share/isovault/ui/components.py, line: 284
 #: NEEDS WORK
-#, python-brace-format
-msgid ""
-"Are you sure you want to delete '{filename}'?\n"
-"\n"
-"This action cannot be undone."
-msgstr ""
-"Είστε σίγουροι ότι θέλετε να διαγράψετε το '{filename}';\n"
-"\n"
-"Αυτή η ενέργεια δεν μπορεί να αναιρεθεί."
+msgid "Download"
+msgstr "Λήψη"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 125
+# File: usr/share/isovault/ui/window.py, line: 143
 #: NEEDS WORK
-msgid "ISO file manager for CDN77 storage"
-msgstr "Διαχειριστής αρχείων ISO για αποθήκευση CDN77"
+msgid "Save file locally"
+msgstr "Αποθήκευση αρχείου τοπικά"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 177
+# File: usr/share/isovault/ui/window.py, line: 156
 #: NEEDS WORK
-msgid "Supported files (ISO, MD5)"
-msgstr "Υποστηριζόμενα αρχεία (ISO, MD5)"
+msgid "Remove from storage"
+msgstr "Αφαίρεση από την αποθήκευση"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 186
+# File: usr/share/isovault/ui/window.py, line: 228
 #: NEEDS WORK
-msgid "All files"
-msgstr "Όλα τα αρχεία"
+msgid "Upload ISO"
+msgstr "Ανέβασμα ISO"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 211
+# File: usr/share/isovault/ui/components.py, line: 365
 #: NEEDS WORK
-msgid "Upload Error"
-msgstr "Σφάλμα Μεταφόρτωσης"
+msgid "Application menu"
+msgstr "Μενού εφαρμογής"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 211
+# File: usr/share/isovault/ui/components.py, line: 373
 #: NEEDS WORK
-msgid "Failed to get file paths"
-msgstr "Αποτυχία λήψης διαδρομών αρχείων"
+msgid "Force Update Index"
+msgstr "Επιβολή Ενημέρωσης Ευρετηρίου"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 213
+# File: usr/share/isovault/ui/components.py, line: 374
 #: NEEDS WORK
-msgid "Upload"
-msgstr "Ανέβασμα"
+msgid "Refresh"
+msgstr "Ανανέωση"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 213
+# File: usr/share/isovault/ui/components.py, line: 379
 #: NEEDS WORK
-msgid "No files selected"
-msgstr "Δεν έχουν επιλεγεί αρχεία"
+msgid "About"
+msgstr "Σχετικά"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 227
+# File: usr/share/isovault/ui/window.py, line: 108
 #: NEEDS WORK
-msgid "Download Error"
-msgstr "Σφάλμα Λήψης"
+msgid "Ready"
+msgstr "Έτοιμο"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 227
+# File: usr/share/isovault/ui/window.py, line: 139
 #: NEEDS WORK
-msgid "Failed to get save path"
-msgstr "Αποτυχία λήψης διαδρομής αποθήκευσης"
+msgid "Please configure S3 credentials in Preferences"
+msgstr "Παρακαλώ ρυθμίστε τα διαπιστευτήρια S3 στις Προτιμήσεις"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 234
+# File: usr/share/isovault/ui/window.py, line: 366
 #: NEEDS WORK
-#, python-brace-format
-msgid "Showing folder selection for: {file_path}"
-msgstr "Εμφάνιση επιλογής φακέλου για: {file_path}"
+msgid "Connection test failed"
+msgstr "Η δοκιμή σύνδεσης απέτυχε"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 237
-# File: usr/share/isovault/ui/dialogs.py, line: 266
+# File: usr/share/isovault/ui/window.py, line: 195
 #: NEEDS WORK
-msgid "Select Destination Folder"
-msgstr "Επιλέξτε Φάκελο Προορισμού"
+msgid "Warning: Could not connect to S3 storage"
+msgstr "Προειδοποίηση: Δεν ήταν δυνατή η σύνδεση με την αποθήκευση S3"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 238
+# File: usr/share/isovault/ui/window.py, line: 210
+# File: usr/share/isovault/ui/window.py, line: 590
+#: NEEDS WORK
+msgid "Please configure S3 credentials first"
+msgstr "Παρακαλώ ρυθμίστε πρώτα τα διαπιστευτήρια S3"
+# 
+# File: usr/share/isovault/ui/window.py, line: 230
 #: NEEDS WORK
 #, python-brace-format
-msgid "Choose which folder to upload '{filename}' to:"
-msgstr "Επιλέξτε σε ποιον φάκελο να ανεβάσετε το '{filename}':"
+msgid "Link copied: {url}"
+msgstr "Σύνδεσμος αντιγράφηκε: {url}"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 256
+# File: usr/share/isovault/ui/window.py, line: 291
 #: NEEDS WORK
 #, python-brace-format
-msgid "Showing folder selection for {file_count} files: {file_names}"
-msgstr "Εμφάνιση επιλογής φακέλου για {file_count} αρχεία: {file_names}"
+msgid "Uploading {filename}..."
+msgstr "Ανεβάζω {filename}..."
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 263
+# File: usr/share/isovault/ui/window.py, line: 479
 #: NEEDS WORK
 #, python-brace-format
-msgid ""
-"\n"
-"... and {more_count} more files"
-msgstr "... και {more_count} ακόμη αρχεία"
+msgid "Upload failed for {filename}"
+msgstr "Η μεταφόρτωση απέτυχε για {filename}"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 267
+# File: usr/share/isovault/ui/window.py, line: 308
 #: NEEDS WORK
 #, python-brace-format
-msgid ""
-"Choose which folder to upload {file_count} files to:\n"
-"\n"
-"{file_list}"
-msgstr ""
-"Επιλέξτε ποιον φάκελο να ανεβάσετε {file_count} αρχεία σε:\n"
-"\n"
-"{file_list}"
+msgid "Starting batch upload: {file_count} files to folder: {folder}"
+msgstr "Έναρξη μαζικής μεταφόρτωσης: {file_count} αρχεία στον φάκελο: {folder}"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 285
+# File: usr/share/isovault/ui/window.py, line: 336
 #: NEEDS WORK
 #, python-brace-format
-msgid "Single folder dialog response: '{response}' for file: {file_path}"
-msgstr "Απάντηση διαλόγου για φάκελο: '{response}' για το αρχείο: {file_path}"
+msgid "Uploading {current}/{total}: {filename}"
+msgstr "Ανέβασμα {current}/{total}: {filename}"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 294
+# File: usr/share/isovault/ui/window.py, line: 533
 #: NEEDS WORK
 #, python-brace-format
-msgid "Selected folder: {folder}"
-msgstr "Επιλεγμένος φάκελος: {folder}"
+msgid "Batch upload error for {filename}"
+msgstr "Σφάλμα μαζικής μεταφόρτωσης για {filename}"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 297
-# File: usr/share/isovault/ui/dialogs.py, line: 319
+# File: usr/share/isovault/ui/window.py, line: 385
 #: NEEDS WORK
 #, python-brace-format
-msgid "Unknown response: {response}"
-msgstr "Άγνωστη απάντηση: {response}"
+msgid "Successfully uploaded all {total} files!"
+msgstr "Επιτυχώς ανέβασα όλα τα {total} αρχεία!"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 298
-# File: usr/share/isovault/ui/dialogs.py, line: 320
-#: NEEDS WORK
-msgid "Error"
-msgstr "Σφάλμα"
-# 
-# File: usr/share/isovault/ui/dialogs.py, line: 298
-# File: usr/share/isovault/ui/dialogs.py, line: 320
+# File: usr/share/isovault/ui/window.py, line: 387
 #: NEEDS WORK
 #, python-brace-format
-msgid "Unknown folder selection: {response}"
-msgstr "Άγνωστη επιλογή φακέλου: {response}"
+msgid "Upload complete: {completed} successful, {failed} failed"
+msgstr "Η μεταφόρτωση ολοκληρώθηκε: {completed} επιτυχείς, {failed} αποτυχημένες"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 300
-#: NEEDS WORK
-msgid "Upload cancelled by user"
-msgstr "Η μεταφόρτωση ακυρώθηκε από τον χρήστη"
-# 
-# File: usr/share/isovault/ui/dialogs.py, line: 305
+# File: usr/share/isovault/ui/window.py, line: 407
 #: NEEDS WORK
 #, python-brace-format
-msgid "Multiple folder dialog response: '{response}' for {file_count} files"
-msgstr "Πολλαπλή απάντηση διαλόγου φακέλου: '{response}' για {file_count} αρχεία"
+msgid "Successfully uploaded {filename}"
+msgstr "Επιτυχώς ανέβηκε το {filename}"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 314
+# File: usr/share/isovault/ui/window.py, line: 417
 #: NEEDS WORK
 #, python-brace-format
-msgid "Selected folder: {folder} for {file_count} files"
-msgstr "Επιλεγμένος φάκελος: {folder} για {file_count} αρχεία"
+msgid "Failed to upload {filename}"
+msgstr "Αποτυχία φόρτωσης {filename}"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 322
-#: NEEDS WORK
-msgid "Batch upload cancelled by user"
-msgstr "Η μαζική μεταφόρτωση ακυρώθηκε από τον χρήστη"
-# 
-# File: usr/share/isovault/ui/dialogs.py, line: 351
+# File: usr/share/isovault/ui/window.py, line: 423
 #: NEEDS WORK
 #, python-brace-format
-msgid "... and {more_count} more files"
-msgstr "... και {more_count} ακόμη αρχεία"
+msgid "Downloading {filename}..."
+msgstr "Κατεβάζω {filename}..."
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 353
+# File: usr/share/isovault/ui/window.py, line: 611
 #: NEEDS WORK
 #, python-brace-format
-msgid "Found {invalid_count} invalid files"
-msgstr "Βρέθηκαν {invalid_count} μη έγκυρα αρχεία"
+msgid "Download failed for {filename}"
+msgstr "Η λήψη απέτυχε για {filename}"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 355
+# File: usr/share/isovault/ui/window.py, line: 439
 #: NEEDS WORK
 #, python-brace-format
-msgid " ({valid_count} valid files will be uploaded)"
-msgstr "({valid_count} έγκυρα αρχεία θα μεταφορτωθούν)"
+msgid "Successfully downloaded {filename}"
+msgstr "Επιτυχής λήψη {filename}"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 359
-#: NEEDS WORK
-msgid "File Validation Results"
-msgstr "Αποτελέσματα Επικύρωσης Αρχείου"
-# 
-# File: usr/share/isovault/ui/dialogs.py, line: 363
-#: NEEDS WORK
-msgid "Continue"
-msgstr "Συνέχεια"
-# 
-# File: usr/share/isovault/models/settings.py, line: 54
+# File: usr/share/isovault/ui/window.py, line: 441
 #: NEEDS WORK
 #, python-brace-format
-msgid "Config file not found: {config_file}"
-msgstr "Δεν βρέθηκε το αρχείο ρυθμίσεων: {config_file}"
+msgid "Failed to download {filename}"
+msgstr "Αποτυχία λήψης {filename}"
 # 
-# File: usr/share/isovault/models/settings.py, line: 73
+# File: usr/share/isovault/ui/window.py, line: 452
 #: NEEDS WORK
 #, python-brace-format
-msgid "Settings loaded from: {config_file}"
-msgstr "Ρυθμίσεις φορτώθηκαν από: {config_file}"
+msgid "Deleting {filename}..."
+msgstr "Διαγραφή {filename}..."
 # 
-# File: usr/share/isovault/models/settings.py, line: 77
+# File: usr/share/isovault/ui/window.py, line: 646
 #: NEEDS WORK
 #, python-brace-format
-msgid "Error loading settings: {error}"
-msgstr "Σφάλμα κατά τη φόρτωση ρυθμίσεων: {error}"
+msgid "Delete failed for {filename}"
+msgstr "Η διαγραφή απέτυχε για {filename}"
 # 
-# File: usr/share/isovault/models/settings.py, line: 98
+# File: usr/share/isovault/ui/window.py, line: 465
 #: NEEDS WORK
 #, python-brace-format
-msgid "Settings saved to: {config_file}"
-msgstr "Ρυθμίσεις αποθηκεύτηκαν στο: {config_file}"
+msgid "Successfully deleted {filename}"
+msgstr "Επιτυχώς διαγράφηκε το {filename}"
 # 
-# File: usr/share/isovault/models/settings.py, line: 102
+# File: usr/share/isovault/ui/window.py, line: 475
 #: NEEDS WORK
 #, python-brace-format
-msgid "Error saving settings: {error}"
-msgstr "Σφάλμα κατά την αποθήκευση ρυθμίσεων: {error}"
+msgid "Failed to delete {filename}"
+msgstr "Αποτυχία διαγραφής {filename}"
 # 
-# File: usr/share/isovault/models/settings.py, line: 138
+# File: usr/share/isovault/ui/window.py, line: 485
 #: NEEDS WORK
-msgid "Access key is required"
-msgstr "Απαιτείται κλειδί πρόσβασης"
+#, python-brace-format
+msgid "Refreshing files for folder: {folder}"
+msgstr "Ανανεώνοντας αρχεία για τον φάκελο: {folder}"
 # 
-# File: usr/share/isovault/models/settings.py, line: 141
+# File: usr/share/isovault/ui/window.py, line: 487
 #: NEEDS WORK
-msgid "Secret key is required"
-msgstr "Απαιτείται μυστικό κλειδί"
+msgid "Loading files..."
+msgstr "Φόρτωση αρχείων..."
 # 
-# File: usr/share/isovault/models/settings.py, line: 144
+# File: usr/share/isovault/ui/window.py, line: 686
 #: NEEDS WORK
-msgid "Endpoint URL is required"
-msgstr "Η διεύθυνση URL του τερματικού είναι υποχρεωτική"
+msgid "Failed to refresh file list"
+msgstr "Αποτυχία ανανέωσης λίστας αρχείων"
 # 
-# File: usr/share/isovault/models/settings.py, line: 147
+# File: usr/share/isovault/ui/window.py, line: 507
 #: NEEDS WORK
-msgid "Bucket name is required"
-msgstr "Το όνομα του κάδου είναι υποχρεωτικό"
+msgid "Failed to connect to S3 storage. Check credentials and connection."
+msgstr "Αποτυχία σύνδεσης με την αποθήκευση S3. Ελέγξτε τα διαπιστευτήρια και τη σύνδεση."
 # 
-# File: usr/share/isovault/models/settings.py, line: 149
+# File: usr/share/isovault/ui/window.py, line: 522
 #: NEEDS WORK
-msgid "Configuration is valid"
-msgstr "Η διαμόρφωση είναι έγκυρη"
+#, python-brace-format
+msgid "1 file{folder_text}"
+msgstr "1 αρχείο{folder_text}"
+# 
+# File: usr/share/isovault/ui/window.py, line: 524
+#: NEEDS WORK
+#, python-brace-format
+msgid "{count} files{folder_text}"
+msgstr "{count} αρχεία{folder_text}"
+# 
+# File: usr/share/isovault/ui/window.py, line: 748
+#: NEEDS WORK
+msgid "Failed to update index files"
+msgstr "Αποτυχία ενημέρωσης αρχείων ευρετηρίου"
+# 
+# File: usr/share/isovault/ui/window.py, line: 593
+#: NEEDS WORK
+msgid "Updating index files..."
+msgstr "Ενημέρωση αρχείων ευρετηρίου..."
+# 
+# File: usr/share/isovault/ui/window.py, line: 599
+#: NEEDS WORK
+msgid "Index files updated!"
+msgstr "Τα αρχεία ευρετηρίου ενημερώθηκαν!"
+# 
+# File: usr/share/isovault/ui/window.py, line: 637
+#: NEEDS WORK
+msgid "S3 credentials removed"
+msgstr "Αφαιρέθηκαν τα διαπιστευτήρια S3"
+# 
+# File: usr/share/isovault/ui/window.py, line: 839
+#: NEEDS WORK
+msgid "An unexpected error occurred"
+msgstr "Παρουσιάστηκε ένα απροσδόκητο σφάλμα"
+# 
+# File: usr/share/isovault/ui/components.py, line: 33
+#: NEEDS WORK
+msgid "Progress"
+msgstr "Πρόοδος"
+# 
+# File: usr/share/isovault/ui/components.py, line: 43
+#: NEEDS WORK
+#, python-brace-format
+msgid "Progress update: {progress:.1f}%"
+msgstr "Ενημέρωση προόδου: {progress:.1f}%"
+# 
+# File: usr/share/isovault/ui/components.py, line: 50
+#: NEEDS WORK
+msgid "Hiding progress"
+msgstr "Απόκρυψη προόδου"
+# 
+# File: usr/share/isovault/ui/components.py, line: 123
+#: NEEDS WORK
+msgid "File Name"
+msgstr "Όνομα Αρχείου"
+# 
+# File: usr/share/isovault/ui/components.py, line: 132
+#: NEEDS WORK
+msgid "Folder"
+msgstr "Φάκελος"
+# 
+# File: usr/share/isovault/ui/components.py, line: 140
+#: NEEDS WORK
+msgid "Size"
+msgstr "Μέγεθος"
+# 
+# File: usr/share/isovault/ui/components.py, line: 148
+#: NEEDS WORK
+msgid "Modified"
+msgstr "Τροποποιημένο"

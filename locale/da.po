@@ -16,6 +16,152 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: attranslate\n"
 # 
+# File: usr/share/isovault/main.py, line: 46
+#: NEEDS WORK
+msgid "Show version information"
+msgstr "Vis visningsoplysninger"
+# 
+# File: usr/share/isovault/main.py, line: 55
+#: NEEDS WORK
+msgid "Enable debug mode"
+msgstr "Aktivér fejlsøgningsfunktion"
+# 
+# File: usr/share/isovault/main.py, line: 63
+#: NEEDS WORK
+#, python-brace-format
+msgid "Starting {app_name} v{version}"
+msgstr "Starter {app_name} v{version}"
+# 
+# File: usr/share/isovault/main.py, line: 81
+#: NEEDS WORK
+#, python-brace-format
+msgid "Shutting down {app_name}"
+msgstr "Lukker {app_name} ned"
+# 
+# File: usr/share/isovault/main.py, line: 101
+#: NEEDS WORK
+msgid "Debug mode enabled"
+msgstr "Fejlfindingstilstand aktiveret"
+# 
+# File: usr/share/isovault/main.py, line: 184
+#: NEEDS WORK
+#, python-brace-format
+msgid "Warning: Could not apply CSS: {error}"
+msgstr "Advarsel: Kunne ikke anvende CSS: {error}"
+# 
+# File: usr/share/isovault/main.py, line: 198
+#: NEEDS WORK
+#, python-brace-format
+msgid "Warning: Could not set keyboard shortcuts: {error}"
+msgstr "Advarsel: Kunne ikke indstille tastaturgenveje: {error}"
+# 
+# File: usr/share/isovault/main.py, line: 217
+#: NEEDS WORK
+#, python-brace-format
+msgid ""
+"\n"
+"Received signal {signum}, shutting down gracefully..."
+msgstr "Modtaget signal {signum}, lukker ned på en ordentlig måde..."
+# 
+# File: usr/share/isovault/main.py, line: 242
+#: NEEDS WORK
+msgid "Error: Missing required dependencies:"
+msgstr "Fejl: Manglende nødvendige afhængigheder:"
+# 
+# File: usr/share/isovault/main.py, line: 245
+#: NEEDS WORK
+#, python-brace-format
+msgid ""
+"\n"
+"Install them with: pip install {deps}"
+msgstr "Installer dem med: pip install {deps}"
+# 
+# File: usr/share/isovault/main.py, line: 257
+#: NEEDS WORK
+#, python-brace-format
+msgid "Warning: Could not set application name: {error}"
+msgstr "Advarsel: Kunne ikke indstille applikationsnavn: {error}"
+# 
+# File: usr/share/isovault/main.py, line: 264
+#: NEEDS WORK
+#, python-brace-format
+msgid "Warning: Could not set signal handlers: {error}"
+msgstr "Advarsel: Kunne ikke indstille signalhåndterere: {error}"
+# 
+# File: usr/share/isovault/main.py, line: 271
+#: NEEDS WORK
+#, python-brace-format
+msgid "Warning: Could not create config directory: {error}"
+msgstr "Advarsel: Kunne ikke oprette konfigurationsmappe: {error}"
+# 
+# File: usr/share/isovault/main.py, line: 288
+#: NEEDS WORK
+msgid ""
+"\n"
+"Interrupted by user"
+msgstr "Afbrudt af bruger"
+# 
+# File: usr/share/isovault/main.py, line: 291
+#: NEEDS WORK
+#, python-brace-format
+msgid "Fatal error: {error}"
+msgstr "Fatal fejl: {error}"
+# 
+# File: usr/share/isovault/models/settings.py, line: 54
+#: NEEDS WORK
+#, python-brace-format
+msgid "Config file not found: {config_file}"
+msgstr "Konfigurationsfil ikke fundet: {config_file}"
+# 
+# File: usr/share/isovault/models/settings.py, line: 73
+#: NEEDS WORK
+#, python-brace-format
+msgid "Settings loaded from: {config_file}"
+msgstr "Indstillinger indlæst fra: {config_file}"
+# 
+# File: usr/share/isovault/models/settings.py, line: 77
+#: NEEDS WORK
+#, python-brace-format
+msgid "Error loading settings: {error}"
+msgstr "Fejl ved indlæsning af indstillinger: {error}"
+# 
+# File: usr/share/isovault/models/settings.py, line: 98
+#: NEEDS WORK
+#, python-brace-format
+msgid "Settings saved to: {config_file}"
+msgstr "Indstillinger gemt til: {config_file}"
+# 
+# File: usr/share/isovault/models/settings.py, line: 102
+#: NEEDS WORK
+#, python-brace-format
+msgid "Error saving settings: {error}"
+msgstr "Fejl ved gemning af indstillinger: {error}"
+# 
+# File: usr/share/isovault/models/settings.py, line: 138
+#: NEEDS WORK
+msgid "Access key is required"
+msgstr "Adgangsnøgle er påkrævet"
+# 
+# File: usr/share/isovault/models/settings.py, line: 141
+#: NEEDS WORK
+msgid "Secret key is required"
+msgstr "Hemmeligt nøgle er påkrævet"
+# 
+# File: usr/share/isovault/models/settings.py, line: 144
+#: NEEDS WORK
+msgid "Endpoint URL is required"
+msgstr "Endpoint-URL er påkrævet"
+# 
+# File: usr/share/isovault/models/settings.py, line: 147
+#: NEEDS WORK
+msgid "Bucket name is required"
+msgstr "Bucketnavn er påkrævet"
+# 
+# File: usr/share/isovault/models/settings.py, line: 149
+#: NEEDS WORK
+msgid "Configuration is valid"
+msgstr "Konfigurationen er gyldig"
+# 
 # File: usr/share/isovault/utils/helpers.py, line: 57
 #: NEEDS WORK
 #, python-brace-format
@@ -90,72 +236,6 @@ msgstr "Gyldig URL-format"
 #, python-brace-format
 msgid "Error extracting MD5 from {filename}: {error}"
 msgstr "Fejl ved udtrækning af MD5 fra {filename}: {error}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 129
-# File: usr/share/isovault/services/s3_service.py, line: 191
-#: NEEDS WORK
-msgid "No S3 connection available"
-msgstr "Ingen S3-forbindelse tilgængelig"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 135
-#: NEEDS WORK
-#, python-brace-format
-msgid "Upload validation failed: {message}"
-msgstr "Upload validering mislykkedes: {message}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 139
-#: NEEDS WORK
-#, python-brace-format
-msgid "Invalid folder. Must be one of: {folders}"
-msgstr "Ugyldig mappe. Skal være en af: {folders}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 174
-#: NEEDS WORK
-#, python-brace-format
-msgid "Upload failed: {error}"
-msgstr "Upload mislykkedes: {error}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 177
-#: NEEDS WORK
-#, python-brace-format
-msgid "Upload error: {error}"
-msgstr "Upload-fejl: {error}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 245
-#: NEEDS WORK
-#, python-brace-format
-msgid "Error listing files: {error}"
-msgstr "Fejl ved oprettelse af liste over filer: {error}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 270
-#: NEEDS WORK
-#, python-brace-format
-msgid "Delete failed: {error}"
-msgstr "Sletning mislykkedes: {error}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 316
-#: NEEDS WORK
-#, python-brace-format
-msgid "Download failed: {error}"
-msgstr "Download mislykkedes: {error}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 339
-#: NEEDS WORK
-#, python-brace-format
-msgid "Error getting file info: {error}"
-msgstr "Fejl ved hentning af filoplysninger: {error}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 379
-#: NEEDS WORK
-#, python-brace-format
-msgid "Error uploading content: {error}"
-msgstr "Fejl ved upload af indhold: {error}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 395
-#: NEEDS WORK
-#, python-brace-format
-msgid "Error reading file content: {error}"
-msgstr "Fejl ved læsning af filindhold: {error}"
 # 
 # File: usr/share/isovault/services/file_validator.py, line: 27
 #: NEEDS WORK
@@ -307,312 +387,109 @@ msgstr "Genereret af ISOVault"
 msgid "Downloading..."
 msgstr "Downloader..."
 # 
-# File: usr/share/isovault/main.py, line: 46
+# File: usr/share/isovault/services/s3_service.py, line: 129
+# File: usr/share/isovault/services/s3_service.py, line: 191
 #: NEEDS WORK
-msgid "Show version information"
-msgstr "Vis visningsoplysninger"
+msgid "No S3 connection available"
+msgstr "Ingen S3-forbindelse tilgængelig"
 # 
-# File: usr/share/isovault/main.py, line: 55
-#: NEEDS WORK
-msgid "Enable debug mode"
-msgstr "Aktivér fejlsøgningsfunktion"
-# 
-# File: usr/share/isovault/main.py, line: 63
+# File: usr/share/isovault/services/s3_service.py, line: 135
 #: NEEDS WORK
 #, python-brace-format
-msgid "Starting {app_name} v{version}"
-msgstr "Starter {app_name} v{version}"
+msgid "Upload validation failed: {message}"
+msgstr "Upload validering mislykkedes: {message}"
 # 
-# File: usr/share/isovault/main.py, line: 81
+# File: usr/share/isovault/services/s3_service.py, line: 139
 #: NEEDS WORK
 #, python-brace-format
-msgid "Shutting down {app_name}"
-msgstr "Lukker {app_name} ned"
+msgid "Invalid folder. Must be one of: {folders}"
+msgstr "Ugyldig mappe. Skal være en af: {folders}"
 # 
-# File: usr/share/isovault/main.py, line: 101
-#: NEEDS WORK
-msgid "Debug mode enabled"
-msgstr "Fejlfindingstilstand aktiveret"
-# 
-# File: usr/share/isovault/main.py, line: 184
+# File: usr/share/isovault/services/s3_service.py, line: 174
 #: NEEDS WORK
 #, python-brace-format
-msgid "Warning: Could not apply CSS: {error}"
-msgstr "Advarsel: Kunne ikke anvende CSS: {error}"
+msgid "Upload failed: {error}"
+msgstr "Upload mislykkedes: {error}"
 # 
-# File: usr/share/isovault/main.py, line: 198
+# File: usr/share/isovault/services/s3_service.py, line: 177
 #: NEEDS WORK
 #, python-brace-format
-msgid "Warning: Could not set keyboard shortcuts: {error}"
-msgstr "Advarsel: Kunne ikke indstille tastaturgenveje: {error}"
+msgid "Upload error: {error}"
+msgstr "Upload-fejl: {error}"
 # 
-# File: usr/share/isovault/main.py, line: 217
+# File: usr/share/isovault/services/s3_service.py, line: 245
+#: NEEDS WORK
+#, python-brace-format
+msgid "Error listing files: {error}"
+msgstr "Fejl ved oprettelse af liste over filer: {error}"
+# 
+# File: usr/share/isovault/services/s3_service.py, line: 270
+#: NEEDS WORK
+#, python-brace-format
+msgid "Delete failed: {error}"
+msgstr "Sletning mislykkedes: {error}"
+# 
+# File: usr/share/isovault/services/s3_service.py, line: 316
+#: NEEDS WORK
+#, python-brace-format
+msgid "Download failed: {error}"
+msgstr "Download mislykkedes: {error}"
+# 
+# File: usr/share/isovault/services/s3_service.py, line: 339
+#: NEEDS WORK
+#, python-brace-format
+msgid "Error getting file info: {error}"
+msgstr "Fejl ved hentning af filoplysninger: {error}"
+# 
+# File: usr/share/isovault/services/s3_service.py, line: 379
+#: NEEDS WORK
+#, python-brace-format
+msgid "Error uploading content: {error}"
+msgstr "Fejl ved upload af indhold: {error}"
+# 
+# File: usr/share/isovault/services/s3_service.py, line: 395
+#: NEEDS WORK
+#, python-brace-format
+msgid "Error reading file content: {error}"
+msgstr "Fejl ved læsning af filindhold: {error}"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 40
+#: NEEDS WORK
+msgid "Select ISO or MD5 files to upload"
+msgstr "Vælg ISO- eller MD5-filer til upload"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 68
+#: NEEDS WORK
+#, python-brace-format
+msgid "Save {filename}"
+msgstr "Gem {filename}"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 102
+#: NEEDS WORK
+msgid "Delete File"
+msgstr "Slet fil"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 103
 #: NEEDS WORK
 #, python-brace-format
 msgid ""
+"Are you sure you want to delete '{filename}'?\n"
 "\n"
-"Received signal {signum}, shutting down gracefully..."
-msgstr "Modtaget signal {signum}, lukker ned på en ordentlig måde..."
-# 
-# File: usr/share/isovault/main.py, line: 242
-#: NEEDS WORK
-msgid "Error: Missing required dependencies:"
-msgstr "Fejl: Manglende nødvendige afhængigheder:"
-# 
-# File: usr/share/isovault/main.py, line: 245
-#: NEEDS WORK
-#, python-brace-format
-msgid ""
+"This action cannot be undone."
+msgstr ""
+"Er du sikker på, at du vil slette '{filename}'?\n"
 "\n"
-"Install them with: pip install {deps}"
-msgstr "Installer dem med: pip install {deps}"
+"Denne handling kan ikke fortrydes."
 # 
-# File: usr/share/isovault/main.py, line: 257
-#: NEEDS WORK
-#, python-brace-format
-msgid "Warning: Could not set application name: {error}"
-msgstr "Advarsel: Kunne ikke indstille applikationsnavn: {error}"
+# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
 # 
-# File: usr/share/isovault/main.py, line: 264
+# File: usr/share/isovault/ui/preferences.py, line: 355
+# File: usr/share/isovault/ui/dialogs.py, line: 106
+# File: usr/share/isovault/ui/dialogs.py, line: 244
+# File: usr/share/isovault/ui/dialogs.py, line: 275
 #: NEEDS WORK
-#, python-brace-format
-msgid "Warning: Could not set signal handlers: {error}"
-msgstr "Advarsel: Kunne ikke indstille signalhåndterere: {error}"
-# 
-# File: usr/share/isovault/main.py, line: 271
-#: NEEDS WORK
-#, python-brace-format
-msgid "Warning: Could not create config directory: {error}"
-msgstr "Advarsel: Kunne ikke oprette konfigurationsmappe: {error}"
-# 
-# File: usr/share/isovault/main.py, line: 288
-#: NEEDS WORK
-msgid ""
-"\n"
-"Interrupted by user"
-msgstr "Afbrudt af bruger"
-# 
-# File: usr/share/isovault/main.py, line: 291
-#: NEEDS WORK
-#, python-brace-format
-msgid "Fatal error: {error}"
-msgstr "Fatal fejl: {error}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 108
-#: NEEDS WORK
-msgid "Ready"
-msgstr "Klar"
-# 
-# File: usr/share/isovault/ui/window.py, line: 139
-#: NEEDS WORK
-msgid "Please configure S3 credentials in Preferences"
-msgstr "Venligst konfigurer S3-legitimationsoplysninger i Indstillinger"
-# 
-# File: usr/share/isovault/ui/window.py, line: 195
-#: NEEDS WORK
-msgid "Warning: Could not connect to S3 storage"
-msgstr "Advarsel: Kunne ikke oprette forbindelse til S3-lagring"
-# 
-# File: usr/share/isovault/ui/window.py, line: 210
-# File: usr/share/isovault/ui/window.py, line: 590
-#: NEEDS WORK
-msgid "Please configure S3 credentials first"
-msgstr "Venligst konfigurer S3-legitimationsoplysninger først"
-# 
-# File: usr/share/isovault/ui/window.py, line: 230
-#: NEEDS WORK
-#, python-brace-format
-msgid "Link copied: {url}"
-msgstr "Link kopieret: {url}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 291
-#: NEEDS WORK
-#, python-brace-format
-msgid "Uploading {filename}..."
-msgstr "Uploaderer {filename}..."
-# 
-# File: usr/share/isovault/ui/window.py, line: 308
-#: NEEDS WORK
-#, python-brace-format
-msgid "Starting batch upload: {file_count} files to folder: {folder}"
-msgstr "Starter batchupload: {file_count} filer til mappe: {folder}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 336
-#: NEEDS WORK
-#, python-brace-format
-msgid "Uploading {current}/{total}: {filename}"
-msgstr "Uploaderer {current}/{total}: {filename}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 354
-#: NEEDS WORK
-#, python-brace-format
-msgid "Batch upload error for {filename}: {error}"
-msgstr "Batch upload fejl for {filename}: {error}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 385
-#: NEEDS WORK
-#, python-brace-format
-msgid "Successfully uploaded all {total} files!"
-msgstr "Succesfuldt uploadet alle {total} filer!"
-# 
-# File: usr/share/isovault/ui/window.py, line: 387
-#: NEEDS WORK
-#, python-brace-format
-msgid "Upload complete: {completed} successful, {failed} failed"
-msgstr "Upload fuldført: {completed} succesfuld, {failed} mislykket"
-# 
-# File: usr/share/isovault/ui/window.py, line: 407
-#: NEEDS WORK
-#, python-brace-format
-msgid "Successfully uploaded {filename}"
-msgstr "Succesfuldt uploadet {filename}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 417
-#: NEEDS WORK
-#, python-brace-format
-msgid "Failed to upload {filename}"
-msgstr "Fejl ved upload af {filename}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 423
-#: NEEDS WORK
-#, python-brace-format
-msgid "Downloading {filename}..."
-msgstr "Downloader {filename}..."
-# 
-# File: usr/share/isovault/ui/window.py, line: 439
-#: NEEDS WORK
-#, python-brace-format
-msgid "Successfully downloaded {filename}"
-msgstr "Succesfuldt downloadet {filename}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 441
-#: NEEDS WORK
-#, python-brace-format
-msgid "Failed to download {filename}"
-msgstr "Fejl ved download af {filename}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 452
-#: NEEDS WORK
-#, python-brace-format
-msgid "Deleting {filename}..."
-msgstr "Sletter {filename}..."
-# 
-# File: usr/share/isovault/ui/window.py, line: 465
-#: NEEDS WORK
-#, python-brace-format
-msgid "Successfully deleted {filename}"
-msgstr "Slettet {filename} med succes"
-# 
-# File: usr/share/isovault/ui/window.py, line: 475
-#: NEEDS WORK
-#, python-brace-format
-msgid "Failed to delete {filename}"
-msgstr "Mislykkedes at slette {filename}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 485
-#: NEEDS WORK
-#, python-brace-format
-msgid "Refreshing files for folder: {folder}"
-msgstr "Opdaterer filer for mappe: {folder}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 487
-#: NEEDS WORK
-msgid "Loading files..."
-msgstr "Indlæser filer..."
-# 
-# File: usr/share/isovault/ui/window.py, line: 507
-#: NEEDS WORK
-msgid "Failed to connect to S3 storage. Check credentials and connection."
-msgstr "Mislykkedes i at oprette forbindelse til S3-lagring. Tjek legitimationsoplysninger og forbindelse."
-# 
-# File: usr/share/isovault/ui/window.py, line: 519
-#: NEEDS WORK
-#, python-brace-format
-msgid " in {folder}"
-msgstr "i {mappe}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 522
-#: NEEDS WORK
-#, python-brace-format
-msgid "1 file{folder_text}"
-msgstr "1 fil{folder_text}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 524
-#: NEEDS WORK
-#, python-brace-format
-msgid "{count} files{folder_text}"
-msgstr "{count} filer{folder_text}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 593
-#: NEEDS WORK
-msgid "Updating index files..."
-msgstr "Opdaterer indeksfiler..."
-# 
-# File: usr/share/isovault/ui/window.py, line: 599
-#: NEEDS WORK
-msgid "Index files updated!"
-msgstr "Indeksfiler opdateret!"
-# 
-# File: usr/share/isovault/ui/window.py, line: 637
-#: NEEDS WORK
-msgid "S3 credentials removed"
-msgstr "S3 legitimationsoplysninger fjernet"
-# 
-# File: usr/share/isovault/ui/components.py, line: 33
-#: NEEDS WORK
-msgid "Progress"
-msgstr "Fremdrift"
-# 
-# File: usr/share/isovault/ui/components.py, line: 43
-#: NEEDS WORK
-#, python-brace-format
-msgid "Progress update: {progress:.1f}%"
-msgstr "Opdatering af fremskridt: {progress:.1f}%"
-# 
-# File: usr/share/isovault/ui/components.py, line: 50
-#: NEEDS WORK
-msgid "Hiding progress"
-msgstr "Skjuler fremskridt"
-# 
-# File: usr/share/isovault/ui/components.py, line: 123
-#: NEEDS WORK
-msgid "File Name"
-msgstr "Filnavn"
-# 
-# File: usr/share/isovault/ui/components.py, line: 132
-#: NEEDS WORK
-msgid "Folder"
-msgstr "Mappe"
-# 
-# File: usr/share/isovault/ui/components.py, line: 140
-#: NEEDS WORK
-msgid "Size"
-msgstr "Størrelse"
-# 
-# File: usr/share/isovault/ui/components.py, line: 148
-#: NEEDS WORK
-msgid "Modified"
-msgstr "Ændret"
-# 
-# File: usr/share/isovault/ui/components.py, line: 257
-#: NEEDS WORK
-msgid "Filter by folder:"
-msgstr "Filtrer efter mappe:"
-# 
-# File: usr/share/isovault/ui/components.py, line: 263
-#: NEEDS WORK
-msgid "All folders"
-msgstr "Alle mapper"
-# 
-# File: usr/share/isovault/ui/components.py, line: 277
-#: NEEDS WORK
-msgid "Copy Link"
-msgstr "Kopier link"
-# 
-# File: usr/share/isovault/ui/components.py, line: 284
-#: NEEDS WORK
-msgid "Download"
-msgstr "Download"
+msgid "Cancel"
+msgstr "Annuller"
 # 
 # #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
 # 
@@ -622,15 +499,186 @@ msgstr "Download"
 msgid "Delete"
 msgstr "Slet"
 # 
-# File: usr/share/isovault/ui/components.py, line: 357
+# File: usr/share/isovault/ui/dialogs.py, line: 125
 #: NEEDS WORK
-msgid "Upload ISO file"
-msgstr "Upload ISO-fil"
+msgid "ISO file manager for CDN77 storage"
+msgstr "ISO filhåndtering til CDN77-lagring"
 # 
-# File: usr/share/isovault/ui/components.py, line: 365
+# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
+# 
+# File: usr/share/isovault/ui/preferences.py, line: 336
+# File: usr/share/isovault/ui/dialogs.py, line: 144
+# File: usr/share/isovault/ui/dialogs.py, line: 164
+# File: usr/share/isovault/ui/dialogs.py, line: 363
 #: NEEDS WORK
-msgid "Application menu"
-msgstr "Applikationsmenu"
+msgid "OK"
+msgstr "OK"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 177
+#: NEEDS WORK
+msgid "Supported files (ISO, MD5)"
+msgstr "Understøttede filer (ISO, MD5)"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 186
+#: NEEDS WORK
+msgid "All files"
+msgstr "Alle filer"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 211
+#: NEEDS WORK
+msgid "Upload Error"
+msgstr "Upload-fejl"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 211
+#: NEEDS WORK
+msgid "Failed to get file paths"
+msgstr "Mislykkedes med at hente filstier"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 213
+#: NEEDS WORK
+msgid "Upload"
+msgstr "Upload"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 213
+#: NEEDS WORK
+msgid "No files selected"
+msgstr "Ingen filer valgt"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 227
+#: NEEDS WORK
+msgid "Download Error"
+msgstr "Downloadfejl"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 227
+#: NEEDS WORK
+msgid "Failed to get save path"
+msgstr "Mislykkedes med at hente gemmestien"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 234
+#: NEEDS WORK
+#, python-brace-format
+msgid "Showing folder selection for: {file_path}"
+msgstr "Viser mappens valg for: {file_path}"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 237
+# File: usr/share/isovault/ui/dialogs.py, line: 266
+#: NEEDS WORK
+msgid "Select Destination Folder"
+msgstr "Vælg destinationsmappe"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 238
+#: NEEDS WORK
+#, python-brace-format
+msgid "Choose which folder to upload '{filename}' to:"
+msgstr "Vælg hvilken mappe du vil uploade '{filename}' til:"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 256
+#: NEEDS WORK
+#, python-brace-format
+msgid "Showing folder selection for {file_count} files: {file_names}"
+msgstr "Viser mappeselektion for {file_count} filer: {file_names}"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 263
+#: NEEDS WORK
+#, python-brace-format
+msgid ""
+"\n"
+"... and {more_count} more files"
+msgstr "... og {more_count} flere filer"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 267
+#: NEEDS WORK
+#, python-brace-format
+msgid ""
+"Choose which folder to upload {file_count} files to:\n"
+"\n"
+"{file_list}"
+msgstr ""
+"Vælg hvilken mappe der skal uploades {file_count} filer til:\n"
+"\n"
+"{file_list}"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 285
+#: NEEDS WORK
+#, python-brace-format
+msgid "Single folder dialog response: '{response}' for file: {file_path}"
+msgstr "Enkelt mappedialogsvar: '{response}' for fil: {file_path}"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 294
+#: NEEDS WORK
+#, python-brace-format
+msgid "Selected folder: {folder}"
+msgstr "Valgt mappe: {folder}"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 297
+# File: usr/share/isovault/ui/dialogs.py, line: 319
+#: NEEDS WORK
+#, python-brace-format
+msgid "Unknown response: {response}"
+msgstr "Ukendt svar: {response}"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 298
+# File: usr/share/isovault/ui/dialogs.py, line: 320
+#: NEEDS WORK
+msgid "Error"
+msgstr "Fejl"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 298
+# File: usr/share/isovault/ui/dialogs.py, line: 320
+#: NEEDS WORK
+#, python-brace-format
+msgid "Unknown folder selection: {response}"
+msgstr "Ukendt mappeselektion: {response}"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 300
+#: NEEDS WORK
+msgid "Upload cancelled by user"
+msgstr "Upload annulleret af bruger"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 305
+#: NEEDS WORK
+#, python-brace-format
+msgid "Multiple folder dialog response: '{response}' for {file_count} files"
+msgstr "Flere mappedialogsvar: '{response}' for {file_count} filer"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 314
+#: NEEDS WORK
+#, python-brace-format
+msgid "Selected folder: {folder} for {file_count} files"
+msgstr "Valgt mappe: {folder} til {file_count} filer"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 322
+#: NEEDS WORK
+msgid "Batch upload cancelled by user"
+msgstr "Batchupload annulleret af bruger"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 351
+#: NEEDS WORK
+#, python-brace-format
+msgid "... and {more_count} more files"
+msgstr "... og {more_count} flere filer"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 353
+#: NEEDS WORK
+#, python-brace-format
+msgid "Found {invalid_count} invalid files"
+msgstr "Fundet {invalid_count} ugyldige filer"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 355
+#: NEEDS WORK
+#, python-brace-format
+msgid " ({valid_count} valid files will be uploaded)"
+msgstr "({valid_count} gyldige filer vil blive uploadet)"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 359
+#: NEEDS WORK
+msgid "File Validation Results"
+msgstr "Filvalideringsresultater"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 363
+#: NEEDS WORK
+msgid "Continue"
+msgstr "Fortsæt"
 # 
 # #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
 # 
@@ -639,21 +687,6 @@ msgstr "Applikationsmenu"
 #: NEEDS WORK
 msgid "Preferences"
 msgstr "Indstillinger"
-# 
-# File: usr/share/isovault/ui/components.py, line: 373
-#: NEEDS WORK
-msgid "Force Update Index"
-msgstr "Tving opdatering af indeks"
-# 
-# File: usr/share/isovault/ui/components.py, line: 374
-#: NEEDS WORK
-msgid "Refresh"
-msgstr "Opdater"
-# 
-# File: usr/share/isovault/ui/components.py, line: 379
-#: NEEDS WORK
-msgid "About"
-msgstr "Om"
 # 
 # File: usr/share/isovault/ui/preferences.py, line: 53
 #: NEEDS WORK
@@ -859,16 +892,6 @@ msgstr "Forbindelse mislykkedes. Tjek dine legitimationsoplysninger."
 msgid "Connection Test Result"
 msgstr "Forbindelsestestresultat"
 # 
-# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
-# 
-# File: usr/share/isovault/ui/preferences.py, line: 336
-# File: usr/share/isovault/ui/dialogs.py, line: 144
-# File: usr/share/isovault/ui/dialogs.py, line: 164
-# File: usr/share/isovault/ui/dialogs.py, line: 363
-#: NEEDS WORK
-msgid "OK"
-msgstr "OK"
-# 
 # File: usr/share/isovault/ui/preferences.py, line: 351
 #: NEEDS WORK
 msgid "Reset Settings"
@@ -885,266 +908,290 @@ msgstr ""
 "\n"
 "Denne handling kan ikke fortrydes."
 # 
-# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
-# 
-# File: usr/share/isovault/ui/preferences.py, line: 355
-# File: usr/share/isovault/ui/dialogs.py, line: 106
-# File: usr/share/isovault/ui/dialogs.py, line: 244
-# File: usr/share/isovault/ui/dialogs.py, line: 275
+# File: usr/share/isovault/ui/window.py, line: 117
 #: NEEDS WORK
-msgid "Cancel"
-msgstr "Annuller"
+msgid "Filter by folder"
+msgstr "Filtrer efter mappe"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 40
+# File: usr/share/isovault/ui/components.py, line: 263
 #: NEEDS WORK
-msgid "Select ISO or MD5 files to upload"
-msgstr "Vælg ISO- eller MD5-filer til upload"
+msgid "All folders"
+msgstr "Alle mapper"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 68
+# File: usr/share/isovault/ui/components.py, line: 277
 #: NEEDS WORK
-#, python-brace-format
-msgid "Save {filename}"
-msgstr "Gem {filename}"
+msgid "Copy Link"
+msgstr "Kopier link"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 102
+# File: usr/share/isovault/ui/window.py, line: 130
 #: NEEDS WORK
-msgid "Delete File"
-msgstr "Slet fil"
+msgid "Copy public URL"
+msgstr "Kopier offentlig URL"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 103
+# File: usr/share/isovault/ui/components.py, line: 284
 #: NEEDS WORK
-#, python-brace-format
-msgid ""
-"Are you sure you want to delete '{filename}'?\n"
-"\n"
-"This action cannot be undone."
-msgstr ""
-"Er du sikker på, at du vil slette '{filename}'?\n"
-"\n"
-"Denne handling kan ikke fortrydes."
+msgid "Download"
+msgstr "Download"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 125
+# File: usr/share/isovault/ui/window.py, line: 143
 #: NEEDS WORK
-msgid "ISO file manager for CDN77 storage"
-msgstr "ISO filhåndtering til CDN77-lagring"
+msgid "Save file locally"
+msgstr "Gem fil lokalt"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 177
+# File: usr/share/isovault/ui/window.py, line: 156
 #: NEEDS WORK
-msgid "Supported files (ISO, MD5)"
-msgstr "Understøttede filer (ISO, MD5)"
+msgid "Remove from storage"
+msgstr "Fjern fra lager"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 186
+# File: usr/share/isovault/ui/window.py, line: 228
 #: NEEDS WORK
-msgid "All files"
-msgstr "Alle filer"
+msgid "Upload ISO"
+msgstr "Upload ISO"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 211
+# File: usr/share/isovault/ui/components.py, line: 365
 #: NEEDS WORK
-msgid "Upload Error"
-msgstr "Upload-fejl"
+msgid "Application menu"
+msgstr "Applikationsmenu"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 211
+# File: usr/share/isovault/ui/components.py, line: 373
 #: NEEDS WORK
-msgid "Failed to get file paths"
-msgstr "Mislykkedes med at hente filstier"
+msgid "Force Update Index"
+msgstr "Tving opdatering af indeks"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 213
+# File: usr/share/isovault/ui/components.py, line: 374
 #: NEEDS WORK
-msgid "Upload"
-msgstr "Upload"
+msgid "Refresh"
+msgstr "Opdater"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 213
+# File: usr/share/isovault/ui/components.py, line: 379
 #: NEEDS WORK
-msgid "No files selected"
-msgstr "Ingen filer valgt"
+msgid "About"
+msgstr "Om"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 227
+# File: usr/share/isovault/ui/window.py, line: 108
 #: NEEDS WORK
-msgid "Download Error"
-msgstr "Downloadfejl"
+msgid "Ready"
+msgstr "Klar"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 227
+# File: usr/share/isovault/ui/window.py, line: 139
 #: NEEDS WORK
-msgid "Failed to get save path"
-msgstr "Mislykkedes med at hente gemmestien"
+msgid "Please configure S3 credentials in Preferences"
+msgstr "Venligst konfigurer S3-legitimationsoplysninger i Indstillinger"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 234
+# File: usr/share/isovault/ui/window.py, line: 366
 #: NEEDS WORK
-#, python-brace-format
-msgid "Showing folder selection for: {file_path}"
-msgstr "Viser mappens valg for: {file_path}"
+msgid "Connection test failed"
+msgstr "Forbindelsestest mislykkedes"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 237
-# File: usr/share/isovault/ui/dialogs.py, line: 266
+# File: usr/share/isovault/ui/window.py, line: 195
 #: NEEDS WORK
-msgid "Select Destination Folder"
-msgstr "Vælg destinationsmappe"
+msgid "Warning: Could not connect to S3 storage"
+msgstr "Advarsel: Kunne ikke oprette forbindelse til S3-lagring"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 238
+# File: usr/share/isovault/ui/window.py, line: 210
+# File: usr/share/isovault/ui/window.py, line: 590
+#: NEEDS WORK
+msgid "Please configure S3 credentials first"
+msgstr "Venligst konfigurer S3-legitimationsoplysninger først"
+# 
+# File: usr/share/isovault/ui/window.py, line: 230
 #: NEEDS WORK
 #, python-brace-format
-msgid "Choose which folder to upload '{filename}' to:"
-msgstr "Vælg hvilken mappe du vil uploade '{filename}' til:"
+msgid "Link copied: {url}"
+msgstr "Link kopieret: {url}"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 256
+# File: usr/share/isovault/ui/window.py, line: 291
 #: NEEDS WORK
 #, python-brace-format
-msgid "Showing folder selection for {file_count} files: {file_names}"
-msgstr "Viser mappeselektion for {file_count} filer: {file_names}"
+msgid "Uploading {filename}..."
+msgstr "Uploaderer {filename}..."
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 263
+# File: usr/share/isovault/ui/window.py, line: 479
 #: NEEDS WORK
 #, python-brace-format
-msgid ""
-"\n"
-"... and {more_count} more files"
-msgstr "... og {more_count} flere filer"
+msgid "Upload failed for {filename}"
+msgstr "Upload mislykkedes for {filename}"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 267
+# File: usr/share/isovault/ui/window.py, line: 308
 #: NEEDS WORK
 #, python-brace-format
-msgid ""
-"Choose which folder to upload {file_count} files to:\n"
-"\n"
-"{file_list}"
-msgstr ""
-"Vælg hvilken mappe der skal uploades {file_count} filer til:\n"
-"\n"
-"{file_list}"
+msgid "Starting batch upload: {file_count} files to folder: {folder}"
+msgstr "Starter batchupload: {file_count} filer til mappe: {folder}"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 285
+# File: usr/share/isovault/ui/window.py, line: 336
 #: NEEDS WORK
 #, python-brace-format
-msgid "Single folder dialog response: '{response}' for file: {file_path}"
-msgstr "Enkelt mappedialogsvar: '{response}' for fil: {file_path}"
+msgid "Uploading {current}/{total}: {filename}"
+msgstr "Uploaderer {current}/{total}: {filename}"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 294
+# File: usr/share/isovault/ui/window.py, line: 533
 #: NEEDS WORK
 #, python-brace-format
-msgid "Selected folder: {folder}"
-msgstr "Valgt mappe: {folder}"
+msgid "Batch upload error for {filename}"
+msgstr "Batch upload fejl for {filename}"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 297
-# File: usr/share/isovault/ui/dialogs.py, line: 319
+# File: usr/share/isovault/ui/window.py, line: 385
 #: NEEDS WORK
 #, python-brace-format
-msgid "Unknown response: {response}"
-msgstr "Ukendt svar: {response}"
+msgid "Successfully uploaded all {total} files!"
+msgstr "Succesfuldt uploadet alle {total} filer!"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 298
-# File: usr/share/isovault/ui/dialogs.py, line: 320
-#: NEEDS WORK
-msgid "Error"
-msgstr "Fejl"
-# 
-# File: usr/share/isovault/ui/dialogs.py, line: 298
-# File: usr/share/isovault/ui/dialogs.py, line: 320
+# File: usr/share/isovault/ui/window.py, line: 387
 #: NEEDS WORK
 #, python-brace-format
-msgid "Unknown folder selection: {response}"
-msgstr "Ukendt mappeselektion: {response}"
+msgid "Upload complete: {completed} successful, {failed} failed"
+msgstr "Upload fuldført: {completed} succesfuld, {failed} mislykket"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 300
-#: NEEDS WORK
-msgid "Upload cancelled by user"
-msgstr "Upload annulleret af bruger"
-# 
-# File: usr/share/isovault/ui/dialogs.py, line: 305
+# File: usr/share/isovault/ui/window.py, line: 407
 #: NEEDS WORK
 #, python-brace-format
-msgid "Multiple folder dialog response: '{response}' for {file_count} files"
-msgstr "Flere mappedialogsvar: '{response}' for {file_count} filer"
+msgid "Successfully uploaded {filename}"
+msgstr "Succesfuldt uploadet {filename}"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 314
+# File: usr/share/isovault/ui/window.py, line: 417
 #: NEEDS WORK
 #, python-brace-format
-msgid "Selected folder: {folder} for {file_count} files"
-msgstr "Valgt mappe: {folder} til {file_count} filer"
+msgid "Failed to upload {filename}"
+msgstr "Fejl ved upload af {filename}"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 322
-#: NEEDS WORK
-msgid "Batch upload cancelled by user"
-msgstr "Batchupload annulleret af bruger"
-# 
-# File: usr/share/isovault/ui/dialogs.py, line: 351
+# File: usr/share/isovault/ui/window.py, line: 423
 #: NEEDS WORK
 #, python-brace-format
-msgid "... and {more_count} more files"
-msgstr "... og {more_count} flere filer"
+msgid "Downloading {filename}..."
+msgstr "Downloader {filename}..."
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 353
+# File: usr/share/isovault/ui/window.py, line: 611
 #: NEEDS WORK
 #, python-brace-format
-msgid "Found {invalid_count} invalid files"
-msgstr "Fundet {invalid_count} ugyldige filer"
+msgid "Download failed for {filename}"
+msgstr "Download mislykkedes for {filename}"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 355
+# File: usr/share/isovault/ui/window.py, line: 439
 #: NEEDS WORK
 #, python-brace-format
-msgid " ({valid_count} valid files will be uploaded)"
-msgstr "({valid_count} gyldige filer vil blive uploadet)"
+msgid "Successfully downloaded {filename}"
+msgstr "Succesfuldt downloadet {filename}"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 359
-#: NEEDS WORK
-msgid "File Validation Results"
-msgstr "Filvalideringsresultater"
-# 
-# File: usr/share/isovault/ui/dialogs.py, line: 363
-#: NEEDS WORK
-msgid "Continue"
-msgstr "Fortsæt"
-# 
-# File: usr/share/isovault/models/settings.py, line: 54
+# File: usr/share/isovault/ui/window.py, line: 441
 #: NEEDS WORK
 #, python-brace-format
-msgid "Config file not found: {config_file}"
-msgstr "Konfigurationsfil ikke fundet: {config_file}"
+msgid "Failed to download {filename}"
+msgstr "Fejl ved download af {filename}"
 # 
-# File: usr/share/isovault/models/settings.py, line: 73
+# File: usr/share/isovault/ui/window.py, line: 452
 #: NEEDS WORK
 #, python-brace-format
-msgid "Settings loaded from: {config_file}"
-msgstr "Indstillinger indlæst fra: {config_file}"
+msgid "Deleting {filename}..."
+msgstr "Sletter {filename}..."
 # 
-# File: usr/share/isovault/models/settings.py, line: 77
+# File: usr/share/isovault/ui/window.py, line: 646
 #: NEEDS WORK
 #, python-brace-format
-msgid "Error loading settings: {error}"
-msgstr "Fejl ved indlæsning af indstillinger: {error}"
+msgid "Delete failed for {filename}"
+msgstr "Sletning mislykkedes for {filename}"
 # 
-# File: usr/share/isovault/models/settings.py, line: 98
+# File: usr/share/isovault/ui/window.py, line: 465
 #: NEEDS WORK
 #, python-brace-format
-msgid "Settings saved to: {config_file}"
-msgstr "Indstillinger gemt til: {config_file}"
+msgid "Successfully deleted {filename}"
+msgstr "Slettet {filename} med succes"
 # 
-# File: usr/share/isovault/models/settings.py, line: 102
+# File: usr/share/isovault/ui/window.py, line: 475
 #: NEEDS WORK
 #, python-brace-format
-msgid "Error saving settings: {error}"
-msgstr "Fejl ved gemning af indstillinger: {error}"
+msgid "Failed to delete {filename}"
+msgstr "Mislykkedes at slette {filename}"
 # 
-# File: usr/share/isovault/models/settings.py, line: 138
+# File: usr/share/isovault/ui/window.py, line: 485
 #: NEEDS WORK
-msgid "Access key is required"
-msgstr "Adgangsnøgle er påkrævet"
+#, python-brace-format
+msgid "Refreshing files for folder: {folder}"
+msgstr "Opdaterer filer for mappe: {folder}"
 # 
-# File: usr/share/isovault/models/settings.py, line: 141
+# File: usr/share/isovault/ui/window.py, line: 487
 #: NEEDS WORK
-msgid "Secret key is required"
-msgstr "Hemmeligt nøgle er påkrævet"
+msgid "Loading files..."
+msgstr "Indlæser filer..."
 # 
-# File: usr/share/isovault/models/settings.py, line: 144
+# File: usr/share/isovault/ui/window.py, line: 686
 #: NEEDS WORK
-msgid "Endpoint URL is required"
-msgstr "Endpoint-URL er påkrævet"
+msgid "Failed to refresh file list"
+msgstr "Mislykkedes at opdatere fillisten"
 # 
-# File: usr/share/isovault/models/settings.py, line: 147
+# File: usr/share/isovault/ui/window.py, line: 507
 #: NEEDS WORK
-msgid "Bucket name is required"
-msgstr "Bucketnavn er påkrævet"
+msgid "Failed to connect to S3 storage. Check credentials and connection."
+msgstr "Mislykkedes i at oprette forbindelse til S3-lagring. Tjek legitimationsoplysninger og forbindelse."
 # 
-# File: usr/share/isovault/models/settings.py, line: 149
+# File: usr/share/isovault/ui/window.py, line: 522
 #: NEEDS WORK
-msgid "Configuration is valid"
-msgstr "Konfigurationen er gyldig"
+#, python-brace-format
+msgid "1 file{folder_text}"
+msgstr "1 fil{folder_text}"
+# 
+# File: usr/share/isovault/ui/window.py, line: 524
+#: NEEDS WORK
+#, python-brace-format
+msgid "{count} files{folder_text}"
+msgstr "{count} filer{folder_text}"
+# 
+# File: usr/share/isovault/ui/window.py, line: 748
+#: NEEDS WORK
+msgid "Failed to update index files"
+msgstr "Mislykkedes at opdatere indeksfiler"
+# 
+# File: usr/share/isovault/ui/window.py, line: 593
+#: NEEDS WORK
+msgid "Updating index files..."
+msgstr "Opdaterer indeksfiler..."
+# 
+# File: usr/share/isovault/ui/window.py, line: 599
+#: NEEDS WORK
+msgid "Index files updated!"
+msgstr "Indeksfiler opdateret!"
+# 
+# File: usr/share/isovault/ui/window.py, line: 637
+#: NEEDS WORK
+msgid "S3 credentials removed"
+msgstr "S3 legitimationsoplysninger fjernet"
+# 
+# File: usr/share/isovault/ui/window.py, line: 839
+#: NEEDS WORK
+msgid "An unexpected error occurred"
+msgstr "Der opstod en uventet fejl"
+# 
+# File: usr/share/isovault/ui/components.py, line: 33
+#: NEEDS WORK
+msgid "Progress"
+msgstr "Fremdrift"
+# 
+# File: usr/share/isovault/ui/components.py, line: 43
+#: NEEDS WORK
+#, python-brace-format
+msgid "Progress update: {progress:.1f}%"
+msgstr "Opdatering af fremskridt: {progress:.1f}%"
+# 
+# File: usr/share/isovault/ui/components.py, line: 50
+#: NEEDS WORK
+msgid "Hiding progress"
+msgstr "Skjuler fremskridt"
+# 
+# File: usr/share/isovault/ui/components.py, line: 123
+#: NEEDS WORK
+msgid "File Name"
+msgstr "Filnavn"
+# 
+# File: usr/share/isovault/ui/components.py, line: 132
+#: NEEDS WORK
+msgid "Folder"
+msgstr "Mappe"
+# 
+# File: usr/share/isovault/ui/components.py, line: 140
+#: NEEDS WORK
+msgid "Size"
+msgstr "Størrelse"
+# 
+# File: usr/share/isovault/ui/components.py, line: 148
+#: NEEDS WORK
+msgid "Modified"
+msgstr "Ændret"

@@ -16,6 +16,152 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: attranslate\n"
 # 
+# File: usr/share/isovault/main.py, line: 46
+#: NEEDS WORK
+msgid "Show version information"
+msgstr "Zobrazit informace o verzi"
+# 
+# File: usr/share/isovault/main.py, line: 55
+#: NEEDS WORK
+msgid "Enable debug mode"
+msgstr "Povolit režim ladění"
+# 
+# File: usr/share/isovault/main.py, line: 63
+#: NEEDS WORK
+#, python-brace-format
+msgid "Starting {app_name} v{version}"
+msgstr "Spouštění {app_name} v{version}"
+# 
+# File: usr/share/isovault/main.py, line: 81
+#: NEEDS WORK
+#, python-brace-format
+msgid "Shutting down {app_name}"
+msgstr "Vypínání {app_name}"
+# 
+# File: usr/share/isovault/main.py, line: 101
+#: NEEDS WORK
+msgid "Debug mode enabled"
+msgstr "Režim ladění povolen"
+# 
+# File: usr/share/isovault/main.py, line: 184
+#: NEEDS WORK
+#, python-brace-format
+msgid "Warning: Could not apply CSS: {error}"
+msgstr "Upozornění: Nelze použít CSS: {error}"
+# 
+# File: usr/share/isovault/main.py, line: 198
+#: NEEDS WORK
+#, python-brace-format
+msgid "Warning: Could not set keyboard shortcuts: {error}"
+msgstr "Upozornění: Nelze nastavit klávesové zkratky: {error}"
+# 
+# File: usr/share/isovault/main.py, line: 217
+#: NEEDS WORK
+#, python-brace-format
+msgid ""
+"\n"
+"Received signal {signum}, shutting down gracefully..."
+msgstr "Přijato signál {signum}, probíhá elegantní vypnutí..."
+# 
+# File: usr/share/isovault/main.py, line: 242
+#: NEEDS WORK
+msgid "Error: Missing required dependencies:"
+msgstr "Chyba: Chybějící požadované závislosti:"
+# 
+# File: usr/share/isovault/main.py, line: 245
+#: NEEDS WORK
+#, python-brace-format
+msgid ""
+"\n"
+"Install them with: pip install {deps}"
+msgstr "Nainstalujte je pomocí: pip install {deps}"
+# 
+# File: usr/share/isovault/main.py, line: 257
+#: NEEDS WORK
+#, python-brace-format
+msgid "Warning: Could not set application name: {error}"
+msgstr "Upozornění: Nelze nastavit název aplikace: {error}"
+# 
+# File: usr/share/isovault/main.py, line: 264
+#: NEEDS WORK
+#, python-brace-format
+msgid "Warning: Could not set signal handlers: {error}"
+msgstr "Upozornění: Nelze nastavit obslužné rutiny signálů: {error}"
+# 
+# File: usr/share/isovault/main.py, line: 271
+#: NEEDS WORK
+#, python-brace-format
+msgid "Warning: Could not create config directory: {error}"
+msgstr "Upozornění: Nelze vytvořit adresář pro konfiguraci: {error}"
+# 
+# File: usr/share/isovault/main.py, line: 288
+#: NEEDS WORK
+msgid ""
+"\n"
+"Interrupted by user"
+msgstr "Přerušeno uživatelem"
+# 
+# File: usr/share/isovault/main.py, line: 291
+#: NEEDS WORK
+#, python-brace-format
+msgid "Fatal error: {error}"
+msgstr "Fatální chyba: {error}"
+# 
+# File: usr/share/isovault/models/settings.py, line: 54
+#: NEEDS WORK
+#, python-brace-format
+msgid "Config file not found: {config_file}"
+msgstr "Konfigurační soubor nebyl nalezen: {config_file}"
+# 
+# File: usr/share/isovault/models/settings.py, line: 73
+#: NEEDS WORK
+#, python-brace-format
+msgid "Settings loaded from: {config_file}"
+msgstr "Nastavení načtena z: {config_file}"
+# 
+# File: usr/share/isovault/models/settings.py, line: 77
+#: NEEDS WORK
+#, python-brace-format
+msgid "Error loading settings: {error}"
+msgstr "Chyba při načítání nastavení: {error}"
+# 
+# File: usr/share/isovault/models/settings.py, line: 98
+#: NEEDS WORK
+#, python-brace-format
+msgid "Settings saved to: {config_file}"
+msgstr "Nastavení uložena do: {config_file}"
+# 
+# File: usr/share/isovault/models/settings.py, line: 102
+#: NEEDS WORK
+#, python-brace-format
+msgid "Error saving settings: {error}"
+msgstr "Chyba při ukládání nastavení: {error}"
+# 
+# File: usr/share/isovault/models/settings.py, line: 138
+#: NEEDS WORK
+msgid "Access key is required"
+msgstr "Je třeba zadat přístupový klíč."
+# 
+# File: usr/share/isovault/models/settings.py, line: 141
+#: NEEDS WORK
+msgid "Secret key is required"
+msgstr "Je třeba zadat tajný klíč."
+# 
+# File: usr/share/isovault/models/settings.py, line: 144
+#: NEEDS WORK
+msgid "Endpoint URL is required"
+msgstr "Je třeba zadat URL koncového bodu"
+# 
+# File: usr/share/isovault/models/settings.py, line: 147
+#: NEEDS WORK
+msgid "Bucket name is required"
+msgstr "Název kbelíku je povinný"
+# 
+# File: usr/share/isovault/models/settings.py, line: 149
+#: NEEDS WORK
+msgid "Configuration is valid"
+msgstr "Konfigurace je platná"
+# 
 # File: usr/share/isovault/utils/helpers.py, line: 57
 #: NEEDS WORK
 #, python-brace-format
@@ -90,72 +236,6 @@ msgstr "Platný formát URL"
 #, python-brace-format
 msgid "Error extracting MD5 from {filename}: {error}"
 msgstr "Chyba při extrakci MD5 z {filename}: {error}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 129
-# File: usr/share/isovault/services/s3_service.py, line: 191
-#: NEEDS WORK
-msgid "No S3 connection available"
-msgstr "Žádné připojení k S3 není k dispozici"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 135
-#: NEEDS WORK
-#, python-brace-format
-msgid "Upload validation failed: {message}"
-msgstr "Ověření nahrávání selhalo: {message}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 139
-#: NEEDS WORK
-#, python-brace-format
-msgid "Invalid folder. Must be one of: {folders}"
-msgstr "Neplatná složka. Musí být jednou z: {folders}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 174
-#: NEEDS WORK
-#, python-brace-format
-msgid "Upload failed: {error}"
-msgstr "Nahrání se nezdařilo: {error}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 177
-#: NEEDS WORK
-#, python-brace-format
-msgid "Upload error: {error}"
-msgstr "Chyba při nahrávání: {error}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 245
-#: NEEDS WORK
-#, python-brace-format
-msgid "Error listing files: {error}"
-msgstr "Chyba při výpisu souborů: {error}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 270
-#: NEEDS WORK
-#, python-brace-format
-msgid "Delete failed: {error}"
-msgstr "Smazání se nezdařilo: {error}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 316
-#: NEEDS WORK
-#, python-brace-format
-msgid "Download failed: {error}"
-msgstr "Stahování se nezdařilo: {error}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 339
-#: NEEDS WORK
-#, python-brace-format
-msgid "Error getting file info: {error}"
-msgstr "Chyba při získávání informací o souboru: {error}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 379
-#: NEEDS WORK
-#, python-brace-format
-msgid "Error uploading content: {error}"
-msgstr "Chyba při nahrávání obsahu: {error}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 395
-#: NEEDS WORK
-#, python-brace-format
-msgid "Error reading file content: {error}"
-msgstr "Chyba při čtení obsahu souboru: {error}"
 # 
 # File: usr/share/isovault/services/file_validator.py, line: 27
 #: NEEDS WORK
@@ -307,312 +387,109 @@ msgstr "Vygenerováno ISOVaultem"
 msgid "Downloading..."
 msgstr "Stahování..."
 # 
-# File: usr/share/isovault/main.py, line: 46
+# File: usr/share/isovault/services/s3_service.py, line: 129
+# File: usr/share/isovault/services/s3_service.py, line: 191
 #: NEEDS WORK
-msgid "Show version information"
-msgstr "Zobrazit informace o verzi"
+msgid "No S3 connection available"
+msgstr "Žádné připojení k S3 není k dispozici"
 # 
-# File: usr/share/isovault/main.py, line: 55
-#: NEEDS WORK
-msgid "Enable debug mode"
-msgstr "Povolit režim ladění"
-# 
-# File: usr/share/isovault/main.py, line: 63
+# File: usr/share/isovault/services/s3_service.py, line: 135
 #: NEEDS WORK
 #, python-brace-format
-msgid "Starting {app_name} v{version}"
-msgstr "Spouštění {app_name} v{version}"
+msgid "Upload validation failed: {message}"
+msgstr "Ověření nahrávání selhalo: {message}"
 # 
-# File: usr/share/isovault/main.py, line: 81
+# File: usr/share/isovault/services/s3_service.py, line: 139
 #: NEEDS WORK
 #, python-brace-format
-msgid "Shutting down {app_name}"
-msgstr "Vypínání {app_name}"
+msgid "Invalid folder. Must be one of: {folders}"
+msgstr "Neplatná složka. Musí být jednou z: {folders}"
 # 
-# File: usr/share/isovault/main.py, line: 101
-#: NEEDS WORK
-msgid "Debug mode enabled"
-msgstr "Režim ladění povolen"
-# 
-# File: usr/share/isovault/main.py, line: 184
+# File: usr/share/isovault/services/s3_service.py, line: 174
 #: NEEDS WORK
 #, python-brace-format
-msgid "Warning: Could not apply CSS: {error}"
-msgstr "Upozornění: Nelze použít CSS: {error}"
+msgid "Upload failed: {error}"
+msgstr "Nahrání se nezdařilo: {error}"
 # 
-# File: usr/share/isovault/main.py, line: 198
+# File: usr/share/isovault/services/s3_service.py, line: 177
 #: NEEDS WORK
 #, python-brace-format
-msgid "Warning: Could not set keyboard shortcuts: {error}"
-msgstr "Upozornění: Nelze nastavit klávesové zkratky: {error}"
+msgid "Upload error: {error}"
+msgstr "Chyba při nahrávání: {error}"
 # 
-# File: usr/share/isovault/main.py, line: 217
+# File: usr/share/isovault/services/s3_service.py, line: 245
+#: NEEDS WORK
+#, python-brace-format
+msgid "Error listing files: {error}"
+msgstr "Chyba při výpisu souborů: {error}"
+# 
+# File: usr/share/isovault/services/s3_service.py, line: 270
+#: NEEDS WORK
+#, python-brace-format
+msgid "Delete failed: {error}"
+msgstr "Smazání se nezdařilo: {error}"
+# 
+# File: usr/share/isovault/services/s3_service.py, line: 316
+#: NEEDS WORK
+#, python-brace-format
+msgid "Download failed: {error}"
+msgstr "Stahování se nezdařilo: {error}"
+# 
+# File: usr/share/isovault/services/s3_service.py, line: 339
+#: NEEDS WORK
+#, python-brace-format
+msgid "Error getting file info: {error}"
+msgstr "Chyba při získávání informací o souboru: {error}"
+# 
+# File: usr/share/isovault/services/s3_service.py, line: 379
+#: NEEDS WORK
+#, python-brace-format
+msgid "Error uploading content: {error}"
+msgstr "Chyba při nahrávání obsahu: {error}"
+# 
+# File: usr/share/isovault/services/s3_service.py, line: 395
+#: NEEDS WORK
+#, python-brace-format
+msgid "Error reading file content: {error}"
+msgstr "Chyba při čtení obsahu souboru: {error}"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 40
+#: NEEDS WORK
+msgid "Select ISO or MD5 files to upload"
+msgstr "Vyberte soubory ISO nebo MD5 k nahrání"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 68
+#: NEEDS WORK
+#, python-brace-format
+msgid "Save {filename}"
+msgstr "Uložit {filename}"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 102
+#: NEEDS WORK
+msgid "Delete File"
+msgstr "Smazat soubor"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 103
 #: NEEDS WORK
 #, python-brace-format
 msgid ""
+"Are you sure you want to delete '{filename}'?\n"
 "\n"
-"Received signal {signum}, shutting down gracefully..."
-msgstr "Přijato signál {signum}, probíhá elegantní vypnutí..."
-# 
-# File: usr/share/isovault/main.py, line: 242
-#: NEEDS WORK
-msgid "Error: Missing required dependencies:"
-msgstr "Chyba: Chybějící požadované závislosti:"
-# 
-# File: usr/share/isovault/main.py, line: 245
-#: NEEDS WORK
-#, python-brace-format
-msgid ""
+"This action cannot be undone."
+msgstr ""
+"Opravdu chcete smazat '{filename}'?\n"
 "\n"
-"Install them with: pip install {deps}"
-msgstr "Nainstalujte je pomocí: pip install {deps}"
+"Tuto akci nelze vrátit zpět."
 # 
-# File: usr/share/isovault/main.py, line: 257
-#: NEEDS WORK
-#, python-brace-format
-msgid "Warning: Could not set application name: {error}"
-msgstr "Upozornění: Nelze nastavit název aplikace: {error}"
+# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
 # 
-# File: usr/share/isovault/main.py, line: 264
+# File: usr/share/isovault/ui/preferences.py, line: 355
+# File: usr/share/isovault/ui/dialogs.py, line: 106
+# File: usr/share/isovault/ui/dialogs.py, line: 244
+# File: usr/share/isovault/ui/dialogs.py, line: 275
 #: NEEDS WORK
-#, python-brace-format
-msgid "Warning: Could not set signal handlers: {error}"
-msgstr "Upozornění: Nelze nastavit obslužné rutiny signálů: {error}"
-# 
-# File: usr/share/isovault/main.py, line: 271
-#: NEEDS WORK
-#, python-brace-format
-msgid "Warning: Could not create config directory: {error}"
-msgstr "Upozornění: Nelze vytvořit adresář pro konfiguraci: {error}"
-# 
-# File: usr/share/isovault/main.py, line: 288
-#: NEEDS WORK
-msgid ""
-"\n"
-"Interrupted by user"
-msgstr "Přerušeno uživatelem"
-# 
-# File: usr/share/isovault/main.py, line: 291
-#: NEEDS WORK
-#, python-brace-format
-msgid "Fatal error: {error}"
-msgstr "Fatální chyba: {error}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 108
-#: NEEDS WORK
-msgid "Ready"
-msgstr "Připraveno"
-# 
-# File: usr/share/isovault/ui/window.py, line: 139
-#: NEEDS WORK
-msgid "Please configure S3 credentials in Preferences"
-msgstr "Prosím, nakonfigurujte S3 přihlašovací údaje v Nastavení"
-# 
-# File: usr/share/isovault/ui/window.py, line: 195
-#: NEEDS WORK
-msgid "Warning: Could not connect to S3 storage"
-msgstr "Upozornění: Nelze se připojit k úložišti S3"
-# 
-# File: usr/share/isovault/ui/window.py, line: 210
-# File: usr/share/isovault/ui/window.py, line: 590
-#: NEEDS WORK
-msgid "Please configure S3 credentials first"
-msgstr "Prosím nejprve nakonfigurujte S3 přihlašovací údaje."
-# 
-# File: usr/share/isovault/ui/window.py, line: 230
-#: NEEDS WORK
-#, python-brace-format
-msgid "Link copied: {url}"
-msgstr "Odkaz zkopírován: {url}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 291
-#: NEEDS WORK
-#, python-brace-format
-msgid "Uploading {filename}..."
-msgstr "Nahrávání {filename}..."
-# 
-# File: usr/share/isovault/ui/window.py, line: 308
-#: NEEDS WORK
-#, python-brace-format
-msgid "Starting batch upload: {file_count} files to folder: {folder}"
-msgstr "Zahájení hromadného nahrávání: {file_count} souborů do složky: {folder}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 336
-#: NEEDS WORK
-#, python-brace-format
-msgid "Uploading {current}/{total}: {filename}"
-msgstr "Nahrávání {current}/{total}: {filename}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 354
-#: NEEDS WORK
-#, python-brace-format
-msgid "Batch upload error for {filename}: {error}"
-msgstr "Chyba hromadného nahrávání pro {filename}: {error}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 385
-#: NEEDS WORK
-#, python-brace-format
-msgid "Successfully uploaded all {total} files!"
-msgstr "Úspěšně nahráno všech {total} souborů!"
-# 
-# File: usr/share/isovault/ui/window.py, line: 387
-#: NEEDS WORK
-#, python-brace-format
-msgid "Upload complete: {completed} successful, {failed} failed"
-msgstr "Nahrávání dokončeno: {completed} úspěšných, {failed} neúspěšných"
-# 
-# File: usr/share/isovault/ui/window.py, line: 407
-#: NEEDS WORK
-#, python-brace-format
-msgid "Successfully uploaded {filename}"
-msgstr "Úspěšně nahráno {filename}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 417
-#: NEEDS WORK
-#, python-brace-format
-msgid "Failed to upload {filename}"
-msgstr "Nepodařilo se nahrát {filename}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 423
-#: NEEDS WORK
-#, python-brace-format
-msgid "Downloading {filename}..."
-msgstr "Stahuji {filename}..."
-# 
-# File: usr/share/isovault/ui/window.py, line: 439
-#: NEEDS WORK
-#, python-brace-format
-msgid "Successfully downloaded {filename}"
-msgstr "Úspěšně staženo {filename}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 441
-#: NEEDS WORK
-#, python-brace-format
-msgid "Failed to download {filename}"
-msgstr "Nepodařilo se stáhnout {filename}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 452
-#: NEEDS WORK
-#, python-brace-format
-msgid "Deleting {filename}..."
-msgstr "Mazání {filename}..."
-# 
-# File: usr/share/isovault/ui/window.py, line: 465
-#: NEEDS WORK
-#, python-brace-format
-msgid "Successfully deleted {filename}"
-msgstr "Úspěšně smazáno {filename}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 475
-#: NEEDS WORK
-#, python-brace-format
-msgid "Failed to delete {filename}"
-msgstr "Nepodařilo se smazat {filename}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 485
-#: NEEDS WORK
-#, python-brace-format
-msgid "Refreshing files for folder: {folder}"
-msgstr "Obnovování souborů pro složku: {folder}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 487
-#: NEEDS WORK
-msgid "Loading files..."
-msgstr "Načítání souborů..."
-# 
-# File: usr/share/isovault/ui/window.py, line: 507
-#: NEEDS WORK
-msgid "Failed to connect to S3 storage. Check credentials and connection."
-msgstr "Nepodařilo se připojit k úložišti S3. Zkontrolujte přihlašovací údaje a připojení."
-# 
-# File: usr/share/isovault/ui/window.py, line: 519
-#: NEEDS WORK
-#, python-brace-format
-msgid " in {folder}"
-msgstr "ve {složce}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 522
-#: NEEDS WORK
-#, python-brace-format
-msgid "1 file{folder_text}"
-msgstr "1 soubor{folder_text}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 524
-#: NEEDS WORK
-#, python-brace-format
-msgid "{count} files{folder_text}"
-msgstr "{count} souborů{folder_text}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 593
-#: NEEDS WORK
-msgid "Updating index files..."
-msgstr "Aktualizace indexových souborů..."
-# 
-# File: usr/share/isovault/ui/window.py, line: 599
-#: NEEDS WORK
-msgid "Index files updated!"
-msgstr "Indexové soubory byly aktualizovány!"
-# 
-# File: usr/share/isovault/ui/window.py, line: 637
-#: NEEDS WORK
-msgid "S3 credentials removed"
-msgstr "S3 přihlašovací údaje odstraněny"
-# 
-# File: usr/share/isovault/ui/components.py, line: 33
-#: NEEDS WORK
-msgid "Progress"
-msgstr "Pokrok"
-# 
-# File: usr/share/isovault/ui/components.py, line: 43
-#: NEEDS WORK
-#, python-brace-format
-msgid "Progress update: {progress:.1f}%"
-msgstr "Aktualizace postupu: {progress:.1f}%"
-# 
-# File: usr/share/isovault/ui/components.py, line: 50
-#: NEEDS WORK
-msgid "Hiding progress"
-msgstr "Skrývání pokroku"
-# 
-# File: usr/share/isovault/ui/components.py, line: 123
-#: NEEDS WORK
-msgid "File Name"
-msgstr "Název souboru"
-# 
-# File: usr/share/isovault/ui/components.py, line: 132
-#: NEEDS WORK
-msgid "Folder"
-msgstr "Složka"
-# 
-# File: usr/share/isovault/ui/components.py, line: 140
-#: NEEDS WORK
-msgid "Size"
-msgstr "Velikost"
-# 
-# File: usr/share/isovault/ui/components.py, line: 148
-#: NEEDS WORK
-msgid "Modified"
-msgstr "Upraveno"
-# 
-# File: usr/share/isovault/ui/components.py, line: 257
-#: NEEDS WORK
-msgid "Filter by folder:"
-msgstr "Filtruj podle složky:"
-# 
-# File: usr/share/isovault/ui/components.py, line: 263
-#: NEEDS WORK
-msgid "All folders"
-msgstr "Všechny složky"
-# 
-# File: usr/share/isovault/ui/components.py, line: 277
-#: NEEDS WORK
-msgid "Copy Link"
-msgstr "Kopírovat odkaz"
-# 
-# File: usr/share/isovault/ui/components.py, line: 284
-#: NEEDS WORK
-msgid "Download"
-msgstr "Stáhnout"
+msgid "Cancel"
+msgstr "Zrušit"
 # 
 # #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
 # 
@@ -622,15 +499,186 @@ msgstr "Stáhnout"
 msgid "Delete"
 msgstr "Smazat"
 # 
-# File: usr/share/isovault/ui/components.py, line: 357
+# File: usr/share/isovault/ui/dialogs.py, line: 125
 #: NEEDS WORK
-msgid "Upload ISO file"
-msgstr "Nahrát soubor ISO"
+msgid "ISO file manager for CDN77 storage"
+msgstr "ISO správce souborů pro CDN77 úložiště"
 # 
-# File: usr/share/isovault/ui/components.py, line: 365
+# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
+# 
+# File: usr/share/isovault/ui/preferences.py, line: 336
+# File: usr/share/isovault/ui/dialogs.py, line: 144
+# File: usr/share/isovault/ui/dialogs.py, line: 164
+# File: usr/share/isovault/ui/dialogs.py, line: 363
 #: NEEDS WORK
-msgid "Application menu"
-msgstr "Nabídka aplikace"
+msgid "OK"
+msgstr "OK"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 177
+#: NEEDS WORK
+msgid "Supported files (ISO, MD5)"
+msgstr "Podporované soubory (ISO, MD5)"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 186
+#: NEEDS WORK
+msgid "All files"
+msgstr "Všechny soubory"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 211
+#: NEEDS WORK
+msgid "Upload Error"
+msgstr "Chyba při nahrávání"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 211
+#: NEEDS WORK
+msgid "Failed to get file paths"
+msgstr "Nepodařilo se získat cesty k souborům"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 213
+#: NEEDS WORK
+msgid "Upload"
+msgstr "Nahrát"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 213
+#: NEEDS WORK
+msgid "No files selected"
+msgstr "Žádné soubory nejsou vybrány"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 227
+#: NEEDS WORK
+msgid "Download Error"
+msgstr "Chyba stahování"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 227
+#: NEEDS WORK
+msgid "Failed to get save path"
+msgstr "Nepodařilo se získat cestu pro uložení"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 234
+#: NEEDS WORK
+#, python-brace-format
+msgid "Showing folder selection for: {file_path}"
+msgstr "Zobrazení výběru složky pro: {file_path}"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 237
+# File: usr/share/isovault/ui/dialogs.py, line: 266
+#: NEEDS WORK
+msgid "Select Destination Folder"
+msgstr "Vyberte cílovou složku"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 238
+#: NEEDS WORK
+#, python-brace-format
+msgid "Choose which folder to upload '{filename}' to:"
+msgstr "Vyberte, do které složky chcete nahrát '{filename}':"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 256
+#: NEEDS WORK
+#, python-brace-format
+msgid "Showing folder selection for {file_count} files: {file_names}"
+msgstr "Zobrazení výběru složky pro {file_count} souborů: {file_names}"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 263
+#: NEEDS WORK
+#, python-brace-format
+msgid ""
+"\n"
+"... and {more_count} more files"
+msgstr "... a {more_count} dalších souborů"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 267
+#: NEEDS WORK
+#, python-brace-format
+msgid ""
+"Choose which folder to upload {file_count} files to:\n"
+"\n"
+"{file_list}"
+msgstr ""
+"Vyberte, do které složky chcete nahrát {file_count} souborů:\n"
+"\n"
+"{file_list}"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 285
+#: NEEDS WORK
+#, python-brace-format
+msgid "Single folder dialog response: '{response}' for file: {file_path}"
+msgstr "Odpověď dialogu pro jednu složku: '{response}' pro soubor: {file_path}"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 294
+#: NEEDS WORK
+#, python-brace-format
+msgid "Selected folder: {folder}"
+msgstr "Vybraný složka: {folder}"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 297
+# File: usr/share/isovault/ui/dialogs.py, line: 319
+#: NEEDS WORK
+#, python-brace-format
+msgid "Unknown response: {response}"
+msgstr "Neznámá odpověď: {response}"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 298
+# File: usr/share/isovault/ui/dialogs.py, line: 320
+#: NEEDS WORK
+msgid "Error"
+msgstr "Chyba"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 298
+# File: usr/share/isovault/ui/dialogs.py, line: 320
+#: NEEDS WORK
+#, python-brace-format
+msgid "Unknown folder selection: {response}"
+msgstr "Neznámý výběr složky: {response}"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 300
+#: NEEDS WORK
+msgid "Upload cancelled by user"
+msgstr "Nahrávání zrušeno uživatelem"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 305
+#: NEEDS WORK
+#, python-brace-format
+msgid "Multiple folder dialog response: '{response}' for {file_count} files"
+msgstr "Odpověď dialogu pro více složek: '{response}' pro {file_count} souborů"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 314
+#: NEEDS WORK
+#, python-brace-format
+msgid "Selected folder: {folder} for {file_count} files"
+msgstr "Vybraný složka: {folder} pro {file_count} souborů"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 322
+#: NEEDS WORK
+msgid "Batch upload cancelled by user"
+msgstr "Hromadné nahrávání zrušeno uživatelem"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 351
+#: NEEDS WORK
+#, python-brace-format
+msgid "... and {more_count} more files"
+msgstr "... a {more_count} dalších souborů"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 353
+#: NEEDS WORK
+#, python-brace-format
+msgid "Found {invalid_count} invalid files"
+msgstr "Nalezeno {invalid_count} neplatných souborů"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 355
+#: NEEDS WORK
+#, python-brace-format
+msgid " ({valid_count} valid files will be uploaded)"
+msgstr "({valid_count} platných souborů bude nahráno)"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 359
+#: NEEDS WORK
+msgid "File Validation Results"
+msgstr "Výsledky validace souboru"
+# 
+# File: usr/share/isovault/ui/dialogs.py, line: 363
+#: NEEDS WORK
+msgid "Continue"
+msgstr "Pokračovat"
 # 
 # #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
 # 
@@ -639,21 +687,6 @@ msgstr "Nabídka aplikace"
 #: NEEDS WORK
 msgid "Preferences"
 msgstr "Nastavení"
-# 
-# File: usr/share/isovault/ui/components.py, line: 373
-#: NEEDS WORK
-msgid "Force Update Index"
-msgstr "Nucená aktualizace indexu"
-# 
-# File: usr/share/isovault/ui/components.py, line: 374
-#: NEEDS WORK
-msgid "Refresh"
-msgstr "Obnovit"
-# 
-# File: usr/share/isovault/ui/components.py, line: 379
-#: NEEDS WORK
-msgid "About"
-msgstr "O aplikaci"
 # 
 # File: usr/share/isovault/ui/preferences.py, line: 53
 #: NEEDS WORK
@@ -859,16 +892,6 @@ msgstr "Připojení se nezdařilo. Zkontrolujte své přihlašovací údaje."
 msgid "Connection Test Result"
 msgstr "Výsledek testu připojení"
 # 
-# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
-# 
-# File: usr/share/isovault/ui/preferences.py, line: 336
-# File: usr/share/isovault/ui/dialogs.py, line: 144
-# File: usr/share/isovault/ui/dialogs.py, line: 164
-# File: usr/share/isovault/ui/dialogs.py, line: 363
-#: NEEDS WORK
-msgid "OK"
-msgstr "OK"
-# 
 # File: usr/share/isovault/ui/preferences.py, line: 351
 #: NEEDS WORK
 msgid "Reset Settings"
@@ -885,266 +908,290 @@ msgstr ""
 "\n"
 "Tuto akci nelze vrátit zpět."
 # 
-# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
-# 
-# File: usr/share/isovault/ui/preferences.py, line: 355
-# File: usr/share/isovault/ui/dialogs.py, line: 106
-# File: usr/share/isovault/ui/dialogs.py, line: 244
-# File: usr/share/isovault/ui/dialogs.py, line: 275
+# File: usr/share/isovault/ui/window.py, line: 117
 #: NEEDS WORK
-msgid "Cancel"
-msgstr "Zrušit"
+msgid "Filter by folder"
+msgstr "Filtruj podle složky"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 40
+# File: usr/share/isovault/ui/components.py, line: 263
 #: NEEDS WORK
-msgid "Select ISO or MD5 files to upload"
-msgstr "Vyberte soubory ISO nebo MD5 k nahrání"
+msgid "All folders"
+msgstr "Všechny složky"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 68
+# File: usr/share/isovault/ui/components.py, line: 277
 #: NEEDS WORK
-#, python-brace-format
-msgid "Save {filename}"
-msgstr "Uložit {filename}"
+msgid "Copy Link"
+msgstr "Kopírovat odkaz"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 102
+# File: usr/share/isovault/ui/window.py, line: 130
 #: NEEDS WORK
-msgid "Delete File"
-msgstr "Smazat soubor"
+msgid "Copy public URL"
+msgstr "Kopírovat veřejnou URL"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 103
+# File: usr/share/isovault/ui/components.py, line: 284
 #: NEEDS WORK
-#, python-brace-format
-msgid ""
-"Are you sure you want to delete '{filename}'?\n"
-"\n"
-"This action cannot be undone."
-msgstr ""
-"Opravdu chcete smazat '{filename}'?\n"
-"\n"
-"Tuto akci nelze vrátit zpět."
+msgid "Download"
+msgstr "Stáhnout"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 125
+# File: usr/share/isovault/ui/window.py, line: 143
 #: NEEDS WORK
-msgid "ISO file manager for CDN77 storage"
-msgstr "ISO správce souborů pro CDN77 úložiště"
+msgid "Save file locally"
+msgstr "Uložit soubor lokálně"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 177
+# File: usr/share/isovault/ui/window.py, line: 156
 #: NEEDS WORK
-msgid "Supported files (ISO, MD5)"
-msgstr "Podporované soubory (ISO, MD5)"
+msgid "Remove from storage"
+msgstr "Odstranit ze skladu"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 186
+# File: usr/share/isovault/ui/window.py, line: 228
 #: NEEDS WORK
-msgid "All files"
-msgstr "Všechny soubory"
+msgid "Upload ISO"
+msgstr "Nahrát ISO"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 211
+# File: usr/share/isovault/ui/components.py, line: 365
 #: NEEDS WORK
-msgid "Upload Error"
-msgstr "Chyba při nahrávání"
+msgid "Application menu"
+msgstr "Nabídka aplikace"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 211
+# File: usr/share/isovault/ui/components.py, line: 373
 #: NEEDS WORK
-msgid "Failed to get file paths"
-msgstr "Nepodařilo se získat cesty k souborům"
+msgid "Force Update Index"
+msgstr "Nucená aktualizace indexu"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 213
+# File: usr/share/isovault/ui/components.py, line: 374
 #: NEEDS WORK
-msgid "Upload"
-msgstr "Nahrát"
+msgid "Refresh"
+msgstr "Obnovit"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 213
+# File: usr/share/isovault/ui/components.py, line: 379
 #: NEEDS WORK
-msgid "No files selected"
-msgstr "Žádné soubory nejsou vybrány"
+msgid "About"
+msgstr "O aplikaci"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 227
+# File: usr/share/isovault/ui/window.py, line: 108
 #: NEEDS WORK
-msgid "Download Error"
-msgstr "Chyba stahování"
+msgid "Ready"
+msgstr "Připraveno"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 227
+# File: usr/share/isovault/ui/window.py, line: 139
 #: NEEDS WORK
-msgid "Failed to get save path"
-msgstr "Nepodařilo se získat cestu pro uložení"
+msgid "Please configure S3 credentials in Preferences"
+msgstr "Prosím, nakonfigurujte S3 přihlašovací údaje v Nastavení"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 234
+# File: usr/share/isovault/ui/window.py, line: 366
 #: NEEDS WORK
-#, python-brace-format
-msgid "Showing folder selection for: {file_path}"
-msgstr "Zobrazení výběru složky pro: {file_path}"
+msgid "Connection test failed"
+msgstr "Test připojení selhal"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 237
-# File: usr/share/isovault/ui/dialogs.py, line: 266
+# File: usr/share/isovault/ui/window.py, line: 195
 #: NEEDS WORK
-msgid "Select Destination Folder"
-msgstr "Vyberte cílovou složku"
+msgid "Warning: Could not connect to S3 storage"
+msgstr "Upozornění: Nelze se připojit k úložišti S3"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 238
+# File: usr/share/isovault/ui/window.py, line: 210
+# File: usr/share/isovault/ui/window.py, line: 590
+#: NEEDS WORK
+msgid "Please configure S3 credentials first"
+msgstr "Prosím nejprve nakonfigurujte S3 přihlašovací údaje."
+# 
+# File: usr/share/isovault/ui/window.py, line: 230
 #: NEEDS WORK
 #, python-brace-format
-msgid "Choose which folder to upload '{filename}' to:"
-msgstr "Vyberte, do které složky chcete nahrát '{filename}':"
+msgid "Link copied: {url}"
+msgstr "Odkaz zkopírován: {url}"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 256
+# File: usr/share/isovault/ui/window.py, line: 291
 #: NEEDS WORK
 #, python-brace-format
-msgid "Showing folder selection for {file_count} files: {file_names}"
-msgstr "Zobrazení výběru složky pro {file_count} souborů: {file_names}"
+msgid "Uploading {filename}..."
+msgstr "Nahrávání {filename}..."
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 263
+# File: usr/share/isovault/ui/window.py, line: 479
 #: NEEDS WORK
 #, python-brace-format
-msgid ""
-"\n"
-"... and {more_count} more files"
-msgstr "... a {more_count} dalších souborů"
+msgid "Upload failed for {filename}"
+msgstr "Nahrání se nezdařilo pro {filename}"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 267
+# File: usr/share/isovault/ui/window.py, line: 308
 #: NEEDS WORK
 #, python-brace-format
-msgid ""
-"Choose which folder to upload {file_count} files to:\n"
-"\n"
-"{file_list}"
-msgstr ""
-"Vyberte, do které složky chcete nahrát {file_count} souborů:\n"
-"\n"
-"{file_list}"
+msgid "Starting batch upload: {file_count} files to folder: {folder}"
+msgstr "Zahájení hromadného nahrávání: {file_count} souborů do složky: {folder}"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 285
+# File: usr/share/isovault/ui/window.py, line: 336
 #: NEEDS WORK
 #, python-brace-format
-msgid "Single folder dialog response: '{response}' for file: {file_path}"
-msgstr "Odpověď dialogu pro jednu složku: '{response}' pro soubor: {file_path}"
+msgid "Uploading {current}/{total}: {filename}"
+msgstr "Nahrávání {current}/{total}: {filename}"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 294
+# File: usr/share/isovault/ui/window.py, line: 533
 #: NEEDS WORK
 #, python-brace-format
-msgid "Selected folder: {folder}"
-msgstr "Vybraný složka: {folder}"
+msgid "Batch upload error for {filename}"
+msgstr "Chyba hromadného nahrávání pro {filename}"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 297
-# File: usr/share/isovault/ui/dialogs.py, line: 319
+# File: usr/share/isovault/ui/window.py, line: 385
 #: NEEDS WORK
 #, python-brace-format
-msgid "Unknown response: {response}"
-msgstr "Neznámá odpověď: {response}"
+msgid "Successfully uploaded all {total} files!"
+msgstr "Úspěšně nahráno všech {total} souborů!"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 298
-# File: usr/share/isovault/ui/dialogs.py, line: 320
-#: NEEDS WORK
-msgid "Error"
-msgstr "Chyba"
-# 
-# File: usr/share/isovault/ui/dialogs.py, line: 298
-# File: usr/share/isovault/ui/dialogs.py, line: 320
+# File: usr/share/isovault/ui/window.py, line: 387
 #: NEEDS WORK
 #, python-brace-format
-msgid "Unknown folder selection: {response}"
-msgstr "Neznámý výběr složky: {response}"
+msgid "Upload complete: {completed} successful, {failed} failed"
+msgstr "Nahrávání dokončeno: {completed} úspěšných, {failed} neúspěšných"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 300
-#: NEEDS WORK
-msgid "Upload cancelled by user"
-msgstr "Nahrávání zrušeno uživatelem"
-# 
-# File: usr/share/isovault/ui/dialogs.py, line: 305
+# File: usr/share/isovault/ui/window.py, line: 407
 #: NEEDS WORK
 #, python-brace-format
-msgid "Multiple folder dialog response: '{response}' for {file_count} files"
-msgstr "Odpověď dialogu pro více složek: '{response}' pro {file_count} souborů"
+msgid "Successfully uploaded {filename}"
+msgstr "Úspěšně nahráno {filename}"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 314
+# File: usr/share/isovault/ui/window.py, line: 417
 #: NEEDS WORK
 #, python-brace-format
-msgid "Selected folder: {folder} for {file_count} files"
-msgstr "Vybraný složka: {folder} pro {file_count} souborů"
+msgid "Failed to upload {filename}"
+msgstr "Nepodařilo se nahrát {filename}"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 322
-#: NEEDS WORK
-msgid "Batch upload cancelled by user"
-msgstr "Hromadné nahrávání zrušeno uživatelem"
-# 
-# File: usr/share/isovault/ui/dialogs.py, line: 351
+# File: usr/share/isovault/ui/window.py, line: 423
 #: NEEDS WORK
 #, python-brace-format
-msgid "... and {more_count} more files"
-msgstr "... a {more_count} dalších souborů"
+msgid "Downloading {filename}..."
+msgstr "Stahuji {filename}..."
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 353
+# File: usr/share/isovault/ui/window.py, line: 611
 #: NEEDS WORK
 #, python-brace-format
-msgid "Found {invalid_count} invalid files"
-msgstr "Nalezeno {invalid_count} neplatných souborů"
+msgid "Download failed for {filename}"
+msgstr "Stahování se nezdařilo pro {filename}"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 355
+# File: usr/share/isovault/ui/window.py, line: 439
 #: NEEDS WORK
 #, python-brace-format
-msgid " ({valid_count} valid files will be uploaded)"
-msgstr "({valid_count} platných souborů bude nahráno)"
+msgid "Successfully downloaded {filename}"
+msgstr "Úspěšně staženo {filename}"
 # 
-# File: usr/share/isovault/ui/dialogs.py, line: 359
-#: NEEDS WORK
-msgid "File Validation Results"
-msgstr "Výsledky validace souboru"
-# 
-# File: usr/share/isovault/ui/dialogs.py, line: 363
-#: NEEDS WORK
-msgid "Continue"
-msgstr "Pokračovat"
-# 
-# File: usr/share/isovault/models/settings.py, line: 54
+# File: usr/share/isovault/ui/window.py, line: 441
 #: NEEDS WORK
 #, python-brace-format
-msgid "Config file not found: {config_file}"
-msgstr "Konfigurační soubor nebyl nalezen: {config_file}"
+msgid "Failed to download {filename}"
+msgstr "Nepodařilo se stáhnout {filename}"
 # 
-# File: usr/share/isovault/models/settings.py, line: 73
+# File: usr/share/isovault/ui/window.py, line: 452
 #: NEEDS WORK
 #, python-brace-format
-msgid "Settings loaded from: {config_file}"
-msgstr "Nastavení načtena z: {config_file}"
+msgid "Deleting {filename}..."
+msgstr "Mazání {filename}..."
 # 
-# File: usr/share/isovault/models/settings.py, line: 77
+# File: usr/share/isovault/ui/window.py, line: 646
 #: NEEDS WORK
 #, python-brace-format
-msgid "Error loading settings: {error}"
-msgstr "Chyba při načítání nastavení: {error}"
+msgid "Delete failed for {filename}"
+msgstr "Smazání se nezdařilo pro {filename}"
 # 
-# File: usr/share/isovault/models/settings.py, line: 98
+# File: usr/share/isovault/ui/window.py, line: 465
 #: NEEDS WORK
 #, python-brace-format
-msgid "Settings saved to: {config_file}"
-msgstr "Nastavení uložena do: {config_file}"
+msgid "Successfully deleted {filename}"
+msgstr "Úspěšně smazáno {filename}"
 # 
-# File: usr/share/isovault/models/settings.py, line: 102
+# File: usr/share/isovault/ui/window.py, line: 475
 #: NEEDS WORK
 #, python-brace-format
-msgid "Error saving settings: {error}"
-msgstr "Chyba při ukládání nastavení: {error}"
+msgid "Failed to delete {filename}"
+msgstr "Nepodařilo se smazat {filename}"
 # 
-# File: usr/share/isovault/models/settings.py, line: 138
+# File: usr/share/isovault/ui/window.py, line: 485
 #: NEEDS WORK
-msgid "Access key is required"
-msgstr "Je třeba zadat přístupový klíč."
+#, python-brace-format
+msgid "Refreshing files for folder: {folder}"
+msgstr "Obnovování souborů pro složku: {folder}"
 # 
-# File: usr/share/isovault/models/settings.py, line: 141
+# File: usr/share/isovault/ui/window.py, line: 487
 #: NEEDS WORK
-msgid "Secret key is required"
-msgstr "Je třeba zadat tajný klíč."
+msgid "Loading files..."
+msgstr "Načítání souborů..."
 # 
-# File: usr/share/isovault/models/settings.py, line: 144
+# File: usr/share/isovault/ui/window.py, line: 686
 #: NEEDS WORK
-msgid "Endpoint URL is required"
-msgstr "Je třeba zadat URL koncového bodu"
+msgid "Failed to refresh file list"
+msgstr "Nepodařilo se obnovit seznam souborů"
 # 
-# File: usr/share/isovault/models/settings.py, line: 147
+# File: usr/share/isovault/ui/window.py, line: 507
 #: NEEDS WORK
-msgid "Bucket name is required"
-msgstr "Název kbelíku je povinný"
+msgid "Failed to connect to S3 storage. Check credentials and connection."
+msgstr "Nepodařilo se připojit k úložišti S3. Zkontrolujte přihlašovací údaje a připojení."
 # 
-# File: usr/share/isovault/models/settings.py, line: 149
+# File: usr/share/isovault/ui/window.py, line: 522
 #: NEEDS WORK
-msgid "Configuration is valid"
-msgstr "Konfigurace je platná"
+#, python-brace-format
+msgid "1 file{folder_text}"
+msgstr "1 soubor{folder_text}"
+# 
+# File: usr/share/isovault/ui/window.py, line: 524
+#: NEEDS WORK
+#, python-brace-format
+msgid "{count} files{folder_text}"
+msgstr "{count} souborů{folder_text}"
+# 
+# File: usr/share/isovault/ui/window.py, line: 748
+#: NEEDS WORK
+msgid "Failed to update index files"
+msgstr "Nepodařilo se aktualizovat indexové soubory"
+# 
+# File: usr/share/isovault/ui/window.py, line: 593
+#: NEEDS WORK
+msgid "Updating index files..."
+msgstr "Aktualizace indexových souborů..."
+# 
+# File: usr/share/isovault/ui/window.py, line: 599
+#: NEEDS WORK
+msgid "Index files updated!"
+msgstr "Indexové soubory byly aktualizovány!"
+# 
+# File: usr/share/isovault/ui/window.py, line: 637
+#: NEEDS WORK
+msgid "S3 credentials removed"
+msgstr "S3 přihlašovací údaje odstraněny"
+# 
+# File: usr/share/isovault/ui/window.py, line: 839
+#: NEEDS WORK
+msgid "An unexpected error occurred"
+msgstr "Došlo k neočekávané chybě"
+# 
+# File: usr/share/isovault/ui/components.py, line: 33
+#: NEEDS WORK
+msgid "Progress"
+msgstr "Pokrok"
+# 
+# File: usr/share/isovault/ui/components.py, line: 43
+#: NEEDS WORK
+#, python-brace-format
+msgid "Progress update: {progress:.1f}%"
+msgstr "Aktualizace postupu: {progress:.1f}%"
+# 
+# File: usr/share/isovault/ui/components.py, line: 50
+#: NEEDS WORK
+msgid "Hiding progress"
+msgstr "Skrývání pokroku"
+# 
+# File: usr/share/isovault/ui/components.py, line: 123
+#: NEEDS WORK
+msgid "File Name"
+msgstr "Název souboru"
+# 
+# File: usr/share/isovault/ui/components.py, line: 132
+#: NEEDS WORK
+msgid "Folder"
+msgstr "Složka"
+# 
+# File: usr/share/isovault/ui/components.py, line: 140
+#: NEEDS WORK
+msgid "Size"
+msgstr "Velikost"
+# 
+# File: usr/share/isovault/ui/components.py, line: 148
+#: NEEDS WORK
+msgid "Modified"
+msgstr "Upraveno"

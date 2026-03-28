@@ -15,6 +15,149 @@ msgstr  "Project-Id-Version: isovault\n"
         "Content-Transfer-Encoding: 8bit\n"
 
 #
+# File: usr/share/isovault/main.py, line: 46
+msgid   "Show version information"
+msgstr  ""
+
+#
+# File: usr/share/isovault/main.py, line: 55
+msgid   "Enable debug mode"
+msgstr  ""
+
+#
+# File: usr/share/isovault/main.py, line: 63
+#, python-brace-format
+msgid   "Starting {app_name} v{version}"
+msgstr  ""
+
+#
+# File: usr/share/isovault/main.py, line: 81
+#, python-brace-format
+msgid   "Shutting down {app_name}"
+msgstr  ""
+
+#
+# File: usr/share/isovault/main.py, line: 101
+msgid   "Debug mode enabled"
+msgstr  ""
+
+#
+# File: usr/share/isovault/main.py, line: 182
+#, python-brace-format
+msgid   "Warning: Could not apply CSS: {error}"
+msgstr  ""
+
+#
+# File: usr/share/isovault/main.py, line: 196
+#, python-brace-format
+msgid   "Warning: Could not set keyboard shortcuts: {error}"
+msgstr  ""
+
+#
+# File: usr/share/isovault/main.py, line: 215
+#, python-brace-format
+msgid   "\n"
+        "Received signal {signum}, shutting down gracefully..."
+msgstr  ""
+
+#
+# File: usr/share/isovault/main.py, line: 240
+msgid   "Error: Missing required dependencies:"
+msgstr  ""
+
+#
+# File: usr/share/isovault/main.py, line: 243
+#, python-brace-format
+msgid   "\n"
+        "Install them with: pip install {deps}"
+msgstr  ""
+
+#
+# File: usr/share/isovault/main.py, line: 255
+#, python-brace-format
+msgid   "Warning: Could not set application name: {error}"
+msgstr  ""
+
+#
+# File: usr/share/isovault/main.py, line: 262
+#, python-brace-format
+msgid   "Warning: Could not set signal handlers: {error}"
+msgstr  ""
+
+#
+# File: usr/share/isovault/main.py, line: 269
+#, python-brace-format
+msgid   "Warning: Could not create config directory: {error}"
+msgstr  ""
+
+#
+# File: usr/share/isovault/main.py, line: 286
+msgid   "\n"
+        "Interrupted by user"
+msgstr  ""
+
+#
+# File: usr/share/isovault/main.py, line: 289
+#, python-brace-format
+msgid   "Fatal error: {error}"
+msgstr  ""
+
+#
+# File: usr/share/isovault/models/settings.py, line: 70
+#, python-brace-format
+msgid   "Config file not found: {config_file}"
+msgstr  ""
+
+#
+# File: usr/share/isovault/models/settings.py, line: 101
+#, python-brace-format
+msgid   "Settings loaded from: {config_file}"
+msgstr  ""
+
+#
+# File: usr/share/isovault/models/settings.py, line: 105
+#, python-brace-format
+msgid   "Error loading settings: {error}"
+msgstr  ""
+
+#
+# File: usr/share/isovault/models/settings.py, line: 143
+#, python-brace-format
+msgid   "Settings saved to: {config_file}"
+msgstr  ""
+
+#
+# File: usr/share/isovault/models/settings.py, line: 147
+#, python-brace-format
+msgid   "Error saving settings: {error}"
+msgstr  ""
+
+#
+# File: usr/share/isovault/models/settings.py, line: 183
+msgid   "Access key is required"
+msgstr  ""
+
+#
+# File: usr/share/isovault/models/settings.py, line: 186
+msgid   "Secret key is required"
+msgstr  ""
+
+#
+# File: usr/share/isovault/models/settings.py, line: 189
+msgid   "Endpoint URL is required"
+msgstr  ""
+
+#
+# File: usr/share/isovault/models/settings.py, line: 192
+msgid   "Bucket name is required"
+msgstr  ""
+
+#
+# File: usr/share/isovault/models/settings.py, line: 194
+msgid   "Configuration is valid"
+msgstr  ""
+
+#
 # File: usr/share/isovault/utils/helpers.py, line: 57
 #, python-brace-format
 msgid   "Error processing item {item}: {error}"
@@ -84,75 +227,9 @@ msgstr  ""
 # #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
 #
 # File: usr/share/isovault/utils/helpers.py, line: 275
-# File: usr/share/isovault/services/html_generator.py, line: 608
+# File: usr/share/isovault/services/html_generator.py, line: 619
 #, python-brace-format
 msgid   "Error extracting MD5 from {filename}: {error}"
-msgstr  ""
-
-#
-# File: usr/share/isovault/services/s3_service.py, line: 129
-# File: usr/share/isovault/services/s3_service.py, line: 191
-msgid   "No S3 connection available"
-msgstr  ""
-
-#
-# File: usr/share/isovault/services/s3_service.py, line: 135
-#, python-brace-format
-msgid   "Upload validation failed: {message}"
-msgstr  ""
-
-#
-# File: usr/share/isovault/services/s3_service.py, line: 139
-#, python-brace-format
-msgid   "Invalid folder. Must be one of: {folders}"
-msgstr  ""
-
-#
-# File: usr/share/isovault/services/s3_service.py, line: 174
-#, python-brace-format
-msgid   "Upload failed: {error}"
-msgstr  ""
-
-#
-# File: usr/share/isovault/services/s3_service.py, line: 177
-#, python-brace-format
-msgid   "Upload error: {error}"
-msgstr  ""
-
-#
-# File: usr/share/isovault/services/s3_service.py, line: 245
-#, python-brace-format
-msgid   "Error listing files: {error}"
-msgstr  ""
-
-#
-# File: usr/share/isovault/services/s3_service.py, line: 270
-#, python-brace-format
-msgid   "Delete failed: {error}"
-msgstr  ""
-
-#
-# File: usr/share/isovault/services/s3_service.py, line: 316
-#, python-brace-format
-msgid   "Download failed: {error}"
-msgstr  ""
-
-#
-# File: usr/share/isovault/services/s3_service.py, line: 339
-#, python-brace-format
-msgid   "Error getting file info: {error}"
-msgstr  ""
-
-#
-# File: usr/share/isovault/services/s3_service.py, line: 379
-#, python-brace-format
-msgid   "Error uploading content: {error}"
-msgstr  ""
-
-#
-# File: usr/share/isovault/services/s3_service.py, line: 395
-#, python-brace-format
-msgid   "Error reading file content: {error}"
 msgstr  ""
 
 #
@@ -196,7 +273,7 @@ msgstr  ""
 # #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
 #
 # File: usr/share/isovault/services/file_validator.py, line: 90
-# File: usr/share/isovault/services/html_generator.py, line: 443
+# File: usr/share/isovault/services/html_generator.py, line: 456
 msgid   "MD5 Checksum"
 msgstr  ""
 
@@ -242,649 +319,133 @@ msgid   "{size:.1f} {unit}"
 msgstr  ""
 
 #
-# File: usr/share/isovault/services/html_generator.py, line: 51
+# File: usr/share/isovault/services/html_generator.py, line: 53
 msgid   "BigCommunity ISO Repository"
 msgstr  ""
 
 #
-# File: usr/share/isovault/services/html_generator.py, line: 70
+# File: usr/share/isovault/services/html_generator.py, line: 72
 #, python-brace-format
 msgid   "{folder_name} - BigCommunity ISO Repository"
 msgstr  ""
 
 #
-# File: usr/share/isovault/services/html_generator.py, line: 325
-# File: usr/share/isovault/services/html_generator.py, line: 388
+# File: usr/share/isovault/services/html_generator.py, line: 327
+# File: usr/share/isovault/services/html_generator.py, line: 390
 msgid   "Linux Distribution ISO Repository"
 msgstr  ""
 
 #
-# File: usr/share/isovault/services/html_generator.py, line: 331
+# File: usr/share/isovault/services/html_generator.py, line: 333
 #, python-brace-format
 msgid   "{total_isos} ISO files available"
 msgstr  ""
 
 #
-# File: usr/share/isovault/services/html_generator.py, line: 331
+# File: usr/share/isovault/services/html_generator.py, line: 333
 msgid   "Updated"
 msgstr  ""
 
 #
-# File: usr/share/isovault/services/html_generator.py, line: 338
+# File: usr/share/isovault/services/html_generator.py, line: 340
 msgid   "Search ISOs..."
 msgstr  ""
 
 #
-# File: usr/share/isovault/services/html_generator.py, line: 354
+# File: usr/share/isovault/services/html_generator.py, line: 356
 msgid   "No ISO files available yet"
 msgstr  ""
 
 #
-# File: usr/share/isovault/services/html_generator.py, line: 394
+# File: usr/share/isovault/services/html_generator.py, line: 396
 msgid   "← Back to All Folders"
 msgstr  ""
 
 #
-# File: usr/share/isovault/services/html_generator.py, line: 413
+# File: usr/share/isovault/services/html_generator.py, line: 415
 msgid   "No files in this folder"
 msgstr  ""
 
 #
-# File: usr/share/isovault/services/html_generator.py, line: 452
-# File: usr/share/isovault/services/html_generator.py, line: 474
+# File: usr/share/isovault/services/html_generator.py, line: 465
+# File: usr/share/isovault/services/html_generator.py, line: 487
 msgid   "Download ISO"
 msgstr  ""
 
 #
-# File: usr/share/isovault/services/html_generator.py, line: 463
+# File: usr/share/isovault/services/html_generator.py, line: 476
 msgid   "Generated by ISOVault"
 msgstr  ""
 
 #
-# File: usr/share/isovault/services/html_generator.py, line: 472
+# File: usr/share/isovault/services/html_generator.py, line: 485
 msgid   "Downloading..."
 msgstr  ""
 
 #
-# File: usr/share/isovault/main.py, line: 46
-msgid   "Show version information"
+# File: usr/share/isovault/services/s3_service.py, line: 129
+# File: usr/share/isovault/services/s3_service.py, line: 191
+msgid   "No S3 connection available"
 msgstr  ""
 
 #
-# File: usr/share/isovault/main.py, line: 55
-msgid   "Enable debug mode"
-msgstr  ""
-
-#
-# File: usr/share/isovault/main.py, line: 63
+# File: usr/share/isovault/services/s3_service.py, line: 135
 #, python-brace-format
-msgid   "Starting {app_name} v{version}"
+msgid   "Upload validation failed: {message}"
 msgstr  ""
 
 #
-# File: usr/share/isovault/main.py, line: 81
+# File: usr/share/isovault/services/s3_service.py, line: 139
 #, python-brace-format
-msgid   "Shutting down {app_name}"
+msgid   "Invalid folder. Must be one of: {folders}"
 msgstr  ""
 
 #
-# File: usr/share/isovault/main.py, line: 101
-msgid   "Debug mode enabled"
-msgstr  ""
-
-#
-# File: usr/share/isovault/main.py, line: 184
+# File: usr/share/isovault/services/s3_service.py, line: 174
 #, python-brace-format
-msgid   "Warning: Could not apply CSS: {error}"
+msgid   "Upload failed: {error}"
 msgstr  ""
 
 #
-# File: usr/share/isovault/main.py, line: 198
+# File: usr/share/isovault/services/s3_service.py, line: 177
 #, python-brace-format
-msgid   "Warning: Could not set keyboard shortcuts: {error}"
+msgid   "Upload error: {error}"
 msgstr  ""
 
 #
-# File: usr/share/isovault/main.py, line: 217
+# File: usr/share/isovault/services/s3_service.py, line: 261
 #, python-brace-format
-msgid   "\n"
-        "Received signal {signum}, shutting down gracefully..."
+msgid   "Error listing files: {error}"
 msgstr  ""
 
 #
-# File: usr/share/isovault/main.py, line: 242
-msgid   "Error: Missing required dependencies:"
-msgstr  ""
-
-#
-# File: usr/share/isovault/main.py, line: 245
+# File: usr/share/isovault/services/s3_service.py, line: 286
 #, python-brace-format
-msgid   "\n"
-        "Install them with: pip install {deps}"
+msgid   "Delete failed: {error}"
 msgstr  ""
 
 #
-# File: usr/share/isovault/main.py, line: 257
+# File: usr/share/isovault/services/s3_service.py, line: 332
 #, python-brace-format
-msgid   "Warning: Could not set application name: {error}"
+msgid   "Download failed: {error}"
 msgstr  ""
 
 #
-# File: usr/share/isovault/main.py, line: 264
+# File: usr/share/isovault/services/s3_service.py, line: 355
 #, python-brace-format
-msgid   "Warning: Could not set signal handlers: {error}"
+msgid   "Error getting file info: {error}"
 msgstr  ""
 
 #
-# File: usr/share/isovault/main.py, line: 271
+# File: usr/share/isovault/services/s3_service.py, line: 395
 #, python-brace-format
-msgid   "Warning: Could not create config directory: {error}"
+msgid   "Error uploading content: {error}"
 msgstr  ""
 
 #
-# File: usr/share/isovault/main.py, line: 288
-msgid   "\n"
-        "Interrupted by user"
-msgstr  ""
-
-#
-# File: usr/share/isovault/main.py, line: 291
+# File: usr/share/isovault/services/s3_service.py, line: 411
 #, python-brace-format
-msgid   "Fatal error: {error}"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/window.py, line: 108
-msgid   "Ready"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/window.py, line: 139
-msgid   "Please configure S3 credentials in Preferences"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/window.py, line: 195
-msgid   "Warning: Could not connect to S3 storage"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/window.py, line: 210
-# File: usr/share/isovault/ui/window.py, line: 590
-msgid   "Please configure S3 credentials first"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/window.py, line: 230
-#, python-brace-format
-msgid   "Link copied: {url}"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/window.py, line: 291
-#, python-brace-format
-msgid   "Uploading {filename}..."
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/window.py, line: 308
-#, python-brace-format
-msgid   "Starting batch upload: {file_count} files to folder: {folder}"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/window.py, line: 336
-#, python-brace-format
-msgid   "Uploading {current}/{total}: {filename}"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/window.py, line: 354
-#, python-brace-format
-msgid   "Batch upload error for {filename}: {error}"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/window.py, line: 385
-#, python-brace-format
-msgid   "Successfully uploaded all {total} files!"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/window.py, line: 387
-#, python-brace-format
-msgid   "Upload complete: {completed} successful, {failed} failed"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/window.py, line: 407
-#, python-brace-format
-msgid   "Successfully uploaded {filename}"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/window.py, line: 417
-#, python-brace-format
-msgid   "Failed to upload {filename}"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/window.py, line: 423
-#, python-brace-format
-msgid   "Downloading {filename}..."
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/window.py, line: 439
-#, python-brace-format
-msgid   "Successfully downloaded {filename}"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/window.py, line: 441
-#, python-brace-format
-msgid   "Failed to download {filename}"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/window.py, line: 452
-#, python-brace-format
-msgid   "Deleting {filename}..."
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/window.py, line: 465
-#, python-brace-format
-msgid   "Successfully deleted {filename}"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/window.py, line: 475
-#, python-brace-format
-msgid   "Failed to delete {filename}"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/window.py, line: 485
-#, python-brace-format
-msgid   "Refreshing files for folder: {folder}"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/window.py, line: 487
-msgid   "Loading files..."
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/window.py, line: 507
-msgid   "Failed to connect to S3 storage. Check credentials and connection."
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/window.py, line: 519
-#, python-brace-format
-msgid   " in {folder}"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/window.py, line: 522
-#, python-brace-format
-msgid   "1 file{folder_text}"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/window.py, line: 524
-#, python-brace-format
-msgid   "{count} files{folder_text}"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/window.py, line: 593
-msgid   "Updating index files..."
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/window.py, line: 599
-msgid   "Index files updated!"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/window.py, line: 637
-msgid   "S3 credentials removed"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/components.py, line: 33
-msgid   "Progress"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/components.py, line: 43
-#, python-brace-format
-msgid   "Progress update: {progress:.1f}%"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/components.py, line: 50
-msgid   "Hiding progress"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/components.py, line: 123
-msgid   "File Name"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/components.py, line: 132
-msgid   "Folder"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/components.py, line: 140
-msgid   "Size"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/components.py, line: 148
-msgid   "Modified"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/components.py, line: 257
-msgid   "Filter by folder:"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/components.py, line: 263
-msgid   "All folders"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/components.py, line: 277
-msgid   "Copy Link"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/components.py, line: 284
-msgid   "Download"
-msgstr  ""
-
-#
-# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
-#
-# File: usr/share/isovault/ui/components.py, line: 291
-# File: usr/share/isovault/ui/dialogs.py, line: 107
-msgid   "Delete"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/components.py, line: 357
-msgid   "Upload ISO file"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/components.py, line: 365
-msgid   "Application menu"
-msgstr  ""
-
-#
-# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
-#
-# File: usr/share/isovault/ui/components.py, line: 372
-# File: usr/share/isovault/ui/preferences.py, line: 30
-msgid   "Preferences"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/components.py, line: 373
-msgid   "Force Update Index"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/components.py, line: 374
-msgid   "Refresh"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/components.py, line: 379
-msgid   "About"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/preferences.py, line: 53
-msgid   "S3 Config"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/preferences.py, line: 60
-msgid   "CDN77 S3 Credentials"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/preferences.py, line: 61
-msgid   "Configure your CDN77 S3 storage credentials"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/preferences.py, line: 66
-msgid   "Access Key"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/preferences.py, line: 73
-msgid   "Secret Key"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/preferences.py, line: 80
-msgid   "S3 Configuration"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/preferences.py, line: 81
-msgid   "S3 endpoint and bucket settings"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/preferences.py, line: 86
-msgid   "Endpoint URL"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/preferences.py, line: 93
-msgid   "Region"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/preferences.py, line: 100
-msgid   "Bucket Name"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/preferences.py, line: 107
-# File: usr/share/isovault/ui/preferences.py, line: 110
-# File: usr/share/isovault/ui/preferences.py, line: 328
-msgid   "Test Connection"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/preferences.py, line: 108
-msgid   "Verify S3 credentials and connection"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/preferences.py, line: 121
-msgid   "Web Config"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/preferences.py, line: 128
-msgid   "Web Settings"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/preferences.py, line: 129
-msgid   "Configure web URLs for public file access"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/preferences.py, line: 134
-msgid   "Base URL"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/preferences.py, line: 141
-msgid   "Index File"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/preferences.py, line: 148
-msgid   "Show Index Files"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/preferences.py, line: 149
-msgid   "Display index.html files in the file list"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/preferences.py, line: 157
-msgid   "General"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/preferences.py, line: 164
-msgid   "Application Behavior"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/preferences.py, line: 169
-msgid   "Auto Refresh"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/preferences.py, line: 170
-msgid   "Automatically refresh file list after operations"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/preferences.py, line: 178
-msgid   "Interface"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/preferences.py, line: 185
-msgid   "Progress and Feedback"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/preferences.py, line: 190
-msgid   "Show Progress Details"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/preferences.py, line: 191
-msgid   "Display detailed progress information during operations"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/preferences.py, line: 198
-msgid   "Safety"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/preferences.py, line: 203
-msgid   "Confirm Deletions"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/preferences.py, line: 204
-msgid   "Show confirmation dialog before deleting files"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/preferences.py, line: 211
-msgid   "Automation"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/preferences.py, line: 216
-msgid   "Auto Update Index"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/preferences.py, line: 217
-msgid   "Automatically update web index after file operations"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/preferences.py, line: 224
-# File: usr/share/isovault/ui/preferences.py, line: 232
-# File: usr/share/isovault/ui/preferences.py, line: 356
-msgid   "Reset"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/preferences.py, line: 229
-msgid   "Reset to Defaults"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/preferences.py, line: 230
-msgid   "Reset all settings to their default values"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/preferences.py, line: 295
-msgid   "Testing..."
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/preferences.py, line: 313
-msgid   "Connection successful!"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/preferences.py, line: 313
-msgid   "Connection failed. Check your credentials."
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/preferences.py, line: 332
-msgid   "Connection Test Result"
-msgstr  ""
-
-#
-# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
-#
-# File: usr/share/isovault/ui/preferences.py, line: 336
-# File: usr/share/isovault/ui/dialogs.py, line: 144
-# File: usr/share/isovault/ui/dialogs.py, line: 164
-# File: usr/share/isovault/ui/dialogs.py, line: 363
-msgid   "OK"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/preferences.py, line: 351
-msgid   "Reset Settings"
-msgstr  ""
-
-#
-# File: usr/share/isovault/ui/preferences.py, line: 352
-msgid   "Are you sure you want to reset all settings to their default "
-        "values?\n"
-        "\n"
-        "This action cannot be undone."
-msgstr  ""
-
-#
-# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
-#
-# File: usr/share/isovault/ui/preferences.py, line: 355
-# File: usr/share/isovault/ui/dialogs.py, line: 106
-# File: usr/share/isovault/ui/dialogs.py, line: 244
-# File: usr/share/isovault/ui/dialogs.py, line: 275
-msgid   "Cancel"
+msgid   "Error reading file content: {error}"
 msgstr  ""
 
 #
@@ -912,8 +473,36 @@ msgid   "Are you sure you want to delete '{filename}'?\n"
 msgstr  ""
 
 #
+# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
+#
+# File: usr/share/isovault/ui/dialogs.py, line: 106
+# File: usr/share/isovault/ui/dialogs.py, line: 244
+# File: usr/share/isovault/ui/dialogs.py, line: 275
+# File: usr/share/isovault/ui/preferences.py, line: 355
+msgid   "Cancel"
+msgstr  ""
+
+#
+# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
+#
+# File: usr/share/isovault/ui/dialogs.py, line: 107
+# File: usr/share/isovault/ui/window.py, line: 155
+msgid   "Delete"
+msgstr  ""
+
+#
 # File: usr/share/isovault/ui/dialogs.py, line: 125
 msgid   "ISO file manager for CDN77 storage"
+msgstr  ""
+
+#
+# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
+#
+# File: usr/share/isovault/ui/dialogs.py, line: 144
+# File: usr/share/isovault/ui/dialogs.py, line: 164
+# File: usr/share/isovault/ui/dialogs.py, line: 363
+# File: usr/share/isovault/ui/preferences.py, line: 336
+msgid   "OK"
 msgstr  ""
 
 #
@@ -1078,56 +667,523 @@ msgid   "Continue"
 msgstr  ""
 
 #
-# File: usr/share/isovault/models/settings.py, line: 54
+# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
+#
+# File: usr/share/isovault/ui/preferences.py, line: 30
+# File: usr/share/isovault/ui/window.py, line: 241
+msgid   "Preferences"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/preferences.py, line: 53
+msgid   "S3 Config"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/preferences.py, line: 60
+msgid   "CDN77 S3 Credentials"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/preferences.py, line: 61
+msgid   "Configure your CDN77 S3 storage credentials"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/preferences.py, line: 66
+msgid   "Access Key"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/preferences.py, line: 73
+msgid   "Secret Key"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/preferences.py, line: 80
+msgid   "S3 Configuration"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/preferences.py, line: 81
+msgid   "S3 endpoint and bucket settings"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/preferences.py, line: 86
+msgid   "Endpoint URL"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/preferences.py, line: 93
+msgid   "Region"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/preferences.py, line: 100
+msgid   "Bucket Name"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/preferences.py, line: 107
+# File: usr/share/isovault/ui/preferences.py, line: 110
+# File: usr/share/isovault/ui/preferences.py, line: 328
+msgid   "Test Connection"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/preferences.py, line: 108
+msgid   "Verify S3 credentials and connection"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/preferences.py, line: 121
+msgid   "Web Config"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/preferences.py, line: 128
+msgid   "Web Settings"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/preferences.py, line: 129
+msgid   "Configure web URLs for public file access"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/preferences.py, line: 134
+msgid   "Base URL"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/preferences.py, line: 141
+msgid   "Index File"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/preferences.py, line: 148
+msgid   "Show Index Files"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/preferences.py, line: 149
+msgid   "Display index.html files in the file list"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/preferences.py, line: 157
+msgid   "General"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/preferences.py, line: 164
+msgid   "Application Behavior"
+msgstr  ""
+
+#
+# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
+#
+# File: usr/share/isovault/ui/preferences.py, line: 169
+# File: usr/share/isovault/ui/window.py, line: 174
+msgid   "Auto Refresh"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/preferences.py, line: 170
+msgid   "Automatically refresh file list after operations"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/preferences.py, line: 178
+msgid   "Interface"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/preferences.py, line: 185
+msgid   "Progress and Feedback"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/preferences.py, line: 190
+msgid   "Show Progress Details"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/preferences.py, line: 191
+msgid   "Display detailed progress information during operations"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/preferences.py, line: 198
+msgid   "Safety"
+msgstr  ""
+
+#
+# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
+#
+# File: usr/share/isovault/ui/preferences.py, line: 203
+# File: usr/share/isovault/ui/window.py, line: 187
+msgid   "Confirm Deletions"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/preferences.py, line: 204
+msgid   "Show confirmation dialog before deleting files"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/preferences.py, line: 211
+msgid   "Automation"
+msgstr  ""
+
+#
+# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
+#
+# File: usr/share/isovault/ui/preferences.py, line: 216
+# File: usr/share/isovault/ui/window.py, line: 200
+msgid   "Auto Update Index"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/preferences.py, line: 217
+msgid   "Automatically update web index after file operations"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/preferences.py, line: 224
+# File: usr/share/isovault/ui/preferences.py, line: 232
+# File: usr/share/isovault/ui/preferences.py, line: 356
+msgid   "Reset"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/preferences.py, line: 229
+msgid   "Reset to Defaults"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/preferences.py, line: 230
+msgid   "Reset all settings to their default values"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/preferences.py, line: 295
+msgid   "Testing..."
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/preferences.py, line: 313
+msgid   "Connection successful!"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/preferences.py, line: 313
+msgid   "Connection failed. Check your credentials."
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/preferences.py, line: 332
+msgid   "Connection Test Result"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/preferences.py, line: 351
+msgid   "Reset Settings"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/preferences.py, line: 352
+msgid   "Are you sure you want to reset all settings to their default "
+        "values?\n"
+        "\n"
+        "This action cannot be undone."
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/window.py, line: 117
+msgid   "Filter by folder"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/window.py, line: 118
+msgid   "All folders"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/window.py, line: 129
+msgid   "Copy Link"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/window.py, line: 130
+msgid   "Copy public URL"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/window.py, line: 142
+msgid   "Download"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/window.py, line: 143
+msgid   "Save file locally"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/window.py, line: 156
+msgid   "Remove from storage"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/window.py, line: 228
+msgid   "Upload ISO"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/window.py, line: 236
+msgid   "Application menu"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/window.py, line: 242
+msgid   "Force Update Index"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/window.py, line: 243
+msgid   "Refresh"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/window.py, line: 247
+msgid   "About"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/window.py, line: 274
+msgid   "Ready"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/window.py, line: 320
+msgid   "Please configure S3 credentials in Preferences"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/window.py, line: 366
+msgid   "Connection test failed"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/window.py, line: 375
+msgid   "Warning: Could not connect to S3 storage"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/window.py, line: 388
+# File: usr/share/isovault/ui/window.py, line: 772
+msgid   "Please configure S3 credentials first"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/window.py, line: 408
 #, python-brace-format
-msgid   "Config file not found: {config_file}"
+msgid   "Link copied: {url}"
 msgstr  ""
 
 #
-# File: usr/share/isovault/models/settings.py, line: 73
+# File: usr/share/isovault/ui/window.py, line: 469
 #, python-brace-format
-msgid   "Settings loaded from: {config_file}"
+msgid   "Uploading {filename}..."
 msgstr  ""
 
 #
-# File: usr/share/isovault/models/settings.py, line: 77
+# File: usr/share/isovault/ui/window.py, line: 479
 #, python-brace-format
-msgid   "Error loading settings: {error}"
+msgid   "Upload failed for {filename}"
 msgstr  ""
 
 #
-# File: usr/share/isovault/models/settings.py, line: 98
+# File: usr/share/isovault/ui/window.py, line: 484
 #, python-brace-format
-msgid   "Settings saved to: {config_file}"
+msgid   "Starting batch upload: {file_count} files to folder: {folder}"
 msgstr  ""
 
 #
-# File: usr/share/isovault/models/settings.py, line: 102
+# File: usr/share/isovault/ui/window.py, line: 512
 #, python-brace-format
-msgid   "Error saving settings: {error}"
+msgid   "Uploading {current}/{total}: {filename}"
 msgstr  ""
 
 #
-# File: usr/share/isovault/models/settings.py, line: 138
-msgid   "Access key is required"
+# File: usr/share/isovault/ui/window.py, line: 533
+#, python-brace-format
+msgid   "Batch upload error for {filename}"
 msgstr  ""
 
 #
-# File: usr/share/isovault/models/settings.py, line: 141
-msgid   "Secret key is required"
+# File: usr/share/isovault/ui/window.py, line: 562
+#, python-brace-format
+msgid   "Successfully uploaded all {total} files!"
 msgstr  ""
 
 #
-# File: usr/share/isovault/models/settings.py, line: 144
-msgid   "Endpoint URL is required"
+# File: usr/share/isovault/ui/window.py, line: 564
+#, python-brace-format
+msgid   "Upload complete: {completed} successful, {failed} failed"
 msgstr  ""
 
 #
-# File: usr/share/isovault/models/settings.py, line: 147
-msgid   "Bucket name is required"
+# File: usr/share/isovault/ui/window.py, line: 584
+#, python-brace-format
+msgid   "Successfully uploaded {filename}"
 msgstr  ""
 
 #
-# File: usr/share/isovault/models/settings.py, line: 149
-msgid   "Configuration is valid"
+# File: usr/share/isovault/ui/window.py, line: 594
+#, python-brace-format
+msgid   "Failed to upload {filename}"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/window.py, line: 600
+#, python-brace-format
+msgid   "Downloading {filename}..."
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/window.py, line: 611
+#, python-brace-format
+msgid   "Download failed for {filename}"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/window.py, line: 620
+#, python-brace-format
+msgid   "Successfully downloaded {filename}"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/window.py, line: 624
+#, python-brace-format
+msgid   "Failed to download {filename}"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/window.py, line: 637
+#, python-brace-format
+msgid   "Deleting {filename}..."
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/window.py, line: 646
+#, python-brace-format
+msgid   "Delete failed for {filename}"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/window.py, line: 654
+#, python-brace-format
+msgid   "Successfully deleted {filename}"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/window.py, line: 664
+#, python-brace-format
+msgid   "Failed to delete {filename}"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/window.py, line: 674
+#, python-brace-format
+msgid   "Refreshing files for folder: {folder}"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/window.py, line: 676
+msgid   "Loading files..."
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/window.py, line: 686
+msgid   "Failed to refresh file list"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/window.py, line: 693
+msgid   "Failed to connect to S3 storage. Check credentials and connection."
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/window.py, line: 709
+#, python-brace-format
+msgid   "1 file{folder_text}"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/window.py, line: 711
+#, python-brace-format
+msgid   "{count} files{folder_text}"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/window.py, line: 748
+msgid   "Failed to update index files"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/window.py, line: 775
+msgid   "Updating index files..."
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/window.py, line: 781
+msgid   "Index files updated!"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/window.py, line: 819
+msgid   "S3 credentials removed"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/window.py, line: 839
+msgid   "An unexpected error occurred"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/components.py, line: 33
+msgid   "Progress"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/components.py, line: 43
+#, python-brace-format
+msgid   "Progress update: {progress:.1f}%"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/components.py, line: 50
+msgid   "Hiding progress"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/components.py, line: 123
+msgid   "File Name"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/components.py, line: 132
+msgid   "Folder"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/components.py, line: 140
+msgid   "Size"
+msgstr  ""
+
+#
+# File: usr/share/isovault/ui/components.py, line: 148
+msgid   "Modified"
 msgstr  ""
