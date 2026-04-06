@@ -83,233 +83,506 @@ class HTMLGenerator:
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{title}</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
     <style>
-        * {{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {{
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-tertiary: #1a1a25;
+            --bg-card: rgba(25, 25, 35, 0.7);
+            --bg-glass: rgba(255, 255, 255, 0.03);
+            --bg-glass-strong: rgba(255, 255, 255, 0.08);
+            --text-primary: #f5f5f7;
+            --text-secondary: #a1a1a6;
+            --text-muted: #6e6e73;
+            --accent-blue: #0a84ff;
+            --accent-purple: #bf5af2;
+            --accent-green: #30d158;
+            --accent-orange: #ff9f0a;
+            --accent-pink: #ff375f;
+            --gradient-hero: linear-gradient(135deg, #0a0a1a 0%, #1a1a3e 25%, #0f0f2d 50%, #151530 75%, #0a0a1a 100%);
+            --gradient-accent: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-purple) 50%, var(--accent-pink) 100%);
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-light: rgba(255, 255, 255, 0.12);
+            --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.5);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --radius-full: 9999px;
+            --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-fast: 0.15s ease;
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }}
-        
+
+        *, *::before, *::after {{ margin: 0; padding: 0; box-sizing: border-box; }}
+        html {{ scroll-behavior: smooth; }}
+
         body {{
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: var(--font-family);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
             min-height: 100vh;
-            color: #333;
+            -webkit-font-smoothing: antialiased;
         }}
-        
+
         .header {{
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 2rem 0;
-            text-align: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            margin-bottom: 2rem;
+            background: rgba(10, 10, 15, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 200;
         }}
-        
+
+        .header .container {{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }}
+
         .logo {{
-            font-size: 3rem;
-            font-weight: bold;
-            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }}
+
+        .text-gradient {{
+            background: var(--gradient-accent);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 0.5rem;
         }}
-        
-        .subtitle {{
-            color: #666;
-            font-size: 1.2rem;
+
+        .header-nav {{
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
         }}
-        
+
+        .header-nav a {{
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color var(--transition-fast);
+        }}
+
+        .header-nav a:hover {{ color: var(--text-primary); }}
+
+        .hero {{
+            background: var(--gradient-hero);
+            padding: 5rem 0 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }}
+
+        .hero::before {{
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(ellipse, rgba(10, 132, 255, 0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }}
+
+        .hero h1 {{
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+            position: relative;
+        }}
+
+        .hero p {{
+            color: var(--text-secondary);
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }}
+
         .container {{
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
         }}
-        
-        .folder-section {{
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        }}
-        
-        .folder-header {{
+
+        .stats-bar {{
             display: flex;
             align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            padding: 1rem 1.5rem;
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            margin: -1.5rem auto 2.5rem;
+            max-width: 700px;
+            position: relative;
+            z-index: 10;
+        }}
+
+        .stats-bar .stat {{
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }}
+
+        .stats-bar .stat strong {{ color: var(--text-primary); }}
+        .stats-bar .stat i {{ color: var(--accent-blue); width: 16px; height: 16px; }}
+        .stat-divider {{ width: 1px; height: 20px; background: var(--border-light); }}
+
+        .search-wrapper {{
+            max-width: 500px;
+            margin: 0 auto 2.5rem;
+            position: relative;
+        }}
+
+        .search-wrapper i {{
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            width: 18px;
+            height: 18px;
+            pointer-events: none;
+        }}
+
+        .search-input {{
+            width: 100%;
+            padding: 0.875rem 1rem 0.875rem 2.75rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-full);
+            color: var(--text-primary);
+            font-family: var(--font-family);
+            font-size: 0.9375rem;
+            outline: none;
+            transition: var(--transition-base);
+            backdrop-filter: blur(20px);
+        }}
+
+        .search-input::placeholder {{ color: var(--text-muted); }}
+
+        .search-input:focus {{
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.15);
+        }}
+
+        .de-section {{ margin-bottom: 2.5rem; }}
+
+        .de-header {{
+            display: flex;
+            align-items: center;
+            gap: 1rem;
             margin-bottom: 1.5rem;
             padding-bottom: 1rem;
-            border-bottom: 2px solid #f0f0f0;
+            border-bottom: 1px solid var(--border-subtle);
         }}
-        
-        .folder-icon {{
-            width: 2.5rem;
-            height: 2.5rem;
-            margin-right: 1rem;
-            fill: #495057;
+
+        .de-badge {{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-md);
+            font-size: 1.25rem;
         }}
-        
-        .folder-name {{
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #333;
+
+        .de-badge i {{ width: 24px; height: 24px; }}
+
+        .de-badge.gnome {{
+            background: linear-gradient(135deg, rgba(108, 92, 231, 0.2), rgba(108, 92, 231, 0.05));
+            color: #6c5ce7;
+            border: 1px solid rgba(108, 92, 231, 0.3);
         }}
-        
+
+        .de-badge.xfce {{
+            background: linear-gradient(135deg, rgba(46, 134, 222, 0.2), rgba(46, 134, 222, 0.05));
+            color: #2e86de;
+            border: 1px solid rgba(46, 134, 222, 0.3);
+        }}
+
+        .de-badge.cinnamon {{
+            background: linear-gradient(135deg, rgba(211, 84, 0, 0.2), rgba(211, 84, 0, 0.05));
+            color: #d35400;
+            border: 1px solid rgba(211, 84, 0, 0.3);
+        }}
+
+        .de-badge.root {{
+            background: linear-gradient(135deg, rgba(10, 132, 255, 0.2), rgba(10, 132, 255, 0.05));
+            color: var(--accent-blue);
+            border: 1px solid rgba(10, 132, 255, 0.3);
+        }}
+
+        .de-info h2 {{ font-size: 1.5rem; font-weight: 700; }}
+        .de-info .de-count {{ font-size: 0.8125rem; color: var(--text-muted); font-weight: 400; }}
+
         .file-grid {{
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
-            gap: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.25rem;
         }}
-        
+
         .file-card {{
-            background: #f8f9fa;
-            border: 1px solid #e9ecef;
-            border-radius: 12px;
-            padding: 2.5rem;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            min-height: 200px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-xl);
+            padding: 1.75rem;
+            backdrop-filter: blur(20px);
+            transition: var(--transition-base);
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 420px;
+            min-width: 300px;
+            flex: 1 1 340px;
         }}
-        
+
         .file-card:hover {{
-            background: #e9ecef;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--border-light);
         }}
-        
+
+        .file-card-header {{
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }}
+
+        .file-icon {{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-sm);
+            background: var(--bg-glass-strong);
+            flex-shrink: 0;
+        }}
+
+        .file-icon i {{ color: var(--accent-blue); width: 20px; height: 20px; }}
+
         .file-name {{
             font-weight: 600;
-            color: #495057;
-            margin-bottom: 1rem;
+            font-size: 0.9375rem;
+            color: var(--text-primary);
+            line-height: 1.4;
             word-break: break-word;
-            font-size: 1.1rem;
-            line-height: 1.3;
         }}
-        
-        .file-info {{
+
+        .file-meta {{
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            font-size: 0.9rem;
-            color: #6c757d;
-            margin-bottom: 1.5rem;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
         }}
-        
-        .file-size {{
-            font-weight: 600;
-            color: #495057;
+
+        .file-meta-item {{
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
         }}
-        
-        .file-date {{
-            font-size: 0.85rem;
-        }}
-        
-        .md5-container {{
-            margin-bottom: 1.5rem;
-        }}
-        
+
+        .file-meta-item i {{ width: 14px; height: 14px; }}
+        .file-meta-item.size {{ color: var(--accent-green); font-weight: 600; }}
+        .file-meta-item.date i {{ color: var(--text-muted); }}
+
+        .md5-section {{ margin-bottom: 1.25rem; }}
+
         .md5-label {{
-            font-size: 0.75rem;
-            color: #80868b;
-            margin-bottom: 0.5rem;
+            font-size: 0.6875rem;
+            color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            font-weight: 500;
+            font-weight: 600;
+            margin-bottom: 0.375rem;
         }}
-        
+
+        .md5-row {{
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-sm);
+            padding: 0.625rem 0.75rem;
+            transition: var(--transition-fast);
+        }}
+
+        .md5-row:hover {{ border-color: var(--border-light); }}
+
         .md5-hash {{
-            background: #f1f3f4;
-            border: 1px solid #dadce0;
-            border-radius: 6px;
-            padding: 0.75rem;
-            font-family: 'Courier New', monospace;
-            font-size: 0.85rem;
-            color: #5f6368;
+            font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+            font-size: 0.75rem;
+            color: var(--text-muted);
             word-break: break-all;
+            flex: 1;
+            user-select: all;
+        }}
+
+        .md5-copy-btn {{
+            background: none;
+            border: none;
+            color: var(--text-muted);
             cursor: pointer;
-            transition: all 0.2s ease;
+            padding: 4px;
+            border-radius: 4px;
+            transition: var(--transition-fast);
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
         }}
-        
-        .md5-hash:hover {{
-            background: #e8eaed;
-            border-color: #c1c7cd;
-        }}
-        
+
+        .md5-copy-btn:hover {{ color: var(--accent-blue); background: var(--bg-glass-strong); }}
+        .md5-copy-btn i {{ width: 14px; height: 14px; }}
+
         .download-btn {{
-            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            background: var(--gradient-accent);
             color: white;
             border: none;
-            padding: 1rem 1.5rem;
-            border-radius: 8px;
+            border-radius: var(--radius-md);
+            font-family: var(--font-family);
+            font-size: 0.875rem;
+            font-weight: 600;
             cursor: pointer;
-            font-size: 1rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
+            transition: var(--transition-base);
+            text-decoration: none;
+            margin-top: auto;
             width: 100%;
         }}
-        
+
         .download-btn:hover {{
             transform: translateY(-1px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 6px 24px rgba(10, 132, 255, 0.35);
         }}
-        
-        .stats {{
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            padding: 1rem;
-            margin-bottom: 2rem;
+
+        .download-btn i {{ width: 18px; height: 18px; }}
+
+        .empty-state {{
             text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-muted);
         }}
-        
-        .empty-folder {{
-            text-align: center;
-            color: #6c757d;
-            font-style: italic;
-            padding: 3rem;
-        }}
-        
+
+        .empty-state i {{ width: 48px; height: 48px; margin-bottom: 1rem; opacity: 0.3; }}
+
         .breadcrumb {{
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
             margin-bottom: 2rem;
+            backdrop-filter: blur(20px);
         }}
-        
+
         .breadcrumb a {{
-            color: #667eea;
+            color: var(--accent-blue);
             text-decoration: none;
             font-weight: 500;
+            font-size: 0.875rem;
+            transition: color var(--transition-fast);
         }}
-        
-        .breadcrumb a:hover {{
-            text-decoration: underline;
-        }}
-        
+
+        .breadcrumb a:hover {{ color: var(--text-primary); }}
+        .breadcrumb span {{ color: var(--text-muted); font-size: 0.875rem; }}
+        .breadcrumb strong {{ font-size: 0.875rem; }}
+
         .footer {{
             text-align: center;
-            padding: 2rem;
-            color: rgba(255, 255, 255, 0.8);
-            margin-top: 3rem;
+            padding: 3rem 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid var(--border-subtle);
         }}
-        
+
+        .footer p {{ color: var(--text-muted); font-size: 0.8125rem; }}
+
+        .footer a {{
+            color: var(--accent-blue);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }}
+
+        .footer a:hover {{ color: var(--text-primary); }}
+
+        .toast {{
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-light);
+            color: var(--text-primary);
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-full);
+            font-size: 0.875rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: var(--shadow-lg);
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            z-index: 999;
+            pointer-events: none;
+        }}
+
+        .toast.show {{ transform: translateX(-50%) translateY(0); }}
+        .toast i {{ width: 16px; height: 16px; color: var(--accent-green); }}
+
         @media (max-width: 768px) {{
-            .file-grid {{
-                grid-template-columns: 1fr;
-            }}
-            
-            .container {{
-                padding: 0 1rem;
-            }}
-            
-            .logo {{
-                font-size: 2rem;
-            }}
-            
-            .file-card {{
-                padding: 1.5rem;
-            }}
+            .container {{ padding: 0 1rem; }}
+            .hero {{ padding: 3.5rem 0 2rem; }}
+            .hero h1 {{ font-size: 2rem; }}
+            .hero p {{ font-size: 1rem; }}
+            .stats-bar {{ flex-direction: column; gap: 0.75rem; margin: -1rem 1rem 2rem; }}
+            .stat-divider {{ display: none; }}
+            .file-grid {{ flex-direction: column; align-items: center; }}
+            .file-card {{ padding: 1.25rem; max-width: 100%; min-width: 0; flex: 1 1 auto; }}
+            .de-badge {{ width: 40px; height: 40px; }}
+            .de-info h2 {{ font-size: 1.25rem; }}
+        }}
+
+        @media (max-width: 480px) {{
+            .header .container {{ flex-direction: column; gap: 0.75rem; }}
+            .header-nav {{ gap: 1rem; }}
+            .file-meta {{ flex-direction: column; align-items: flex-start; gap: 0.5rem; }}
         }}
     </style>
 </head>
@@ -321,51 +594,69 @@ class HTMLGenerator:
                          for f in folder_files if f['iso']])
         
         body = f"""
-    <div class="header">
+    <header class="header">
         <div class="container">
-            <h1 class="logo">BigCommunity</h1>
-            <p class="subtitle">{_("Linux Distribution ISO Repository")}</p>
+            <a href="https://communitybig.org" class="logo">
+                Big<span class="text-gradient">Community</span>
+            </a>
+            <nav class="header-nav">
+                <a href="https://communitybig.org">{html.escape(_("Home"))}</a>
+                <a href="https://communitybig.org/download.html">{html.escape(_("Download"))}</a>
+                <a href="https://github.com/big-comm" target="_blank" rel="noopener">GitHub</a>
+            </nav>
         </div>
-    </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>ISO <span class="text-gradient">Repository</span></h1>
+            <p>{html.escape(_("Direct download of BigCommunity ISO images with integrity verification."))}</p>
+        </div>
+    </section>
     
     <div class="container">
-        <div class="stats">
-            <strong>{_("{total_isos} ISO files available").format(total_isos=total_isos)}</strong> | {_("Updated")}: {datetime.now().strftime('%Y-%m-%d %H:%M UTC')}
+        <div class="stats-bar">
+            <div class="stat">
+                <i data-lucide="disc-3"></i>
+                <span><strong>{total_isos}</strong> {html.escape(_("ISO files available"))}</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+                <i data-lucide="clock"></i>
+                <span>{html.escape(_("Updated"))}: {datetime.now().strftime("%Y-%m-%d %H:%M UTC")}</span>
+            </div>
         </div>
-"""
-        
-        # Add search functionality
-        body += f"""
-        <div class="stats">
-            <input type="text" id="searchInput" placeholder="{_("Search ISOs...")}" style="
-                width: 100%;
-                max-width: 400px;
-                padding: 1rem;
-                border: none;
-                border-radius: 25px;
-                background: rgba(255,255,255,0.9);
-                font-size: 1rem;
-                outline: none;
-            ">
+
+        <div class="search-wrapper">
+            <i data-lucide="search"></i>
+            <input type="text" class="search-input" id="searchInput" placeholder="{html.escape(_("Search ISOs..."))}">
         </div>
 """
         
         if not sorted_folders:
-            body += f'''
-        <div class="folder-section">
-            <div class="empty-folder">{_("No ISO files available yet")}</div>
+            body += f"""
+        <div class="empty-state">
+            <i data-lucide="inbox"></i>
+            <p>{html.escape(_("No ISO files available yet"))}</p>
         </div>
-'''
+"""
         else:
-            # Generate sections for each folder
             for folder_name, folder_files in sorted_folders:
-                folder_icon_svg = self._get_folder_icon_svg(folder_name)
+                de_class = self._get_de_css_class(folder_name)
+                de_icon = self._get_de_lucide_icon(folder_name)
+                iso_count = len([f for f in folder_files if f["iso"]])
+                safe_folder = html.escape(folder_name)
                 
                 body += f"""
-        <div class="folder-section">
-            <div class="folder-header">
-                {folder_icon_svg}
-                <h2 class="folder-name">{folder_name}</h2>
+        <div class="de-section" data-section="{html.escape(de_class)}">
+            <div class="de-header">
+                <div class="de-badge {html.escape(de_class)}">
+                    <i data-lucide="{html.escape(de_icon)}"></i>
+                </div>
+                <div class="de-info">
+                    <h2>{safe_folder}</h2>
+                    <span class="de-count">{iso_count} {html.escape(_("images"))}</span>
+                </div>
             </div>
             <div class="file-grid">
 """
@@ -381,25 +672,46 @@ class HTMLGenerator:
     
     def _generate_folder_body(self, folder_name: str, grouped_files: List) -> str:
         """Generate folder page body content"""
-        folder_icon_svg = self._get_folder_icon_svg(folder_name)
+        de_class = self._get_de_css_class(folder_name)
+        de_icon = self._get_de_lucide_icon(folder_name)
+        safe_folder = html.escape(folder_name)
         
         body = f"""
-    <div class="header">
+    <header class="header">
         <div class="container">
-            <h1 class="logo">BigCommunity</h1>
-            <p class="subtitle">{_("Linux Distribution ISO Repository")}</p>
+            <a href="https://communitybig.org" class="logo">
+                Big<span class="text-gradient">Community</span>
+            </a>
+            <nav class="header-nav">
+                <a href="https://communitybig.org">{html.escape(_("Home"))}</a>
+                <a href="https://communitybig.org/download.html">{html.escape(_("Download"))}</a>
+                <a href="https://github.com/big-comm" target="_blank" rel="noopener">GitHub</a>
+            </nav>
         </div>
-    </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>ISO <span class="text-gradient">Repository</span></h1>
+            <p>{html.escape(_("Direct download of BigCommunity ISO images with integrity verification."))}</p>
+        </div>
+    </section>
     
     <div class="container">
         <div class="breadcrumb">
-            <a href="../">{_("← Back to All Folders")}</a> / <strong>{folder_name}</strong>
+            <a href="../">{html.escape(_("All Folders"))}</a>
+            <span>/</span>
+            <strong>{safe_folder}</strong>
         </div>
         
-        <div class="folder-section">
-            <div class="folder-header">
-                {folder_icon_svg}
-                <h2 class="folder-name">{folder_name}</h2>
+        <div class="de-section">
+            <div class="de-header">
+                <div class="de-badge {html.escape(de_class)}">
+                    <i data-lucide="{html.escape(de_icon)}"></i>
+                </div>
+                <div class="de-info">
+                    <h2>{safe_folder}</h2>
+                </div>
             </div>
 """
         
@@ -412,7 +724,7 @@ class HTMLGenerator:
             
             body += '            </div>\n'
         else:
-            body += f'            <div class="empty-folder">{_("No files in this folder")}</div>\n'
+            body += f'            <div class="empty-state"><i data-lucide="inbox"></i><p>{html.escape(_("No files in this folder"))}</p></div>\n'
         
         body += '        </div>\n    </div>\n'
         return body
@@ -435,11 +747,22 @@ class HTMLGenerator:
         safe_size = html.escape(iso_info["size_formatted"])
 
         card = f"""
-                <div class="file-card" onclick="window.open('{safe_url}', '_blank')">
-                    <div class="file-name">{safe_name}</div>
-                    <div class="file-info">
-                        <span class="file-size">{safe_size}</span>
-                        <span class="file-date">{safe_date}</span>
+                <div class="file-card" data-filename="{safe_name}">
+                    <div class="file-card-header">
+                        <div class="file-icon">
+                            <i data-lucide="disc-3"></i>
+                        </div>
+                        <div class="file-name">{safe_name}</div>
+                    </div>
+                    <div class="file-meta">
+                        <span class="file-meta-item size">
+                            <i data-lucide="hard-drive"></i>
+                            {safe_size}
+                        </span>
+                        <span class="file-meta-item date">
+                            <i data-lucide="calendar"></i>
+                            {safe_date}
+                        </span>
                     </div>
 """
         
@@ -452,18 +775,22 @@ class HTMLGenerator:
             else:
                 safe_md5 = html.escape(md5_hash)
             card += f"""
-                    <div class="md5-container">
+                    <div class="md5-section">
                         <div class="md5-label">{html.escape(_("MD5 Checksum"))}</div>
-                        <div class="md5-hash" onclick="event.stopPropagation(); navigator.clipboard.writeText('{safe_md5}'); this.style.background='#d4edda';">
-                            {safe_md5}
+                        <div class="md5-row">
+                            <span class="md5-hash">{safe_md5}</span>
+                            <button class="md5-copy-btn" onclick="event.stopPropagation(); copyMD5(this, '{safe_md5}')">
+                                <i data-lucide="copy"></i>
+                            </button>
                         </div>
                     </div>
 """
         
         card += f"""
-                    <button class="download-btn" onclick="event.stopPropagation(); window.open('{safe_url}', '_blank')">
+                    <a class="download-btn" href="{safe_url}" target="_blank" rel="noopener">
+                        <i data-lucide="download"></i>
                         {html.escape(_("Download ISO"))}
-                    </button>
+                    </a>
                 </div>
 """
         
@@ -472,59 +799,66 @@ class HTMLGenerator:
     def _generate_html_footer(self) -> str:
         """Generate HTML footer with JavaScript"""
         return f"""
-    <div class="footer">
-        <p>{_("Generated by ISOVault")} | <a href="https://communitybig.org" style="color: rgba(255,255,255,0.9);">communitybig.org</a></p>
+    <footer class="footer">
+        <p>{_("Generated by ISOVault")} | <a href="https://communitybig.org">communitybig.org</a></p>
+    </footer>
+
+    <div class="toast" id="toast">
+        <i data-lucide="check-circle-2"></i>
+        <span>{html.escape(_("MD5 copied!"))}</span>
     </div>
     
     <script>
-        // Add interactivity
-        document.addEventListener('DOMContentLoaded', function() {{
-            // Add loading animation for downloads
-            document.querySelectorAll('.download-btn').forEach(btn => {{
-                btn.addEventListener('click', function() {{
-                    this.innerHTML = '{_("Downloading...")}';
-                    setTimeout(() => {{
-                        this.innerHTML = '{_("Download ISO")}';
-                    }}, 2000);
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Search
+        const searchInput = document.getElementById('searchInput');
+        if (searchInput) {{
+            searchInput.addEventListener('input', function() {{
+                const term = this.value.toLowerCase();
+                document.querySelectorAll('.file-card').forEach(card => {{
+                    const name = (card.dataset.filename || '').toLowerCase();
+                    card.style.display = name.includes(term) ? '' : 'none';
+                }});
+                document.querySelectorAll('.de-section').forEach(section => {{
+                    const visible = section.querySelectorAll('.file-card:not([style*="display: none"])');
+                    section.style.display = visible.length === 0 ? 'none' : '';
                 }});
             }});
-            
-            // Search functionality
-            const searchInput = document.getElementById('searchInput');
-            if (searchInput) {{
-                searchInput.addEventListener('input', function() {{
-                    const searchTerm = this.value.toLowerCase();
-                    document.querySelectorAll('.file-card').forEach(card => {{
-                        const fileName = card.querySelector('.file-name').textContent.toLowerCase();
-                        card.style.display = fileName.includes(searchTerm) ? 'block' : 'none';
-                    }});
-                }});
-            }}
-            
-            // Copy MD5 feedback
-            document.querySelectorAll('.md5-hash').forEach(hash => {{
-                hash.addEventListener('click', function() {{
-                    const originalBg = this.style.background;
-                    this.style.background = '#d4edda';
-                    setTimeout(() => {{
-                        this.style.background = originalBg;
-                    }}, 2000);
-                }});
+        }}
+
+        // Copy MD5
+        function copyMD5(btn, hash) {{
+            navigator.clipboard.writeText(hash).then(() => {{
+                const toast = document.getElementById('toast');
+                toast.classList.add('show');
+                setTimeout(() => toast.classList.remove('show'), 2000);
             }});
-        }});
+        }}
     </script>
 </body>
 </html>"""
-    
-    def _get_folder_icon_svg(self, folder_name: str) -> str:
-        """Get SVG icon for folder"""
-        icons = {
-            'Root': '''<svg class="folder-icon" viewBox="0 0 24 24"><path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>''',
-            'Gnome': '''<svg class="folder-icon" viewBox="0 0 24 24"><path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2Z"/><path d="M21 9V7L15 1L9 7V9C9 10.1 9.9 11 11 11V20C11 21.1 11.9 22 13 22S15 21.1 15 20V11C16.1 11 17 10.1 17 9Z"/></svg>''',
-            'Cinnamon': '''<svg class="folder-icon" viewBox="0 0 24 24"><path d="M12 2L2 7L12 12L22 7L12 2Z"/><polyline points="2,17 12,22 22,17"/><polyline points="2,12 12,17 22,12"/></svg>''',
-            'XFCE': '''<svg class="folder-icon" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>'''
+
+    def _get_de_css_class(self, folder_name: str) -> str:
+        """Get CSS class for desktop environment badge"""
+        classes = {
+            "Gnome": "gnome",
+            "XFCE": "xfce",
+            "Cinnamon": "cinnamon",
+            "Root": "root",
         }
-        return icons.get(folder_name, icons['Root'])
+        return classes.get(folder_name, "root")
+
+    def _get_de_lucide_icon(self, folder_name: str) -> str:
+        """Get Lucide icon name for desktop environment"""
+        icons = {
+            "Root": "home",
+            "Gnome": "layout-grid",
+            "Cinnamon": "layers",
+            "XFCE": "monitor",
+        }
+        return icons.get(folder_name, "home")
     
     def _group_files_with_md5(self, files: List[Dict]) -> List[Dict]:
         """Group ISO files with their corresponding MD5 files"""

@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BigCommunity ISO Repository</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <style>
+        /* ============================================
+           CSS Variables - BigCommunity Design System
+           ============================================ */
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-tertiary: #1a1a25;
+            --bg-card: rgba(25, 25, 35, 0.7);
+            --bg-glass: rgba(255, 255, 255, 0.03);
+            --bg-glass-strong: rgba(255, 255, 255, 0.08);
+
+            --text-primary: #f5f5f7;
+            --text-secondary: #a1a1a6;
+            --text-muted: #6e6e73;
+
+            --accent-blue: #0a84ff;
+            --accent-purple: #bf5af2;
+            --accent-green: #30d158;
+            --accent-orange: #ff9f0a;
+            --accent-pink: #ff375f;
+            --accent-cyan: #5ac8fa;
+
+            --gradient-hero: linear-gradient(135deg, #0a0a1a 0%, #1a1a3e 25%, #0f0f2d 50%, #151530 75%, #0a0a1a 100%);
+            --gradient-accent: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-purple) 50%, var(--accent-pink) 100%);
+
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-light: rgba(255, 255, 255, 0.12);
+            --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.5);
+            --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05);
+
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --radius-full: 9999px;
+
+            --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-fast: 0.15s ease;
+
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        /* ============================================
+           Reset & Base
+           ============================================ */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-family);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ============================================
+           Header
+           ============================================ */
+        .header {
+            background: rgba(10, 10, 15, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 200;
+        }
+
+        .header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .text-gradient {
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .header-nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color var(--transition-fast);
+        }
+
+        .header-nav a:hover { color: var(--text-primary); }
+
+        /* ============================================
+           Hero / Page Header
+           ============================================ */
+        .hero {
+            background: var(--gradient-hero);
+            padding: 5rem 0 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(ellipse, rgba(10, 132, 255, 0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+            position: relative;
+        }
+
+        .hero p {
+            color: var(--text-secondary);
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* ============================================
+           Container
+           ============================================ */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* ============================================
+           Stats Bar
+           ============================================ */
+        .stats-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            padding: 1rem 1.5rem;
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            margin: -1.5rem auto 2.5rem;
+            max-width: 700px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .stats-bar .stat {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .stats-bar .stat strong {
+            color: var(--text-primary);
+        }
+
+        .stats-bar .stat i {
+            color: var(--accent-blue);
+            width: 16px;
+            height: 16px;
+        }
+
+        .stat-divider {
+            width: 1px;
+            height: 20px;
+            background: var(--border-light);
+        }
+
+        /* ============================================
+           Search
+           ============================================ */
+        .search-wrapper {
+            max-width: 500px;
+            margin: 0 auto 2.5rem;
+            position: relative;
+        }
+
+        .search-wrapper i {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            width: 18px;
+            height: 18px;
+            pointer-events: none;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.875rem 1rem 0.875rem 2.75rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-full);
+            color: var(--text-primary);
+            font-family: var(--font-family);
+            font-size: 0.9375rem;
+            outline: none;
+            transition: var(--transition-base);
+            backdrop-filter: blur(20px);
+        }
+
+        .search-input::placeholder { color: var(--text-muted); }
+
+        .search-input:focus {
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.15);
+        }
+
+        /* ============================================
+           DE Section
+           ============================================ */
+        .de-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .de-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .de-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-md);
+            font-size: 1.25rem;
+        }
+
+        .de-badge i {
+            width: 24px;
+            height: 24px;
+        }
+
+        .de-badge.gnome {
+            background: linear-gradient(135deg, rgba(108, 92, 231, 0.2), rgba(108, 92, 231, 0.05));
+            color: #6c5ce7;
+            border: 1px solid rgba(108, 92, 231, 0.3);
+        }
+
+        .de-badge.xfce {
+            background: linear-gradient(135deg, rgba(46, 134, 222, 0.2), rgba(46, 134, 222, 0.05));
+            color: #2e86de;
+            border: 1px solid rgba(46, 134, 222, 0.3);
+        }
+
+        .de-badge.cinnamon {
+            background: linear-gradient(135deg, rgba(211, 84, 0, 0.2), rgba(211, 84, 0, 0.05));
+            color: #d35400;
+            border: 1px solid rgba(211, 84, 0, 0.3);
+        }
+
+        .de-badge.root {
+            background: linear-gradient(135deg, rgba(10, 132, 255, 0.2), rgba(10, 132, 255, 0.05));
+            color: var(--accent-blue);
+            border: 1px solid rgba(10, 132, 255, 0.3);
+        }
+
+        .de-info h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .de-info .de-count {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        /* ============================================
+           File Cards Grid
+           ============================================ */
+        .file-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.25rem;
+        }
+
+        /* ============================================
+           File Card
+           ============================================ */
+        .file-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-xl);
+            padding: 1.75rem;
+            backdrop-filter: blur(20px);
+            transition: var(--transition-base);
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 420px;
+            min-width: 300px;
+            flex: 1 1 340px;
+        }
+
+        .file-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--border-light);
+        }
+
+        .file-card-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .file-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-sm);
+            background: var(--bg-glass-strong);
+            flex-shrink: 0;
+        }
+
+        .file-icon i {
+            color: var(--accent-blue);
+            width: 20px;
+            height: 20px;
+        }
+
+        .file-name {
+            font-weight: 600;
+            font-size: 0.9375rem;
+            color: var(--text-primary);
+            line-height: 1.4;
+            word-break: break-word;
+        }
+
+        .file-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .file-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+        }
+
+        .file-meta-item i {
+            width: 14px;
+            height: 14px;
+        }
+
+        .file-meta-item.size {
+            color: var(--accent-green);
+            font-weight: 600;
+        }
+
+        .file-meta-item.date i { color: var(--text-muted); }
+
+        /* MD5 */
+        .md5-section {
+            margin-bottom: 1.25rem;
+        }
+
+        .md5-label {
+            font-size: 0.6875rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+            margin-bottom: 0.375rem;
+        }
+
+        .md5-row {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-sm);
+            padding: 0.625rem 0.75rem;
+            transition: var(--transition-fast);
+        }
+
+        .md5-row:hover {
+            border-color: var(--border-light);
+        }
+
+        .md5-hash {
+            font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            word-break: break-all;
+            flex: 1;
+            user-select: all;
+        }
+
+        .md5-copy-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 4px;
+            border-radius: 4px;
+            transition: var(--transition-fast);
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .md5-copy-btn:hover {
+            color: var(--accent-blue);
+            background: var(--bg-glass-strong);
+        }
+
+        .md5-copy-btn i {
+            width: 14px;
+            height: 14px;
+        }
+
+        /* Download Button */
+        .download-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            background: var(--gradient-accent);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            font-family: var(--font-family);
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-base);
+            text-decoration: none;
+            margin-top: auto;
+            width: 100%;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 24px rgba(10, 132, 255, 0.35);
+        }
+
+        .download-btn i {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* ============================================
+           Empty State
+           ============================================ */
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-muted);
+        }
+
+        .empty-state i {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 1rem;
+            opacity: 0.3;
+        }
+
+        /* ============================================
+           Footer
+           ============================================ */
+        .footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .footer p {
+            color: var(--text-muted);
+            font-size: 0.8125rem;
+        }
+
+        .footer a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+
+        .footer a:hover { color: var(--text-primary); }
+
+        /* ============================================
+           Responsive
+           ============================================ */
+        @media (max-width: 768px) {
+            .container { padding: 0 1rem; }
+            .hero { padding: 3.5rem 0 2rem; }
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1rem; }
+
+            .stats-bar {
+                flex-direction: column;
+                gap: 0.75rem;
+                margin: -1rem 1rem 2rem;
+            }
+
+            .stat-divider { display: none; }
+
+            .file-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .file-card { padding: 1.25rem; }
+
+            .de-badge {
+                width: 40px;
+                height: 40px;
+            }
+
+            .de-info h2 { font-size: 1.25rem; }
+        }
+
+        @media (max-width: 480px) {
+            .header .container {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .header-nav { gap: 1rem; }
+
+            .file-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+        }
+
+        /* ============================================
+           Copy Toast
+           ============================================ */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-light);
+            color: var(--text-primary);
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-full);
+            font-size: 0.875rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: var(--shadow-lg);
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            z-index: 999;
+            pointer-events: none;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .toast i { width: 16px; height: 16px; color: var(--accent-green); }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="https://communitybig.org" class="logo">
+                Big<span class="text-gradient">Community</span>
+            </a>
+            <nav class="header-nav">
+                <a href="https://communitybig.org">Home</a>
+                <a href="https://communitybig.org/download.html">Download</a>
+                <a href="https://github.com/big-comm" target="_blank" rel="noopener">GitHub</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1>ISO <span class="text-gradient">Repository</span></h1>
+            <p>Direct download of BigCommunity ISO images with integrity verification.</p>
+        </div>
+    </section>
+
+    <!-- Content -->
+    <div class="container">
+
+        <!-- Stats Bar -->
+        <div class="stats-bar">
+            <div class="stat">
+                <i data-lucide="disc-3"></i>
+                <span><strong>6</strong> ISO files available</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+                <i data-lucide="clock"></i>
+                <span>Updated: 2025-07-10 14:30 UTC</span>
+            </div>
+        </div>
+
+        <!-- Search -->
+        <div class="search-wrapper">
+            <i data-lucide="search"></i>
+            <input type="text" class="search-input" id="searchInput" placeholder="Search ISOs...">
+        </div>
+
+        <!-- GNOME Section -->
+        <div class="de-section" data-section="gnome">
+            <div class="de-header">
+                <div class="de-badge gnome">
+                    <i data-lucide="layout-grid"></i>
+                </div>
+                <div class="de-info">
+                    <h2>GNOME</h2>
+                    <span class="de-count">2 images</span>
+                </div>
+            </div>
+            <div class="file-grid">
+
+                <div class="file-card" data-filename="BigCommunity_GNOME_2025.07_k6.15.3-x86_64.iso">
+                    <div class="file-card-header">
+                        <div class="file-icon">
+                            <i data-lucide="disc-3"></i>
+                        </div>
+                        <div class="file-name">BigCommunity_GNOME_2025.07_k6.15.3-x86_64.iso</div>
+                    </div>
+                    <div class="file-meta">
+                        <span class="file-meta-item size">
+                            <i data-lucide="hard-drive"></i>
+                            3.21 GB
+                        </span>
+                        <span class="file-meta-item date">
+                            <i data-lucide="calendar"></i>
+                            2025-07-08
+                        </span>
+                    </div>
+                    <div class="md5-section">
+                        <div class="md5-label">MD5 Checksum</div>
+                        <div class="md5-row">
+                            <span class="md5-hash">a1b2c3d4e5f67890a1b2c3d4e5f67890</span>
+                            <button class="md5-copy-btn" onclick="copyMD5(this, 'a1b2c3d4e5f67890a1b2c3d4e5f67890')">
+                                <i data-lucide="copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <a class="download-btn" href="#">
+                        <i data-lucide="download"></i>
+                        Download ISO
+                    </a>
+                </div>
+
+                <div class="file-card" data-filename="BigCommunity_GNOME_2025.06_k6.14.8-x86_64.iso">
+                    <div class="file-card-header">
+                        <div class="file-icon">
+                            <i data-lucide="disc-3"></i>
+                        </div>
+                        <div class="file-name">BigCommunity_GNOME_2025.06_k6.14.8-x86_64.iso</div>
+                    </div>
+                    <div class="file-meta">
+                        <span class="file-meta-item size">
+                            <i data-lucide="hard-drive"></i>
+                            3.18 GB
+                        </span>
+                        <span class="file-meta-item date">
+                            <i data-lucide="calendar"></i>
+                            2025-06-15
+                        </span>
+                    </div>
+                    <div class="md5-section">
+                        <div class="md5-label">MD5 Checksum</div>
+                        <div class="md5-row">
+                            <span class="md5-hash">b2c3d4e5f67890a1b2c3d4e5f67890a1</span>
+                            <button class="md5-copy-btn" onclick="copyMD5(this, 'b2c3d4e5f67890a1b2c3d4e5f67890a1')">
+                                <i data-lucide="copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <a class="download-btn" href="#">
+                        <i data-lucide="download"></i>
+                        Download ISO
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Cinnamon Section -->
+        <div class="de-section" data-section="cinnamon">
+            <div class="de-header">
+                <div class="de-badge cinnamon">
+                    <i data-lucide="layers"></i>
+                </div>
+                <div class="de-info">
+                    <h2>Cinnamon</h2>
+                    <span class="de-count">2 images</span>
+                </div>
+            </div>
+            <div class="file-grid">
+
+                <div class="file-card" data-filename="BigCommunity_Cinnamon_2025.07_k6.15.3-x86_64.iso">
+                    <div class="file-card-header">
+                        <div class="file-icon">
+                            <i data-lucide="disc-3"></i>
+                        </div>
+                        <div class="file-name">BigCommunity_Cinnamon_2025.07_k6.15.3-x86_64.iso</div>
+                    </div>
+                    <div class="file-meta">
+                        <span class="file-meta-item size">
+                            <i data-lucide="hard-drive"></i>
+                            3.05 GB
+                        </span>
+                        <span class="file-meta-item date">
+                            <i data-lucide="calendar"></i>
+                            2025-07-08
+                        </span>
+                    </div>
+                    <div class="md5-section">
+                        <div class="md5-label">MD5 Checksum</div>
+                        <div class="md5-row">
+                            <span class="md5-hash">c3d4e5f67890a1b2c3d4e5f67890a1b2</span>
+                            <button class="md5-copy-btn" onclick="copyMD5(this, 'c3d4e5f67890a1b2c3d4e5f67890a1b2')">
+                                <i data-lucide="copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <a class="download-btn" href="#">
+                        <i data-lucide="download"></i>
+                        Download ISO
+                    </a>
+                </div>
+
+                <div class="file-card" data-filename="BigCommunity_Cinnamon_2025.06_k6.14.8-x86_64.iso">
+                    <div class="file-card-header">
+                        <div class="file-icon">
+                            <i data-lucide="disc-3"></i>
+                        </div>
+                        <div class="file-name">BigCommunity_Cinnamon_2025.06_k6.14.8-x86_64.iso</div>
+                    </div>
+                    <div class="file-meta">
+                        <span class="file-meta-item size">
+                            <i data-lucide="hard-drive"></i>
+                            2.98 GB
+                        </span>
+                        <span class="file-meta-item date">
+                            <i data-lucide="calendar"></i>
+                            2025-06-12
+                        </span>
+                    </div>
+                    <a class="download-btn" href="#">
+                        <i data-lucide="download"></i>
+                        Download ISO
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- XFCE Section -->
+        <div class="de-section" data-section="xfce">
+            <div class="de-header">
+                <div class="de-badge xfce">
+                    <i data-lucide="monitor"></i>
+                </div>
+                <div class="de-info">
+                    <h2>XFCE</h2>
+                    <span class="de-count">2 images</span>
+                </div>
+            </div>
+            <div class="file-grid">
+
+                <div class="file-card" data-filename="BigCommunity_XFCE_2025.07_k6.15.3-x86_64.iso">
+                    <div class="file-card-header">
+                        <div class="file-icon">
+                            <i data-lucide="disc-3"></i>
+                        </div>
+                        <div class="file-name">BigCommunity_XFCE_2025.07_k6.15.3-x86_64.iso</div>
+                    </div>
+                    <div class="file-meta">
+                        <span class="file-meta-item size">
+                            <i data-lucide="hard-drive"></i>
+                            2.87 GB
+                        </span>
+                        <span class="file-meta-item date">
+                            <i data-lucide="calendar"></i>
+                            2025-07-09
+                        </span>
+                    </div>
+                    <div class="md5-section">
+                        <div class="md5-label">MD5 Checksum</div>
+                        <div class="md5-row">
+                            <span class="md5-hash">d4e5f67890a1b2c3d4e5f67890a1b2c3</span>
+                            <button class="md5-copy-btn" onclick="copyMD5(this, 'd4e5f67890a1b2c3d4e5f67890a1b2c3')">
+                                <i data-lucide="copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <a class="download-btn" href="#">
+                        <i data-lucide="download"></i>
+                        Download ISO
+                    </a>
+                </div>
+
+                <div class="file-card" data-filename="BigCommunity_XFCE_2025.06_k6.14.8-x86_64.iso">
+                    <div class="file-card-header">
+                        <div class="file-icon">
+                            <i data-lucide="disc-3"></i>
+                        </div>
+                        <div class="file-name">BigCommunity_XFCE_2025.06_k6.14.8-x86_64.iso</div>
+                    </div>
+                    <div class="file-meta">
+                        <span class="file-meta-item size">
+                            <i data-lucide="hard-drive"></i>
+                            2.85 GB
+                        </span>
+                        <span class="file-meta-item date">
+                            <i data-lucide="calendar"></i>
+                            2025-06-14
+                        </span>
+                    </div>
+                    <div class="md5-section">
+                        <div class="md5-label">MD5 Checksum</div>
+                        <div class="md5-row">
+                            <span class="md5-hash">e5f67890a1b2c3d4e5f67890a1b2c3d4</span>
+                            <button class="md5-copy-btn" onclick="copyMD5(this, 'e5f67890a1b2c3d4e5f67890a1b2c3d4')">
+                                <i data-lucide="copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <a class="download-btn" href="#">
+                        <i data-lucide="download"></i>
+                        Download ISO
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Generated by ISOVault | <a href="https://communitybig.org">communitybig.org</a></p>
+    </footer>
+
+    <!-- Toast -->
+    <div class="toast" id="toast">
+        <i data-lucide="check-circle-2"></i>
+        <span>MD5 copied!</span>
+    </div>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Search
+        const searchInput = document.getElementById('searchInput');
+        if (searchInput) {
+            searchInput.addEventListener('input', function() {
+                const term = this.value.toLowerCase();
+                document.querySelectorAll('.file-card').forEach(card => {
+                    const name = card.dataset.filename.toLowerCase();
+                    card.style.display = name.includes(term) ? '' : 'none';
+                });
+
+                // Hide empty sections
+                document.querySelectorAll('.de-section').forEach(section => {
+                    const visibleCards = section.querySelectorAll('.file-card:not([style*="display: none"])');
+                    section.style.display = visibleCards.length === 0 ? 'none' : '';
+                });
+            });
+        }
+
+        // Copy MD5
+        function copyMD5(btn, hash) {
+            navigator.clipboard.writeText(hash).then(() => {
+                const toast = document.getElementById('toast');
+                toast.classList.add('show');
+                setTimeout(() => toast.classList.remove('show'), 2000);
+            });
+        }
+    </script>
+</body>
+</html>
