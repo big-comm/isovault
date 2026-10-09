@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: isovault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 14:36-0300\n"
+"POT-Creation-Date: 2026-10-09 15:21-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pl\n"
@@ -124,8 +124,12 @@ msgid "Search ISOs..."
 msgstr "Szukaj obrazów ISO..."
 
 #: services/html_generator.py
-msgid "images"
-msgstr "obrazów"
+#, python-brace-format
+msgid "{count} image"
+msgid_plural "{count} images"
+msgstr[0] "{count} obraz"
+msgstr[1] "{count} obrazy"
+msgstr[2] "{count} obrazów"
 
 # #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
 # 

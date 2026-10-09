@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: isovault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 14:36-0300\n"
+"POT-Creation-Date: 2026-10-09 15:21-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -106,8 +106,11 @@ msgid "Search ISOs..."
 msgstr ""
 
 #: services/html_generator.py
-msgid "images"
-msgstr ""
+#, python-brace-format
+msgid "{count} image"
+msgid_plural "{count} images"
+msgstr[0] ""
+msgstr[1] ""
 
 #: services/html_generator.py
 msgid "MD5 Checksum"

@@ -18,7 +18,7 @@ from typing import Callable, Dict, List, Optional, Sequence, Union
 
 from config import DEFAULT_FOLDERS, DEFAULT_PAGE_STYLE, ROOT_FOLDER, TEMPLATES_DIR
 from utils.helpers import extract_md5, format_size_short, pair_iso_with_md5
-from utils.i18n import _
+from utils.i18n import _, ngettext
 
 # (CSS class, Lucide icon) per folder
 _FOLDER_STYLE = {
@@ -163,7 +163,10 @@ class HTMLGenerator:
 
     def _render_section(self, folder: str, pairs: List, md5_hashes: Dict[str, str], show_count: bool) -> str:
         css_class, icon = _FOLDER_STYLE.get(folder, _FOLDER_STYLE[ROOT_FOLDER])
-        count = f'<span class="de-count">{len(pairs)} {escape(_("images"))}</span>' if show_count else ""
+        count = ""
+        if show_count:
+            images = ngettext("{count} image", "{count} images", len(pairs)).format(count=len(pairs))
+            count = f'<span class="de-count">{escape(images)}</span>'
         cards = "".join(self._render_card(iso, md5_file, md5_hashes) for iso, md5_file in pairs)
         return f"""
         <div class="de-section">

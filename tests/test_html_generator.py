@@ -200,3 +200,11 @@ class TestBigLinuxStyle:
         assert isinstance(create_html_generator("biglinux", str, "en"), BigLinuxHTMLGenerator)
         assert isinstance(create_html_generator("bigcommunity", str, "en"), HTMLGenerator)
         assert isinstance(create_html_generator("unknown", str, "en"), HTMLGenerator)
+
+
+class TestImageCount:
+    def test_singular_and_plural(self, generator):
+        one = generator.generate_main_index([make_file("Gnome/a.iso")], {})
+        two = generator.generate_main_index([make_file("Gnome/a.iso"), make_file("Gnome/b.iso")], {})
+        assert '<span class="de-count">1 image</span>' in one
+        assert '<span class="de-count">2 images</span>' in two
