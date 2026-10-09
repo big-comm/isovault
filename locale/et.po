@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: isovault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 11:37-0300\n"
+"POT-Creation-Date: 2026-10-09 13:54-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: et\n"
@@ -89,7 +89,7 @@ msgid "Home"
 msgstr "Avaleht"
 
 # File: usr/share/isovault/ui/components.py, line: 284
-#: services/html_generator.py ui/window.py
+#: services/html_generator.py ui/file_browser.py ui/window.py
 msgid "Download"
 msgstr "Laadi alla"
 
@@ -151,36 +151,12 @@ msgstr "Laadi ISO"
 msgid "... and {more_count} more files"
 msgstr "... ja {more_count} muud faili"
 
-# File: usr/share/isovault/ui/components.py, line: 123
-#: ui/components.py
-msgid "File Name"
-msgstr "Faili nimi"
-
-# File: usr/share/isovault/ui/components.py, line: 132
-#: ui/components.py
-msgid "Folder"
-msgstr "Kaustik"
-
-# File: usr/share/isovault/ui/components.py, line: 140
-#: ui/components.py
-msgid "Size"
-msgstr "Suurus"
-
-# File: usr/share/isovault/ui/components.py, line: 148
-#: ui/components.py
-msgid "Modified"
-msgstr "Muudetud"
-
-#: ui/components.py
-msgid "Select"
-msgstr "Vali"
-
 # File: usr/share/isovault/ui/dialogs.py, line: 102
-#: ui/delete_dialog.py
+#: ui/delete_dialog.py ui/window.py
 msgid "Delete File"
 msgstr "Kustuta fail"
 
-#: ui/delete_dialog.py
+#: ui/delete_dialog.py ui/window.py
 msgid "Delete Files"
 msgstr "Kustuta failid"
 
@@ -293,18 +269,165 @@ msgstr "ISO failihaldur CDN77 salvestamiseks"
 msgid "OK"
 msgstr "OK"
 
+# File: usr/share/isovault/ui/components.py, line: 277
+#: ui/file_browser.py ui/window.py
+msgid "Copy Link"
+msgstr "Kopeeri link"
+
 # #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
 # 
-# File: usr/share/isovault/ui/components.py, line: 372
-# File: usr/share/isovault/ui/preferences.py, line: 30
-#: ui/preferences.py ui/window.py
-msgid "Preferences"
-msgstr "Eelistused"
+# File: usr/share/isovault/ui/components.py, line: 291
+# File: usr/share/isovault/ui/dialogs.py, line: 107
+#: ui/file_browser.py ui/window.py
+msgid "Delete"
+msgstr "Kustuta"
+
+#: ui/file_browser.py ui/window.py
+msgid "Select All"
+msgstr "Vali kõik"
+
+# File: usr/share/isovault/ui/components.py, line: 123
+#: ui/file_browser.py
+msgid "File Name"
+msgstr "Faili nimi"
+
+#: ui/file_browser.py
+msgid "Distribution"
+msgstr "Distributsioon"
+
+# File: usr/share/isovault/ui/components.py, line: 140
+#: ui/file_browser.py
+msgid "Size"
+msgstr "Suurus"
+
+# File: usr/share/isovault/ui/components.py, line: 148
+#: ui/file_browser.py
+msgid "Modified"
+msgstr "Muudetud"
+
+#: ui/file_browser.py
+msgid "Actions"
+msgstr "Toimingud"
+
+#: ui/file_browser.py
+msgid "Select"
+msgstr "Vali"
+
+#: ui/file_browser.py
+msgid "No results"
+msgstr "Tulemusi pole"
+
+#: ui/file_browser.py
+#, python-brace-format
+msgid "No file matches “{text}”"
+msgstr "Ükski fail ei vasta otsingule “{text}”"
+
+#: ui/file_browser.py
+msgid "No files"
+msgstr "Faile pole"
+
+#: ui/file_browser.py
+msgid "Upload an ISO to get started"
+msgstr "Alustamiseks laadi üles ISO"
+
+#: ui/pages.py ui/window.py
+msgid "Transfers"
+msgstr "Edastused"
+
+#: ui/pages.py
+msgid "Uploads, downloads and deletions made in this session."
+msgstr "Selles seansis tehtud üleslaadimised, allalaadimised ja kustutamised."
+
+#: ui/pages.py
+msgid "No transfers yet"
+msgstr "Edastusi pole veel"
+
+#: ui/pages.py
+msgid "Uploads, downloads and deletions will appear here."
+msgstr "Üleslaadimised, allalaadimised ja kustutamised ilmuvad siia."
+
+#: ui/pages.py ui/window.py
+msgid "Statistics"
+msgstr "Statistika"
+
+#: ui/pages.py
+msgid "Overview of the ISO repository."
+msgstr "ISO-hoidla ülevaade."
+
+#: ui/pages.py
+msgid "ISO images"
+msgstr "ISO-kujutised"
+
+#: ui/pages.py
+msgid "MD5 checksums"
+msgstr "MD5 kontrollsummad"
+
+#: ui/pages.py
+msgid "Space used"
+msgstr "Kasutatud ruum"
+
+#: ui/pages.py
+msgid "By distribution"
+msgstr "Distributsiooni järgi"
+
+#: ui/pages.py
+#, python-brace-format
+msgid "{count} ISO · {size}"
+msgid_plural "{count} ISOs · {size}"
+msgstr[0] "{count} ISO · {size}"
+msgstr[1] "{count} ISO-d · {size}"
+
+#: ui/pages.py
+#, python-brace-format
+msgid "Latest: {date}"
+msgstr "Viimane: {date}"
+
+#: ui/pages.py
+msgid "Integrity"
+msgstr "Terviklikkus"
+
+#: ui/pages.py
+msgid "ISOs need a .md5 file to show their checksum on the download page."
+msgstr ""
+"ISO-del on vaja .md5-faili, et nende kontrollsumma allalaadimislehel kuvada."
+
+#: ui/pages.py
+msgid "No MD5 checksum"
+msgstr "MD5 kontrollsumma puudub"
+
+#: ui/pages.py
+msgid "Every ISO has an MD5 checksum"
+msgstr "Igal ISO-l on MD5 kontrollsumma"
+
+#: ui/pages.py
+msgid "Storage"
+msgstr "Salvestusruum"
+
+#: ui/pages.py
+#, python-brace-format
+msgid "{size} in {count} file"
+msgid_plural "{size} in {count} files"
+msgstr[0] "{size} {count} failis"
+msgstr[1] "{size} {count} failis"
 
 # File: usr/share/isovault/ui/preferences.py, line: 53
 #: ui/preferences.py
 msgid "S3 Config"
 msgstr "S3 konfiguratsioon"
+
+# File: usr/share/isovault/ui/preferences.py, line: 157
+#: ui/preferences.py
+msgid "General"
+msgstr "Üldine"
+
+#: ui/preferences.py ui/window.py
+msgid "Settings"
+msgstr "Seaded"
+
+#: ui/preferences.py
+msgid "Storage connection, public download page and application behavior."
+msgstr ""
+"Ühendus salvestusruumiga, avalik allalaadimisleht ja rakenduse käitumine."
 
 # File: usr/share/isovault/ui/preferences.py, line: 60
 #: ui/preferences.py
@@ -363,11 +486,6 @@ msgstr "Testi ühendus"
 msgid "Verify S3 credentials and connection"
 msgstr "Kinnita S3 mandaadid ja ühendus"
 
-# File: usr/share/isovault/ui/preferences.py, line: 157
-#: ui/preferences.py
-msgid "General"
-msgstr "Üldine"
-
 # File: usr/share/isovault/ui/preferences.py, line: 128
 #: ui/preferences.py
 msgid "Web Settings"
@@ -392,6 +510,37 @@ msgstr "Kuvaa indeksifailid"
 #: ui/preferences.py
 msgid "Display index.html files in the file list"
 msgstr "Kuvaa index.html faileid failide loendis"
+
+#: ui/preferences.py
+msgid "Application Behavior"
+msgstr "Rakenduse käitumine"
+
+# File: usr/share/isovault/ui/preferences.py, line: 169
+#: ui/preferences.py
+msgid "Auto Refresh"
+msgstr "Automaatne värskendus"
+
+#: ui/preferences.py
+msgid "Automatically refresh file list after operations"
+msgstr "Failide loendi automaatne värskendamine pärast toiminguid"
+
+# File: usr/share/isovault/ui/preferences.py, line: 203
+#: ui/preferences.py
+msgid "Confirm Deletions"
+msgstr "Kinnitage kustutamised"
+
+#: ui/preferences.py
+msgid "Show confirmation dialog before deleting files"
+msgstr "Kuva kinnituse dialooge enne failide kustutamist"
+
+# File: usr/share/isovault/ui/preferences.py, line: 216
+#: ui/preferences.py
+msgid "Auto Update Index"
+msgstr "Automaatne värskenduse indeks"
+
+#: ui/preferences.py
+msgid "Automatically update web index after file operations"
+msgstr "Automaatne veebinäidiku värskendamine failitegevuste järel"
 
 # File: usr/share/isovault/ui/preferences.py, line: 224
 # File: usr/share/isovault/ui/preferences.py, line: 232
@@ -475,80 +624,31 @@ msgstr "Üles saab laadida ainult mittetühje ISO- ja MD5-faile"
 msgid "Destination Folder"
 msgstr "Sihtkaust"
 
-#: ui/upload_dialog.py
+#: ui/upload_dialog.py ui/window.py
 #, python-brace-format
 msgid "Upload to {folder}"
 msgstr "Laadi üles kausta {folder}"
 
-# File: usr/share/isovault/ui/window.py, line: 117
 #: ui/window.py
-msgid "Filter by folder"
-msgstr "Filtreeri kausta järgi"
-
-# File: usr/share/isovault/ui/components.py, line: 263
-#: ui/window.py
-msgid "All folders"
-msgstr "Kõik kaustad"
-
-#: ui/window.py
-msgid "Selection"
-msgstr "Valik"
-
-#: ui/window.py
-msgid "Select All"
-msgstr "Vali kõik"
-
-#: ui/window.py
-msgid "Select None"
-msgstr "Tühista valik"
-
-# File: usr/share/isovault/ui/components.py, line: 277
-#: ui/window.py
-msgid "Copy Link"
-msgstr "Kopeeri link"
-
-# File: usr/share/isovault/ui/window.py, line: 130
-#: ui/window.py
-msgid "Copy public URL"
-msgstr "Kopeeri avalik URL"
-
-# File: usr/share/isovault/ui/window.py, line: 143
-#: ui/window.py
-msgid "Save file locally"
-msgstr "Salvesta fail kohalikult"
-
-# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
-# 
-# File: usr/share/isovault/ui/components.py, line: 291
-# File: usr/share/isovault/ui/dialogs.py, line: 107
-#: ui/window.py
-msgid "Delete"
-msgstr "Kustuta"
-
-# File: usr/share/isovault/ui/window.py, line: 156
-#: ui/window.py
-msgid "Remove from storage"
-msgstr "Eemalda salvestusest"
-
-# File: usr/share/isovault/ui/preferences.py, line: 169
-#: ui/window.py
-msgid "Auto Refresh"
-msgstr "Automaatne värskendus"
-
-# File: usr/share/isovault/ui/preferences.py, line: 203
-#: ui/window.py
-msgid "Confirm Deletions"
-msgstr "Kinnitage kustutamised"
-
-# File: usr/share/isovault/ui/preferences.py, line: 216
-#: ui/window.py
-msgid "Auto Update Index"
-msgstr "Automaatne värskenduse indeks"
+msgid "Show sidebar"
+msgstr "Näita külgriba"
 
 # File: usr/share/isovault/ui/window.py, line: 228
 #: ui/window.py
 msgid "Upload ISO"
 msgstr "Laadi ISO üles"
+
+#: ui/window.py
+msgid "Search files..."
+msgstr "Otsi faile..."
+
+# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
+# 
+# File: usr/share/isovault/ui/components.py, line: 372
+# File: usr/share/isovault/ui/preferences.py, line: 30
+#: ui/window.py
+msgid "Preferences"
+msgstr "Eelistused"
 
 # File: usr/share/isovault/ui/components.py, line: 373
 #: ui/window.py
@@ -570,15 +670,60 @@ msgstr "Teave"
 msgid "Application menu"
 msgstr "Rakenduse menüü"
 
-# File: usr/share/isovault/ui/window.py, line: 108
 #: ui/window.py
-msgid "Ready"
-msgstr "Valmis"
+msgid "ISO Files"
+msgstr "ISO-failid"
+
+#: ui/window.py
+msgid "Connect to your storage"
+msgstr "Ühenda oma salvestusruumiga"
 
 # File: usr/share/isovault/ui/window.py, line: 139
 #: ui/window.py
 msgid "Please configure S3 credentials in Preferences"
 msgstr "Palun seadistage S3 mandaadid eelistustes."
+
+#: ui/window.py
+msgid "Open Preferences"
+msgstr "Ava eelistused"
+
+#: ui/window.py
+msgid "Manage your ISO files and make them available for download."
+msgstr "Halda oma ISO-faile ja tee need allalaadimiseks kättesaadavaks."
+
+#: ui/window.py
+msgid "List view"
+msgstr "Loendivaade"
+
+#: ui/window.py
+msgid "Grid view"
+msgstr "Ruudustikuvaade"
+
+# File: usr/share/isovault/ui/components.py, line: 263
+#: ui/window.py
+msgid "All folders"
+msgstr "Kõik kaustad"
+
+# File: usr/share/isovault/ui/window.py, line: 117
+#: ui/window.py
+msgid "Filter by folder"
+msgstr "Filtreeri kausta järgi"
+
+#: ui/window.py
+msgid "Save to Downloads folder"
+msgstr "Salvesta kausta Allalaadimised"
+
+#: ui/window.py
+msgid "More download options"
+msgstr "Rohkem allalaadimisvalikuid"
+
+#: ui/window.py
+msgid "Select None"
+msgstr "Tühista valik"
+
+#: ui/window.py
+msgid "More"
+msgstr "Rohkem"
 
 # File: usr/share/isovault/ui/window.py, line: 195
 #: ui/window.py
@@ -587,15 +732,17 @@ msgstr "Hoiatus: Ei õnnestunud luua ühendust S3 salvestusega"
 
 #: ui/window.py
 #, python-brace-format
-msgid "{selected} of {total} file selected"
-msgid_plural "{selected} of {total} files selected"
-msgstr[0] "{selected} / {total} fail valitud"
-msgstr[1] "{selected} / {total} faili valitud"
+msgid "{visible} of {total} file"
+msgid_plural "{visible} of {total} files"
+msgstr[0] "{visible} / {total} fail"
+msgstr[1] "{visible} / {total} faili"
 
-# File: usr/share/isovault/ui/dialogs.py, line: 213
 #: ui/window.py
-msgid "No files selected"
-msgstr "Ühtegi faili ei ole valitud"
+#, python-brace-format
+msgid "{count} file selected"
+msgid_plural "{count} files selected"
+msgstr[0] "{count} fail valitud"
+msgstr[1] "{count} faili valitud"
 
 #: ui/window.py
 msgid "Another operation is in progress"
@@ -731,6 +878,10 @@ msgstr "Kustutamine lõpetatud: {completed} õnnestus, {failed} ebaõnnestus"
 msgid "Index files updated!"
 msgstr "Indeksi failid on uuendatud!"
 
+#: ui/window.py
+msgid "Public index update"
+msgstr "Avaliku registri uuendus"
+
 # File: usr/share/isovault/ui/window.py, line: 593
 #: ui/window.py
 msgid "Updating index files..."
@@ -740,16 +891,6 @@ msgstr "Indeksite failide värskendamine..."
 #: ui/window.py
 msgid "Failed to update index files"
 msgstr "Indeksi faileid ei õnnestunud uuendada"
-
-# File: usr/share/isovault/ui/window.py, line: 487
-#: ui/window.py
-msgid "Loading files..."
-msgstr "Laadimine faile..."
-
-# File: usr/share/isovault/ui/window.py, line: 686
-#: ui/window.py
-msgid "Failed to refresh file list"
-msgstr "Faili uuendamine ebaõnnestus"
 
 # File: usr/share/isovault/ui/window.py, line: 507
 #: ui/window.py

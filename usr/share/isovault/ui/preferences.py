@@ -1,9 +1,8 @@
 """
-Preferences dialog.
+Settings page shown inside the main window.
 
-Text fields are applied when the dialog closes (not on every keystroke);
-switches apply immediately. The quick toggles (auto refresh, confirm
-deletions, auto update index) live only in the main window sidebar.
+Text fields are applied with Enter (or their apply button), when the user
+leaves the page and when the window closes; switches apply immediately.
 """
 
 import threading
@@ -20,15 +19,19 @@ from models.settings import SettingsManager  # noqa: E402
 from services import S3Service  # noqa: E402
 from utils.i18n import _  # noqa: E402
 
+from .pages import page_header  # noqa: E402
+
 # Callback argument: True when the S3 connection settings changed
 SettingsChangedCallback = Callable[[bool], None]
 
 
-class PreferencesDialog(Adw.PreferencesDialog):
-    """Preferences dialog for application settings"""
+class SettingsPage(Gtk.Box):
+    """S3 connection, public page and behavior settings"""
 
     def __init__(self, settings_manager: SettingsManager, on_settings_changed: SettingsChangedCallback):
-        super().__init__(title=_("Preferences"))
+        super().__init__(orientation=Gtk.Orientation.VERTICAL, spacing=8)
+        self.add_css_class("app-page")
+        self.add_css_class("settings-page")
         self.settings_manager = settings_manager
         self.on_settings_changed = on_settings_changed
         self._updating_ui = False
@@ -37,19 +40,37 @@ class PreferencesDialog(Adw.PreferencesDialog):
         self.s3_rows: Dict[str, Adw.EntryRow] = {}
         self.web_rows: Dict[str, Adw.EntryRow] = {}
 
-        self.add(self._create_s3_page())
-        self.add(self._create_general_page())
-        self.connect("closed", self._on_closed)
+        self.view_stack = Adw.ViewStack(vexpand=True)
+        self.view_stack.add_titled_with_icon(self._create_s3_page(), "s3", _("S3 Config"), "network-server-symbolic")
+        self.view_stack.add_titled_with_icon(
+            self._create_general_page(), "general", _("General"), "preferences-system-symbolic"
+        )
+
+        header = page_header(
+            "emblem-system-symbolic",
+            _("Settings"),
+            _("Storage connection, public download page and application behavior."),
+        )
+        switcher = Adw.InlineViewSwitcher(stack=self.view_stack, valign=Gtk.Align.CENTER, can_shrink=False)
+        header.append(switcher)
+
+        self.append(header)
+        self.append(self.view_stack)
+
+    def _entry_row(self, title: str, password: bool = False) -> Adw.EntryRow:
+        row = (Adw.PasswordEntryRow if password else Adw.EntryRow)(title=title, show_apply_button=True)
+        row.connect("apply", lambda _row: self.commit())
+        return row
 
     def _create_s3_page(self) -> Adw.PreferencesPage:
-        page = Adw.PreferencesPage(name="s3", title=_("S3 Config"), icon_name="network-server-symbolic")
+        page = Adw.PreferencesPage()
 
         credentials = Adw.PreferencesGroup(
             title=_("CDN77 S3 Credentials"),
             description=_("Configure your CDN77 S3 storage credentials"),
         )
-        self.s3_rows["access_key"] = Adw.EntryRow(title=_("Access Key"))
-        self.s3_rows["secret_key"] = Adw.PasswordEntryRow(title=_("Secret Key"))
+        self.s3_rows["access_key"] = self._entry_row(_("Access Key"))
+        self.s3_rows["secret_key"] = self._entry_row(_("Secret Key"), password=True)
         credentials.add(self.s3_rows["access_key"])
         credentials.add(self.s3_rows["secret_key"])
         page.add(credentials)
@@ -63,7 +84,7 @@ class PreferencesDialog(Adw.PreferencesDialog):
             ("region_name", _("Region")),
             ("bucket_name", _("Bucket Name")),
         ):
-            self.s3_rows[key] = Adw.EntryRow(title=title)
+            self.s3_rows[key] = self._entry_row(title)
             connection.add(self.s3_rows[key])
 
         self.test_button = Gtk.Button(label=_("Test Connection"), valign=Gtk.Align.CENTER)
@@ -82,13 +103,13 @@ class PreferencesDialog(Adw.PreferencesDialog):
         return page
 
     def _create_general_page(self) -> Adw.PreferencesPage:
-        page = Adw.PreferencesPage(name="general", title=_("General"), icon_name="preferences-system-symbolic")
+        page = Adw.PreferencesPage()
 
         web = Adw.PreferencesGroup(
             title=_("Web Settings"),
             description=_("Configure web URLs for public file access"),
         )
-        self.web_rows["base_url"] = Adw.EntryRow(title=_("Base URL"))
+        self.web_rows["base_url"] = self._entry_row(_("Base URL"))
         self.web_rows["base_url"].set_text(self.settings_manager.get("web", "base_url"))
         web.add(self.web_rows["base_url"])
 
@@ -100,6 +121,19 @@ class PreferencesDialog(Adw.PreferencesDialog):
         self.show_index_row.connect("notify::active", self._on_show_index_toggled)
         web.add(self.show_index_row)
         page.add(web)
+
+        behavior = Adw.PreferencesGroup(title=_("Application Behavior"))
+        self.behavior_rows = {}
+        for section, key, title, subtitle in (
+            ("general", "auto_refresh", _("Auto Refresh"), _("Automatically refresh file list after operations")),
+            ("ui", "confirm_deletions", _("Confirm Deletions"), _("Show confirmation dialog before deleting files")),
+            ("ui", "auto_update_index", _("Auto Update Index"), _("Automatically update web index after file operations")),
+        ):
+            row = Adw.SwitchRow(title=title, subtitle=subtitle, active=self.settings_manager.get(section, key))
+            row.connect("notify::active", self._on_behavior_toggled, section, key)
+            behavior.add(row)
+            self.behavior_rows[(section, key)] = row
+        page.add(behavior)
 
         reset = Adw.PreferencesGroup(title=_("Reset"))
         reset_button = Gtk.Button(label=_("Reset"), valign=Gtk.Align.CENTER)
@@ -117,8 +151,8 @@ class PreferencesDialog(Adw.PreferencesDialog):
 
     # Applying changes
 
-    def _on_closed(self, _dialog) -> None:
-        """Commit edited text fields."""
+    def commit(self) -> None:
+        """Save edited text fields and notify the window if anything changed."""
         s3_changed = self._commit_rows("s3", self.s3_rows)
         web_changed = self._commit_rows("web", self.web_rows)
         if s3_changed or web_changed:
@@ -140,6 +174,12 @@ class PreferencesDialog(Adw.PreferencesDialog):
         self.settings_manager.set("web", "show_index_files", row.get_active())
         self.settings_manager.save_settings()
         self.on_settings_changed(False)
+
+    def _on_behavior_toggled(self, row: Adw.SwitchRow, _pspec, section: str, key: str) -> None:
+        if self._updating_ui:
+            return
+        self.settings_manager.set(section, key, row.get_active())
+        self.settings_manager.save_settings()
 
     def _on_reset_clicked(self, _button) -> None:
         dialog = Adw.AlertDialog(
@@ -165,6 +205,8 @@ class PreferencesDialog(Adw.PreferencesDialog):
             row.set_text(self.settings_manager.get("s3", key))
         self.web_rows["base_url"].set_text(self.settings_manager.get("web", "base_url"))
         self.show_index_row.set_active(self.settings_manager.get("web", "show_index_files"))
+        for (section, key), row in self.behavior_rows.items():
+            row.set_active(self.settings_manager.get(section, key))
         self._updating_ui = False
 
         self.on_settings_changed(True)

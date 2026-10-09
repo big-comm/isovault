@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: isovault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 11:37-0300\n"
+"POT-Creation-Date: 2026-10-09 13:54-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: el\n"
@@ -89,7 +89,7 @@ msgid "Home"
 msgstr "Αρχική"
 
 # File: usr/share/isovault/ui/components.py, line: 284
-#: services/html_generator.py ui/window.py
+#: services/html_generator.py ui/file_browser.py ui/window.py
 msgid "Download"
 msgstr "Λήψη"
 
@@ -149,36 +149,12 @@ msgstr "Λήψη ISO"
 msgid "... and {more_count} more files"
 msgstr "... και {more_count} ακόμη αρχεία"
 
-# File: usr/share/isovault/ui/components.py, line: 123
-#: ui/components.py
-msgid "File Name"
-msgstr "Όνομα Αρχείου"
-
-# File: usr/share/isovault/ui/components.py, line: 132
-#: ui/components.py
-msgid "Folder"
-msgstr "Φάκελος"
-
-# File: usr/share/isovault/ui/components.py, line: 140
-#: ui/components.py
-msgid "Size"
-msgstr "Μέγεθος"
-
-# File: usr/share/isovault/ui/components.py, line: 148
-#: ui/components.py
-msgid "Modified"
-msgstr "Τροποποιημένο"
-
-#: ui/components.py
-msgid "Select"
-msgstr "Επιλογή"
-
 # File: usr/share/isovault/ui/dialogs.py, line: 102
-#: ui/delete_dialog.py
+#: ui/delete_dialog.py ui/window.py
 msgid "Delete File"
 msgstr "Διαγραφή Αρχείου"
 
-#: ui/delete_dialog.py
+#: ui/delete_dialog.py ui/window.py
 msgid "Delete Files"
 msgstr "Διαγραφή αρχείων"
 
@@ -293,18 +269,167 @@ msgstr "Διαχειριστής αρχείων ISO για αποθήκευση 
 msgid "OK"
 msgstr "Εντάξει"
 
+# File: usr/share/isovault/ui/components.py, line: 277
+#: ui/file_browser.py ui/window.py
+msgid "Copy Link"
+msgstr "Αντιγραφή Συνδέσμου"
+
 # #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
 # 
-# File: usr/share/isovault/ui/components.py, line: 372
-# File: usr/share/isovault/ui/preferences.py, line: 30
-#: ui/preferences.py ui/window.py
-msgid "Preferences"
-msgstr "Προτιμήσεις"
+# File: usr/share/isovault/ui/components.py, line: 291
+# File: usr/share/isovault/ui/dialogs.py, line: 107
+#: ui/file_browser.py ui/window.py
+msgid "Delete"
+msgstr "Διαγραφή"
+
+#: ui/file_browser.py ui/window.py
+msgid "Select All"
+msgstr "Επιλογή όλων"
+
+# File: usr/share/isovault/ui/components.py, line: 123
+#: ui/file_browser.py
+msgid "File Name"
+msgstr "Όνομα Αρχείου"
+
+#: ui/file_browser.py
+msgid "Distribution"
+msgstr "Διανομή"
+
+# File: usr/share/isovault/ui/components.py, line: 140
+#: ui/file_browser.py
+msgid "Size"
+msgstr "Μέγεθος"
+
+# File: usr/share/isovault/ui/components.py, line: 148
+#: ui/file_browser.py
+msgid "Modified"
+msgstr "Τροποποιημένο"
+
+#: ui/file_browser.py
+msgid "Actions"
+msgstr "Ενέργειες"
+
+#: ui/file_browser.py
+msgid "Select"
+msgstr "Επιλογή"
+
+#: ui/file_browser.py
+msgid "No results"
+msgstr "Κανένα αποτέλεσμα"
+
+#: ui/file_browser.py
+#, python-brace-format
+msgid "No file matches “{text}”"
+msgstr "Κανένα αρχείο δεν ταιριάζει με “{text}”"
+
+#: ui/file_browser.py
+msgid "No files"
+msgstr "Κανένα αρχείο"
+
+#: ui/file_browser.py
+msgid "Upload an ISO to get started"
+msgstr "Ανεβάστε ένα ISO για να ξεκινήσετε"
+
+#: ui/pages.py ui/window.py
+msgid "Transfers"
+msgstr "Μεταφορές"
+
+#: ui/pages.py
+msgid "Uploads, downloads and deletions made in this session."
+msgstr "Αναρτήσεις, λήψεις και διαγραφές που έγιναν σε αυτήν τη συνεδρία."
+
+#: ui/pages.py
+msgid "No transfers yet"
+msgstr "Καμία μεταφορά ακόμη"
+
+#: ui/pages.py
+msgid "Uploads, downloads and deletions will appear here."
+msgstr "Οι αναρτήσεις, οι λήψεις και οι διαγραφές θα εμφανίζονται εδώ."
+
+#: ui/pages.py ui/window.py
+msgid "Statistics"
+msgstr "Στατιστικά"
+
+#: ui/pages.py
+msgid "Overview of the ISO repository."
+msgstr "Επισκόπηση του αποθετηρίου ISO."
+
+#: ui/pages.py
+msgid "ISO images"
+msgstr "Εικόνες ISO"
+
+#: ui/pages.py
+msgid "MD5 checksums"
+msgstr "Αθροίσματα MD5"
+
+#: ui/pages.py
+msgid "Space used"
+msgstr "Χρησιμοποιούμενος χώρος"
+
+#: ui/pages.py
+msgid "By distribution"
+msgstr "Ανά διανομή"
+
+#: ui/pages.py
+#, python-brace-format
+msgid "{count} ISO · {size}"
+msgid_plural "{count} ISOs · {size}"
+msgstr[0] "{count} ISO · {size}"
+msgstr[1] "{count} ISO · {size}"
+
+#: ui/pages.py
+#, python-brace-format
+msgid "Latest: {date}"
+msgstr "Τελευταίο: {date}"
+
+#: ui/pages.py
+msgid "Integrity"
+msgstr "Ακεραιότητα"
+
+#: ui/pages.py
+msgid "ISOs need a .md5 file to show their checksum on the download page."
+msgstr ""
+"Τα ISO χρειάζονται ένα αρχείο .md5 για να εμφανίζεται το άθροισμά τους στη "
+"σελίδα λήψης."
+
+#: ui/pages.py
+msgid "No MD5 checksum"
+msgstr "Χωρίς άθροισμα MD5"
+
+#: ui/pages.py
+msgid "Every ISO has an MD5 checksum"
+msgstr "Κάθε ISO έχει άθροισμα MD5"
+
+#: ui/pages.py
+msgid "Storage"
+msgstr "Αποθήκευση"
+
+#: ui/pages.py
+#, python-brace-format
+msgid "{size} in {count} file"
+msgid_plural "{size} in {count} files"
+msgstr[0] "{size} σε {count} αρχείο"
+msgstr[1] "{size} σε {count} αρχεία"
 
 # File: usr/share/isovault/ui/preferences.py, line: 53
 #: ui/preferences.py
 msgid "S3 Config"
 msgstr "Ρυθμίσεις S3"
+
+# File: usr/share/isovault/ui/preferences.py, line: 157
+#: ui/preferences.py
+msgid "General"
+msgstr "Γενικά"
+
+#: ui/preferences.py ui/window.py
+msgid "Settings"
+msgstr "Ρυθμίσεις"
+
+#: ui/preferences.py
+msgid "Storage connection, public download page and application behavior."
+msgstr ""
+"Σύνδεση με τον αποθηκευτικό χώρο, δημόσια σελίδα λήψης και συμπεριφορά της "
+"εφαρμογής."
 
 # File: usr/share/isovault/ui/preferences.py, line: 60
 #: ui/preferences.py
@@ -363,11 +488,6 @@ msgstr "Δοκιμή Σύνδεσης"
 msgid "Verify S3 credentials and connection"
 msgstr "Επιβεβαίωση διαπιστευτηρίων S3 και σύνδεσης"
 
-# File: usr/share/isovault/ui/preferences.py, line: 157
-#: ui/preferences.py
-msgid "General"
-msgstr "Γενικά"
-
 # File: usr/share/isovault/ui/preferences.py, line: 128
 #: ui/preferences.py
 msgid "Web Settings"
@@ -392,6 +512,37 @@ msgstr "Εμφάνιση Αρχείων Ευρετηρίου"
 #: ui/preferences.py
 msgid "Display index.html files in the file list"
 msgstr "Εμφάνιση αρχείων index.html στη λίστα αρχείων"
+
+#: ui/preferences.py
+msgid "Application Behavior"
+msgstr "Συμπεριφορά Εφαρμογής"
+
+# File: usr/share/isovault/ui/preferences.py, line: 169
+#: ui/preferences.py
+msgid "Auto Refresh"
+msgstr "Αυτόματη Ανανέωση"
+
+#: ui/preferences.py
+msgid "Automatically refresh file list after operations"
+msgstr "Αυτόματη ανανέωση λίστας αρχείων μετά από ενέργειες"
+
+# File: usr/share/isovault/ui/preferences.py, line: 203
+#: ui/preferences.py
+msgid "Confirm Deletions"
+msgstr "Επιβεβαίωση Διαγραφών"
+
+#: ui/preferences.py
+msgid "Show confirmation dialog before deleting files"
+msgstr "Εμφάνιση διαλόγου επιβεβαίωσης πριν από τη διαγραφή αρχείων"
+
+# File: usr/share/isovault/ui/preferences.py, line: 216
+#: ui/preferences.py
+msgid "Auto Update Index"
+msgstr "Αυτόματη Ενημέρωση Ευρετηρίου"
+
+#: ui/preferences.py
+msgid "Automatically update web index after file operations"
+msgstr "Αυτόματη ενημέρωση ευρετηρίου ιστού μετά από λειτουργίες αρχείων"
 
 # File: usr/share/isovault/ui/preferences.py, line: 224
 # File: usr/share/isovault/ui/preferences.py, line: 232
@@ -477,80 +628,31 @@ msgstr "Μπορούν να αποσταλούν μόνο μη κενά αρχε
 msgid "Destination Folder"
 msgstr "Φάκελος προορισμού"
 
-#: ui/upload_dialog.py
+#: ui/upload_dialog.py ui/window.py
 #, python-brace-format
 msgid "Upload to {folder}"
 msgstr "Αποστολή στο {folder}"
 
-# File: usr/share/isovault/ui/window.py, line: 117
 #: ui/window.py
-msgid "Filter by folder"
-msgstr "Φίλτρο κατά φάκελο"
-
-# File: usr/share/isovault/ui/components.py, line: 263
-#: ui/window.py
-msgid "All folders"
-msgstr "Όλοι οι φάκελοι"
-
-#: ui/window.py
-msgid "Selection"
-msgstr "Επιλογή"
-
-#: ui/window.py
-msgid "Select All"
-msgstr "Επιλογή όλων"
-
-#: ui/window.py
-msgid "Select None"
-msgstr "Καμία επιλογή"
-
-# File: usr/share/isovault/ui/components.py, line: 277
-#: ui/window.py
-msgid "Copy Link"
-msgstr "Αντιγραφή Συνδέσμου"
-
-# File: usr/share/isovault/ui/window.py, line: 130
-#: ui/window.py
-msgid "Copy public URL"
-msgstr "Αντιγραφή δημόσιου URL"
-
-# File: usr/share/isovault/ui/window.py, line: 143
-#: ui/window.py
-msgid "Save file locally"
-msgstr "Αποθήκευση αρχείου τοπικά"
-
-# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
-# 
-# File: usr/share/isovault/ui/components.py, line: 291
-# File: usr/share/isovault/ui/dialogs.py, line: 107
-#: ui/window.py
-msgid "Delete"
-msgstr "Διαγραφή"
-
-# File: usr/share/isovault/ui/window.py, line: 156
-#: ui/window.py
-msgid "Remove from storage"
-msgstr "Αφαίρεση από την αποθήκευση"
-
-# File: usr/share/isovault/ui/preferences.py, line: 169
-#: ui/window.py
-msgid "Auto Refresh"
-msgstr "Αυτόματη Ανανέωση"
-
-# File: usr/share/isovault/ui/preferences.py, line: 203
-#: ui/window.py
-msgid "Confirm Deletions"
-msgstr "Επιβεβαίωση Διαγραφών"
-
-# File: usr/share/isovault/ui/preferences.py, line: 216
-#: ui/window.py
-msgid "Auto Update Index"
-msgstr "Αυτόματη Ενημέρωση Ευρετηρίου"
+msgid "Show sidebar"
+msgstr "Εμφάνιση πλευρικής στήλης"
 
 # File: usr/share/isovault/ui/window.py, line: 228
 #: ui/window.py
 msgid "Upload ISO"
 msgstr "Ανέβασμα ISO"
+
+#: ui/window.py
+msgid "Search files..."
+msgstr "Αναζήτηση αρχείων..."
+
+# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
+# 
+# File: usr/share/isovault/ui/components.py, line: 372
+# File: usr/share/isovault/ui/preferences.py, line: 30
+#: ui/window.py
+msgid "Preferences"
+msgstr "Προτιμήσεις"
 
 # File: usr/share/isovault/ui/components.py, line: 373
 #: ui/window.py
@@ -572,15 +674,60 @@ msgstr "Σχετικά"
 msgid "Application menu"
 msgstr "Μενού εφαρμογής"
 
-# File: usr/share/isovault/ui/window.py, line: 108
 #: ui/window.py
-msgid "Ready"
-msgstr "Έτοιμο"
+msgid "ISO Files"
+msgstr "Αρχεία ISO"
+
+#: ui/window.py
+msgid "Connect to your storage"
+msgstr "Σύνδεση με τον χώρο αποθήκευσης"
 
 # File: usr/share/isovault/ui/window.py, line: 139
 #: ui/window.py
 msgid "Please configure S3 credentials in Preferences"
 msgstr "Παρακαλώ ρυθμίστε τα διαπιστευτήρια S3 στις Προτιμήσεις"
+
+#: ui/window.py
+msgid "Open Preferences"
+msgstr "Άνοιγμα προτιμήσεων"
+
+#: ui/window.py
+msgid "Manage your ISO files and make them available for download."
+msgstr "Διαχειριστείτε τα αρχεία ISO σας και κάντε τα διαθέσιμα για λήψη."
+
+#: ui/window.py
+msgid "List view"
+msgstr "Προβολή λίστας"
+
+#: ui/window.py
+msgid "Grid view"
+msgstr "Προβολή πλέγματος"
+
+# File: usr/share/isovault/ui/components.py, line: 263
+#: ui/window.py
+msgid "All folders"
+msgstr "Όλοι οι φάκελοι"
+
+# File: usr/share/isovault/ui/window.py, line: 117
+#: ui/window.py
+msgid "Filter by folder"
+msgstr "Φίλτρο κατά φάκελο"
+
+#: ui/window.py
+msgid "Save to Downloads folder"
+msgstr "Αποθήκευση στο φάκελο Λήψεις"
+
+#: ui/window.py
+msgid "More download options"
+msgstr "Περισσότερες επιλογές λήψης"
+
+#: ui/window.py
+msgid "Select None"
+msgstr "Καμία επιλογή"
+
+#: ui/window.py
+msgid "More"
+msgstr "Περισσότερα"
 
 # File: usr/share/isovault/ui/window.py, line: 195
 #: ui/window.py
@@ -589,15 +736,17 @@ msgstr "Προειδοποίηση: Δεν ήταν δυνατή η σύνδεσ
 
 #: ui/window.py
 #, python-brace-format
-msgid "{selected} of {total} file selected"
-msgid_plural "{selected} of {total} files selected"
-msgstr[0] "Επιλέχθηκε {selected} από {total} αρχείο"
-msgstr[1] "Επιλέχθηκαν {selected} από {total} αρχεία"
+msgid "{visible} of {total} file"
+msgid_plural "{visible} of {total} files"
+msgstr[0] "{visible} από {total} αρχείο"
+msgstr[1] "{visible} από {total} αρχεία"
 
-# File: usr/share/isovault/ui/dialogs.py, line: 213
 #: ui/window.py
-msgid "No files selected"
-msgstr "Δεν έχουν επιλεγεί αρχεία"
+#, python-brace-format
+msgid "{count} file selected"
+msgid_plural "{count} files selected"
+msgstr[0] "{count} αρχείο επιλέχθηκε"
+msgstr[1] "{count} αρχεία επιλέχθηκαν"
 
 #: ui/window.py
 msgid "Another operation is in progress"
@@ -734,6 +883,10 @@ msgstr "Η διαγραφή ολοκληρώθηκε: {completed} επιτυχε
 msgid "Index files updated!"
 msgstr "Τα αρχεία ευρετηρίου ενημερώθηκαν!"
 
+#: ui/window.py
+msgid "Public index update"
+msgstr "Ενημέρωση δημόσιου ευρετηρίου"
+
 # File: usr/share/isovault/ui/window.py, line: 593
 #: ui/window.py
 msgid "Updating index files..."
@@ -743,16 +896,6 @@ msgstr "Ενημέρωση αρχείων ευρετηρίου..."
 #: ui/window.py
 msgid "Failed to update index files"
 msgstr "Αποτυχία ενημέρωσης αρχείων ευρετηρίου"
-
-# File: usr/share/isovault/ui/window.py, line: 487
-#: ui/window.py
-msgid "Loading files..."
-msgstr "Φόρτωση αρχείων..."
-
-# File: usr/share/isovault/ui/window.py, line: 686
-#: ui/window.py
-msgid "Failed to refresh file list"
-msgstr "Αποτυχία ανανέωσης λίστας αρχείων"
 
 # File: usr/share/isovault/ui/window.py, line: 507
 #: ui/window.py

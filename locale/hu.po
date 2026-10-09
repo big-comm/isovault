@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: isovault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 11:37-0300\n"
+"POT-Creation-Date: 2026-10-09 13:54-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: hu\n"
@@ -89,7 +89,7 @@ msgid "Home"
 msgstr "Kezdőlap"
 
 # File: usr/share/isovault/ui/components.py, line: 284
-#: services/html_generator.py ui/window.py
+#: services/html_generator.py ui/file_browser.py ui/window.py
 msgid "Download"
 msgstr "Letöltés"
 
@@ -150,36 +150,12 @@ msgstr "ISO letöltése"
 msgid "... and {more_count} more files"
 msgstr "... és {more_count} további fájl"
 
-# File: usr/share/isovault/ui/components.py, line: 123
-#: ui/components.py
-msgid "File Name"
-msgstr "Fájl neve"
-
-# File: usr/share/isovault/ui/components.py, line: 132
-#: ui/components.py
-msgid "Folder"
-msgstr "Mappa"
-
-# File: usr/share/isovault/ui/components.py, line: 140
-#: ui/components.py
-msgid "Size"
-msgstr "Méret"
-
-# File: usr/share/isovault/ui/components.py, line: 148
-#: ui/components.py
-msgid "Modified"
-msgstr "Módosított"
-
-#: ui/components.py
-msgid "Select"
-msgstr "Kijelölés"
-
 # File: usr/share/isovault/ui/dialogs.py, line: 102
-#: ui/delete_dialog.py
+#: ui/delete_dialog.py ui/window.py
 msgid "Delete File"
 msgstr "Fájl törlése"
 
-#: ui/delete_dialog.py
+#: ui/delete_dialog.py ui/window.py
 msgid "Delete Files"
 msgstr "Fájlok törlése"
 
@@ -294,18 +270,166 @@ msgstr "ISO fájlkezelő a CDN77 tároláshoz"
 msgid "OK"
 msgstr "Rendben"
 
+# File: usr/share/isovault/ui/components.py, line: 277
+#: ui/file_browser.py ui/window.py
+msgid "Copy Link"
+msgstr "Link másolása"
+
 # #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
 # 
-# File: usr/share/isovault/ui/components.py, line: 372
-# File: usr/share/isovault/ui/preferences.py, line: 30
-#: ui/preferences.py ui/window.py
-msgid "Preferences"
-msgstr "Beállítások"
+# File: usr/share/isovault/ui/components.py, line: 291
+# File: usr/share/isovault/ui/dialogs.py, line: 107
+#: ui/file_browser.py ui/window.py
+msgid "Delete"
+msgstr "Törlés"
+
+#: ui/file_browser.py ui/window.py
+msgid "Select All"
+msgstr "Összes kijelölése"
+
+# File: usr/share/isovault/ui/components.py, line: 123
+#: ui/file_browser.py
+msgid "File Name"
+msgstr "Fájl neve"
+
+#: ui/file_browser.py
+msgid "Distribution"
+msgstr "Disztribúció"
+
+# File: usr/share/isovault/ui/components.py, line: 140
+#: ui/file_browser.py
+msgid "Size"
+msgstr "Méret"
+
+# File: usr/share/isovault/ui/components.py, line: 148
+#: ui/file_browser.py
+msgid "Modified"
+msgstr "Módosított"
+
+#: ui/file_browser.py
+msgid "Actions"
+msgstr "Műveletek"
+
+#: ui/file_browser.py
+msgid "Select"
+msgstr "Kijelölés"
+
+#: ui/file_browser.py
+msgid "No results"
+msgstr "Nincs találat"
+
+#: ui/file_browser.py
+#, python-brace-format
+msgid "No file matches “{text}”"
+msgstr "Nincs a(z) “{text}” kifejezésre illeszkedő fájl"
+
+#: ui/file_browser.py
+msgid "No files"
+msgstr "Nincsenek fájlok"
+
+#: ui/file_browser.py
+msgid "Upload an ISO to get started"
+msgstr "A kezdéshez töltsön fel egy ISO-t"
+
+#: ui/pages.py ui/window.py
+msgid "Transfers"
+msgstr "Átvitelek"
+
+#: ui/pages.py
+msgid "Uploads, downloads and deletions made in this session."
+msgstr "Az ebben a munkamenetben végzett feltöltések, letöltések és törlések."
+
+#: ui/pages.py
+msgid "No transfers yet"
+msgstr "Még nincs átvitel"
+
+#: ui/pages.py
+msgid "Uploads, downloads and deletions will appear here."
+msgstr "A feltöltések, letöltések és törlések itt jelennek meg."
+
+#: ui/pages.py ui/window.py
+msgid "Statistics"
+msgstr "Statisztika"
+
+#: ui/pages.py
+msgid "Overview of the ISO repository."
+msgstr "Az ISO-tároló áttekintése."
+
+#: ui/pages.py
+msgid "ISO images"
+msgstr "ISO-képfájlok"
+
+#: ui/pages.py
+msgid "MD5 checksums"
+msgstr "MD5 ellenőrzőösszegek"
+
+#: ui/pages.py
+msgid "Space used"
+msgstr "Felhasznált hely"
+
+#: ui/pages.py
+msgid "By distribution"
+msgstr "Disztribúció szerint"
+
+#: ui/pages.py
+#, python-brace-format
+msgid "{count} ISO · {size}"
+msgid_plural "{count} ISOs · {size}"
+msgstr[0] "{count} ISO · {size}"
+msgstr[1] "{count} ISO · {size}"
+
+#: ui/pages.py
+#, python-brace-format
+msgid "Latest: {date}"
+msgstr "Legutóbbi: {date}"
+
+#: ui/pages.py
+msgid "Integrity"
+msgstr "Integritás"
+
+#: ui/pages.py
+msgid "ISOs need a .md5 file to show their checksum on the download page."
+msgstr ""
+"Az ISO-khoz .md5 fájl szükséges, hogy az ellenőrzőösszegük megjelenjen a "
+"letöltőoldalon."
+
+#: ui/pages.py
+msgid "No MD5 checksum"
+msgstr "Nincs MD5 ellenőrzőösszeg"
+
+#: ui/pages.py
+msgid "Every ISO has an MD5 checksum"
+msgstr "Minden ISO-hoz tartozik MD5 ellenőrzőösszeg"
+
+#: ui/pages.py
+msgid "Storage"
+msgstr "Tárhely"
+
+#: ui/pages.py
+#, python-brace-format
+msgid "{size} in {count} file"
+msgid_plural "{size} in {count} files"
+msgstr[0] "{size} {count} fájlban"
+msgstr[1] "{size} {count} fájlban"
 
 # File: usr/share/isovault/ui/preferences.py, line: 53
 #: ui/preferences.py
 msgid "S3 Config"
 msgstr "S3 Beállítások"
+
+# File: usr/share/isovault/ui/preferences.py, line: 157
+#: ui/preferences.py
+msgid "General"
+msgstr "Általános"
+
+#: ui/preferences.py ui/window.py
+msgid "Settings"
+msgstr "Beállítások"
+
+#: ui/preferences.py
+msgid "Storage connection, public download page and application behavior."
+msgstr ""
+"Tárhelykapcsolat, nyilvános letöltési oldal és az alkalmazás viselkedése."
 
 # File: usr/share/isovault/ui/preferences.py, line: 60
 #: ui/preferences.py
@@ -364,11 +488,6 @@ msgstr "Kapcsolat tesztelése"
 msgid "Verify S3 credentials and connection"
 msgstr "Ellenőrizze az S3 hitelesítő adatokat és a kapcsolatot"
 
-# File: usr/share/isovault/ui/preferences.py, line: 157
-#: ui/preferences.py
-msgid "General"
-msgstr "Általános"
-
 # File: usr/share/isovault/ui/preferences.py, line: 128
 #: ui/preferences.py
 msgid "Web Settings"
@@ -393,6 +512,37 @@ msgstr "Indexfájlok megjelenítése"
 #: ui/preferences.py
 msgid "Display index.html files in the file list"
 msgstr "index.html fájlok megjelenítése a fájllistában"
+
+#: ui/preferences.py
+msgid "Application Behavior"
+msgstr "Alkalmazás viselkedés"
+
+# File: usr/share/isovault/ui/preferences.py, line: 169
+#: ui/preferences.py
+msgid "Auto Refresh"
+msgstr "Automatikus frissítés"
+
+#: ui/preferences.py
+msgid "Automatically refresh file list after operations"
+msgstr "Automatikusan frissítse a fájlok listáját a műveletek után"
+
+# File: usr/share/isovault/ui/preferences.py, line: 203
+#: ui/preferences.py
+msgid "Confirm Deletions"
+msgstr "Törlés megerősítése"
+
+#: ui/preferences.py
+msgid "Show confirmation dialog before deleting files"
+msgstr "Megerősítő párbeszédablak megjelenítése fájlok törlése előtt"
+
+# File: usr/share/isovault/ui/preferences.py, line: 216
+#: ui/preferences.py
+msgid "Auto Update Index"
+msgstr "Automatikus frissítési index"
+
+#: ui/preferences.py
+msgid "Automatically update web index after file operations"
+msgstr "Automatikusan frissíti a webindexet a fájlműveletek után"
 
 # File: usr/share/isovault/ui/preferences.py, line: 224
 # File: usr/share/isovault/ui/preferences.py, line: 232
@@ -478,80 +628,31 @@ msgstr "Csak nem üres ISO- és MD5-fájlok tölthetők fel"
 msgid "Destination Folder"
 msgstr "Célmappa"
 
-#: ui/upload_dialog.py
+#: ui/upload_dialog.py ui/window.py
 #, python-brace-format
 msgid "Upload to {folder}"
 msgstr "Feltöltés ide: {folder}"
 
-# File: usr/share/isovault/ui/window.py, line: 117
 #: ui/window.py
-msgid "Filter by folder"
-msgstr "Mappa szerinti szűrés"
-
-# File: usr/share/isovault/ui/components.py, line: 263
-#: ui/window.py
-msgid "All folders"
-msgstr "Minden mappa"
-
-#: ui/window.py
-msgid "Selection"
-msgstr "Kijelölés"
-
-#: ui/window.py
-msgid "Select All"
-msgstr "Összes kijelölése"
-
-#: ui/window.py
-msgid "Select None"
-msgstr "Kijelölés megszüntetése"
-
-# File: usr/share/isovault/ui/components.py, line: 277
-#: ui/window.py
-msgid "Copy Link"
-msgstr "Link másolása"
-
-# File: usr/share/isovault/ui/window.py, line: 130
-#: ui/window.py
-msgid "Copy public URL"
-msgstr "Másolás nyilvános URL"
-
-# File: usr/share/isovault/ui/window.py, line: 143
-#: ui/window.py
-msgid "Save file locally"
-msgstr "Helyi fájl mentése"
-
-# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
-# 
-# File: usr/share/isovault/ui/components.py, line: 291
-# File: usr/share/isovault/ui/dialogs.py, line: 107
-#: ui/window.py
-msgid "Delete"
-msgstr "Törlés"
-
-# File: usr/share/isovault/ui/window.py, line: 156
-#: ui/window.py
-msgid "Remove from storage"
-msgstr "Törlés a tárolóból"
-
-# File: usr/share/isovault/ui/preferences.py, line: 169
-#: ui/window.py
-msgid "Auto Refresh"
-msgstr "Automatikus frissítés"
-
-# File: usr/share/isovault/ui/preferences.py, line: 203
-#: ui/window.py
-msgid "Confirm Deletions"
-msgstr "Törlés megerősítése"
-
-# File: usr/share/isovault/ui/preferences.py, line: 216
-#: ui/window.py
-msgid "Auto Update Index"
-msgstr "Automatikus frissítési index"
+msgid "Show sidebar"
+msgstr "Oldalsáv megjelenítése"
 
 # File: usr/share/isovault/ui/window.py, line: 228
 #: ui/window.py
 msgid "Upload ISO"
 msgstr "ISO feltöltése"
+
+#: ui/window.py
+msgid "Search files..."
+msgstr "Fájlok keresése..."
+
+# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
+# 
+# File: usr/share/isovault/ui/components.py, line: 372
+# File: usr/share/isovault/ui/preferences.py, line: 30
+#: ui/window.py
+msgid "Preferences"
+msgstr "Beállítások"
 
 # File: usr/share/isovault/ui/components.py, line: 373
 #: ui/window.py
@@ -573,15 +674,60 @@ msgstr "A programról"
 msgid "Application menu"
 msgstr "Alkalmazás menü"
 
-# File: usr/share/isovault/ui/window.py, line: 108
 #: ui/window.py
-msgid "Ready"
-msgstr "Kész"
+msgid "ISO Files"
+msgstr "ISO-fájlok"
+
+#: ui/window.py
+msgid "Connect to your storage"
+msgstr "Csatlakozás a tárhelyhez"
 
 # File: usr/share/isovault/ui/window.py, line: 139
 #: ui/window.py
 msgid "Please configure S3 credentials in Preferences"
 msgstr "Kérjük, állítsa be az S3 hitelesítő adatokat a Beállításokban."
+
+#: ui/window.py
+msgid "Open Preferences"
+msgstr "Beállítások megnyitása"
+
+#: ui/window.py
+msgid "Manage your ISO files and make them available for download."
+msgstr "Kezelje ISO-fájljait, és tegye őket letölthetővé."
+
+#: ui/window.py
+msgid "List view"
+msgstr "Listanézet"
+
+#: ui/window.py
+msgid "Grid view"
+msgstr "Rácsnézet"
+
+# File: usr/share/isovault/ui/components.py, line: 263
+#: ui/window.py
+msgid "All folders"
+msgstr "Minden mappa"
+
+# File: usr/share/isovault/ui/window.py, line: 117
+#: ui/window.py
+msgid "Filter by folder"
+msgstr "Mappa szerinti szűrés"
+
+#: ui/window.py
+msgid "Save to Downloads folder"
+msgstr "Mentés a Letöltések mappába"
+
+#: ui/window.py
+msgid "More download options"
+msgstr "További letöltési lehetőségek"
+
+#: ui/window.py
+msgid "Select None"
+msgstr "Kijelölés megszüntetése"
+
+#: ui/window.py
+msgid "More"
+msgstr "Továbbiak"
 
 # File: usr/share/isovault/ui/window.py, line: 195
 #: ui/window.py
@@ -590,15 +736,17 @@ msgstr "Figyelmeztetés: Nem sikerült csatlakozni az S3 tárolóhoz"
 
 #: ui/window.py
 #, python-brace-format
-msgid "{selected} of {total} file selected"
-msgid_plural "{selected} of {total} files selected"
-msgstr[0] "{selected}/{total} fájl kijelölve"
-msgstr[1] "{selected}/{total} fájl kijelölve"
+msgid "{visible} of {total} file"
+msgid_plural "{visible} of {total} files"
+msgstr[0] "{visible} / {total} fájl"
+msgstr[1] "{visible} / {total} fájl"
 
-# File: usr/share/isovault/ui/dialogs.py, line: 213
 #: ui/window.py
-msgid "No files selected"
-msgstr "Nincsenek kiválasztott fájlok"
+#, python-brace-format
+msgid "{count} file selected"
+msgid_plural "{count} files selected"
+msgstr[0] "{count} fájl kijelölve"
+msgstr[1] "{count} fájl kijelölve"
 
 #: ui/window.py
 msgid "Another operation is in progress"
@@ -734,6 +882,10 @@ msgstr "Törlés kész: {completed} sikeres, {failed} sikertelen"
 msgid "Index files updated!"
 msgstr "Index fájlok frissítve!"
 
+#: ui/window.py
+msgid "Public index update"
+msgstr "Nyilvános index frissítése"
+
 # File: usr/share/isovault/ui/window.py, line: 593
 #: ui/window.py
 msgid "Updating index files..."
@@ -743,16 +895,6 @@ msgstr "Indexfájlok frissítése..."
 #: ui/window.py
 msgid "Failed to update index files"
 msgstr "Nem sikerült frissíteni az indexfájlokat"
-
-# File: usr/share/isovault/ui/window.py, line: 487
-#: ui/window.py
-msgid "Loading files..."
-msgstr "Fájlok betöltése..."
-
-# File: usr/share/isovault/ui/window.py, line: 686
-#: ui/window.py
-msgid "Failed to refresh file list"
-msgstr "A fájl lista frissítése nem sikerült"
 
 # File: usr/share/isovault/ui/window.py, line: 507
 #: ui/window.py

@@ -16,7 +16,7 @@ APP_DIR = os.path.dirname(os.path.abspath(__file__))
 TEMPLATES_DIR = os.path.join(APP_DIR, "templates")
 CONFIG_FILE = os.path.expanduser("~/.config/isovault.conf")
 
-DEFAULT_WINDOW_SIZE = (1200, 700)
+DEFAULT_WINDOW_SIZE = (1100, 720)
 
 DEFAULT_S3_CONFIG = {
     "access_key": "",

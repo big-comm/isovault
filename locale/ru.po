@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: isovault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 11:37-0300\n"
+"POT-Creation-Date: 2026-10-09 13:54-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ru\n"
@@ -89,7 +89,7 @@ msgid "Home"
 msgstr "Главная"
 
 # File: usr/share/isovault/ui/components.py, line: 284
-#: services/html_generator.py ui/window.py
+#: services/html_generator.py ui/file_browser.py ui/window.py
 msgid "Download"
 msgstr "Скачать"
 
@@ -149,36 +149,12 @@ msgstr "Скачать ISO"
 msgid "... and {more_count} more files"
 msgstr "... и {more_count} других файлов"
 
-# File: usr/share/isovault/ui/components.py, line: 123
-#: ui/components.py
-msgid "File Name"
-msgstr "Имя файла"
-
-# File: usr/share/isovault/ui/components.py, line: 132
-#: ui/components.py
-msgid "Folder"
-msgstr "Папка"
-
-# File: usr/share/isovault/ui/components.py, line: 140
-#: ui/components.py
-msgid "Size"
-msgstr "Размер"
-
-# File: usr/share/isovault/ui/components.py, line: 148
-#: ui/components.py
-msgid "Modified"
-msgstr "Изменённый"
-
-#: ui/components.py
-msgid "Select"
-msgstr "Выбрать"
-
 # File: usr/share/isovault/ui/dialogs.py, line: 102
-#: ui/delete_dialog.py
+#: ui/delete_dialog.py ui/window.py
 msgid "Delete File"
 msgstr "Удалить файл"
 
-#: ui/delete_dialog.py
+#: ui/delete_dialog.py ui/window.py
 msgid "Delete Files"
 msgstr "Удалить файлы"
 
@@ -293,18 +269,168 @@ msgstr "ISO файловый менеджер для хранения CDN77"
 msgid "OK"
 msgstr "Хорошо"
 
+# File: usr/share/isovault/ui/components.py, line: 277
+#: ui/file_browser.py ui/window.py
+msgid "Copy Link"
+msgstr "Скопировать ссылку"
+
 # #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
 # 
-# File: usr/share/isovault/ui/components.py, line: 372
-# File: usr/share/isovault/ui/preferences.py, line: 30
-#: ui/preferences.py ui/window.py
-msgid "Preferences"
-msgstr "Настройки"
+# File: usr/share/isovault/ui/components.py, line: 291
+# File: usr/share/isovault/ui/dialogs.py, line: 107
+#: ui/file_browser.py ui/window.py
+msgid "Delete"
+msgstr "Удалить"
+
+#: ui/file_browser.py ui/window.py
+msgid "Select All"
+msgstr "Выбрать все"
+
+# File: usr/share/isovault/ui/components.py, line: 123
+#: ui/file_browser.py
+msgid "File Name"
+msgstr "Имя файла"
+
+#: ui/file_browser.py
+msgid "Distribution"
+msgstr "Дистрибутив"
+
+# File: usr/share/isovault/ui/components.py, line: 140
+#: ui/file_browser.py
+msgid "Size"
+msgstr "Размер"
+
+# File: usr/share/isovault/ui/components.py, line: 148
+#: ui/file_browser.py
+msgid "Modified"
+msgstr "Изменённый"
+
+#: ui/file_browser.py
+msgid "Actions"
+msgstr "Действия"
+
+#: ui/file_browser.py
+msgid "Select"
+msgstr "Выбрать"
+
+#: ui/file_browser.py
+msgid "No results"
+msgstr "Нет результатов"
+
+#: ui/file_browser.py
+#, python-brace-format
+msgid "No file matches “{text}”"
+msgstr "Нет файлов, соответствующих «{text}»"
+
+#: ui/file_browser.py
+msgid "No files"
+msgstr "Нет файлов"
+
+#: ui/file_browser.py
+msgid "Upload an ISO to get started"
+msgstr "Загрузите ISO, чтобы начать"
+
+#: ui/pages.py ui/window.py
+msgid "Transfers"
+msgstr "Передачи"
+
+#: ui/pages.py
+msgid "Uploads, downloads and deletions made in this session."
+msgstr "Загрузки, скачивания и удаления в этом сеансе."
+
+#: ui/pages.py
+msgid "No transfers yet"
+msgstr "Передач пока нет"
+
+#: ui/pages.py
+msgid "Uploads, downloads and deletions will appear here."
+msgstr "Здесь будут отображаться загрузки, скачивания и удаления."
+
+#: ui/pages.py ui/window.py
+msgid "Statistics"
+msgstr "Статистика"
+
+#: ui/pages.py
+msgid "Overview of the ISO repository."
+msgstr "Обзор репозитория ISO."
+
+#: ui/pages.py
+msgid "ISO images"
+msgstr "Образы ISO"
+
+#: ui/pages.py
+msgid "MD5 checksums"
+msgstr "Контрольные суммы MD5"
+
+#: ui/pages.py
+msgid "Space used"
+msgstr "Занятое место"
+
+#: ui/pages.py
+msgid "By distribution"
+msgstr "По дистрибутивам"
+
+#: ui/pages.py
+#, python-brace-format
+msgid "{count} ISO · {size}"
+msgid_plural "{count} ISOs · {size}"
+msgstr[0] "{count} ISO · {size}"
+msgstr[1] "{count} ISO · {size}"
+msgstr[2] "{count} ISO · {size}"
+
+#: ui/pages.py
+#, python-brace-format
+msgid "Latest: {date}"
+msgstr "Последний: {date}"
+
+#: ui/pages.py
+msgid "Integrity"
+msgstr "Целостность"
+
+#: ui/pages.py
+msgid "ISOs need a .md5 file to show their checksum on the download page."
+msgstr ""
+"Для отображения контрольной суммы на странице загрузки ISO-файлам нужен файл"
+" .md5."
+
+#: ui/pages.py
+msgid "No MD5 checksum"
+msgstr "Нет контрольной суммы MD5"
+
+#: ui/pages.py
+msgid "Every ISO has an MD5 checksum"
+msgstr "У всех ISO есть контрольная сумма MD5"
+
+#: ui/pages.py
+msgid "Storage"
+msgstr "Хранилище"
+
+#: ui/pages.py
+#, python-brace-format
+msgid "{size} in {count} file"
+msgid_plural "{size} in {count} files"
+msgstr[0] "{size} в {count} файле"
+msgstr[1] "{size} в {count} файлах"
+msgstr[2] "{size} в {count} файлах"
 
 # File: usr/share/isovault/ui/preferences.py, line: 53
 #: ui/preferences.py
 msgid "S3 Config"
 msgstr "S3 Конфигурация"
+
+# File: usr/share/isovault/ui/preferences.py, line: 157
+#: ui/preferences.py
+msgid "General"
+msgstr "Общий"
+
+#: ui/preferences.py ui/window.py
+msgid "Settings"
+msgstr "Настройки"
+
+#: ui/preferences.py
+msgid "Storage connection, public download page and application behavior."
+msgstr ""
+"Подключение к хранилищу, публичная страница загрузки и поведение приложения."
 
 # File: usr/share/isovault/ui/preferences.py, line: 60
 #: ui/preferences.py
@@ -363,11 +489,6 @@ msgstr "Проверить соединение"
 msgid "Verify S3 credentials and connection"
 msgstr "Проверьте учетные данные S3 и соединение"
 
-# File: usr/share/isovault/ui/preferences.py, line: 157
-#: ui/preferences.py
-msgid "General"
-msgstr "Общий"
-
 # File: usr/share/isovault/ui/preferences.py, line: 128
 #: ui/preferences.py
 msgid "Web Settings"
@@ -392,6 +513,37 @@ msgstr "Показать индексные файлы"
 #: ui/preferences.py
 msgid "Display index.html files in the file list"
 msgstr "Отображать файлы index.html в списке файлов"
+
+#: ui/preferences.py
+msgid "Application Behavior"
+msgstr "Поведение приложения"
+
+# File: usr/share/isovault/ui/preferences.py, line: 169
+#: ui/preferences.py
+msgid "Auto Refresh"
+msgstr "Автообновление"
+
+#: ui/preferences.py
+msgid "Automatically refresh file list after operations"
+msgstr "Автоматически обновлять список файлов после операций"
+
+# File: usr/share/isovault/ui/preferences.py, line: 203
+#: ui/preferences.py
+msgid "Confirm Deletions"
+msgstr "Подтвердить удаление"
+
+#: ui/preferences.py
+msgid "Show confirmation dialog before deleting files"
+msgstr "Показать диалог подтверждения перед удалением файлов"
+
+# File: usr/share/isovault/ui/preferences.py, line: 216
+#: ui/preferences.py
+msgid "Auto Update Index"
+msgstr "Автообновление индекса"
+
+#: ui/preferences.py
+msgid "Automatically update web index after file operations"
+msgstr "Автоматически обновлять веб-индекс после операций с файлами"
 
 # File: usr/share/isovault/ui/preferences.py, line: 224
 # File: usr/share/isovault/ui/preferences.py, line: 232
@@ -479,80 +631,31 @@ msgstr "Можно загружать только непустые файлы I
 msgid "Destination Folder"
 msgstr "Папка назначения"
 
-#: ui/upload_dialog.py
+#: ui/upload_dialog.py ui/window.py
 #, python-brace-format
 msgid "Upload to {folder}"
 msgstr "Загрузить в {folder}"
 
-# File: usr/share/isovault/ui/window.py, line: 117
 #: ui/window.py
-msgid "Filter by folder"
-msgstr "Фильтр по папке"
-
-# File: usr/share/isovault/ui/components.py, line: 263
-#: ui/window.py
-msgid "All folders"
-msgstr "Все папки"
-
-#: ui/window.py
-msgid "Selection"
-msgstr "Выделение"
-
-#: ui/window.py
-msgid "Select All"
-msgstr "Выбрать все"
-
-#: ui/window.py
-msgid "Select None"
-msgstr "Снять выделение"
-
-# File: usr/share/isovault/ui/components.py, line: 277
-#: ui/window.py
-msgid "Copy Link"
-msgstr "Скопировать ссылку"
-
-# File: usr/share/isovault/ui/window.py, line: 130
-#: ui/window.py
-msgid "Copy public URL"
-msgstr "Скопировать публичный URL"
-
-# File: usr/share/isovault/ui/window.py, line: 143
-#: ui/window.py
-msgid "Save file locally"
-msgstr "Сохранить файл локально"
-
-# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
-# 
-# File: usr/share/isovault/ui/components.py, line: 291
-# File: usr/share/isovault/ui/dialogs.py, line: 107
-#: ui/window.py
-msgid "Delete"
-msgstr "Удалить"
-
-# File: usr/share/isovault/ui/window.py, line: 156
-#: ui/window.py
-msgid "Remove from storage"
-msgstr "Удалить из хранилища"
-
-# File: usr/share/isovault/ui/preferences.py, line: 169
-#: ui/window.py
-msgid "Auto Refresh"
-msgstr "Автообновление"
-
-# File: usr/share/isovault/ui/preferences.py, line: 203
-#: ui/window.py
-msgid "Confirm Deletions"
-msgstr "Подтвердить удаление"
-
-# File: usr/share/isovault/ui/preferences.py, line: 216
-#: ui/window.py
-msgid "Auto Update Index"
-msgstr "Автообновление индекса"
+msgid "Show sidebar"
+msgstr "Показать боковую панель"
 
 # File: usr/share/isovault/ui/window.py, line: 228
 #: ui/window.py
 msgid "Upload ISO"
 msgstr "Загрузить ISO"
+
+#: ui/window.py
+msgid "Search files..."
+msgstr "Поиск файлов..."
+
+# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
+# 
+# File: usr/share/isovault/ui/components.py, line: 372
+# File: usr/share/isovault/ui/preferences.py, line: 30
+#: ui/window.py
+msgid "Preferences"
+msgstr "Настройки"
 
 # File: usr/share/isovault/ui/components.py, line: 373
 #: ui/window.py
@@ -574,15 +677,60 @@ msgstr "О программе"
 msgid "Application menu"
 msgstr "Меню приложения"
 
-# File: usr/share/isovault/ui/window.py, line: 108
 #: ui/window.py
-msgid "Ready"
-msgstr "Готово"
+msgid "ISO Files"
+msgstr "Файлы ISO"
+
+#: ui/window.py
+msgid "Connect to your storage"
+msgstr "Подключитесь к хранилищу"
 
 # File: usr/share/isovault/ui/window.py, line: 139
 #: ui/window.py
 msgid "Please configure S3 credentials in Preferences"
 msgstr "Пожалуйста, настройте учетные данные S3 в Настройках"
+
+#: ui/window.py
+msgid "Open Preferences"
+msgstr "Открыть настройки"
+
+#: ui/window.py
+msgid "Manage your ISO files and make them available for download."
+msgstr "Управляйте ISO-файлами и делайте их доступными для скачивания."
+
+#: ui/window.py
+msgid "List view"
+msgstr "Список"
+
+#: ui/window.py
+msgid "Grid view"
+msgstr "Сетка"
+
+# File: usr/share/isovault/ui/components.py, line: 263
+#: ui/window.py
+msgid "All folders"
+msgstr "Все папки"
+
+# File: usr/share/isovault/ui/window.py, line: 117
+#: ui/window.py
+msgid "Filter by folder"
+msgstr "Фильтр по папке"
+
+#: ui/window.py
+msgid "Save to Downloads folder"
+msgstr "Сохранить в папку «Загрузки»"
+
+#: ui/window.py
+msgid "More download options"
+msgstr "Другие варианты скачивания"
+
+#: ui/window.py
+msgid "Select None"
+msgstr "Снять выделение"
+
+#: ui/window.py
+msgid "More"
+msgstr "Ещё"
 
 # File: usr/share/isovault/ui/window.py, line: 195
 #: ui/window.py
@@ -591,16 +739,19 @@ msgstr "Предупреждение: Не удалось подключитьс
 
 #: ui/window.py
 #, python-brace-format
-msgid "{selected} of {total} file selected"
-msgid_plural "{selected} of {total} files selected"
-msgstr[0] "Выбрано {selected} из {total} файла"
-msgstr[1] "Выбрано {selected} из {total} файлов"
-msgstr[2] "Выбрано {selected} из {total} файлов"
+msgid "{visible} of {total} file"
+msgid_plural "{visible} of {total} files"
+msgstr[0] "{visible} из {total} файла"
+msgstr[1] "{visible} из {total} файлов"
+msgstr[2] "{visible} из {total} файлов"
 
-# File: usr/share/isovault/ui/dialogs.py, line: 213
 #: ui/window.py
-msgid "No files selected"
-msgstr "Нет выбранных файлов"
+#, python-brace-format
+msgid "{count} file selected"
+msgid_plural "{count} files selected"
+msgstr[0] "Выбран {count} файл"
+msgstr[1] "Выбрано {count} файла"
+msgstr[2] "Выбрано {count} файлов"
 
 #: ui/window.py
 msgid "Another operation is in progress"
@@ -737,6 +888,10 @@ msgstr "Удаление завершено: успешно — {completed}, с 
 msgid "Index files updated!"
 msgstr "Файлы индекса обновлены!"
 
+#: ui/window.py
+msgid "Public index update"
+msgstr "Обновление публичного индекса"
+
 # File: usr/share/isovault/ui/window.py, line: 593
 #: ui/window.py
 msgid "Updating index files..."
@@ -746,16 +901,6 @@ msgstr "Обновление файлов индекса..."
 #: ui/window.py
 msgid "Failed to update index files"
 msgstr "Не удалось обновить файлы индекса"
-
-# File: usr/share/isovault/ui/window.py, line: 487
-#: ui/window.py
-msgid "Loading files..."
-msgstr "Загрузка файлов..."
-
-# File: usr/share/isovault/ui/window.py, line: 686
-#: ui/window.py
-msgid "Failed to refresh file list"
-msgstr "Не удалось обновить список файлов"
 
 # File: usr/share/isovault/ui/window.py, line: 507
 #: ui/window.py

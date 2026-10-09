@@ -54,6 +54,9 @@ class ISOVaultApplication(Adw.Application):
     def do_startup(self) -> None:
         Adw.Application.do_startup(self)
         Gtk.Window.set_default_icon_name(APP_ICON)
+        display = Gdk.Display.get_default()
+        if display:  # symbolic icons shipped with the app (statistics, transfers)
+            Gtk.IconTheme.get_for_display(display).add_search_path(os.path.join(APP_DIR, "icons"))
         self._load_css()
 
         quit_action = Gio.SimpleAction.new("quit", None)
@@ -63,6 +66,7 @@ class ISOVaultApplication(Adw.Application):
         self.set_accels_for_action("app.quit", ["<Ctrl>q"])
         self.set_accels_for_action("win.refresh", ["<Ctrl>r", "F5"])
         self.set_accels_for_action("win.preferences", ["<Ctrl>comma"])
+        self.set_accels_for_action("win.search", ["<Ctrl>f"])
 
     def do_activate(self) -> None:
         window = self.get_active_window() or ISOVaultWindow(application=self)

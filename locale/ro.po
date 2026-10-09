@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: isovault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 11:37-0300\n"
+"POT-Creation-Date: 2026-10-09 13:54-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ro\n"
@@ -89,7 +89,7 @@ msgid "Home"
 msgstr "Acasă"
 
 # File: usr/share/isovault/ui/components.py, line: 284
-#: services/html_generator.py ui/window.py
+#: services/html_generator.py ui/file_browser.py ui/window.py
 msgid "Download"
 msgstr "Descarcă"
 
@@ -151,36 +151,12 @@ msgstr "Descarcă ISO"
 msgid "... and {more_count} more files"
 msgstr "... și {more_count} fișiere suplimentare"
 
-# File: usr/share/isovault/ui/components.py, line: 123
-#: ui/components.py
-msgid "File Name"
-msgstr "Nume fișier"
-
-# File: usr/share/isovault/ui/components.py, line: 132
-#: ui/components.py
-msgid "Folder"
-msgstr "Dosar"
-
-# File: usr/share/isovault/ui/components.py, line: 140
-#: ui/components.py
-msgid "Size"
-msgstr "Dimensiune"
-
-# File: usr/share/isovault/ui/components.py, line: 148
-#: ui/components.py
-msgid "Modified"
-msgstr "Modificat"
-
-#: ui/components.py
-msgid "Select"
-msgstr "Selectează"
-
 # File: usr/share/isovault/ui/dialogs.py, line: 102
-#: ui/delete_dialog.py
+#: ui/delete_dialog.py ui/window.py
 msgid "Delete File"
 msgstr "Șterge fișierul"
 
-#: ui/delete_dialog.py
+#: ui/delete_dialog.py ui/window.py
 msgid "Delete Files"
 msgstr "Șterge fișierele"
 
@@ -296,18 +272,169 @@ msgstr "Manager de fișiere ISO pentru stocarea CDN77"
 msgid "OK"
 msgstr "OK"
 
+# File: usr/share/isovault/ui/components.py, line: 277
+#: ui/file_browser.py ui/window.py
+msgid "Copy Link"
+msgstr "Copiază linkul"
+
 # #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
 # 
-# File: usr/share/isovault/ui/components.py, line: 372
-# File: usr/share/isovault/ui/preferences.py, line: 30
-#: ui/preferences.py ui/window.py
-msgid "Preferences"
-msgstr "Preferințe"
+# File: usr/share/isovault/ui/components.py, line: 291
+# File: usr/share/isovault/ui/dialogs.py, line: 107
+#: ui/file_browser.py ui/window.py
+msgid "Delete"
+msgstr "Șterge"
+
+#: ui/file_browser.py ui/window.py
+msgid "Select All"
+msgstr "Selectează tot"
+
+# File: usr/share/isovault/ui/components.py, line: 123
+#: ui/file_browser.py
+msgid "File Name"
+msgstr "Nume fișier"
+
+#: ui/file_browser.py
+msgid "Distribution"
+msgstr "Distribuție"
+
+# File: usr/share/isovault/ui/components.py, line: 140
+#: ui/file_browser.py
+msgid "Size"
+msgstr "Dimensiune"
+
+# File: usr/share/isovault/ui/components.py, line: 148
+#: ui/file_browser.py
+msgid "Modified"
+msgstr "Modificat"
+
+#: ui/file_browser.py
+msgid "Actions"
+msgstr "Acțiuni"
+
+#: ui/file_browser.py
+msgid "Select"
+msgstr "Selectează"
+
+#: ui/file_browser.py
+msgid "No results"
+msgstr "Niciun rezultat"
+
+#: ui/file_browser.py
+#, python-brace-format
+msgid "No file matches “{text}”"
+msgstr "Niciun fișier nu corespunde „{text}”"
+
+#: ui/file_browser.py
+msgid "No files"
+msgstr "Niciun fișier"
+
+#: ui/file_browser.py
+msgid "Upload an ISO to get started"
+msgstr "Încărcați un ISO pentru a începe"
+
+#: ui/pages.py ui/window.py
+msgid "Transfers"
+msgstr "Transferuri"
+
+#: ui/pages.py
+msgid "Uploads, downloads and deletions made in this session."
+msgstr "Încărcările, descărcările și ștergerile din această sesiune."
+
+#: ui/pages.py
+msgid "No transfers yet"
+msgstr "Niciun transfer încă"
+
+#: ui/pages.py
+msgid "Uploads, downloads and deletions will appear here."
+msgstr "Încărcările, descărcările și ștergerile vor apărea aici."
+
+#: ui/pages.py ui/window.py
+msgid "Statistics"
+msgstr "Statistici"
+
+#: ui/pages.py
+msgid "Overview of the ISO repository."
+msgstr "Prezentare generală a depozitului de ISO-uri."
+
+#: ui/pages.py
+msgid "ISO images"
+msgstr "Imagini ISO"
+
+#: ui/pages.py
+msgid "MD5 checksums"
+msgstr "Sume de control MD5"
+
+#: ui/pages.py
+msgid "Space used"
+msgstr "Spațiu utilizat"
+
+#: ui/pages.py
+msgid "By distribution"
+msgstr "După distribuție"
+
+#: ui/pages.py
+#, python-brace-format
+msgid "{count} ISO · {size}"
+msgid_plural "{count} ISOs · {size}"
+msgstr[0] "{count} ISO · {size}"
+msgstr[1] "{count} ISO-uri · {size}"
+msgstr[2] "{count} de ISO-uri · {size}"
+
+#: ui/pages.py
+#, python-brace-format
+msgid "Latest: {date}"
+msgstr "Ultimul: {date}"
+
+#: ui/pages.py
+msgid "Integrity"
+msgstr "Integritate"
+
+#: ui/pages.py
+msgid "ISOs need a .md5 file to show their checksum on the download page."
+msgstr ""
+"ISO-urile au nevoie de un fișier .md5 pentru a afișa suma de control pe "
+"pagina de descărcare."
+
+#: ui/pages.py
+msgid "No MD5 checksum"
+msgstr "Fără sumă de control MD5"
+
+#: ui/pages.py
+msgid "Every ISO has an MD5 checksum"
+msgstr "Fiecare ISO are o sumă de control MD5"
+
+#: ui/pages.py
+msgid "Storage"
+msgstr "Stocare"
+
+#: ui/pages.py
+#, python-brace-format
+msgid "{size} in {count} file"
+msgid_plural "{size} in {count} files"
+msgstr[0] "{size} în {count} fișier"
+msgstr[1] "{size} în {count} fișiere"
+msgstr[2] "{size} în {count} de fișiere"
 
 # File: usr/share/isovault/ui/preferences.py, line: 53
 #: ui/preferences.py
 msgid "S3 Config"
 msgstr "Configurație S3"
+
+# File: usr/share/isovault/ui/preferences.py, line: 157
+#: ui/preferences.py
+msgid "General"
+msgstr "General"
+
+#: ui/preferences.py ui/window.py
+msgid "Settings"
+msgstr "Setări"
+
+#: ui/preferences.py
+msgid "Storage connection, public download page and application behavior."
+msgstr ""
+"Conexiunea la stocare, pagina publică de descărcare și comportamentul "
+"aplicației."
 
 # File: usr/share/isovault/ui/preferences.py, line: 60
 #: ui/preferences.py
@@ -366,11 +493,6 @@ msgstr "Testează conexiunea"
 msgid "Verify S3 credentials and connection"
 msgstr "Verificați acreditivele S3 și conexiunea"
 
-# File: usr/share/isovault/ui/preferences.py, line: 157
-#: ui/preferences.py
-msgid "General"
-msgstr "General"
-
 # File: usr/share/isovault/ui/preferences.py, line: 128
 #: ui/preferences.py
 msgid "Web Settings"
@@ -395,6 +517,37 @@ msgstr "Afișează fișierele index"
 #: ui/preferences.py
 msgid "Display index.html files in the file list"
 msgstr "Afișați fișierele index.html în lista de fișiere"
+
+#: ui/preferences.py
+msgid "Application Behavior"
+msgstr "Comportamentul aplicației"
+
+# File: usr/share/isovault/ui/preferences.py, line: 169
+#: ui/preferences.py
+msgid "Auto Refresh"
+msgstr "Actualizare automată"
+
+#: ui/preferences.py
+msgid "Automatically refresh file list after operations"
+msgstr "Actualizați automat lista de fișiere după operații"
+
+# File: usr/share/isovault/ui/preferences.py, line: 203
+#: ui/preferences.py
+msgid "Confirm Deletions"
+msgstr "Confirmări ștergeri"
+
+#: ui/preferences.py
+msgid "Show confirmation dialog before deleting files"
+msgstr "Afișați dialogul de confirmare înainte de a șterge fișierele"
+
+# File: usr/share/isovault/ui/preferences.py, line: 216
+#: ui/preferences.py
+msgid "Auto Update Index"
+msgstr "Index de Actualizare Automată"
+
+#: ui/preferences.py
+msgid "Automatically update web index after file operations"
+msgstr "Actualizați automat indexul web după operațiunile cu fișiere."
 
 # File: usr/share/isovault/ui/preferences.py, line: 224
 # File: usr/share/isovault/ui/preferences.py, line: 232
@@ -482,80 +635,31 @@ msgstr "Pot fi încărcate doar fișiere ISO și MD5 nevide"
 msgid "Destination Folder"
 msgstr "Dosar de destinație"
 
-#: ui/upload_dialog.py
+#: ui/upload_dialog.py ui/window.py
 #, python-brace-format
 msgid "Upload to {folder}"
 msgstr "Încarcă în {folder}"
 
-# File: usr/share/isovault/ui/window.py, line: 117
 #: ui/window.py
-msgid "Filter by folder"
-msgstr "Filtrare după folder"
-
-# File: usr/share/isovault/ui/components.py, line: 263
-#: ui/window.py
-msgid "All folders"
-msgstr "Toate folderele"
-
-#: ui/window.py
-msgid "Selection"
-msgstr "Selecție"
-
-#: ui/window.py
-msgid "Select All"
-msgstr "Selectează tot"
-
-#: ui/window.py
-msgid "Select None"
-msgstr "Deselectează tot"
-
-# File: usr/share/isovault/ui/components.py, line: 277
-#: ui/window.py
-msgid "Copy Link"
-msgstr "Copiază linkul"
-
-# File: usr/share/isovault/ui/window.py, line: 130
-#: ui/window.py
-msgid "Copy public URL"
-msgstr "Copiază URL-ul public"
-
-# File: usr/share/isovault/ui/window.py, line: 143
-#: ui/window.py
-msgid "Save file locally"
-msgstr "Salvează fișierul local."
-
-# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
-# 
-# File: usr/share/isovault/ui/components.py, line: 291
-# File: usr/share/isovault/ui/dialogs.py, line: 107
-#: ui/window.py
-msgid "Delete"
-msgstr "Șterge"
-
-# File: usr/share/isovault/ui/window.py, line: 156
-#: ui/window.py
-msgid "Remove from storage"
-msgstr "Eliminare din stocare"
-
-# File: usr/share/isovault/ui/preferences.py, line: 169
-#: ui/window.py
-msgid "Auto Refresh"
-msgstr "Actualizare automată"
-
-# File: usr/share/isovault/ui/preferences.py, line: 203
-#: ui/window.py
-msgid "Confirm Deletions"
-msgstr "Confirmări ștergeri"
-
-# File: usr/share/isovault/ui/preferences.py, line: 216
-#: ui/window.py
-msgid "Auto Update Index"
-msgstr "Index de Actualizare Automată"
+msgid "Show sidebar"
+msgstr "Afișează bara laterală"
 
 # File: usr/share/isovault/ui/window.py, line: 228
 #: ui/window.py
 msgid "Upload ISO"
 msgstr "Încărcați ISO"
+
+#: ui/window.py
+msgid "Search files..."
+msgstr "Căutați fișiere..."
+
+# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
+# 
+# File: usr/share/isovault/ui/components.py, line: 372
+# File: usr/share/isovault/ui/preferences.py, line: 30
+#: ui/window.py
+msgid "Preferences"
+msgstr "Preferințe"
 
 # File: usr/share/isovault/ui/components.py, line: 373
 #: ui/window.py
@@ -577,15 +681,60 @@ msgstr "Despre"
 msgid "Application menu"
 msgstr "Meniu aplicație"
 
-# File: usr/share/isovault/ui/window.py, line: 108
 #: ui/window.py
-msgid "Ready"
-msgstr "Pregătit"
+msgid "ISO Files"
+msgstr "Fișiere ISO"
+
+#: ui/window.py
+msgid "Connect to your storage"
+msgstr "Conectați-vă la stocarea dvs."
 
 # File: usr/share/isovault/ui/window.py, line: 139
 #: ui/window.py
 msgid "Please configure S3 credentials in Preferences"
 msgstr "Vă rugăm să configurați acreditivele S3 în Preferințe"
+
+#: ui/window.py
+msgid "Open Preferences"
+msgstr "Deschide preferințele"
+
+#: ui/window.py
+msgid "Manage your ISO files and make them available for download."
+msgstr "Gestionați fișierele ISO și faceți-le disponibile pentru descărcare."
+
+#: ui/window.py
+msgid "List view"
+msgstr "Vizualizare listă"
+
+#: ui/window.py
+msgid "Grid view"
+msgstr "Vizualizare grilă"
+
+# File: usr/share/isovault/ui/components.py, line: 263
+#: ui/window.py
+msgid "All folders"
+msgstr "Toate folderele"
+
+# File: usr/share/isovault/ui/window.py, line: 117
+#: ui/window.py
+msgid "Filter by folder"
+msgstr "Filtrare după folder"
+
+#: ui/window.py
+msgid "Save to Downloads folder"
+msgstr "Salvează în dosarul Descărcări"
+
+#: ui/window.py
+msgid "More download options"
+msgstr "Mai multe opțiuni de descărcare"
+
+#: ui/window.py
+msgid "Select None"
+msgstr "Deselectează tot"
+
+#: ui/window.py
+msgid "More"
+msgstr "Mai multe"
 
 # File: usr/share/isovault/ui/window.py, line: 195
 #: ui/window.py
@@ -594,16 +743,19 @@ msgstr "Atenție: Nu s-a putut conecta la stocarea S3"
 
 #: ui/window.py
 #, python-brace-format
-msgid "{selected} of {total} file selected"
-msgid_plural "{selected} of {total} files selected"
-msgstr[0] "{selected} din {total} fișier selectat"
-msgstr[1] "{selected} din {total} fișiere selectate"
-msgstr[2] "{selected} din {total} de fișiere selectate"
+msgid "{visible} of {total} file"
+msgid_plural "{visible} of {total} files"
+msgstr[0] "{visible} din {total} fișier"
+msgstr[1] "{visible} din {total} fișiere"
+msgstr[2] "{visible} din {total} de fișiere"
 
-# File: usr/share/isovault/ui/dialogs.py, line: 213
 #: ui/window.py
-msgid "No files selected"
-msgstr "Niciun fișier selectat"
+#, python-brace-format
+msgid "{count} file selected"
+msgid_plural "{count} files selected"
+msgstr[0] "{count} fișier selectat"
+msgstr[1] "{count} fișiere selectate"
+msgstr[2] "{count} de fișiere selectate"
 
 #: ui/window.py
 msgid "Another operation is in progress"
@@ -740,6 +892,10 @@ msgstr "Ștergere finalizată: {completed} reușite, {failed} eșuate"
 msgid "Index files updated!"
 msgstr "Fișierele index actualizate!"
 
+#: ui/window.py
+msgid "Public index update"
+msgstr "Actualizarea indexului public"
+
 # File: usr/share/isovault/ui/window.py, line: 593
 #: ui/window.py
 msgid "Updating index files..."
@@ -749,16 +905,6 @@ msgstr "Actualizare fișiere index..."
 #: ui/window.py
 msgid "Failed to update index files"
 msgstr "Actualizarea fișierelor de index a eșuat"
-
-# File: usr/share/isovault/ui/window.py, line: 487
-#: ui/window.py
-msgid "Loading files..."
-msgstr "Încărcarea fișierelor..."
-
-# File: usr/share/isovault/ui/window.py, line: 686
-#: ui/window.py
-msgid "Failed to refresh file list"
-msgstr "Eșec la actualizarea listei de fișiere"
 
 # File: usr/share/isovault/ui/window.py, line: 507
 #: ui/window.py

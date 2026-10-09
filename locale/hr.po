@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: isovault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 11:37-0300\n"
+"POT-Creation-Date: 2026-10-09 13:54-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: hr\n"
@@ -89,7 +89,7 @@ msgid "Home"
 msgstr "Početna"
 
 # File: usr/share/isovault/ui/components.py, line: 284
-#: services/html_generator.py ui/window.py
+#: services/html_generator.py ui/file_browser.py ui/window.py
 msgid "Download"
 msgstr "Preuzmi"
 
@@ -150,36 +150,12 @@ msgstr "Preuzmi ISO"
 msgid "... and {more_count} more files"
 msgstr "... i {more_count} drugih datoteka"
 
-# File: usr/share/isovault/ui/components.py, line: 123
-#: ui/components.py
-msgid "File Name"
-msgstr "Naziv datoteke"
-
-# File: usr/share/isovault/ui/components.py, line: 132
-#: ui/components.py
-msgid "Folder"
-msgstr "Mapa"
-
-# File: usr/share/isovault/ui/components.py, line: 140
-#: ui/components.py
-msgid "Size"
-msgstr "Veličina"
-
-# File: usr/share/isovault/ui/components.py, line: 148
-#: ui/components.py
-msgid "Modified"
-msgstr "Izmijenjeno"
-
-#: ui/components.py
-msgid "Select"
-msgstr "Odaberi"
-
 # File: usr/share/isovault/ui/dialogs.py, line: 102
-#: ui/delete_dialog.py
+#: ui/delete_dialog.py ui/window.py
 msgid "Delete File"
 msgstr "Izbriši datoteku"
 
-#: ui/delete_dialog.py
+#: ui/delete_dialog.py ui/window.py
 msgid "Delete Files"
 msgstr "Izbriši datoteke"
 
@@ -294,18 +270,168 @@ msgstr "ISO upravitelj datoteka za CDN77 pohranu"
 msgid "OK"
 msgstr "U redu"
 
+# File: usr/share/isovault/ui/components.py, line: 277
+#: ui/file_browser.py ui/window.py
+msgid "Copy Link"
+msgstr "Kopiraj poveznicu"
+
 # #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
 # 
-# File: usr/share/isovault/ui/components.py, line: 372
-# File: usr/share/isovault/ui/preferences.py, line: 30
-#: ui/preferences.py ui/window.py
-msgid "Preferences"
-msgstr "Postavke"
+# File: usr/share/isovault/ui/components.py, line: 291
+# File: usr/share/isovault/ui/dialogs.py, line: 107
+#: ui/file_browser.py ui/window.py
+msgid "Delete"
+msgstr "Izbriši"
+
+#: ui/file_browser.py ui/window.py
+msgid "Select All"
+msgstr "Odaberi sve"
+
+# File: usr/share/isovault/ui/components.py, line: 123
+#: ui/file_browser.py
+msgid "File Name"
+msgstr "Naziv datoteke"
+
+#: ui/file_browser.py
+msgid "Distribution"
+msgstr "Distribucija"
+
+# File: usr/share/isovault/ui/components.py, line: 140
+#: ui/file_browser.py
+msgid "Size"
+msgstr "Veličina"
+
+# File: usr/share/isovault/ui/components.py, line: 148
+#: ui/file_browser.py
+msgid "Modified"
+msgstr "Izmijenjeno"
+
+#: ui/file_browser.py
+msgid "Actions"
+msgstr "Radnje"
+
+#: ui/file_browser.py
+msgid "Select"
+msgstr "Odaberi"
+
+#: ui/file_browser.py
+msgid "No results"
+msgstr "Nema rezultata"
+
+#: ui/file_browser.py
+#, python-brace-format
+msgid "No file matches “{text}”"
+msgstr "Nema datoteka koje odgovaraju „{text}“"
+
+#: ui/file_browser.py
+msgid "No files"
+msgstr "Nema datoteka"
+
+#: ui/file_browser.py
+msgid "Upload an ISO to get started"
+msgstr "Prenesite ISO za početak"
+
+#: ui/pages.py ui/window.py
+msgid "Transfers"
+msgstr "Prijenosi"
+
+#: ui/pages.py
+msgid "Uploads, downloads and deletions made in this session."
+msgstr "Prijenosi, preuzimanja i brisanja u ovoj sesiji."
+
+#: ui/pages.py
+msgid "No transfers yet"
+msgstr "Još nema prijenosa"
+
+#: ui/pages.py
+msgid "Uploads, downloads and deletions will appear here."
+msgstr "Ovdje će se prikazati prijenosi, preuzimanja i brisanja."
+
+#: ui/pages.py ui/window.py
+msgid "Statistics"
+msgstr "Statistika"
+
+#: ui/pages.py
+msgid "Overview of the ISO repository."
+msgstr "Pregled ISO repozitorija."
+
+#: ui/pages.py
+msgid "ISO images"
+msgstr "ISO slike"
+
+#: ui/pages.py
+msgid "MD5 checksums"
+msgstr "MD5 kontrolni zbrojevi"
+
+#: ui/pages.py
+msgid "Space used"
+msgstr "Iskorišten prostor"
+
+#: ui/pages.py
+msgid "By distribution"
+msgstr "Po distribuciji"
+
+#: ui/pages.py
+#, python-brace-format
+msgid "{count} ISO · {size}"
+msgid_plural "{count} ISOs · {size}"
+msgstr[0] "{count} ISO · {size}"
+msgstr[1] "{count} ISO · {size}"
+msgstr[2] "{count} ISO · {size}"
+
+#: ui/pages.py
+#, python-brace-format
+msgid "Latest: {date}"
+msgstr "Najnovije: {date}"
+
+#: ui/pages.py
+msgid "Integrity"
+msgstr "Cjelovitost"
+
+#: ui/pages.py
+msgid "ISOs need a .md5 file to show their checksum on the download page."
+msgstr ""
+"ISO datoteke trebaju .md5 datoteku za prikaz kontrolnog zbroja na stranici "
+"za preuzimanje."
+
+#: ui/pages.py
+msgid "No MD5 checksum"
+msgstr "Nema MD5 kontrolnog zbroja"
+
+#: ui/pages.py
+msgid "Every ISO has an MD5 checksum"
+msgstr "Svaki ISO ima MD5 kontrolni zbroj"
+
+#: ui/pages.py
+msgid "Storage"
+msgstr "Pohrana"
+
+#: ui/pages.py
+#, python-brace-format
+msgid "{size} in {count} file"
+msgid_plural "{size} in {count} files"
+msgstr[0] "{size} u {count} datoteci"
+msgstr[1] "{size} u {count} datoteke"
+msgstr[2] "{size} u {count} datoteka"
 
 # File: usr/share/isovault/ui/preferences.py, line: 53
 #: ui/preferences.py
 msgid "S3 Config"
 msgstr "S3 Konfiguracija"
+
+# File: usr/share/isovault/ui/preferences.py, line: 157
+#: ui/preferences.py
+msgid "General"
+msgstr "Općenito"
+
+#: ui/preferences.py ui/window.py
+msgid "Settings"
+msgstr "Postavke"
+
+#: ui/preferences.py
+msgid "Storage connection, public download page and application behavior."
+msgstr ""
+"Veza s pohranom, javna stranica za preuzimanje i ponašanje aplikacije."
 
 # File: usr/share/isovault/ui/preferences.py, line: 60
 #: ui/preferences.py
@@ -364,11 +490,6 @@ msgstr "Testiraj vezu"
 msgid "Verify S3 credentials and connection"
 msgstr "Provjerite S3 vjerodajnice i vezu"
 
-# File: usr/share/isovault/ui/preferences.py, line: 157
-#: ui/preferences.py
-msgid "General"
-msgstr "Općenito"
-
 # File: usr/share/isovault/ui/preferences.py, line: 128
 #: ui/preferences.py
 msgid "Web Settings"
@@ -393,6 +514,37 @@ msgstr "Prikaži indeksne datoteke"
 #: ui/preferences.py
 msgid "Display index.html files in the file list"
 msgstr "Prikaži index.html datoteke na popisu datoteka"
+
+#: ui/preferences.py
+msgid "Application Behavior"
+msgstr "Ponašanje aplikacije"
+
+# File: usr/share/isovault/ui/preferences.py, line: 169
+#: ui/preferences.py
+msgid "Auto Refresh"
+msgstr "Automatsko osvježavanje"
+
+#: ui/preferences.py
+msgid "Automatically refresh file list after operations"
+msgstr "Automatski osvježi popis datoteka nakon operacija"
+
+# File: usr/share/isovault/ui/preferences.py, line: 203
+#: ui/preferences.py
+msgid "Confirm Deletions"
+msgstr "Potvrdi brisanja"
+
+#: ui/preferences.py
+msgid "Show confirmation dialog before deleting files"
+msgstr "Prikaži dijalog za potvrdu prije brisanja datoteka"
+
+# File: usr/share/isovault/ui/preferences.py, line: 216
+#: ui/preferences.py
+msgid "Auto Update Index"
+msgstr "Automatsko ažuriranje indeksa"
+
+#: ui/preferences.py
+msgid "Automatically update web index after file operations"
+msgstr "Automatski ažuriraj web indeks nakon operacija s datotekama"
 
 # File: usr/share/isovault/ui/preferences.py, line: 224
 # File: usr/share/isovault/ui/preferences.py, line: 232
@@ -479,80 +631,31 @@ msgstr "Mogu se prenijeti samo neprazne ISO i MD5 datoteke"
 msgid "Destination Folder"
 msgstr "Odredišna mapa"
 
-#: ui/upload_dialog.py
+#: ui/upload_dialog.py ui/window.py
 #, python-brace-format
 msgid "Upload to {folder}"
 msgstr "Prenesi u {folder}"
 
-# File: usr/share/isovault/ui/window.py, line: 117
 #: ui/window.py
-msgid "Filter by folder"
-msgstr "Filtriraj prema mapi"
-
-# File: usr/share/isovault/ui/components.py, line: 263
-#: ui/window.py
-msgid "All folders"
-msgstr "Sve mape"
-
-#: ui/window.py
-msgid "Selection"
-msgstr "Odabir"
-
-#: ui/window.py
-msgid "Select All"
-msgstr "Odaberi sve"
-
-#: ui/window.py
-msgid "Select None"
-msgstr "Poništi odabir"
-
-# File: usr/share/isovault/ui/components.py, line: 277
-#: ui/window.py
-msgid "Copy Link"
-msgstr "Kopiraj poveznicu"
-
-# File: usr/share/isovault/ui/window.py, line: 130
-#: ui/window.py
-msgid "Copy public URL"
-msgstr "Kopiraj javnu URL adresu"
-
-# File: usr/share/isovault/ui/window.py, line: 143
-#: ui/window.py
-msgid "Save file locally"
-msgstr "Spremi datoteku lokalno"
-
-# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
-# 
-# File: usr/share/isovault/ui/components.py, line: 291
-# File: usr/share/isovault/ui/dialogs.py, line: 107
-#: ui/window.py
-msgid "Delete"
-msgstr "Izbriši"
-
-# File: usr/share/isovault/ui/window.py, line: 156
-#: ui/window.py
-msgid "Remove from storage"
-msgstr "Ukloni iz pohrane"
-
-# File: usr/share/isovault/ui/preferences.py, line: 169
-#: ui/window.py
-msgid "Auto Refresh"
-msgstr "Automatsko osvježavanje"
-
-# File: usr/share/isovault/ui/preferences.py, line: 203
-#: ui/window.py
-msgid "Confirm Deletions"
-msgstr "Potvrdi brisanja"
-
-# File: usr/share/isovault/ui/preferences.py, line: 216
-#: ui/window.py
-msgid "Auto Update Index"
-msgstr "Automatsko ažuriranje indeksa"
+msgid "Show sidebar"
+msgstr "Prikaži bočnu traku"
 
 # File: usr/share/isovault/ui/window.py, line: 228
 #: ui/window.py
 msgid "Upload ISO"
 msgstr "Otpremi ISO"
+
+#: ui/window.py
+msgid "Search files..."
+msgstr "Pretraži datoteke..."
+
+# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
+# 
+# File: usr/share/isovault/ui/components.py, line: 372
+# File: usr/share/isovault/ui/preferences.py, line: 30
+#: ui/window.py
+msgid "Preferences"
+msgstr "Postavke"
 
 # File: usr/share/isovault/ui/components.py, line: 373
 #: ui/window.py
@@ -574,15 +677,61 @@ msgstr "O programu"
 msgid "Application menu"
 msgstr "Izbornik aplikacije"
 
-# File: usr/share/isovault/ui/window.py, line: 108
 #: ui/window.py
-msgid "Ready"
-msgstr "Spreman"
+msgid "ISO Files"
+msgstr "ISO datoteke"
+
+#: ui/window.py
+msgid "Connect to your storage"
+msgstr "Povežite se s pohranom"
 
 # File: usr/share/isovault/ui/window.py, line: 139
 #: ui/window.py
 msgid "Please configure S3 credentials in Preferences"
 msgstr "Molimo konfigurirajte S3 vjerodajnice u Postavkama"
+
+#: ui/window.py
+msgid "Open Preferences"
+msgstr "Otvori postavke"
+
+#: ui/window.py
+msgid "Manage your ISO files and make them available for download."
+msgstr ""
+"Upravljajte svojim ISO datotekama i učinite ih dostupnima za preuzimanje."
+
+#: ui/window.py
+msgid "List view"
+msgstr "Prikaz popisa"
+
+#: ui/window.py
+msgid "Grid view"
+msgstr "Prikaz mreže"
+
+# File: usr/share/isovault/ui/components.py, line: 263
+#: ui/window.py
+msgid "All folders"
+msgstr "Sve mape"
+
+# File: usr/share/isovault/ui/window.py, line: 117
+#: ui/window.py
+msgid "Filter by folder"
+msgstr "Filtriraj prema mapi"
+
+#: ui/window.py
+msgid "Save to Downloads folder"
+msgstr "Spremi u mapu Preuzimanja"
+
+#: ui/window.py
+msgid "More download options"
+msgstr "Više opcija preuzimanja"
+
+#: ui/window.py
+msgid "Select None"
+msgstr "Poništi odabir"
+
+#: ui/window.py
+msgid "More"
+msgstr "Više"
 
 # File: usr/share/isovault/ui/window.py, line: 195
 #: ui/window.py
@@ -591,16 +740,19 @@ msgstr "Upozorenje: Nije moguće povezati se na S3 pohranu"
 
 #: ui/window.py
 #, python-brace-format
-msgid "{selected} of {total} file selected"
-msgid_plural "{selected} of {total} files selected"
-msgstr[0] "Odabrana je {selected} od {total} datoteke"
-msgstr[1] "Odabrane su {selected} od {total} datoteke"
-msgstr[2] "Odabrano je {selected} od {total} datoteka"
+msgid "{visible} of {total} file"
+msgid_plural "{visible} of {total} files"
+msgstr[0] "{visible} od {total} datoteke"
+msgstr[1] "{visible} od {total} datoteke"
+msgstr[2] "{visible} od {total} datoteka"
 
-# File: usr/share/isovault/ui/dialogs.py, line: 213
 #: ui/window.py
-msgid "No files selected"
-msgstr "Nema odabranih datoteka"
+#, python-brace-format
+msgid "{count} file selected"
+msgid_plural "{count} files selected"
+msgstr[0] "Odabrana je {count} datoteka"
+msgstr[1] "Odabrane su {count} datoteke"
+msgstr[2] "Odabrano je {count} datoteka"
 
 #: ui/window.py
 msgid "Another operation is in progress"
@@ -737,6 +889,10 @@ msgstr "Brisanje dovršeno: {completed} uspješno, {failed} neuspješno"
 msgid "Index files updated!"
 msgstr "Datoteke indeksa ažurirane!"
 
+#: ui/window.py
+msgid "Public index update"
+msgstr "Ažuriranje javnog indeksa"
+
 # File: usr/share/isovault/ui/window.py, line: 593
 #: ui/window.py
 msgid "Updating index files..."
@@ -746,16 +902,6 @@ msgstr "Ažuriranje indeksnih datoteka..."
 #: ui/window.py
 msgid "Failed to update index files"
 msgstr "Neuspjelo ažuriranje indeksnih datoteka"
-
-# File: usr/share/isovault/ui/window.py, line: 487
-#: ui/window.py
-msgid "Loading files..."
-msgstr "Učitavanje datoteka..."
-
-# File: usr/share/isovault/ui/window.py, line: 686
-#: ui/window.py
-msgid "Failed to refresh file list"
-msgstr "Neuspjelo osvježavanje popisa datoteka"
 
 # File: usr/share/isovault/ui/window.py, line: 507
 #: ui/window.py

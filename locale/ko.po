@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: isovault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 11:37-0300\n"
+"POT-Creation-Date: 2026-10-09 13:54-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ko\n"
@@ -89,7 +89,7 @@ msgid "Home"
 msgstr "홈"
 
 # File: usr/share/isovault/ui/components.py, line: 284
-#: services/html_generator.py ui/window.py
+#: services/html_generator.py ui/file_browser.py ui/window.py
 msgid "Download"
 msgstr "다운로드"
 
@@ -149,36 +149,12 @@ msgstr "ISO 다운로드"
 msgid "... and {more_count} more files"
 msgstr "... 및 {more_count}개의 추가 파일"
 
-# File: usr/share/isovault/ui/components.py, line: 123
-#: ui/components.py
-msgid "File Name"
-msgstr "파일 이름"
-
-# File: usr/share/isovault/ui/components.py, line: 132
-#: ui/components.py
-msgid "Folder"
-msgstr "폴더"
-
-# File: usr/share/isovault/ui/components.py, line: 140
-#: ui/components.py
-msgid "Size"
-msgstr "크기"
-
-# File: usr/share/isovault/ui/components.py, line: 148
-#: ui/components.py
-msgid "Modified"
-msgstr "수정됨"
-
-#: ui/components.py
-msgid "Select"
-msgstr "선택"
-
 # File: usr/share/isovault/ui/dialogs.py, line: 102
-#: ui/delete_dialog.py
+#: ui/delete_dialog.py ui/window.py
 msgid "Delete File"
 msgstr "파일 삭제"
 
-#: ui/delete_dialog.py
+#: ui/delete_dialog.py ui/window.py
 msgid "Delete Files"
 msgstr "파일 삭제"
 
@@ -289,18 +265,161 @@ msgstr "CDN77 스토리지용 ISO 파일 관리자"
 msgid "OK"
 msgstr "확인"
 
+# File: usr/share/isovault/ui/components.py, line: 277
+#: ui/file_browser.py ui/window.py
+msgid "Copy Link"
+msgstr "링크 복사"
+
 # #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
 # 
-# File: usr/share/isovault/ui/components.py, line: 372
-# File: usr/share/isovault/ui/preferences.py, line: 30
-#: ui/preferences.py ui/window.py
-msgid "Preferences"
-msgstr "환경 설정"
+# File: usr/share/isovault/ui/components.py, line: 291
+# File: usr/share/isovault/ui/dialogs.py, line: 107
+#: ui/file_browser.py ui/window.py
+msgid "Delete"
+msgstr "삭제"
+
+#: ui/file_browser.py ui/window.py
+msgid "Select All"
+msgstr "모두 선택"
+
+# File: usr/share/isovault/ui/components.py, line: 123
+#: ui/file_browser.py
+msgid "File Name"
+msgstr "파일 이름"
+
+#: ui/file_browser.py
+msgid "Distribution"
+msgstr "배포판"
+
+# File: usr/share/isovault/ui/components.py, line: 140
+#: ui/file_browser.py
+msgid "Size"
+msgstr "크기"
+
+# File: usr/share/isovault/ui/components.py, line: 148
+#: ui/file_browser.py
+msgid "Modified"
+msgstr "수정됨"
+
+#: ui/file_browser.py
+msgid "Actions"
+msgstr "작업"
+
+#: ui/file_browser.py
+msgid "Select"
+msgstr "선택"
+
+#: ui/file_browser.py
+msgid "No results"
+msgstr "결과 없음"
+
+#: ui/file_browser.py
+#, python-brace-format
+msgid "No file matches “{text}”"
+msgstr "“{text}”와(과) 일치하는 파일이 없습니다"
+
+#: ui/file_browser.py
+msgid "No files"
+msgstr "파일 없음"
+
+#: ui/file_browser.py
+msgid "Upload an ISO to get started"
+msgstr "시작하려면 ISO를 업로드하세요"
+
+#: ui/pages.py ui/window.py
+msgid "Transfers"
+msgstr "전송"
+
+#: ui/pages.py
+msgid "Uploads, downloads and deletions made in this session."
+msgstr "이 세션에서 수행한 업로드, 다운로드 및 삭제입니다."
+
+#: ui/pages.py
+msgid "No transfers yet"
+msgstr "아직 전송 내역이 없습니다"
+
+#: ui/pages.py
+msgid "Uploads, downloads and deletions will appear here."
+msgstr "업로드, 다운로드 및 삭제가 여기에 표시됩니다."
+
+#: ui/pages.py ui/window.py
+msgid "Statistics"
+msgstr "통계"
+
+#: ui/pages.py
+msgid "Overview of the ISO repository."
+msgstr "ISO 저장소 개요입니다."
+
+#: ui/pages.py
+msgid "ISO images"
+msgstr "ISO 이미지"
+
+#: ui/pages.py
+msgid "MD5 checksums"
+msgstr "MD5 체크섬"
+
+#: ui/pages.py
+msgid "Space used"
+msgstr "사용 중인 공간"
+
+#: ui/pages.py
+msgid "By distribution"
+msgstr "배포판별"
+
+#: ui/pages.py
+#, python-brace-format
+msgid "{count} ISO · {size}"
+msgid_plural "{count} ISOs · {size}"
+msgstr[0] "ISO {count}개 · {size}"
+
+#: ui/pages.py
+#, python-brace-format
+msgid "Latest: {date}"
+msgstr "최신: {date}"
+
+#: ui/pages.py
+msgid "Integrity"
+msgstr "무결성"
+
+#: ui/pages.py
+msgid "ISOs need a .md5 file to show their checksum on the download page."
+msgstr "다운로드 페이지에 체크섬을 표시하려면 ISO에 .md5 파일이 필요합니다."
+
+#: ui/pages.py
+msgid "No MD5 checksum"
+msgstr "MD5 체크섬 없음"
+
+#: ui/pages.py
+msgid "Every ISO has an MD5 checksum"
+msgstr "모든 ISO에 MD5 체크섬이 있습니다"
+
+#: ui/pages.py
+msgid "Storage"
+msgstr "저장소"
+
+#: ui/pages.py
+#, python-brace-format
+msgid "{size} in {count} file"
+msgid_plural "{size} in {count} files"
+msgstr[0] "파일 {count}개에 {size}"
 
 # File: usr/share/isovault/ui/preferences.py, line: 53
 #: ui/preferences.py
 msgid "S3 Config"
 msgstr "S3 구성"
+
+# File: usr/share/isovault/ui/preferences.py, line: 157
+#: ui/preferences.py
+msgid "General"
+msgstr "일반"
+
+#: ui/preferences.py ui/window.py
+msgid "Settings"
+msgstr "설정"
+
+#: ui/preferences.py
+msgid "Storage connection, public download page and application behavior."
+msgstr "저장소 연결, 공개 다운로드 페이지 및 애플리케이션 동작."
 
 # File: usr/share/isovault/ui/preferences.py, line: 60
 #: ui/preferences.py
@@ -359,11 +478,6 @@ msgstr "연결 테스트"
 msgid "Verify S3 credentials and connection"
 msgstr "S3 자격 증명 및 연결 확인"
 
-# File: usr/share/isovault/ui/preferences.py, line: 157
-#: ui/preferences.py
-msgid "General"
-msgstr "일반"
-
 # File: usr/share/isovault/ui/preferences.py, line: 128
 #: ui/preferences.py
 msgid "Web Settings"
@@ -388,6 +502,37 @@ msgstr "인덱스 파일 표시"
 #: ui/preferences.py
 msgid "Display index.html files in the file list"
 msgstr "파일 목록에 index.html 파일 표시"
+
+#: ui/preferences.py
+msgid "Application Behavior"
+msgstr "애플리케이션 동작"
+
+# File: usr/share/isovault/ui/preferences.py, line: 169
+#: ui/preferences.py
+msgid "Auto Refresh"
+msgstr "자동 새로 고침"
+
+#: ui/preferences.py
+msgid "Automatically refresh file list after operations"
+msgstr "작업 후 파일 목록 자동 새로 고침"
+
+# File: usr/share/isovault/ui/preferences.py, line: 203
+#: ui/preferences.py
+msgid "Confirm Deletions"
+msgstr "삭제 확인"
+
+#: ui/preferences.py
+msgid "Show confirmation dialog before deleting files"
+msgstr "파일 삭제 전에 확인 대화상자를 표시합니다."
+
+# File: usr/share/isovault/ui/preferences.py, line: 216
+#: ui/preferences.py
+msgid "Auto Update Index"
+msgstr "자동 업데이트 인덱스"
+
+#: ui/preferences.py
+msgid "Automatically update web index after file operations"
+msgstr "파일 작업 후 웹 인덱스를 자동으로 업데이트합니다."
 
 # File: usr/share/isovault/ui/preferences.py, line: 224
 # File: usr/share/isovault/ui/preferences.py, line: 232
@@ -469,80 +614,31 @@ msgstr "비어 있지 않은 ISO 및 MD5 파일만 업로드할 수 있습니다
 msgid "Destination Folder"
 msgstr "대상 폴더"
 
-#: ui/upload_dialog.py
+#: ui/upload_dialog.py ui/window.py
 #, python-brace-format
 msgid "Upload to {folder}"
 msgstr "{folder}에 업로드"
 
-# File: usr/share/isovault/ui/window.py, line: 117
 #: ui/window.py
-msgid "Filter by folder"
-msgstr "폴더로 필터링"
-
-# File: usr/share/isovault/ui/components.py, line: 263
-#: ui/window.py
-msgid "All folders"
-msgstr "모든 폴더"
-
-#: ui/window.py
-msgid "Selection"
-msgstr "선택"
-
-#: ui/window.py
-msgid "Select All"
-msgstr "모두 선택"
-
-#: ui/window.py
-msgid "Select None"
-msgstr "선택 해제"
-
-# File: usr/share/isovault/ui/components.py, line: 277
-#: ui/window.py
-msgid "Copy Link"
-msgstr "링크 복사"
-
-# File: usr/share/isovault/ui/window.py, line: 130
-#: ui/window.py
-msgid "Copy public URL"
-msgstr "공용 URL 복사"
-
-# File: usr/share/isovault/ui/window.py, line: 143
-#: ui/window.py
-msgid "Save file locally"
-msgstr "로컬에 파일 저장"
-
-# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
-# 
-# File: usr/share/isovault/ui/components.py, line: 291
-# File: usr/share/isovault/ui/dialogs.py, line: 107
-#: ui/window.py
-msgid "Delete"
-msgstr "삭제"
-
-# File: usr/share/isovault/ui/window.py, line: 156
-#: ui/window.py
-msgid "Remove from storage"
-msgstr "저장소에서 제거"
-
-# File: usr/share/isovault/ui/preferences.py, line: 169
-#: ui/window.py
-msgid "Auto Refresh"
-msgstr "자동 새로 고침"
-
-# File: usr/share/isovault/ui/preferences.py, line: 203
-#: ui/window.py
-msgid "Confirm Deletions"
-msgstr "삭제 확인"
-
-# File: usr/share/isovault/ui/preferences.py, line: 216
-#: ui/window.py
-msgid "Auto Update Index"
-msgstr "자동 업데이트 인덱스"
+msgid "Show sidebar"
+msgstr "사이드바 표시"
 
 # File: usr/share/isovault/ui/window.py, line: 228
 #: ui/window.py
 msgid "Upload ISO"
 msgstr "ISO 업로드"
+
+#: ui/window.py
+msgid "Search files..."
+msgstr "파일 검색..."
+
+# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
+# 
+# File: usr/share/isovault/ui/components.py, line: 372
+# File: usr/share/isovault/ui/preferences.py, line: 30
+#: ui/window.py
+msgid "Preferences"
+msgstr "환경 설정"
 
 # File: usr/share/isovault/ui/components.py, line: 373
 #: ui/window.py
@@ -564,15 +660,60 @@ msgstr "정보"
 msgid "Application menu"
 msgstr "애플리케이션 메뉴"
 
-# File: usr/share/isovault/ui/window.py, line: 108
 #: ui/window.py
-msgid "Ready"
-msgstr "준비 완료"
+msgid "ISO Files"
+msgstr "ISO 파일"
+
+#: ui/window.py
+msgid "Connect to your storage"
+msgstr "저장소에 연결"
 
 # File: usr/share/isovault/ui/window.py, line: 139
 #: ui/window.py
 msgid "Please configure S3 credentials in Preferences"
 msgstr "환경 설정에서 S3 자격 증명을 구성해 주십시오."
+
+#: ui/window.py
+msgid "Open Preferences"
+msgstr "환경설정 열기"
+
+#: ui/window.py
+msgid "Manage your ISO files and make them available for download."
+msgstr "ISO 파일을 관리하고 다운로드할 수 있도록 공개하세요."
+
+#: ui/window.py
+msgid "List view"
+msgstr "목록 보기"
+
+#: ui/window.py
+msgid "Grid view"
+msgstr "격자 보기"
+
+# File: usr/share/isovault/ui/components.py, line: 263
+#: ui/window.py
+msgid "All folders"
+msgstr "모든 폴더"
+
+# File: usr/share/isovault/ui/window.py, line: 117
+#: ui/window.py
+msgid "Filter by folder"
+msgstr "폴더로 필터링"
+
+#: ui/window.py
+msgid "Save to Downloads folder"
+msgstr "다운로드 폴더에 저장"
+
+#: ui/window.py
+msgid "More download options"
+msgstr "다운로드 옵션 더 보기"
+
+#: ui/window.py
+msgid "Select None"
+msgstr "선택 해제"
+
+#: ui/window.py
+msgid "More"
+msgstr "더 보기"
 
 # File: usr/share/isovault/ui/window.py, line: 195
 #: ui/window.py
@@ -581,14 +722,15 @@ msgstr "경고: S3 저장소에 연결할 수 없습니다."
 
 #: ui/window.py
 #, python-brace-format
-msgid "{selected} of {total} file selected"
-msgid_plural "{selected} of {total} files selected"
-msgstr[0] "{total}개 중 {selected}개 선택됨"
+msgid "{visible} of {total} file"
+msgid_plural "{visible} of {total} files"
+msgstr[0] "파일 {total}개 중 {visible}개"
 
-# File: usr/share/isovault/ui/dialogs.py, line: 213
 #: ui/window.py
-msgid "No files selected"
-msgstr "선택된 파일이 없습니다"
+#, python-brace-format
+msgid "{count} file selected"
+msgid_plural "{count} files selected"
+msgstr[0] "파일 {count}개 선택됨"
 
 #: ui/window.py
 msgid "Another operation is in progress"
@@ -723,6 +865,10 @@ msgstr "삭제 완료: {completed}개 성공, {failed}개 실패"
 msgid "Index files updated!"
 msgstr "인덱스 파일이 업데이트되었습니다!"
 
+#: ui/window.py
+msgid "Public index update"
+msgstr "공개 인덱스 업데이트"
+
 # File: usr/share/isovault/ui/window.py, line: 593
 #: ui/window.py
 msgid "Updating index files..."
@@ -732,16 +878,6 @@ msgstr "인덱스 파일 업데이트 중..."
 #: ui/window.py
 msgid "Failed to update index files"
 msgstr "인덱스 파일을 업데이트하지 못했습니다."
-
-# File: usr/share/isovault/ui/window.py, line: 487
-#: ui/window.py
-msgid "Loading files..."
-msgstr "파일 로딩 중..."
-
-# File: usr/share/isovault/ui/window.py, line: 686
-#: ui/window.py
-msgid "Failed to refresh file list"
-msgstr "파일 목록을 새로 고치지 못했습니다."
 
 # File: usr/share/isovault/ui/window.py, line: 507
 #: ui/window.py

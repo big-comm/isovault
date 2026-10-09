@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: isovault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 11:37-0300\n"
+"POT-Creation-Date: 2026-10-09 13:54-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: cs\n"
@@ -89,7 +89,7 @@ msgid "Home"
 msgstr "Domů"
 
 # File: usr/share/isovault/ui/components.py, line: 284
-#: services/html_generator.py ui/window.py
+#: services/html_generator.py ui/file_browser.py ui/window.py
 msgid "Download"
 msgstr "Stáhnout"
 
@@ -149,36 +149,12 @@ msgstr "Stáhnout ISO"
 msgid "... and {more_count} more files"
 msgstr "... a {more_count} dalších souborů"
 
-# File: usr/share/isovault/ui/components.py, line: 123
-#: ui/components.py
-msgid "File Name"
-msgstr "Název souboru"
-
-# File: usr/share/isovault/ui/components.py, line: 132
-#: ui/components.py
-msgid "Folder"
-msgstr "Složka"
-
-# File: usr/share/isovault/ui/components.py, line: 140
-#: ui/components.py
-msgid "Size"
-msgstr "Velikost"
-
-# File: usr/share/isovault/ui/components.py, line: 148
-#: ui/components.py
-msgid "Modified"
-msgstr "Upraveno"
-
-#: ui/components.py
-msgid "Select"
-msgstr "Vybrat"
-
 # File: usr/share/isovault/ui/dialogs.py, line: 102
-#: ui/delete_dialog.py
+#: ui/delete_dialog.py ui/window.py
 msgid "Delete File"
 msgstr "Smazat soubor"
 
-#: ui/delete_dialog.py
+#: ui/delete_dialog.py ui/window.py
 msgid "Delete Files"
 msgstr "Smazat soubory"
 
@@ -293,18 +269,167 @@ msgstr "ISO správce souborů pro CDN77 úložiště"
 msgid "OK"
 msgstr "OK"
 
+# File: usr/share/isovault/ui/components.py, line: 277
+#: ui/file_browser.py ui/window.py
+msgid "Copy Link"
+msgstr "Kopírovat odkaz"
+
 # #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
 # 
-# File: usr/share/isovault/ui/components.py, line: 372
-# File: usr/share/isovault/ui/preferences.py, line: 30
-#: ui/preferences.py ui/window.py
-msgid "Preferences"
-msgstr "Nastavení"
+# File: usr/share/isovault/ui/components.py, line: 291
+# File: usr/share/isovault/ui/dialogs.py, line: 107
+#: ui/file_browser.py ui/window.py
+msgid "Delete"
+msgstr "Smazat"
+
+#: ui/file_browser.py ui/window.py
+msgid "Select All"
+msgstr "Vybrat vše"
+
+# File: usr/share/isovault/ui/components.py, line: 123
+#: ui/file_browser.py
+msgid "File Name"
+msgstr "Název souboru"
+
+#: ui/file_browser.py
+msgid "Distribution"
+msgstr "Distribuce"
+
+# File: usr/share/isovault/ui/components.py, line: 140
+#: ui/file_browser.py
+msgid "Size"
+msgstr "Velikost"
+
+# File: usr/share/isovault/ui/components.py, line: 148
+#: ui/file_browser.py
+msgid "Modified"
+msgstr "Upraveno"
+
+#: ui/file_browser.py
+msgid "Actions"
+msgstr "Akce"
+
+#: ui/file_browser.py
+msgid "Select"
+msgstr "Vybrat"
+
+#: ui/file_browser.py
+msgid "No results"
+msgstr "Žádné výsledky"
+
+#: ui/file_browser.py
+#, python-brace-format
+msgid "No file matches “{text}”"
+msgstr "Žádný soubor neodpovídá „{text}“"
+
+#: ui/file_browser.py
+msgid "No files"
+msgstr "Žádné soubory"
+
+#: ui/file_browser.py
+msgid "Upload an ISO to get started"
+msgstr "Pro začátek nahrajte ISO"
+
+#: ui/pages.py ui/window.py
+msgid "Transfers"
+msgstr "Přenosy"
+
+#: ui/pages.py
+msgid "Uploads, downloads and deletions made in this session."
+msgstr "Nahrávání, stahování a mazání v této relaci."
+
+#: ui/pages.py
+msgid "No transfers yet"
+msgstr "Zatím žádné přenosy"
+
+#: ui/pages.py
+msgid "Uploads, downloads and deletions will appear here."
+msgstr "Nahrávání, stahování a mazání se zobrazí zde."
+
+#: ui/pages.py ui/window.py
+msgid "Statistics"
+msgstr "Statistiky"
+
+#: ui/pages.py
+msgid "Overview of the ISO repository."
+msgstr "Přehled úložiště ISO."
+
+#: ui/pages.py
+msgid "ISO images"
+msgstr "Obrazy ISO"
+
+#: ui/pages.py
+msgid "MD5 checksums"
+msgstr "Kontrolní součty MD5"
+
+#: ui/pages.py
+msgid "Space used"
+msgstr "Využité místo"
+
+#: ui/pages.py
+msgid "By distribution"
+msgstr "Podle distribuce"
+
+#: ui/pages.py
+#, python-brace-format
+msgid "{count} ISO · {size}"
+msgid_plural "{count} ISOs · {size}"
+msgstr[0] "{count} ISO · {size}"
+msgstr[1] "{count} ISO · {size}"
+msgstr[2] "{count} ISO · {size}"
+
+#: ui/pages.py
+#, python-brace-format
+msgid "Latest: {date}"
+msgstr "Poslední: {date}"
+
+#: ui/pages.py
+msgid "Integrity"
+msgstr "Integrita"
+
+#: ui/pages.py
+msgid "ISOs need a .md5 file to show their checksum on the download page."
+msgstr ""
+"ISO soubory potřebují soubor .md5, aby se jejich kontrolní součet zobrazil "
+"na stránce stahování."
+
+#: ui/pages.py
+msgid "No MD5 checksum"
+msgstr "Žádný kontrolní součet MD5"
+
+#: ui/pages.py
+msgid "Every ISO has an MD5 checksum"
+msgstr "Všechna ISO mají kontrolní součet MD5"
+
+#: ui/pages.py
+msgid "Storage"
+msgstr "Úložiště"
+
+#: ui/pages.py
+#, python-brace-format
+msgid "{size} in {count} file"
+msgid_plural "{size} in {count} files"
+msgstr[0] "{size} v {count} souboru"
+msgstr[1] "{size} ve {count} souborech"
+msgstr[2] "{size} v {count} souborech"
 
 # File: usr/share/isovault/ui/preferences.py, line: 53
 #: ui/preferences.py
 msgid "S3 Config"
 msgstr "S3 Konfigurace"
+
+# File: usr/share/isovault/ui/preferences.py, line: 157
+#: ui/preferences.py
+msgid "General"
+msgstr "Obecné"
+
+#: ui/preferences.py ui/window.py
+msgid "Settings"
+msgstr "Nastavení"
+
+#: ui/preferences.py
+msgid "Storage connection, public download page and application behavior."
+msgstr "Připojení k úložišti, veřejná stránka ke stažení a chování aplikace."
 
 # File: usr/share/isovault/ui/preferences.py, line: 60
 #: ui/preferences.py
@@ -363,11 +488,6 @@ msgstr "Otestovat připojení"
 msgid "Verify S3 credentials and connection"
 msgstr "Ověřte S3 přihlašovací údaje a připojení"
 
-# File: usr/share/isovault/ui/preferences.py, line: 157
-#: ui/preferences.py
-msgid "General"
-msgstr "Obecné"
-
 # File: usr/share/isovault/ui/preferences.py, line: 128
 #: ui/preferences.py
 msgid "Web Settings"
@@ -392,6 +512,37 @@ msgstr "Zobrazit indexové soubory"
 #: ui/preferences.py
 msgid "Display index.html files in the file list"
 msgstr "Zobrazit soubory index.html v seznamu souborů"
+
+#: ui/preferences.py
+msgid "Application Behavior"
+msgstr "Chování aplikace"
+
+# File: usr/share/isovault/ui/preferences.py, line: 169
+#: ui/preferences.py
+msgid "Auto Refresh"
+msgstr "Automatické obnovení"
+
+#: ui/preferences.py
+msgid "Automatically refresh file list after operations"
+msgstr "Automaticky aktualizovat seznam souborů po operacích"
+
+# File: usr/share/isovault/ui/preferences.py, line: 203
+#: ui/preferences.py
+msgid "Confirm Deletions"
+msgstr "Potvrdit smazání"
+
+#: ui/preferences.py
+msgid "Show confirmation dialog before deleting files"
+msgstr "Zobrazit potvrzovací dialog před smazáním souborů"
+
+# File: usr/share/isovault/ui/preferences.py, line: 216
+#: ui/preferences.py
+msgid "Auto Update Index"
+msgstr "Automatická aktualizace indexu"
+
+#: ui/preferences.py
+msgid "Automatically update web index after file operations"
+msgstr "Automaticky aktualizovat webový index po operacích se soubory"
 
 # File: usr/share/isovault/ui/preferences.py, line: 224
 # File: usr/share/isovault/ui/preferences.py, line: 232
@@ -479,80 +630,31 @@ msgstr "Lze nahrát pouze neprázdné soubory ISO a MD5"
 msgid "Destination Folder"
 msgstr "Cílová složka"
 
-#: ui/upload_dialog.py
+#: ui/upload_dialog.py ui/window.py
 #, python-brace-format
 msgid "Upload to {folder}"
 msgstr "Nahrát do {folder}"
 
-# File: usr/share/isovault/ui/window.py, line: 117
 #: ui/window.py
-msgid "Filter by folder"
-msgstr "Filtruj podle složky"
-
-# File: usr/share/isovault/ui/components.py, line: 263
-#: ui/window.py
-msgid "All folders"
-msgstr "Všechny složky"
-
-#: ui/window.py
-msgid "Selection"
-msgstr "Výběr"
-
-#: ui/window.py
-msgid "Select All"
-msgstr "Vybrat vše"
-
-#: ui/window.py
-msgid "Select None"
-msgstr "Zrušit výběr"
-
-# File: usr/share/isovault/ui/components.py, line: 277
-#: ui/window.py
-msgid "Copy Link"
-msgstr "Kopírovat odkaz"
-
-# File: usr/share/isovault/ui/window.py, line: 130
-#: ui/window.py
-msgid "Copy public URL"
-msgstr "Kopírovat veřejnou URL"
-
-# File: usr/share/isovault/ui/window.py, line: 143
-#: ui/window.py
-msgid "Save file locally"
-msgstr "Uložit soubor lokálně"
-
-# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
-# 
-# File: usr/share/isovault/ui/components.py, line: 291
-# File: usr/share/isovault/ui/dialogs.py, line: 107
-#: ui/window.py
-msgid "Delete"
-msgstr "Smazat"
-
-# File: usr/share/isovault/ui/window.py, line: 156
-#: ui/window.py
-msgid "Remove from storage"
-msgstr "Odstranit ze skladu"
-
-# File: usr/share/isovault/ui/preferences.py, line: 169
-#: ui/window.py
-msgid "Auto Refresh"
-msgstr "Automatické obnovení"
-
-# File: usr/share/isovault/ui/preferences.py, line: 203
-#: ui/window.py
-msgid "Confirm Deletions"
-msgstr "Potvrdit smazání"
-
-# File: usr/share/isovault/ui/preferences.py, line: 216
-#: ui/window.py
-msgid "Auto Update Index"
-msgstr "Automatická aktualizace indexu"
+msgid "Show sidebar"
+msgstr "Zobrazit postranní panel"
 
 # File: usr/share/isovault/ui/window.py, line: 228
 #: ui/window.py
 msgid "Upload ISO"
 msgstr "Nahrát ISO"
+
+#: ui/window.py
+msgid "Search files..."
+msgstr "Hledat soubory..."
+
+# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
+# 
+# File: usr/share/isovault/ui/components.py, line: 372
+# File: usr/share/isovault/ui/preferences.py, line: 30
+#: ui/window.py
+msgid "Preferences"
+msgstr "Nastavení"
 
 # File: usr/share/isovault/ui/components.py, line: 373
 #: ui/window.py
@@ -574,15 +676,60 @@ msgstr "O aplikaci"
 msgid "Application menu"
 msgstr "Nabídka aplikace"
 
-# File: usr/share/isovault/ui/window.py, line: 108
 #: ui/window.py
-msgid "Ready"
-msgstr "Připraveno"
+msgid "ISO Files"
+msgstr "ISO soubory"
+
+#: ui/window.py
+msgid "Connect to your storage"
+msgstr "Připojte se ke svému úložišti"
 
 # File: usr/share/isovault/ui/window.py, line: 139
 #: ui/window.py
 msgid "Please configure S3 credentials in Preferences"
 msgstr "Prosím, nakonfigurujte S3 přihlašovací údaje v Nastavení"
+
+#: ui/window.py
+msgid "Open Preferences"
+msgstr "Otevřít nastavení"
+
+#: ui/window.py
+msgid "Manage your ISO files and make them available for download."
+msgstr "Spravujte své ISO soubory a zpřístupněte je ke stažení."
+
+#: ui/window.py
+msgid "List view"
+msgstr "Zobrazení seznamu"
+
+#: ui/window.py
+msgid "Grid view"
+msgstr "Zobrazení mřížky"
+
+# File: usr/share/isovault/ui/components.py, line: 263
+#: ui/window.py
+msgid "All folders"
+msgstr "Všechny složky"
+
+# File: usr/share/isovault/ui/window.py, line: 117
+#: ui/window.py
+msgid "Filter by folder"
+msgstr "Filtruj podle složky"
+
+#: ui/window.py
+msgid "Save to Downloads folder"
+msgstr "Uložit do složky Stažené soubory"
+
+#: ui/window.py
+msgid "More download options"
+msgstr "Další možnosti stahování"
+
+#: ui/window.py
+msgid "Select None"
+msgstr "Zrušit výběr"
+
+#: ui/window.py
+msgid "More"
+msgstr "Více"
 
 # File: usr/share/isovault/ui/window.py, line: 195
 #: ui/window.py
@@ -591,16 +738,19 @@ msgstr "Upozornění: Nelze se připojit k úložišti S3"
 
 #: ui/window.py
 #, python-brace-format
-msgid "{selected} of {total} file selected"
-msgid_plural "{selected} of {total} files selected"
-msgstr[0] "Vybrán {selected} z {total} souboru"
-msgstr[1] "Vybrány {selected} z {total} souborů"
-msgstr[2] "Vybráno {selected} z {total} souborů"
+msgid "{visible} of {total} file"
+msgid_plural "{visible} of {total} files"
+msgstr[0] "{visible} z {total} souboru"
+msgstr[1] "{visible} z {total} souborů"
+msgstr[2] "{visible} z {total} souborů"
 
-# File: usr/share/isovault/ui/dialogs.py, line: 213
 #: ui/window.py
-msgid "No files selected"
-msgstr "Žádné soubory nejsou vybrány"
+#, python-brace-format
+msgid "{count} file selected"
+msgid_plural "{count} files selected"
+msgstr[0] "Vybrán {count} soubor"
+msgstr[1] "Vybrány {count} soubory"
+msgstr[2] "Vybráno {count} souborů"
 
 #: ui/window.py
 msgid "Another operation is in progress"
@@ -737,6 +887,10 @@ msgstr "Mazání dokončeno: {completed} úspěšných, {failed} neúspěšných
 msgid "Index files updated!"
 msgstr "Indexové soubory byly aktualizovány!"
 
+#: ui/window.py
+msgid "Public index update"
+msgstr "Aktualizace veřejného indexu"
+
 # File: usr/share/isovault/ui/window.py, line: 593
 #: ui/window.py
 msgid "Updating index files..."
@@ -746,16 +900,6 @@ msgstr "Aktualizace indexových souborů..."
 #: ui/window.py
 msgid "Failed to update index files"
 msgstr "Nepodařilo se aktualizovat indexové soubory"
-
-# File: usr/share/isovault/ui/window.py, line: 487
-#: ui/window.py
-msgid "Loading files..."
-msgstr "Načítání souborů..."
-
-# File: usr/share/isovault/ui/window.py, line: 686
-#: ui/window.py
-msgid "Failed to refresh file list"
-msgstr "Nepodařilo se obnovit seznam souborů"
 
 # File: usr/share/isovault/ui/window.py, line: 507
 #: ui/window.py

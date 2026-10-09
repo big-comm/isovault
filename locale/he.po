@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: isovault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 11:37-0300\n"
+"POT-Creation-Date: 2026-10-09 13:54-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: he\n"
@@ -89,7 +89,7 @@ msgid "Home"
 msgstr "דף הבית"
 
 # File: usr/share/isovault/ui/components.py, line: 284
-#: services/html_generator.py ui/window.py
+#: services/html_generator.py ui/file_browser.py ui/window.py
 msgid "Download"
 msgstr "הורדה"
 
@@ -149,36 +149,12 @@ msgstr "הורד ISO"
 msgid "... and {more_count} more files"
 msgstr "... ו-{more_count} קבצים נוספים"
 
-# File: usr/share/isovault/ui/components.py, line: 123
-#: ui/components.py
-msgid "File Name"
-msgstr "שם קובץ"
-
-# File: usr/share/isovault/ui/components.py, line: 132
-#: ui/components.py
-msgid "Folder"
-msgstr "תיקייה"
-
-# File: usr/share/isovault/ui/components.py, line: 140
-#: ui/components.py
-msgid "Size"
-msgstr "גודל"
-
-# File: usr/share/isovault/ui/components.py, line: 148
-#: ui/components.py
-msgid "Modified"
-msgstr "שונה"
-
-#: ui/components.py
-msgid "Select"
-msgstr "בחירה"
-
 # File: usr/share/isovault/ui/dialogs.py, line: 102
-#: ui/delete_dialog.py
+#: ui/delete_dialog.py ui/window.py
 msgid "Delete File"
 msgstr "מחק קובץ"
 
-#: ui/delete_dialog.py
+#: ui/delete_dialog.py ui/window.py
 msgid "Delete Files"
 msgstr "מחיקת קבצים"
 
@@ -291,18 +267,163 @@ msgstr "מנהל קבצי ISO לאחסון CDN77"
 msgid "OK"
 msgstr "אוקי"
 
+# File: usr/share/isovault/ui/components.py, line: 277
+#: ui/file_browser.py ui/window.py
+msgid "Copy Link"
+msgstr "העתק קישור"
+
 # #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
 # 
-# File: usr/share/isovault/ui/components.py, line: 372
-# File: usr/share/isovault/ui/preferences.py, line: 30
-#: ui/preferences.py ui/window.py
-msgid "Preferences"
-msgstr "העדפות"
+# File: usr/share/isovault/ui/components.py, line: 291
+# File: usr/share/isovault/ui/dialogs.py, line: 107
+#: ui/file_browser.py ui/window.py
+msgid "Delete"
+msgstr "מחק"
+
+#: ui/file_browser.py ui/window.py
+msgid "Select All"
+msgstr "בחירת הכול"
+
+# File: usr/share/isovault/ui/components.py, line: 123
+#: ui/file_browser.py
+msgid "File Name"
+msgstr "שם קובץ"
+
+#: ui/file_browser.py
+msgid "Distribution"
+msgstr "הפצה"
+
+# File: usr/share/isovault/ui/components.py, line: 140
+#: ui/file_browser.py
+msgid "Size"
+msgstr "גודל"
+
+# File: usr/share/isovault/ui/components.py, line: 148
+#: ui/file_browser.py
+msgid "Modified"
+msgstr "שונה"
+
+#: ui/file_browser.py
+msgid "Actions"
+msgstr "פעולות"
+
+#: ui/file_browser.py
+msgid "Select"
+msgstr "בחירה"
+
+#: ui/file_browser.py
+msgid "No results"
+msgstr "אין תוצאות"
+
+#: ui/file_browser.py
+#, python-brace-format
+msgid "No file matches “{text}”"
+msgstr "אין קובץ התואם ל-“{text}”"
+
+#: ui/file_browser.py
+msgid "No files"
+msgstr "אין קבצים"
+
+#: ui/file_browser.py
+msgid "Upload an ISO to get started"
+msgstr "העלו קובץ ISO כדי להתחיל"
+
+#: ui/pages.py ui/window.py
+msgid "Transfers"
+msgstr "העברות"
+
+#: ui/pages.py
+msgid "Uploads, downloads and deletions made in this session."
+msgstr "העלאות, הורדות ומחיקות שבוצעו בהפעלה זו."
+
+#: ui/pages.py
+msgid "No transfers yet"
+msgstr "עדיין אין העברות"
+
+#: ui/pages.py
+msgid "Uploads, downloads and deletions will appear here."
+msgstr "העלאות, הורדות ומחיקות יופיעו כאן."
+
+#: ui/pages.py ui/window.py
+msgid "Statistics"
+msgstr "סטטיסטיקה"
+
+#: ui/pages.py
+msgid "Overview of the ISO repository."
+msgstr "סקירה כללית של מאגר ה-ISO."
+
+#: ui/pages.py
+msgid "ISO images"
+msgstr "קובצי ISO"
+
+#: ui/pages.py
+msgid "MD5 checksums"
+msgstr "סיכומי ביקורת MD5"
+
+#: ui/pages.py
+msgid "Space used"
+msgstr "שטח בשימוש"
+
+#: ui/pages.py
+msgid "By distribution"
+msgstr "לפי הפצה"
+
+#: ui/pages.py
+#, python-brace-format
+msgid "{count} ISO · {size}"
+msgid_plural "{count} ISOs · {size}"
+msgstr[0] "{count} ISO · {size}"
+msgstr[1] "{count} ISO · {size}"
+
+#: ui/pages.py
+#, python-brace-format
+msgid "Latest: {date}"
+msgstr "אחרון: {date}"
+
+#: ui/pages.py
+msgid "Integrity"
+msgstr "שלמות"
+
+#: ui/pages.py
+msgid "ISOs need a .md5 file to show their checksum on the download page."
+msgstr "קובצי ISO זקוקים לקובץ .md5 כדי שסכום הביקורת שלהם יוצג בדף ההורדה."
+
+#: ui/pages.py
+msgid "No MD5 checksum"
+msgstr "אין סכום ביקורת MD5"
+
+#: ui/pages.py
+msgid "Every ISO has an MD5 checksum"
+msgstr "לכל ISO יש סכום ביקורת MD5"
+
+#: ui/pages.py
+msgid "Storage"
+msgstr "אחסון"
+
+#: ui/pages.py
+#, python-brace-format
+msgid "{size} in {count} file"
+msgid_plural "{size} in {count} files"
+msgstr[0] "{size} בקובץ {count}"
+msgstr[1] "{size} ב-{count} קבצים"
 
 # File: usr/share/isovault/ui/preferences.py, line: 53
 #: ui/preferences.py
 msgid "S3 Config"
 msgstr "הגדרות S3"
+
+# File: usr/share/isovault/ui/preferences.py, line: 157
+#: ui/preferences.py
+msgid "General"
+msgstr "כללי"
+
+#: ui/preferences.py ui/window.py
+msgid "Settings"
+msgstr "הגדרות"
+
+#: ui/preferences.py
+msgid "Storage connection, public download page and application behavior."
+msgstr "חיבור לאחסון, דף ההורדות הציבורי והתנהגות היישום."
 
 # File: usr/share/isovault/ui/preferences.py, line: 60
 #: ui/preferences.py
@@ -361,11 +482,6 @@ msgstr "בדוק חיבור"
 msgid "Verify S3 credentials and connection"
 msgstr "אמת את האישורים והחיבור ל-S3"
 
-# File: usr/share/isovault/ui/preferences.py, line: 157
-#: ui/preferences.py
-msgid "General"
-msgstr "כללי"
-
 # File: usr/share/isovault/ui/preferences.py, line: 128
 #: ui/preferences.py
 msgid "Web Settings"
@@ -390,6 +506,37 @@ msgstr "הצג קבצי אינדקס"
 #: ui/preferences.py
 msgid "Display index.html files in the file list"
 msgstr "הצג קבצי index.html ברשימת הקבצים"
+
+#: ui/preferences.py
+msgid "Application Behavior"
+msgstr "התנהגות יישום"
+
+# File: usr/share/isovault/ui/preferences.py, line: 169
+#: ui/preferences.py
+msgid "Auto Refresh"
+msgstr "רענון אוטומטי"
+
+#: ui/preferences.py
+msgid "Automatically refresh file list after operations"
+msgstr "רענן אוטומטית את רשימת הקבצים לאחר פעולות"
+
+# File: usr/share/isovault/ui/preferences.py, line: 203
+#: ui/preferences.py
+msgid "Confirm Deletions"
+msgstr "אשר מחיקות"
+
+#: ui/preferences.py
+msgid "Show confirmation dialog before deleting files"
+msgstr "הצג דיאלוג אישור לפני מחיקת קבצים"
+
+# File: usr/share/isovault/ui/preferences.py, line: 216
+#: ui/preferences.py
+msgid "Auto Update Index"
+msgstr "עדכון אוטומטי של אינדקס"
+
+#: ui/preferences.py
+msgid "Automatically update web index after file operations"
+msgstr "עדכון אוטומטי של אינדקס האינטרנט לאחר פעולות קובץ"
 
 # File: usr/share/isovault/ui/preferences.py, line: 224
 # File: usr/share/isovault/ui/preferences.py, line: 232
@@ -473,80 +620,31 @@ msgstr "ניתן להעלות רק קובצי ISO ו-MD5 שאינם ריקים"
 msgid "Destination Folder"
 msgstr "תיקיית יעד"
 
-#: ui/upload_dialog.py
+#: ui/upload_dialog.py ui/window.py
 #, python-brace-format
 msgid "Upload to {folder}"
 msgstr "העלאה אל {folder}"
 
-# File: usr/share/isovault/ui/window.py, line: 117
 #: ui/window.py
-msgid "Filter by folder"
-msgstr "סנן לפי תיקייה"
-
-# File: usr/share/isovault/ui/components.py, line: 263
-#: ui/window.py
-msgid "All folders"
-msgstr "כל התיקיות"
-
-#: ui/window.py
-msgid "Selection"
-msgstr "בחירה"
-
-#: ui/window.py
-msgid "Select All"
-msgstr "בחירת הכול"
-
-#: ui/window.py
-msgid "Select None"
-msgstr "ביטול הבחירה"
-
-# File: usr/share/isovault/ui/components.py, line: 277
-#: ui/window.py
-msgid "Copy Link"
-msgstr "העתק קישור"
-
-# File: usr/share/isovault/ui/window.py, line: 130
-#: ui/window.py
-msgid "Copy public URL"
-msgstr "העתק כתובת URL ציבורית"
-
-# File: usr/share/isovault/ui/window.py, line: 143
-#: ui/window.py
-msgid "Save file locally"
-msgstr "שמור קובץ במחשב המקומי"
-
-# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
-# 
-# File: usr/share/isovault/ui/components.py, line: 291
-# File: usr/share/isovault/ui/dialogs.py, line: 107
-#: ui/window.py
-msgid "Delete"
-msgstr "מחק"
-
-# File: usr/share/isovault/ui/window.py, line: 156
-#: ui/window.py
-msgid "Remove from storage"
-msgstr "הסר מהאחסון"
-
-# File: usr/share/isovault/ui/preferences.py, line: 169
-#: ui/window.py
-msgid "Auto Refresh"
-msgstr "רענון אוטומטי"
-
-# File: usr/share/isovault/ui/preferences.py, line: 203
-#: ui/window.py
-msgid "Confirm Deletions"
-msgstr "אשר מחיקות"
-
-# File: usr/share/isovault/ui/preferences.py, line: 216
-#: ui/window.py
-msgid "Auto Update Index"
-msgstr "עדכון אוטומטי של אינדקס"
+msgid "Show sidebar"
+msgstr "הצג סרגל צד"
 
 # File: usr/share/isovault/ui/window.py, line: 228
 #: ui/window.py
 msgid "Upload ISO"
 msgstr "העלאת ISO"
+
+#: ui/window.py
+msgid "Search files..."
+msgstr "חיפוש קבצים..."
+
+# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
+# 
+# File: usr/share/isovault/ui/components.py, line: 372
+# File: usr/share/isovault/ui/preferences.py, line: 30
+#: ui/window.py
+msgid "Preferences"
+msgstr "העדפות"
 
 # File: usr/share/isovault/ui/components.py, line: 373
 #: ui/window.py
@@ -568,15 +666,60 @@ msgstr "אודות"
 msgid "Application menu"
 msgstr "תפריט יישום"
 
-# File: usr/share/isovault/ui/window.py, line: 108
 #: ui/window.py
-msgid "Ready"
-msgstr "מוכן"
+msgid "ISO Files"
+msgstr "קובצי ISO"
+
+#: ui/window.py
+msgid "Connect to your storage"
+msgstr "התחברו לאחסון שלכם"
 
 # File: usr/share/isovault/ui/window.py, line: 139
 #: ui/window.py
 msgid "Please configure S3 credentials in Preferences"
 msgstr "אנא הגדר את אישורי S3 בהעדפות"
+
+#: ui/window.py
+msgid "Open Preferences"
+msgstr "פתח העדפות"
+
+#: ui/window.py
+msgid "Manage your ISO files and make them available for download."
+msgstr "נהלו את קובצי ה-ISO שלכם והפכו אותם לזמינים להורדה."
+
+#: ui/window.py
+msgid "List view"
+msgstr "תצוגת רשימה"
+
+#: ui/window.py
+msgid "Grid view"
+msgstr "תצוגת רשת"
+
+# File: usr/share/isovault/ui/components.py, line: 263
+#: ui/window.py
+msgid "All folders"
+msgstr "כל התיקיות"
+
+# File: usr/share/isovault/ui/window.py, line: 117
+#: ui/window.py
+msgid "Filter by folder"
+msgstr "סנן לפי תיקייה"
+
+#: ui/window.py
+msgid "Save to Downloads folder"
+msgstr "שמור בתיקיית ההורדות"
+
+#: ui/window.py
+msgid "More download options"
+msgstr "אפשרויות הורדה נוספות"
+
+#: ui/window.py
+msgid "Select None"
+msgstr "ביטול הבחירה"
+
+#: ui/window.py
+msgid "More"
+msgstr "עוד"
 
 # File: usr/share/isovault/ui/window.py, line: 195
 #: ui/window.py
@@ -585,15 +728,17 @@ msgstr "אזהרה: לא ניתן להתחבר לאחסון S3"
 
 #: ui/window.py
 #, python-brace-format
-msgid "{selected} of {total} file selected"
-msgid_plural "{selected} of {total} files selected"
-msgstr[0] "נבחר {selected} מתוך {total} קובץ"
-msgstr[1] "נבחרו {selected} מתוך {total} קבצים"
+msgid "{visible} of {total} file"
+msgid_plural "{visible} of {total} files"
+msgstr[0] "{visible} מתוך {total} קובץ"
+msgstr[1] "{visible} מתוך {total} קבצים"
 
-# File: usr/share/isovault/ui/dialogs.py, line: 213
 #: ui/window.py
-msgid "No files selected"
-msgstr "לא נבחרו קבצים"
+#, python-brace-format
+msgid "{count} file selected"
+msgid_plural "{count} files selected"
+msgstr[0] "נבחר קובץ {count}"
+msgstr[1] "נבחרו {count} קבצים"
 
 #: ui/window.py
 msgid "Another operation is in progress"
@@ -729,6 +874,10 @@ msgstr "המחיקה הושלמה: {completed} הצליחו, {failed} נכשלו
 msgid "Index files updated!"
 msgstr "קבצי האינדקס עודכנו!"
 
+#: ui/window.py
+msgid "Public index update"
+msgstr "עדכון האינדקס הציבורי"
+
 # File: usr/share/isovault/ui/window.py, line: 593
 #: ui/window.py
 msgid "Updating index files..."
@@ -738,16 +887,6 @@ msgstr "מעודכן קבצי אינדקס..."
 #: ui/window.py
 msgid "Failed to update index files"
 msgstr "כישלון בעדכון קבצי אינדקס"
-
-# File: usr/share/isovault/ui/window.py, line: 487
-#: ui/window.py
-msgid "Loading files..."
-msgstr "טוען קבצים..."
-
-# File: usr/share/isovault/ui/window.py, line: 686
-#: ui/window.py
-msgid "Failed to refresh file list"
-msgstr "כישלון ברענון רשימת הקבצים"
 
 # File: usr/share/isovault/ui/window.py, line: 507
 #: ui/window.py

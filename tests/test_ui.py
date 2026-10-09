@@ -108,7 +108,7 @@ def window(monkeypatch, settings, published):
     win = window_module.ISOVaultWindow()
     win.toasts = []
     monkeypatch.setattr(win, "show_toast", win.toasts.append)
-    wait_until(lambda: win.file_list.file_model.get_n_items() == 2)
+    wait_until(lambda: win.file_list.total_count == 2)
     yield win
     win.destroy()
 
@@ -119,8 +119,10 @@ def idle(win):
 
 class TestStartup:
     def test_loads_files(self, window):
-        assert window.status_label.get_text() == "2 files"
+        assert window.count_label.get_text() == "2 files"
+        assert window.nav_rows["files"].badge.get_text() == "2"
         assert window.upload_button.get_sensitive()
+        assert window.page_stack.get_visible_child_name() == "files"
         assert len(FakeS3.instances) == 1
 
     def test_without_credentials(self, monkeypatch, tmp_path, published):
@@ -133,14 +135,28 @@ class TestStartup:
             assert win.s3_service is None
             assert FakeS3.instances == []
             assert not win.upload_button.get_sensitive()
+            assert win.page_stack.get_visible_child_name() == "setup"
             assert not win.lookup_action("force-index").get_enabled()
         finally:
             win.destroy()
 
     def test_folder_filter(self, window):
+        calls_before = len(window.s3_service.list_calls)
         window.folder_dropdown.set_selected(window_module.DISTRO_FOLDERS.index("Gnome") + 1)
-        wait_until(lambda: window.file_list.file_model.get_n_items() == 1)
-        assert window.status_label.get_text() == "1 file in Gnome"
+        assert window.file_list.visible_count == 1
+        assert window.count_label.get_text() == "1 of 2 files"
+        assert len(window.s3_service.list_calls) == calls_before  # filtered locally, no new request
+
+    def test_search(self, window):
+        window.search_entry.set_text("b.is")
+        window.search_entry.emit("search-changed")
+        assert [window.file_list.sort_model.get_item(0).name] == ["b.iso"]
+        assert window.file_list.visible_count == 1
+
+        window.search_entry.set_text("nothing-like-this")
+        window.search_entry.emit("search-changed")
+        assert window.file_list.stack.get_visible_child_name() == "empty"
+        assert window.file_list.empty_page.get_title() == "No results"
 
     def test_refresh_error_is_reported(self, window):
         window.s3_service.list_error = RuntimeError("offline")
@@ -178,24 +194,26 @@ class TestOperations:
 
     def test_only_one_operation_at_a_time(self, window):
         release = threading.Event()
-        window._start_operation("busy", release.wait, lambda _r: None, "error")
+        window._start_operation("upload", "busy", "busy", release.wait, lambda _r: None, "error")
         assert window._busy
         assert not window.upload_button.get_sensitive()
 
-        window._start_operation("second", lambda: None, lambda _r: None, "error")
+        window._start_operation("upload", "second", "second", lambda: None, lambda _r: None, "error")
         assert window.toasts[-1] == "Another operation is in progress"
 
         release.set()
         idle(window)
         assert window.upload_button.get_sensitive()
+        assert window.transfers_page.active_count == 0  # closed even though on_done didn't
 
     def test_operation_error_is_shown(self, window):
         def boom():
             raise RuntimeError("kaput")
 
-        window._start_operation("x", boom, lambda _r: None, "It failed")
+        window._start_operation("upload", "x", "x", boom, lambda _r: None, "It failed")
         idle(window)
         assert window.toasts[-1] == "It failed: kaput"
+        assert window.transfers_page.active_count == 0
 
     def test_manual_index_update_reports_success(self, window, published):
         window.activate_action("win.force-index", None)
@@ -220,22 +238,21 @@ class TestOperations:
         service.list_files = first_call_slow
         window.refresh_files()  # older request, blocks in its worker
         window.refresh_files()  # newer request, returns at once
-        wait_until(lambda: len(calls) == 2 and window.status_label.get_text() == "2 files")
+        wait_until(lambda: len(calls) == 2 and not window.refresh_spinner.get_visible())
 
         release.set()  # now the older one finishes
         wait_until(stale_returned.is_set)
         time.sleep(0.05)
         wait_until(lambda: not GLib.MainContext.default().pending())
 
-        model = window.file_list.file_model
-        names = [model.get_item(i).name for i in range(model.get_n_items())]
+        names = [item.name for item in window.file_list.all_files()]
         assert names == ["a.iso", "b.iso"]
-        assert window.status_label.get_text() == "2 files"
+        assert window.count_label.get_text() == "2 files"
 
 
 def row_check_boxes(win):
     """Check buttons of the visible rows, top to bottom."""
-    found, stack = [], [win.file_list.column_view]
+    found, stack = [], [win.file_list.list_view]
     while stack:
         widget = stack.pop(0)
         if isinstance(widget, Gtk.CheckButton):
@@ -254,21 +271,61 @@ def file_names(win):
 class TestSelection:
     def test_nothing_selected_at_start(self, window):
         assert window.file_list.selected_count == 0
-        assert window.selection_group.get_description() == "No files selected"
-        assert not window.delete_row.get_sensitive()
-        assert not window.select_none_button.get_sensitive()
-        assert window.select_all_button.get_sensitive()
+        assert not window.bottom_revealer.get_reveal_child()
+        assert not window.delete_button.get_sensitive()
+        assert not window.file_list.header_check.get_active()
 
     def test_select_all_and_none(self, window):
-        window.select_all_button.emit("clicked")
+        window.activate_action("win.select-all", None)
         assert file_names(window) == ["a.iso", "b.iso"]
-        assert window.selection_group.get_description() == "2 of 2 files selected"
-        assert window.delete_row.get_sensitive()
-        assert not window.select_all_button.get_sensitive()
+        assert window.bottom_revealer.get_reveal_child()
+        assert window.selection_label.get_text() == "2 files selected"
+        assert window.selection_size.get_text() == "2.0 KB"
+        assert window.delete_button.get_sensitive()
+        assert window.file_list.header_check.get_active()
 
-        window.select_none_button.emit("clicked")
+        window.activate_action("win.select-none", None)
         assert window.file_list.selected_count == 0
-        assert not window.delete_row.get_sensitive()
+        assert not window.bottom_revealer.get_reveal_child()
+
+    def test_header_check_box(self, window):
+        header = window.file_list.header_check
+        window.file_list.selection_model.select_item(0, True)
+        assert header.get_inconsistent() and not header.get_active()
+
+        header.set_active(True)  # click: select everything
+        assert window.file_list.selected_count == 2
+        assert not header.get_inconsistent()
+
+        header.set_active(False)
+        assert window.file_list.selected_count == 0
+
+    def test_sort_by_column(self, window):
+        def order():
+            return [window.file_list.sort_model.get_item(i).name for i in range(window.file_list.visible_count)]
+
+        window.file_list.sort_buttons["name"].emit("clicked")
+        assert order() == ["a.iso", "b.iso"]
+        window.file_list.sort_buttons["name"].emit("clicked")
+        assert order() == ["b.iso", "a.iso"]
+        window.file_list.sort_buttons["folder"].emit("clicked")
+        assert order() == ["a.iso", "b.iso"]  # Gnome < Root
+
+    def test_grid_cards_are_square(self, window):
+        from ui.file_browser import SquareBin
+
+        window.set_default_size(1100, 720)
+        window.present()
+        window.view_toggle.set_active_name("grid")
+        wait_until(lambda: any(isinstance(w, SquareBin) and w.get_width() > 0 for w in _walk(window.file_list.grid_view)))
+        sizes = {(w.get_width(), w.get_height()) for w in _walk(window.file_list.grid_view) if isinstance(w, SquareBin) and w.get_width()}
+        assert sizes and all(width == height for width, height in sizes)
+
+    def test_grid_view_keeps_selection(self, window):
+        window.file_list.selection_model.select_item(1, True)
+        window.view_toggle.set_active_name("grid")
+        assert window.file_list.stack.get_visible_child_name() == "grid"
+        assert file_names(window) == ["b.iso"]
 
     def test_check_boxes_follow_and_drive_selection(self, window):
         window.present()
@@ -293,7 +350,7 @@ class TestSelection:
 
         window.s3_service.files.insert(0, make_file("XFCE/new.iso"))
         window.refresh_files()
-        wait_until(lambda: window.file_list.file_model.get_n_items() == 3)
+        wait_until(lambda: window.file_list.total_count == 3)
 
         assert file_names(window) == ["b.iso"]
 
@@ -383,20 +440,56 @@ class TestSettings:
         assert window.s3_service is service
         assert service.base_url == "https://new.example"
 
-    def test_quick_toggles_follow_reset(self, window, settings):
-        row = window.quick_setting_rows[("ui", "confirm_deletions")]
-        row.set_active(False)
-        assert settings.get("ui", "confirm_deletions") is False
-
-        settings.reset_to_defaults()
-        window._on_settings_changed(s3_changed=False)
-        assert row.get_active() is True
-
     def test_close_saves_window_size(self, window, settings):
         window.set_default_size(900, 640)
         window._on_close_request(window)
         reloaded = SettingsManager(settings.config_file)
         assert reloaded.get_window_size() == (900, 640)
+
+
+class TestSettingsPage:
+    def test_opened_inside_the_window(self, window):
+        window.activate_action("win.preferences", None)
+        assert window.page_stack.get_visible_child_name() == "settings"
+        assert window.nav_list.get_selected_row() is window.nav_rows["settings"]
+
+    def test_leaving_the_page_applies_edits(self, window, settings):
+        window.show_page("settings")
+        window.settings_page.web_rows["base_url"].set_text("https://mirror.example/")
+        assert window.s3_service.base_url != "https://mirror.example"
+
+        window.nav_list.emit("row-activated", window.nav_rows["files"])
+
+        assert settings.get("web", "base_url") == "https://mirror.example/"
+        assert window.s3_service.base_url == "https://mirror.example"
+
+    def test_closing_the_window_applies_edits(self, window, settings):
+        window.settings_page.s3_rows["region_name"].set_text("eu-2")
+        window._on_close_request(window)
+        assert SettingsManager(settings.config_file).get("s3", "region_name") == "eu-2"
+
+    def test_compact_hides_modified_column(self, window):
+        window.present()
+        wait_until(lambda: len(row_check_boxes(window)) == 2)
+        window.file_list.set_compact(True)
+        assert not window.file_list.sort_buttons["modified"].get_visible()
+        assert all(not row.widgets[4].get_visible() for row in window.file_list._row_widgets)
+        window.file_list.set_compact(False)
+        assert all(row.widgets[4].get_visible() for row in window.file_list._row_widgets)
+
+
+class TestBehaviorSettings:
+    def test_switches_save_immediately(self, settings):
+        dialog = preferences_module.SettingsPage(settings, lambda _changed: None)
+        dialog.behavior_rows[("ui", "confirm_deletions")].set_active(False)
+        assert SettingsManager(settings.config_file).get("ui", "confirm_deletions") is False
+
+    def test_reset_restores_switches(self, settings):
+        dialog = preferences_module.SettingsPage(settings, lambda _changed: None)
+        row = dialog.behavior_rows[("general", "auto_refresh")]
+        row.set_active(False)
+        dialog._on_reset_response(None, "reset")
+        assert row.get_active() is True
 
 
 class TestUploadDialog:
@@ -454,6 +547,71 @@ class TestUploadDialog:
         assert shown[1][0] == "XFCE"
 
 
+class TestRowMenu:
+    def test_row_delete_acts_only_on_that_file(self, window, settings):
+        settings.set("ui", "confirm_deletions", False)
+        window.file_list.select_all()  # the row menu ignores the selection
+
+        window.activate_action("win.file-delete", GLib.Variant("s", "b.iso"))
+        idle(window)
+
+        assert window.s3_service.deleted == ["b.iso"]
+
+    def test_row_copy_link(self, window, monkeypatch):
+        copied = []
+        monkeypatch.setattr(window, "get_clipboard", lambda: type("Clip", (), {"set": lambda _self, text: copied.append(text)})())
+        window.s3_service.base_url = "https://cdn"
+        window.activate_action("win.file-copy-link", GLib.Variant("s", "Gnome/a.iso"))
+        assert copied == ["https://cdn/Gnome/a.iso"]
+
+    def test_save_to_downloads(self, window, monkeypatch, tmp_path):
+        monkeypatch.setattr(window_module.GLib, "get_user_special_dir", lambda _kind: str(tmp_path))
+        window.file_list.select_all()
+        window.activate_action("win.download-to-downloads", None)
+        idle(window)
+        assert sorted(p.name for p in tmp_path.glob("*.iso")) == ["a.iso", "b.iso"]
+
+
+class TestPages:
+    def test_transfers_are_logged(self, window, tmp_path):
+        path = tmp_path / "new.iso"
+        path.write_bytes(b"\0")
+        window._upload_files([str(path)], "XFCE")
+        assert window.transfers_page.active_count == 1
+        assert window.nav_rows["transfers"].badge.get_visible()
+        idle(window)
+
+        assert window.transfers_page.count == 2  # the upload and the automatic index update
+        wait_until(lambda: window.transfers_page.active_count == 0)
+        assert not window.nav_rows["transfers"].badge.get_visible()
+
+    def test_navigation(self, window, monkeypatch):
+        window.nav_list.emit("row-activated", window.nav_rows["statistics"])
+        assert window.page_stack.get_visible_child_name() == "statistics"
+
+        opened = []
+        monkeypatch.setattr(window.dialogs, "show_about", lambda: opened.append("about"))
+        window.nav_list.emit("row-activated", window.nav_rows["about"])
+        assert opened == ["about"]
+        assert window.nav_list.get_selected_row() is window.nav_rows["statistics"]  # page unchanged
+
+    def test_statistics_and_storage(self, window):
+        window.s3_service.files = [
+            make_file("Gnome/a.iso", size=3 * 1024**3),
+            make_file("Gnome/a.iso.md5", size=70),
+            make_file("XFCE/x.iso", size=1024**3),
+        ]
+        window.refresh_files()
+        wait_until(lambda: window.file_list.total_count == 3)
+
+        labels = [w.get_label() for w in _walk(window.statistics_page) if isinstance(w, Gtk.Label)]
+        assert "2" in labels and "1" in labels  # ISOs, checksums
+        titles = [w.get_title() for w in _walk(window.statistics_page) if isinstance(w, Adw.ActionRow)]
+        assert "x.iso" in titles  # listed as missing a checksum
+        assert "a.iso" not in titles
+        assert window.storage_card.summary.get_text() == "4.0 GB in 3 files"
+
+
 class TestDeleteDialog:
     def _dialog(self, *keys):
         from models import FileItem
@@ -506,12 +664,12 @@ def _walk(widget):
 class TestPreferences:
     def test_text_fields_apply_on_close(self, settings):
         changes = []
-        dialog = preferences_module.PreferencesDialog(settings, changes.append)
+        dialog = preferences_module.SettingsPage(settings, changes.append)
         dialog.s3_rows["bucket_name"].set_text("  new-bucket ")
         dialog.web_rows["base_url"].set_text("https://example.org")
 
         assert settings.get("s3", "bucket_name") != "new-bucket"  # nothing saved while typing
-        dialog._on_closed(dialog)
+        dialog.commit()
 
         assert changes == [True]
         assert SettingsManager(settings.config_file).get("s3", "bucket_name") == "new-bucket"
@@ -519,8 +677,8 @@ class TestPreferences:
 
     def test_close_without_changes_is_silent(self, settings):
         changes = []
-        dialog = preferences_module.PreferencesDialog(settings, changes.append)
-        dialog._on_closed(dialog)
+        dialog = preferences_module.SettingsPage(settings, changes.append)
+        dialog.commit()
         assert changes == []
 
     def test_connection_test_uses_typed_values(self, settings, monkeypatch):
@@ -535,7 +693,7 @@ class TestPreferences:
 
         monkeypatch.setattr(preferences_module, "S3Service", Probe)
         results = []
-        dialog = preferences_module.PreferencesDialog(settings, lambda _changed: None)
+        dialog = preferences_module.SettingsPage(settings, lambda _changed: None)
         monkeypatch.setattr(dialog, "_show_test_result", lambda ok, msg: results.append((ok, msg)))
         dialog.s3_rows["access_key"].set_text("TYPED")
 

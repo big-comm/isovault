@@ -8,13 +8,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: isovault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 11:37-0300\n"
+"POT-Creation-Date: 2026-10-09 13:54-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
@@ -77,7 +77,7 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
-#: services/html_generator.py ui/window.py
+#: services/html_generator.py ui/file_browser.py ui/window.py
 msgid "Download"
 msgstr ""
 
@@ -126,31 +126,11 @@ msgstr ""
 msgid "... and {more_count} more files"
 msgstr ""
 
-#: ui/components.py
-msgid "File Name"
-msgstr ""
-
-#: ui/components.py
-msgid "Folder"
-msgstr ""
-
-#: ui/components.py
-msgid "Size"
-msgstr ""
-
-#: ui/components.py
-msgid "Modified"
-msgstr ""
-
-#: ui/components.py
-msgid "Select"
-msgstr ""
-
-#: ui/delete_dialog.py
+#: ui/delete_dialog.py ui/window.py
 msgid "Delete File"
 msgstr ""
 
-#: ui/delete_dialog.py
+#: ui/delete_dialog.py ui/window.py
 msgid "Delete Files"
 msgstr ""
 
@@ -240,12 +220,152 @@ msgstr ""
 msgid "OK"
 msgstr ""
 
-#: ui/preferences.py ui/window.py
-msgid "Preferences"
+#: ui/file_browser.py ui/window.py
+msgid "Copy Link"
 msgstr ""
+
+#: ui/file_browser.py ui/window.py
+msgid "Delete"
+msgstr ""
+
+#: ui/file_browser.py ui/window.py
+msgid "Select All"
+msgstr ""
+
+#: ui/file_browser.py
+msgid "File Name"
+msgstr ""
+
+#: ui/file_browser.py
+msgid "Distribution"
+msgstr ""
+
+#: ui/file_browser.py
+msgid "Size"
+msgstr ""
+
+#: ui/file_browser.py
+msgid "Modified"
+msgstr ""
+
+#: ui/file_browser.py
+msgid "Actions"
+msgstr ""
+
+#: ui/file_browser.py
+msgid "Select"
+msgstr ""
+
+#: ui/file_browser.py
+msgid "No results"
+msgstr ""
+
+#: ui/file_browser.py
+#, python-brace-format
+msgid "No file matches “{text}”"
+msgstr ""
+
+#: ui/file_browser.py
+msgid "No files"
+msgstr ""
+
+#: ui/file_browser.py
+msgid "Upload an ISO to get started"
+msgstr ""
+
+#: ui/pages.py ui/window.py
+msgid "Transfers"
+msgstr ""
+
+#: ui/pages.py
+msgid "Uploads, downloads and deletions made in this session."
+msgstr ""
+
+#: ui/pages.py
+msgid "No transfers yet"
+msgstr ""
+
+#: ui/pages.py
+msgid "Uploads, downloads and deletions will appear here."
+msgstr ""
+
+#: ui/pages.py ui/window.py
+msgid "Statistics"
+msgstr ""
+
+#: ui/pages.py
+msgid "Overview of the ISO repository."
+msgstr ""
+
+#: ui/pages.py
+msgid "ISO images"
+msgstr ""
+
+#: ui/pages.py
+msgid "MD5 checksums"
+msgstr ""
+
+#: ui/pages.py
+msgid "Space used"
+msgstr ""
+
+#: ui/pages.py
+msgid "By distribution"
+msgstr ""
+
+#: ui/pages.py
+#, python-brace-format
+msgid "{count} ISO · {size}"
+msgid_plural "{count} ISOs · {size}"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ui/pages.py
+#, python-brace-format
+msgid "Latest: {date}"
+msgstr ""
+
+#: ui/pages.py
+msgid "Integrity"
+msgstr ""
+
+#: ui/pages.py
+msgid "ISOs need a .md5 file to show their checksum on the download page."
+msgstr ""
+
+#: ui/pages.py
+msgid "No MD5 checksum"
+msgstr ""
+
+#: ui/pages.py
+msgid "Every ISO has an MD5 checksum"
+msgstr ""
+
+#: ui/pages.py
+msgid "Storage"
+msgstr ""
+
+#: ui/pages.py
+#, python-brace-format
+msgid "{size} in {count} file"
+msgid_plural "{size} in {count} files"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ui/preferences.py
 msgid "S3 Config"
+msgstr ""
+
+#: ui/preferences.py
+msgid "General"
+msgstr ""
+
+#: ui/preferences.py ui/window.py
+msgid "Settings"
+msgstr ""
+
+#: ui/preferences.py
+msgid "Storage connection, public download page and application behavior."
 msgstr ""
 
 #: ui/preferences.py
@@ -293,10 +413,6 @@ msgid "Verify S3 credentials and connection"
 msgstr ""
 
 #: ui/preferences.py
-msgid "General"
-msgstr ""
-
-#: ui/preferences.py
 msgid "Web Settings"
 msgstr ""
 
@@ -314,6 +430,34 @@ msgstr ""
 
 #: ui/preferences.py
 msgid "Display index.html files in the file list"
+msgstr ""
+
+#: ui/preferences.py
+msgid "Application Behavior"
+msgstr ""
+
+#: ui/preferences.py
+msgid "Auto Refresh"
+msgstr ""
+
+#: ui/preferences.py
+msgid "Automatically refresh file list after operations"
+msgstr ""
+
+#: ui/preferences.py
+msgid "Confirm Deletions"
+msgstr ""
+
+#: ui/preferences.py
+msgid "Show confirmation dialog before deleting files"
+msgstr ""
+
+#: ui/preferences.py
+msgid "Auto Update Index"
+msgstr ""
+
+#: ui/preferences.py
+msgid "Automatically update web index after file operations"
 msgstr ""
 
 #: ui/preferences.py
@@ -382,65 +526,25 @@ msgstr ""
 msgid "Destination Folder"
 msgstr ""
 
-#: ui/upload_dialog.py
+#: ui/upload_dialog.py ui/window.py
 #, python-brace-format
 msgid "Upload to {folder}"
 msgstr ""
 
 #: ui/window.py
-msgid "Filter by folder"
-msgstr ""
-
-#: ui/window.py
-msgid "All folders"
-msgstr ""
-
-#: ui/window.py
-msgid "Selection"
-msgstr ""
-
-#: ui/window.py
-msgid "Select All"
-msgstr ""
-
-#: ui/window.py
-msgid "Select None"
-msgstr ""
-
-#: ui/window.py
-msgid "Copy Link"
-msgstr ""
-
-#: ui/window.py
-msgid "Copy public URL"
-msgstr ""
-
-#: ui/window.py
-msgid "Save file locally"
-msgstr ""
-
-#: ui/window.py
-msgid "Delete"
-msgstr ""
-
-#: ui/window.py
-msgid "Remove from storage"
-msgstr ""
-
-#: ui/window.py
-msgid "Auto Refresh"
-msgstr ""
-
-#: ui/window.py
-msgid "Confirm Deletions"
-msgstr ""
-
-#: ui/window.py
-msgid "Auto Update Index"
+msgid "Show sidebar"
 msgstr ""
 
 #: ui/window.py
 msgid "Upload ISO"
+msgstr ""
+
+#: ui/window.py
+msgid "Search files..."
+msgstr ""
+
+#: ui/window.py
+msgid "Preferences"
 msgstr ""
 
 #: ui/window.py
@@ -460,11 +564,55 @@ msgid "Application menu"
 msgstr ""
 
 #: ui/window.py
-msgid "Ready"
+msgid "ISO Files"
+msgstr ""
+
+#: ui/window.py
+msgid "Connect to your storage"
 msgstr ""
 
 #: ui/window.py
 msgid "Please configure S3 credentials in Preferences"
+msgstr ""
+
+#: ui/window.py
+msgid "Open Preferences"
+msgstr ""
+
+#: ui/window.py
+msgid "Manage your ISO files and make them available for download."
+msgstr ""
+
+#: ui/window.py
+msgid "List view"
+msgstr ""
+
+#: ui/window.py
+msgid "Grid view"
+msgstr ""
+
+#: ui/window.py
+msgid "All folders"
+msgstr ""
+
+#: ui/window.py
+msgid "Filter by folder"
+msgstr ""
+
+#: ui/window.py
+msgid "Save to Downloads folder"
+msgstr ""
+
+#: ui/window.py
+msgid "More download options"
+msgstr ""
+
+#: ui/window.py
+msgid "Select None"
+msgstr ""
+
+#: ui/window.py
+msgid "More"
 msgstr ""
 
 #: ui/window.py
@@ -473,14 +621,17 @@ msgstr ""
 
 #: ui/window.py
 #, python-brace-format
-msgid "{selected} of {total} file selected"
-msgid_plural "{selected} of {total} files selected"
+msgid "{visible} of {total} file"
+msgid_plural "{visible} of {total} files"
 msgstr[0] ""
 msgstr[1] ""
 
 #: ui/window.py
-msgid "No files selected"
-msgstr ""
+#, python-brace-format
+msgid "{count} file selected"
+msgid_plural "{count} files selected"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ui/window.py
 msgid "Another operation is in progress"
@@ -601,19 +752,15 @@ msgid "Index files updated!"
 msgstr ""
 
 #: ui/window.py
+msgid "Public index update"
+msgstr ""
+
+#: ui/window.py
 msgid "Updating index files..."
 msgstr ""
 
 #: ui/window.py
 msgid "Failed to update index files"
-msgstr ""
-
-#: ui/window.py
-msgid "Loading files..."
-msgstr ""
-
-#: ui/window.py
-msgid "Failed to refresh file list"
 msgstr ""
 
 #: ui/window.py

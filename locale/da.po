@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: isovault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 11:37-0300\n"
+"POT-Creation-Date: 2026-10-09 13:54-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: da\n"
@@ -89,7 +89,7 @@ msgid "Home"
 msgstr "Hjem"
 
 # File: usr/share/isovault/ui/components.py, line: 284
-#: services/html_generator.py ui/window.py
+#: services/html_generator.py ui/file_browser.py ui/window.py
 msgid "Download"
 msgstr "Download"
 
@@ -149,36 +149,12 @@ msgstr "Download ISO"
 msgid "... and {more_count} more files"
 msgstr "... og {more_count} flere filer"
 
-# File: usr/share/isovault/ui/components.py, line: 123
-#: ui/components.py
-msgid "File Name"
-msgstr "Filnavn"
-
-# File: usr/share/isovault/ui/components.py, line: 132
-#: ui/components.py
-msgid "Folder"
-msgstr "Mappe"
-
-# File: usr/share/isovault/ui/components.py, line: 140
-#: ui/components.py
-msgid "Size"
-msgstr "Størrelse"
-
-# File: usr/share/isovault/ui/components.py, line: 148
-#: ui/components.py
-msgid "Modified"
-msgstr "Ændret"
-
-#: ui/components.py
-msgid "Select"
-msgstr "Vælg"
-
 # File: usr/share/isovault/ui/dialogs.py, line: 102
-#: ui/delete_dialog.py
+#: ui/delete_dialog.py ui/window.py
 msgid "Delete File"
 msgstr "Slet fil"
 
-#: ui/delete_dialog.py
+#: ui/delete_dialog.py ui/window.py
 msgid "Delete Files"
 msgstr "Slet filer"
 
@@ -291,18 +267,165 @@ msgstr "ISO filhåndtering til CDN77-lagring"
 msgid "OK"
 msgstr "OK"
 
+# File: usr/share/isovault/ui/components.py, line: 277
+#: ui/file_browser.py ui/window.py
+msgid "Copy Link"
+msgstr "Kopier link"
+
 # #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
 # 
-# File: usr/share/isovault/ui/components.py, line: 372
-# File: usr/share/isovault/ui/preferences.py, line: 30
-#: ui/preferences.py ui/window.py
-msgid "Preferences"
-msgstr "Indstillinger"
+# File: usr/share/isovault/ui/components.py, line: 291
+# File: usr/share/isovault/ui/dialogs.py, line: 107
+#: ui/file_browser.py ui/window.py
+msgid "Delete"
+msgstr "Slet"
+
+#: ui/file_browser.py ui/window.py
+msgid "Select All"
+msgstr "Vælg alle"
+
+# File: usr/share/isovault/ui/components.py, line: 123
+#: ui/file_browser.py
+msgid "File Name"
+msgstr "Filnavn"
+
+#: ui/file_browser.py
+msgid "Distribution"
+msgstr "Distribution"
+
+# File: usr/share/isovault/ui/components.py, line: 140
+#: ui/file_browser.py
+msgid "Size"
+msgstr "Størrelse"
+
+# File: usr/share/isovault/ui/components.py, line: 148
+#: ui/file_browser.py
+msgid "Modified"
+msgstr "Ændret"
+
+#: ui/file_browser.py
+msgid "Actions"
+msgstr "Handlinger"
+
+#: ui/file_browser.py
+msgid "Select"
+msgstr "Vælg"
+
+#: ui/file_browser.py
+msgid "No results"
+msgstr "Ingen resultater"
+
+#: ui/file_browser.py
+#, python-brace-format
+msgid "No file matches “{text}”"
+msgstr "Ingen filer matcher “{text}”"
+
+#: ui/file_browser.py
+msgid "No files"
+msgstr "Ingen filer"
+
+#: ui/file_browser.py
+msgid "Upload an ISO to get started"
+msgstr "Upload en ISO for at komme i gang"
+
+#: ui/pages.py ui/window.py
+msgid "Transfers"
+msgstr "Overførsler"
+
+#: ui/pages.py
+msgid "Uploads, downloads and deletions made in this session."
+msgstr "Uploads, downloads og sletninger foretaget i denne session."
+
+#: ui/pages.py
+msgid "No transfers yet"
+msgstr "Ingen overførsler endnu"
+
+#: ui/pages.py
+msgid "Uploads, downloads and deletions will appear here."
+msgstr "Uploads, downloads og sletninger vises her."
+
+#: ui/pages.py ui/window.py
+msgid "Statistics"
+msgstr "Statistik"
+
+#: ui/pages.py
+msgid "Overview of the ISO repository."
+msgstr "Overblik over ISO-arkivet."
+
+#: ui/pages.py
+msgid "ISO images"
+msgstr "ISO-images"
+
+#: ui/pages.py
+msgid "MD5 checksums"
+msgstr "MD5-kontrolsummer"
+
+#: ui/pages.py
+msgid "Space used"
+msgstr "Brugt plads"
+
+#: ui/pages.py
+msgid "By distribution"
+msgstr "Efter distribution"
+
+#: ui/pages.py
+#, python-brace-format
+msgid "{count} ISO · {size}"
+msgid_plural "{count} ISOs · {size}"
+msgstr[0] "{count} ISO · {size}"
+msgstr[1] "{count} ISO’er · {size}"
+
+#: ui/pages.py
+#, python-brace-format
+msgid "Latest: {date}"
+msgstr "Seneste: {date}"
+
+#: ui/pages.py
+msgid "Integrity"
+msgstr "Integritet"
+
+#: ui/pages.py
+msgid "ISOs need a .md5 file to show their checksum on the download page."
+msgstr ""
+"ISO’er skal have en .md5-fil for at vise deres kontrolsum på downloadsiden."
+
+#: ui/pages.py
+msgid "No MD5 checksum"
+msgstr "Ingen MD5-kontrolsum"
+
+#: ui/pages.py
+msgid "Every ISO has an MD5 checksum"
+msgstr "Alle ISO’er har en MD5-kontrolsum"
+
+#: ui/pages.py
+msgid "Storage"
+msgstr "Lager"
+
+#: ui/pages.py
+#, python-brace-format
+msgid "{size} in {count} file"
+msgid_plural "{size} in {count} files"
+msgstr[0] "{size} i {count} fil"
+msgstr[1] "{size} i {count} filer"
 
 # File: usr/share/isovault/ui/preferences.py, line: 53
 #: ui/preferences.py
 msgid "S3 Config"
 msgstr "S3 Konfiguration"
+
+# File: usr/share/isovault/ui/preferences.py, line: 157
+#: ui/preferences.py
+msgid "General"
+msgstr "Generel"
+
+#: ui/preferences.py ui/window.py
+msgid "Settings"
+msgstr "Indstillinger"
+
+#: ui/preferences.py
+msgid "Storage connection, public download page and application behavior."
+msgstr ""
+"Forbindelse til lageret, offentlig downloadside og applikationsadfærd."
 
 # File: usr/share/isovault/ui/preferences.py, line: 60
 #: ui/preferences.py
@@ -361,11 +484,6 @@ msgstr "Test forbindelse"
 msgid "Verify S3 credentials and connection"
 msgstr "Bekræft S3-legitimationsoplysninger og forbindelse"
 
-# File: usr/share/isovault/ui/preferences.py, line: 157
-#: ui/preferences.py
-msgid "General"
-msgstr "Generel"
-
 # File: usr/share/isovault/ui/preferences.py, line: 128
 #: ui/preferences.py
 msgid "Web Settings"
@@ -390,6 +508,37 @@ msgstr "Vis indext filer"
 #: ui/preferences.py
 msgid "Display index.html files in the file list"
 msgstr "Vis visning af index.html-filer i fillisten"
+
+#: ui/preferences.py
+msgid "Application Behavior"
+msgstr "Applikationsadfærd"
+
+# File: usr/share/isovault/ui/preferences.py, line: 169
+#: ui/preferences.py
+msgid "Auto Refresh"
+msgstr "Automatisk opdatering"
+
+#: ui/preferences.py
+msgid "Automatically refresh file list after operations"
+msgstr "Opdater fillisten automatisk efter operationer"
+
+# File: usr/share/isovault/ui/preferences.py, line: 203
+#: ui/preferences.py
+msgid "Confirm Deletions"
+msgstr "Bekræft sletninger"
+
+#: ui/preferences.py
+msgid "Show confirmation dialog before deleting files"
+msgstr "Vis visningsdialog for bekræftelse før sletning af filer"
+
+# File: usr/share/isovault/ui/preferences.py, line: 216
+#: ui/preferences.py
+msgid "Auto Update Index"
+msgstr "Automatisk opdateringsindeks"
+
+#: ui/preferences.py
+msgid "Automatically update web index after file operations"
+msgstr "Opdater webindekset automatisk efter filoperationer"
 
 # File: usr/share/isovault/ui/preferences.py, line: 224
 # File: usr/share/isovault/ui/preferences.py, line: 232
@@ -475,80 +624,31 @@ msgstr "Kun ikke-tomme ISO- og MD5-filer kan uploades"
 msgid "Destination Folder"
 msgstr "Destinationsmappe"
 
-#: ui/upload_dialog.py
+#: ui/upload_dialog.py ui/window.py
 #, python-brace-format
 msgid "Upload to {folder}"
 msgstr "Upload til {folder}"
 
-# File: usr/share/isovault/ui/window.py, line: 117
 #: ui/window.py
-msgid "Filter by folder"
-msgstr "Filtrer efter mappe"
-
-# File: usr/share/isovault/ui/components.py, line: 263
-#: ui/window.py
-msgid "All folders"
-msgstr "Alle mapper"
-
-#: ui/window.py
-msgid "Selection"
-msgstr "Markering"
-
-#: ui/window.py
-msgid "Select All"
-msgstr "Vælg alle"
-
-#: ui/window.py
-msgid "Select None"
-msgstr "Fravælg alle"
-
-# File: usr/share/isovault/ui/components.py, line: 277
-#: ui/window.py
-msgid "Copy Link"
-msgstr "Kopier link"
-
-# File: usr/share/isovault/ui/window.py, line: 130
-#: ui/window.py
-msgid "Copy public URL"
-msgstr "Kopier offentlig URL"
-
-# File: usr/share/isovault/ui/window.py, line: 143
-#: ui/window.py
-msgid "Save file locally"
-msgstr "Gem fil lokalt"
-
-# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
-# 
-# File: usr/share/isovault/ui/components.py, line: 291
-# File: usr/share/isovault/ui/dialogs.py, line: 107
-#: ui/window.py
-msgid "Delete"
-msgstr "Slet"
-
-# File: usr/share/isovault/ui/window.py, line: 156
-#: ui/window.py
-msgid "Remove from storage"
-msgstr "Fjern fra lager"
-
-# File: usr/share/isovault/ui/preferences.py, line: 169
-#: ui/window.py
-msgid "Auto Refresh"
-msgstr "Automatisk opdatering"
-
-# File: usr/share/isovault/ui/preferences.py, line: 203
-#: ui/window.py
-msgid "Confirm Deletions"
-msgstr "Bekræft sletninger"
-
-# File: usr/share/isovault/ui/preferences.py, line: 216
-#: ui/window.py
-msgid "Auto Update Index"
-msgstr "Automatisk opdateringsindeks"
+msgid "Show sidebar"
+msgstr "Vis sidepanel"
 
 # File: usr/share/isovault/ui/window.py, line: 228
 #: ui/window.py
 msgid "Upload ISO"
 msgstr "Upload ISO"
+
+#: ui/window.py
+msgid "Search files..."
+msgstr "Søg efter filer..."
+
+# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
+# 
+# File: usr/share/isovault/ui/components.py, line: 372
+# File: usr/share/isovault/ui/preferences.py, line: 30
+#: ui/window.py
+msgid "Preferences"
+msgstr "Indstillinger"
 
 # File: usr/share/isovault/ui/components.py, line: 373
 #: ui/window.py
@@ -570,15 +670,60 @@ msgstr "Om"
 msgid "Application menu"
 msgstr "Applikationsmenu"
 
-# File: usr/share/isovault/ui/window.py, line: 108
 #: ui/window.py
-msgid "Ready"
-msgstr "Klar"
+msgid "ISO Files"
+msgstr "ISO-filer"
+
+#: ui/window.py
+msgid "Connect to your storage"
+msgstr "Opret forbindelse til dit lager"
 
 # File: usr/share/isovault/ui/window.py, line: 139
 #: ui/window.py
 msgid "Please configure S3 credentials in Preferences"
 msgstr "Venligst konfigurer S3-legitimationsoplysninger i Indstillinger"
+
+#: ui/window.py
+msgid "Open Preferences"
+msgstr "Åbn indstillinger"
+
+#: ui/window.py
+msgid "Manage your ISO files and make them available for download."
+msgstr "Administrer dine ISO-filer, og gør dem tilgængelige til download."
+
+#: ui/window.py
+msgid "List view"
+msgstr "Listevisning"
+
+#: ui/window.py
+msgid "Grid view"
+msgstr "Gittervisning"
+
+# File: usr/share/isovault/ui/components.py, line: 263
+#: ui/window.py
+msgid "All folders"
+msgstr "Alle mapper"
+
+# File: usr/share/isovault/ui/window.py, line: 117
+#: ui/window.py
+msgid "Filter by folder"
+msgstr "Filtrer efter mappe"
+
+#: ui/window.py
+msgid "Save to Downloads folder"
+msgstr "Gem i mappen Downloads"
+
+#: ui/window.py
+msgid "More download options"
+msgstr "Flere downloadindstillinger"
+
+#: ui/window.py
+msgid "Select None"
+msgstr "Fravælg alle"
+
+#: ui/window.py
+msgid "More"
+msgstr "Mere"
 
 # File: usr/share/isovault/ui/window.py, line: 195
 #: ui/window.py
@@ -587,15 +732,17 @@ msgstr "Advarsel: Kunne ikke oprette forbindelse til S3-lagring"
 
 #: ui/window.py
 #, python-brace-format
-msgid "{selected} of {total} file selected"
-msgid_plural "{selected} of {total} files selected"
-msgstr[0] "{selected} af {total} fil valgt"
-msgstr[1] "{selected} af {total} filer valgt"
+msgid "{visible} of {total} file"
+msgid_plural "{visible} of {total} files"
+msgstr[0] "{visible} af {total} fil"
+msgstr[1] "{visible} af {total} filer"
 
-# File: usr/share/isovault/ui/dialogs.py, line: 213
 #: ui/window.py
-msgid "No files selected"
-msgstr "Ingen filer valgt"
+#, python-brace-format
+msgid "{count} file selected"
+msgid_plural "{count} files selected"
+msgstr[0] "{count} fil valgt"
+msgstr[1] "{count} filer valgt"
 
 #: ui/window.py
 msgid "Another operation is in progress"
@@ -731,6 +878,10 @@ msgstr "Sletning fuldført: {completed} lykkedes, {failed} mislykkedes"
 msgid "Index files updated!"
 msgstr "Indeksfiler opdateret!"
 
+#: ui/window.py
+msgid "Public index update"
+msgstr "Opdatering af det offentlige indeks"
+
 # File: usr/share/isovault/ui/window.py, line: 593
 #: ui/window.py
 msgid "Updating index files..."
@@ -740,16 +891,6 @@ msgstr "Opdaterer indeksfiler..."
 #: ui/window.py
 msgid "Failed to update index files"
 msgstr "Mislykkedes at opdatere indeksfiler"
-
-# File: usr/share/isovault/ui/window.py, line: 487
-#: ui/window.py
-msgid "Loading files..."
-msgstr "Indlæser filer..."
-
-# File: usr/share/isovault/ui/window.py, line: 686
-#: ui/window.py
-msgid "Failed to refresh file list"
-msgstr "Mislykkedes at opdatere fillisten"
 
 # File: usr/share/isovault/ui/window.py, line: 507
 #: ui/window.py

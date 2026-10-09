@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: isovault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 11:37-0300\n"
+"POT-Creation-Date: 2026-10-09 13:54-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -89,7 +89,7 @@ msgid "Home"
 msgstr "Ana sayfa"
 
 # File: usr/share/isovault/ui/components.py, line: 284
-#: services/html_generator.py ui/window.py
+#: services/html_generator.py ui/file_browser.py ui/window.py
 msgid "Download"
 msgstr "İndir"
 
@@ -150,36 +150,12 @@ msgstr "ISO İndir"
 msgid "... and {more_count} more files"
 msgstr "... ve {more_count} daha dosya"
 
-# File: usr/share/isovault/ui/components.py, line: 123
-#: ui/components.py
-msgid "File Name"
-msgstr "Dosya Adı"
-
-# File: usr/share/isovault/ui/components.py, line: 132
-#: ui/components.py
-msgid "Folder"
-msgstr "Klasör"
-
-# File: usr/share/isovault/ui/components.py, line: 140
-#: ui/components.py
-msgid "Size"
-msgstr "Boyut"
-
-# File: usr/share/isovault/ui/components.py, line: 148
-#: ui/components.py
-msgid "Modified"
-msgstr "Değiştirildi"
-
-#: ui/components.py
-msgid "Select"
-msgstr "Seç"
-
 # File: usr/share/isovault/ui/dialogs.py, line: 102
-#: ui/delete_dialog.py
+#: ui/delete_dialog.py ui/window.py
 msgid "Delete File"
 msgstr "Dosyayı Sil"
 
-#: ui/delete_dialog.py
+#: ui/delete_dialog.py ui/window.py
 msgid "Delete Files"
 msgstr "Dosyaları sil"
 
@@ -293,18 +269,166 @@ msgstr "CDN77 depolama için ISO dosya yöneticisi"
 msgid "OK"
 msgstr "Tamam"
 
+# File: usr/share/isovault/ui/components.py, line: 277
+#: ui/file_browser.py ui/window.py
+msgid "Copy Link"
+msgstr "Bağlantıyı Kopyala"
+
 # #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
 # 
-# File: usr/share/isovault/ui/components.py, line: 372
-# File: usr/share/isovault/ui/preferences.py, line: 30
-#: ui/preferences.py ui/window.py
-msgid "Preferences"
-msgstr "Tercihler"
+# File: usr/share/isovault/ui/components.py, line: 291
+# File: usr/share/isovault/ui/dialogs.py, line: 107
+#: ui/file_browser.py ui/window.py
+msgid "Delete"
+msgstr "Silmek"
+
+#: ui/file_browser.py ui/window.py
+msgid "Select All"
+msgstr "Tümünü seç"
+
+# File: usr/share/isovault/ui/components.py, line: 123
+#: ui/file_browser.py
+msgid "File Name"
+msgstr "Dosya Adı"
+
+#: ui/file_browser.py
+msgid "Distribution"
+msgstr "Dağıtım"
+
+# File: usr/share/isovault/ui/components.py, line: 140
+#: ui/file_browser.py
+msgid "Size"
+msgstr "Boyut"
+
+# File: usr/share/isovault/ui/components.py, line: 148
+#: ui/file_browser.py
+msgid "Modified"
+msgstr "Değiştirildi"
+
+#: ui/file_browser.py
+msgid "Actions"
+msgstr "Eylemler"
+
+#: ui/file_browser.py
+msgid "Select"
+msgstr "Seç"
+
+#: ui/file_browser.py
+msgid "No results"
+msgstr "Sonuç yok"
+
+#: ui/file_browser.py
+#, python-brace-format
+msgid "No file matches “{text}”"
+msgstr "“{text}” ile eşleşen dosya yok"
+
+#: ui/file_browser.py
+msgid "No files"
+msgstr "Dosya yok"
+
+#: ui/file_browser.py
+msgid "Upload an ISO to get started"
+msgstr "Başlamak için bir ISO yükleyin"
+
+#: ui/pages.py ui/window.py
+msgid "Transfers"
+msgstr "Aktarımlar"
+
+#: ui/pages.py
+msgid "Uploads, downloads and deletions made in this session."
+msgstr "Bu oturumda yapılan yüklemeler, indirmeler ve silmeler."
+
+#: ui/pages.py
+msgid "No transfers yet"
+msgstr "Henüz aktarım yok"
+
+#: ui/pages.py
+msgid "Uploads, downloads and deletions will appear here."
+msgstr "Yüklemeler, indirmeler ve silmeler burada görünecek."
+
+#: ui/pages.py ui/window.py
+msgid "Statistics"
+msgstr "İstatistikler"
+
+#: ui/pages.py
+msgid "Overview of the ISO repository."
+msgstr "ISO deposuna genel bakış."
+
+#: ui/pages.py
+msgid "ISO images"
+msgstr "ISO kalıpları"
+
+#: ui/pages.py
+msgid "MD5 checksums"
+msgstr "MD5 sağlama toplamları"
+
+#: ui/pages.py
+msgid "Space used"
+msgstr "Kullanılan alan"
+
+#: ui/pages.py
+msgid "By distribution"
+msgstr "Dağıtıma göre"
+
+#: ui/pages.py
+#, python-brace-format
+msgid "{count} ISO · {size}"
+msgid_plural "{count} ISOs · {size}"
+msgstr[0] "{count} ISO · {size}"
+msgstr[1] "{count} ISO · {size}"
+
+#: ui/pages.py
+#, python-brace-format
+msgid "Latest: {date}"
+msgstr "Son: {date}"
+
+#: ui/pages.py
+msgid "Integrity"
+msgstr "Bütünlük"
+
+#: ui/pages.py
+msgid "ISOs need a .md5 file to show their checksum on the download page."
+msgstr ""
+"İndirme sayfasında sağlama toplamının görünmesi için ISO’ların bir .md5 "
+"dosyasına ihtiyacı vardır."
+
+#: ui/pages.py
+msgid "No MD5 checksum"
+msgstr "MD5 sağlama toplamı yok"
+
+#: ui/pages.py
+msgid "Every ISO has an MD5 checksum"
+msgstr "Her ISO’nun bir MD5 sağlama toplamı var"
+
+#: ui/pages.py
+msgid "Storage"
+msgstr "Depolama"
+
+#: ui/pages.py
+#, python-brace-format
+msgid "{size} in {count} file"
+msgid_plural "{size} in {count} files"
+msgstr[0] "{count} dosyada {size}"
+msgstr[1] "{count} dosyada {size}"
 
 # File: usr/share/isovault/ui/preferences.py, line: 53
 #: ui/preferences.py
 msgid "S3 Config"
 msgstr "S3 Yapılandırması"
+
+# File: usr/share/isovault/ui/preferences.py, line: 157
+#: ui/preferences.py
+msgid "General"
+msgstr "Genel"
+
+#: ui/preferences.py ui/window.py
+msgid "Settings"
+msgstr "Ayarlar"
+
+#: ui/preferences.py
+msgid "Storage connection, public download page and application behavior."
+msgstr ""
+"Depolama bağlantısı, herkese açık indirme sayfası ve uygulama davranışı."
 
 # File: usr/share/isovault/ui/preferences.py, line: 60
 #: ui/preferences.py
@@ -363,11 +487,6 @@ msgstr "Bağlantıyı Test Et"
 msgid "Verify S3 credentials and connection"
 msgstr "S3 kimlik bilgilerini ve bağlantıyı doğrula"
 
-# File: usr/share/isovault/ui/preferences.py, line: 157
-#: ui/preferences.py
-msgid "General"
-msgstr "Genel"
-
 # File: usr/share/isovault/ui/preferences.py, line: 128
 #: ui/preferences.py
 msgid "Web Settings"
@@ -392,6 +511,37 @@ msgstr "Dizin Dosyalarını Göster"
 #: ui/preferences.py
 msgid "Display index.html files in the file list"
 msgstr "index.html dosyalarını dosya listesindeki göster"
+
+#: ui/preferences.py
+msgid "Application Behavior"
+msgstr "Uygulama Davranışı"
+
+# File: usr/share/isovault/ui/preferences.py, line: 169
+#: ui/preferences.py
+msgid "Auto Refresh"
+msgstr "Otomatik Yenile"
+
+#: ui/preferences.py
+msgid "Automatically refresh file list after operations"
+msgstr "İşlemlerden sonra dosya listesini otomatik olarak yenileştir"
+
+# File: usr/share/isovault/ui/preferences.py, line: 203
+#: ui/preferences.py
+msgid "Confirm Deletions"
+msgstr "Silme İşlemlerini Onayla"
+
+#: ui/preferences.py
+msgid "Show confirmation dialog before deleting files"
+msgstr "Dosyaları silmeden önce onay penceresini göster"
+
+# File: usr/share/isovault/ui/preferences.py, line: 216
+#: ui/preferences.py
+msgid "Auto Update Index"
+msgstr "Otomatik Güncelleme İndeksi"
+
+#: ui/preferences.py
+msgid "Automatically update web index after file operations"
+msgstr "Dosya işlemlerinden sonra web dizinini otomatik olarak güncelleştir."
 
 # File: usr/share/isovault/ui/preferences.py, line: 224
 # File: usr/share/isovault/ui/preferences.py, line: 232
@@ -476,80 +626,31 @@ msgstr "Yalnızca boş olmayan ISO ve MD5 dosyaları yüklenebilir"
 msgid "Destination Folder"
 msgstr "Hedef klasör"
 
-#: ui/upload_dialog.py
+#: ui/upload_dialog.py ui/window.py
 #, python-brace-format
 msgid "Upload to {folder}"
 msgstr "{folder} klasörüne yükle"
 
-# File: usr/share/isovault/ui/window.py, line: 117
 #: ui/window.py
-msgid "Filter by folder"
-msgstr "Klasöre göre filtrele"
-
-# File: usr/share/isovault/ui/components.py, line: 263
-#: ui/window.py
-msgid "All folders"
-msgstr "Tüm klasörler"
-
-#: ui/window.py
-msgid "Selection"
-msgstr "Seçim"
-
-#: ui/window.py
-msgid "Select All"
-msgstr "Tümünü seç"
-
-#: ui/window.py
-msgid "Select None"
-msgstr "Seçimi kaldır"
-
-# File: usr/share/isovault/ui/components.py, line: 277
-#: ui/window.py
-msgid "Copy Link"
-msgstr "Bağlantıyı Kopyala"
-
-# File: usr/share/isovault/ui/window.py, line: 130
-#: ui/window.py
-msgid "Copy public URL"
-msgstr "Genel URL'yi Kopyala"
-
-# File: usr/share/isovault/ui/window.py, line: 143
-#: ui/window.py
-msgid "Save file locally"
-msgstr "Dosyayı yerel olarak kaydet"
-
-# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
-# 
-# File: usr/share/isovault/ui/components.py, line: 291
-# File: usr/share/isovault/ui/dialogs.py, line: 107
-#: ui/window.py
-msgid "Delete"
-msgstr "Silmek"
-
-# File: usr/share/isovault/ui/window.py, line: 156
-#: ui/window.py
-msgid "Remove from storage"
-msgstr "Depolamadan kaldır"
-
-# File: usr/share/isovault/ui/preferences.py, line: 169
-#: ui/window.py
-msgid "Auto Refresh"
-msgstr "Otomatik Yenile"
-
-# File: usr/share/isovault/ui/preferences.py, line: 203
-#: ui/window.py
-msgid "Confirm Deletions"
-msgstr "Silme İşlemlerini Onayla"
-
-# File: usr/share/isovault/ui/preferences.py, line: 216
-#: ui/window.py
-msgid "Auto Update Index"
-msgstr "Otomatik Güncelleme İndeksi"
+msgid "Show sidebar"
+msgstr "Kenar çubuğunu göster"
 
 # File: usr/share/isovault/ui/window.py, line: 228
 #: ui/window.py
 msgid "Upload ISO"
 msgstr "ISO Yükle"
+
+#: ui/window.py
+msgid "Search files..."
+msgstr "Dosya ara..."
+
+# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
+# 
+# File: usr/share/isovault/ui/components.py, line: 372
+# File: usr/share/isovault/ui/preferences.py, line: 30
+#: ui/window.py
+msgid "Preferences"
+msgstr "Tercihler"
 
 # File: usr/share/isovault/ui/components.py, line: 373
 #: ui/window.py
@@ -571,15 +672,60 @@ msgstr "Hakkında"
 msgid "Application menu"
 msgstr "Uygulama menüsü"
 
-# File: usr/share/isovault/ui/window.py, line: 108
 #: ui/window.py
-msgid "Ready"
-msgstr "Hazır"
+msgid "ISO Files"
+msgstr "ISO Dosyaları"
+
+#: ui/window.py
+msgid "Connect to your storage"
+msgstr "Depolama alanınıza bağlanın"
 
 # File: usr/share/isovault/ui/window.py, line: 139
 #: ui/window.py
 msgid "Please configure S3 credentials in Preferences"
 msgstr "Lütfen Tercihlerde S3 kimlik bilgilerini yapılandırın."
+
+#: ui/window.py
+msgid "Open Preferences"
+msgstr "Tercihleri aç"
+
+#: ui/window.py
+msgid "Manage your ISO files and make them available for download."
+msgstr "ISO dosyalarınızı yönetin ve indirilebilir hâle getirin."
+
+#: ui/window.py
+msgid "List view"
+msgstr "Liste görünümü"
+
+#: ui/window.py
+msgid "Grid view"
+msgstr "Izgara görünümü"
+
+# File: usr/share/isovault/ui/components.py, line: 263
+#: ui/window.py
+msgid "All folders"
+msgstr "Tüm klasörler"
+
+# File: usr/share/isovault/ui/window.py, line: 117
+#: ui/window.py
+msgid "Filter by folder"
+msgstr "Klasöre göre filtrele"
+
+#: ui/window.py
+msgid "Save to Downloads folder"
+msgstr "İndirilenler klasörüne kaydet"
+
+#: ui/window.py
+msgid "More download options"
+msgstr "Daha fazla indirme seçeneği"
+
+#: ui/window.py
+msgid "Select None"
+msgstr "Seçimi kaldır"
+
+#: ui/window.py
+msgid "More"
+msgstr "Daha fazla"
 
 # File: usr/share/isovault/ui/window.py, line: 195
 #: ui/window.py
@@ -588,15 +734,17 @@ msgstr "Uyarı: S3 depolama alanına bağlanılamadı"
 
 #: ui/window.py
 #, python-brace-format
-msgid "{selected} of {total} file selected"
-msgid_plural "{selected} of {total} files selected"
-msgstr[0] "{total} dosyadan {selected} dosya seçildi"
-msgstr[1] "{total} dosyadan {selected} dosya seçildi"
+msgid "{visible} of {total} file"
+msgid_plural "{visible} of {total} files"
+msgstr[0] "{total} dosyadan {visible}"
+msgstr[1] "{total} dosyadan {visible}"
 
-# File: usr/share/isovault/ui/dialogs.py, line: 213
 #: ui/window.py
-msgid "No files selected"
-msgstr "Hiçbir dosya seçilmedi"
+#, python-brace-format
+msgid "{count} file selected"
+msgid_plural "{count} files selected"
+msgstr[0] "{count} dosya seçildi"
+msgstr[1] "{count} dosya seçildi"
 
 #: ui/window.py
 msgid "Another operation is in progress"
@@ -732,6 +880,10 @@ msgstr "Silme tamamlandı: {completed} başarılı, {failed} başarısız"
 msgid "Index files updated!"
 msgstr "İndeks dosyaları güncellendi!"
 
+#: ui/window.py
+msgid "Public index update"
+msgstr "Herkese açık dizin güncellemesi"
+
 # File: usr/share/isovault/ui/window.py, line: 593
 #: ui/window.py
 msgid "Updating index files..."
@@ -741,16 +893,6 @@ msgstr "İndeks dosyaları güncelleniyor..."
 #: ui/window.py
 msgid "Failed to update index files"
 msgstr "İndeks dosyaları güncellenemedi"
-
-# File: usr/share/isovault/ui/window.py, line: 487
-#: ui/window.py
-msgid "Loading files..."
-msgstr "Dosyalar yükleniyor..."
-
-# File: usr/share/isovault/ui/window.py, line: 686
-#: ui/window.py
-msgid "Failed to refresh file list"
-msgstr "Dosya listesini yenileme başarısız oldu"
 
 # File: usr/share/isovault/ui/window.py, line: 507
 #: ui/window.py
