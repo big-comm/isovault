@@ -4,7 +4,7 @@ Upload dialog: shows the chosen files and lets the user pick the bucket folder.
 
 import os
 from pathlib import Path
-from typing import Callable, Dict, List, Optional, Tuple
+from typing import Callable, Dict, List, Optional, Sequence, Tuple
 
 import gi
 
@@ -13,7 +13,7 @@ gi.require_version("Adw", "1")
 
 from gi.repository import Adw, Gtk, Pango  # noqa: E402
 
-from config import DISTRO_FOLDERS, ROOT_FOLDER  # noqa: E402
+from config import DEFAULT_FOLDERS, ROOT_FOLDER  # noqa: E402
 from utils.helpers import format_file_size  # noqa: E402
 from utils.i18n import _, ngettext  # noqa: E402
 
@@ -28,6 +28,7 @@ class UploadDialog(Adw.Dialog):
         invalid_files: List[Tuple[str, str]],
         on_upload: Callable[[str], None],
         initial_folder: Optional[str] = None,
+        folders: Sequence[str] = DEFAULT_FOLDERS,
     ):
         """
         Args:
@@ -35,7 +36,9 @@ class UploadDialog(Adw.Dialog):
             invalid_files: (file name, reason) of rejected files, shown for information
             on_upload: Called with the chosen folder when the user confirms
             initial_folder: Folder preselected (e.g. the last one used)
+            folders: Destination folders offered (the profile's folders)
         """
+        self.folders = list(folders)
         super().__init__(title=_("Upload Files"), content_width=600)
         self.add_css_class("upload-dialog")
         self._on_upload = on_upload
@@ -60,7 +63,7 @@ class UploadDialog(Adw.Dialog):
         toolbar.add_bottom_bar(self._build_action_bar())
         self.set_child(toolbar)
 
-        start = initial_folder if initial_folder in DISTRO_FOLDERS else DISTRO_FOLDERS[0]
+        start = initial_folder if initial_folder in self.folders else self.folders[0]
         self.folder_buttons[start].set_active(True)
 
     # Sections
@@ -95,7 +98,7 @@ class UploadDialog(Adw.Dialog):
 
         grid = Gtk.Grid(column_spacing=12, row_spacing=12, column_homogeneous=True)
         leader = None
-        for index, folder in enumerate(DISTRO_FOLDERS):
+        for index, folder in enumerate(self.folders):
             button = self._folder_card(folder)
             if leader is None:
                 leader = button

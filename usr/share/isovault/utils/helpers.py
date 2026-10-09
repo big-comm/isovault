@@ -24,6 +24,22 @@ def format_file_size(size_bytes: int) -> str:
     return f"{size:.1f} {units[unit_index]}"
 
 
+def format_size_short(size_bytes: int) -> str:
+    """
+    Compact size in the style of `ls -sh` used by the BigLinux repository:
+    "72", "4,7K", "40K", "5,0G" (decimal comma, one decimal below 10).
+    """
+    size = float(size_bytes)
+    for unit in ("", "K", "M", "G", "T"):
+        if size < 1024 or unit == "T":
+            break
+        size /= 1024
+    if not unit:
+        return str(int(size))
+    text = f"{size:.1f}" if size < 10 else f"{size:.0f}"
+    return text.replace(".", ",") + unit
+
+
 def extract_md5(text: str) -> Optional[str]:
     """
     Return the first MD5 hash (32 hex chars) found in text, lowercased.

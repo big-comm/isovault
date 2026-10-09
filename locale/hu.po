@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: isovault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 13:54-0300\n"
+"POT-Creation-Date: 2026-10-09 14:36-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: hu\n"
@@ -144,6 +144,36 @@ msgstr "Másolás"
 msgid "Download ISO"
 msgstr "ISO letöltése"
 
+#: services/html_generator.py
+msgid "BigLinux Repository"
+msgstr "BigLinux Tárhely"
+
+#: services/html_generator.py
+#, python-brace-format
+msgid "{folder_name} - BigLinux Repository"
+msgstr "{folder_name} - BigLinux Tárhely"
+
+#: services/html_generator.py
+msgid "Filter"
+msgstr "Szűrő"
+
+#: services/html_generator.py
+msgid "Type"
+msgstr "Típus"
+
+#: services/html_generator.py
+msgid "Folder/File"
+msgstr "Mappa/Fájl"
+
+#: services/html_generator.py
+msgid "Date"
+msgstr "Dátum"
+
+# File: usr/share/isovault/ui/components.py, line: 140
+#: services/html_generator.py ui/file_browser.py
+msgid "Size"
+msgstr "Méret"
+
 # File: usr/share/isovault/ui/dialogs.py, line: 351
 #: ui/components.py ui/dialogs.py
 #, python-brace-format
@@ -279,7 +309,7 @@ msgstr "Link másolása"
 # 
 # File: usr/share/isovault/ui/components.py, line: 291
 # File: usr/share/isovault/ui/dialogs.py, line: 107
-#: ui/file_browser.py ui/window.py
+#: ui/file_browser.py ui/preferences.py ui/window.py
 msgid "Delete"
 msgstr "Törlés"
 
@@ -295,11 +325,6 @@ msgstr "Fájl neve"
 #: ui/file_browser.py
 msgid "Distribution"
 msgstr "Disztribúció"
-
-# File: usr/share/isovault/ui/components.py, line: 140
-#: ui/file_browser.py
-msgid "Size"
-msgstr "Méret"
 
 # File: usr/share/isovault/ui/components.py, line: 148
 #: ui/file_browser.py
@@ -412,10 +437,9 @@ msgid_plural "{size} in {count} files"
 msgstr[0] "{size} {count} fájlban"
 msgstr[1] "{size} {count} fájlban"
 
-# File: usr/share/isovault/ui/preferences.py, line: 53
 #: ui/preferences.py
-msgid "S3 Config"
-msgstr "S3 Beállítások"
+msgid "Profile"
+msgstr "Profil"
 
 # File: usr/share/isovault/ui/preferences.py, line: 157
 #: ui/preferences.py
@@ -430,6 +454,43 @@ msgstr "Beállítások"
 msgid "Storage connection, public download page and application behavior."
 msgstr ""
 "Tárhelykapcsolat, nyilvános letöltési oldal és az alkalmazás viselkedése."
+
+#: ui/preferences.py
+msgid ""
+"Each profile is one repository: its storage, public download page and "
+"folders."
+msgstr ""
+"Minden profil egy tárhelyet jelent: annak tárolóját, nyilvános "
+"letöltőoldalát és mappáit."
+
+#: ui/preferences.py
+msgid "Profile Name"
+msgstr "Profil neve"
+
+#: ui/preferences.py
+msgid "Download Page Style"
+msgstr "Letöltőoldal stílusa"
+
+#: ui/preferences.py
+msgid "Look of the index.html pages published to the bucket"
+msgstr "A bucketben közzétett index.html oldalak megjelenése"
+
+#: ui/preferences.py
+msgid "BigCommunity (cards)"
+msgstr "BigCommunity (kártyák)"
+
+#: ui/preferences.py
+msgid "BigLinux (file list)"
+msgstr "BigLinux (fájllista)"
+
+# File: usr/share/isovault/ui/preferences.py, line: 134
+#: ui/preferences.py
+msgid "Base URL"
+msgstr "Alap URL"
+
+#: ui/preferences.py
+msgid "Folders (comma separated, Root = bucket root)"
+msgstr "Mappák (vesszővel elválasztva, Root = a tároló gyökere)"
 
 # File: usr/share/isovault/ui/preferences.py, line: 60
 #: ui/preferences.py
@@ -488,30 +549,25 @@ msgstr "Kapcsolat tesztelése"
 msgid "Verify S3 credentials and connection"
 msgstr "Ellenőrizze az S3 hitelesítő adatokat és a kapcsolatot"
 
-# File: usr/share/isovault/ui/preferences.py, line: 128
 #: ui/preferences.py
-msgid "Web Settings"
-msgstr "Webbeállítások"
+msgid "Profiles"
+msgstr "Profilok"
 
-# File: usr/share/isovault/ui/preferences.py, line: 129
 #: ui/preferences.py
-msgid "Configure web URLs for public file access"
-msgstr "Web URL-ok konfigurálása nyilvános fájlhozzáféréshez"
+msgid "New Profile"
+msgstr "Új profil"
 
-# File: usr/share/isovault/ui/preferences.py, line: 134
 #: ui/preferences.py
-msgid "Base URL"
-msgstr "Alap URL"
+msgid "Add another repository"
+msgstr "Újabb tárhely hozzáadása"
 
-# File: usr/share/isovault/ui/preferences.py, line: 148
 #: ui/preferences.py
-msgid "Show Index Files"
-msgstr "Indexfájlok megjelenítése"
+msgid "Delete This Profile"
+msgstr "A profil törlése"
 
-# File: usr/share/isovault/ui/preferences.py, line: 149
 #: ui/preferences.py
-msgid "Display index.html files in the file list"
-msgstr "index.html fájlok megjelenítése a fájllistában"
+msgid "Removes the profile and its saved credentials"
+msgstr "Eltávolítja a profilt és a mentett hitelesítő adatait"
 
 #: ui/preferences.py
 msgid "Application Behavior"
@@ -544,6 +600,16 @@ msgstr "Automatikus frissítési index"
 msgid "Automatically update web index after file operations"
 msgstr "Automatikusan frissíti a webindexet a fájlműveletek után"
 
+# File: usr/share/isovault/ui/preferences.py, line: 148
+#: ui/preferences.py
+msgid "Show Index Files"
+msgstr "Indexfájlok megjelenítése"
+
+# File: usr/share/isovault/ui/preferences.py, line: 149
+#: ui/preferences.py
+msgid "Display index.html files in the file list"
+msgstr "index.html fájlok megjelenítése a fájllistában"
+
 # File: usr/share/isovault/ui/preferences.py, line: 224
 # File: usr/share/isovault/ui/preferences.py, line: 232
 # File: usr/share/isovault/ui/preferences.py, line: 356
@@ -557,10 +623,35 @@ msgid "Reset to Defaults"
 msgstr "Alapértelmezett értékek visszaállítása"
 
 #: ui/preferences.py
-msgid "Reset all settings to their default values (S3 credentials are kept)"
+msgid ""
+"Reset the application preferences to their default values (profiles are "
+"kept)"
 msgstr ""
-"Minden beállítás visszaállítása az alapértékekre (az S3-hitelesítő adatok "
-"megmaradnak)"
+"Az alkalmazás beállításainak visszaállítása az alapértelmezett értékekre (a "
+"profilok megmaradnak)"
+
+#: ui/preferences.py
+msgid "Name of the repository, e.g. BigLinux"
+msgstr "A tárhely neve, pl. BigLinux"
+
+#: ui/preferences.py
+msgid "Create"
+msgstr "Létrehozás"
+
+#: ui/preferences.py
+msgid "Delete Profile"
+msgstr "Profil törlése"
+
+#: ui/preferences.py
+#, python-brace-format
+msgid ""
+"Delete the profile “{name}” and its saved credentials?\n"
+"\n"
+"The files in the bucket are not touched."
+msgstr ""
+"Törli a(z) „{name}” profilt és a mentett hitelesítő adatait?\n"
+"\n"
+"A tárolóban lévő fájlokat ez nem érinti."
 
 # File: usr/share/isovault/ui/preferences.py, line: 351
 #: ui/preferences.py
@@ -637,6 +728,10 @@ msgstr "Feltöltés ide: {folder}"
 msgid "Show sidebar"
 msgstr "Oldalsáv megjelenítése"
 
+#: ui/window.py
+msgid "Switch profile"
+msgstr "Profil váltása"
+
 # File: usr/share/isovault/ui/window.py, line: 228
 #: ui/window.py
 msgid "Upload ISO"
@@ -645,14 +740,6 @@ msgstr "ISO feltöltése"
 #: ui/window.py
 msgid "Search files..."
 msgstr "Fájlok keresése..."
-
-# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
-# 
-# File: usr/share/isovault/ui/components.py, line: 372
-# File: usr/share/isovault/ui/preferences.py, line: 30
-#: ui/window.py
-msgid "Preferences"
-msgstr "Beállítások"
 
 # File: usr/share/isovault/ui/components.py, line: 373
 #: ui/window.py
@@ -703,11 +790,6 @@ msgstr "Listanézet"
 msgid "Grid view"
 msgstr "Rácsnézet"
 
-# File: usr/share/isovault/ui/components.py, line: 263
-#: ui/window.py
-msgid "All folders"
-msgstr "Minden mappa"
-
 # File: usr/share/isovault/ui/window.py, line: 117
 #: ui/window.py
 msgid "Filter by folder"
@@ -733,6 +815,15 @@ msgstr "Továbbiak"
 #: ui/window.py
 msgid "Warning: Could not connect to S3 storage"
 msgstr "Figyelmeztetés: Nem sikerült csatlakozni az S3 tárolóhoz"
+
+#: ui/window.py
+msgid "Manage Profiles"
+msgstr "Profilok kezelése"
+
+# File: usr/share/isovault/ui/components.py, line: 263
+#: ui/window.py
+msgid "All folders"
+msgstr "Minden mappa"
 
 #: ui/window.py
 #, python-brace-format

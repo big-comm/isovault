@@ -5,7 +5,7 @@ storage card shown in the sidebar.
 
 import math
 from datetime import datetime
-from typing import Dict, List
+from typing import Dict, List, Sequence
 
 import gi
 
@@ -14,13 +14,13 @@ gi.require_version("Adw", "1")
 
 from gi.repository import Adw, Gdk, Gtk  # noqa: E402
 
-from config import DISTRO_FOLDERS  # noqa: E402
+from config import DEFAULT_FOLDERS  # noqa: E402
 from models import FileItem  # noqa: E402
 from utils.helpers import format_file_size  # noqa: E402
 from utils.i18n import _, ngettext  # noqa: E402
 
 # Distribution colors used where CSS can't reach (the storage bar is drawn with cairo)
-DISTRO_COLORS = {"Gnome": "#9141ac", "Cinnamon": "#e66100", "XFCE": "#3584e4", "Root": "#2ec27e"}
+DISTRO_COLORS = {"Gnome": "#9141ac", "Cinnamon": "#e66100", "XFCE": "#3584e4", "KDE": "#1d99f3", "Root": "#2ec27e"}
 
 _TRANSFER_ICONS = {
     "upload": "document-send-symbolic",
@@ -28,6 +28,12 @@ _TRANSFER_ICONS = {
     "delete": "user-trash-symbolic",
     "index": "view-refresh-symbolic",
 }
+
+
+def folders_in_use(files: List[FileItem], folders: Sequence[str]) -> List[str]:
+    """The profile folders, then any other folder that has files in the bucket."""
+    extra = sorted({f.folder for f in files} - set(folders))
+    return list(folders) + extra
 
 
 def page_header(icon_name: str, title: str, subtitle: str) -> Gtk.Box:
@@ -154,7 +160,7 @@ class StatisticsPage(Gtk.Box):
         self.append(scroll)
         self.update([])
 
-    def update(self, files: List[FileItem]) -> None:
+    def update(self, files: List[FileItem], folders: Sequence[str] = DEFAULT_FOLDERS) -> None:
         """Rebuild the page from the current file list."""
         while child := self.content.get_first_child():
             self.content.remove(child)
@@ -172,7 +178,7 @@ class StatisticsPage(Gtk.Box):
         self.content.append(cards)
 
         per_folder = Adw.PreferencesGroup(title=_("By distribution"))
-        for folder in DISTRO_FOLDERS:
+        for folder in folders_in_use(files, folders):
             folder_files = [f for f in files if f.folder == folder]
             if not folder_files:
                 continue
@@ -265,8 +271,10 @@ class StorageCard(Gtk.Box):
         self.append(self.summary)
         self.update([])
 
-    def update(self, files: List[FileItem]) -> None:
-        self._sizes = {folder: sum(f.size for f in files if f.folder == folder) for folder in DISTRO_FOLDERS}
+    def update(self, files: List[FileItem], folders: Sequence[str] = DEFAULT_FOLDERS) -> None:
+        self._sizes = {
+            folder: sum(f.size for f in files if f.folder == folder) for folder in folders_in_use(files, folders)
+        }
         total = sum(self._sizes.values())
         self.summary.set_text(
             ngettext("{size} in {count} file", "{size} in {count} files", len(files)).format(
@@ -297,7 +305,7 @@ class StorageCard(Gtk.Box):
                 continue
             segment = width * size / total
             color = Gdk.RGBA()
-            color.parse(DISTRO_COLORS.get(folder, "#888888"))
+            color.parse(DISTRO_COLORS.get(folder, "#77767b"))  # gray for folders without a known color
             cr.set_source_rgba(color.red, color.green, color.blue, 1)
             cr.rectangle(x, 0, segment, height)
             cr.fill()

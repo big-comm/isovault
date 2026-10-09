@@ -9,13 +9,13 @@ import logging
 import os
 import threading
 from pathlib import Path
-from typing import Callable, Dict, List, Optional
+from typing import Callable, Dict, List, Optional, Sequence
 from urllib.parse import quote
 
 import boto3
 from botocore.config import Config
 
-from config import DISTRO_FOLDERS, INDEX_FILE, ROOT_FOLDER
+from config import DEFAULT_FOLDERS, INDEX_FILE, ROOT_FOLDER
 from utils.helpers import format_file_size
 
 logger = logging.getLogger(__name__)
@@ -63,9 +63,12 @@ class _ProgressTracker:
 class S3Service:
     """S3 operations on a single bucket"""
 
-    def __init__(self, s3_config: Dict[str, str], base_url: str = ""):
+    def __init__(self, s3_config: Dict[str, str], base_url: str = "", folders: Sequence[str] = DEFAULT_FOLDERS):
         """
         Create the client. No network request is made here.
+
+        Args:
+            folders: Bucket folders uploads may go to (the profile's folders)
 
         Raises:
             ValueError: if a required configuration value is missing.
@@ -79,6 +82,7 @@ class S3Service:
             raise ValueError(f"Missing S3 configuration: {', '.join(missing)}")
 
         self.bucket_name = s3_config["bucket_name"]
+        self.folders = tuple(folders)
         self.base_url = base_url.rstrip("/")
         self.s3_client = boto3.client(
             "s3",
@@ -136,7 +140,7 @@ class S3Service:
         self, file_path: str, folder: str, progress_callback: Optional[ProgressCallback] = None
     ) -> str:
         """Upload a local file into a distro folder and return its key."""
-        if folder not in DISTRO_FOLDERS:
+        if folder not in self.folders:
             raise ValueError(f"Invalid folder: {folder}")
 
         key = object_key(folder, Path(file_path).name)

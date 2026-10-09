@@ -4,7 +4,7 @@ Dialogs used by the main window (file choosers, confirmations, about).
 
 import logging
 import os
-from typing import Callable, List, Optional, Tuple
+from typing import Callable, List, Optional, Sequence, Tuple
 
 import gi
 
@@ -13,7 +13,7 @@ gi.require_version("Adw", "1")
 
 from gi.repository import Adw, Gio, GLib, Gtk  # noqa: E402
 
-from config import APP_ICON, APP_NAME, APP_VERSION, SUPPORTED_EXTENSIONS  # noqa: E402
+from config import APP_ICON, APP_NAME, APP_VERSION, DEFAULT_FOLDERS, SUPPORTED_EXTENSIONS  # noqa: E402
 from models import FileItem  # noqa: E402
 from utils.i18n import _  # noqa: E402
 
@@ -138,12 +138,13 @@ class DialogManager:
         invalid_files: List[Tuple[str, str]],
         callback: Callable[[str], None],
         initial_folder: Optional[str] = None,
+        folders: Sequence[str] = DEFAULT_FOLDERS,
     ) -> None:
         """
         Show the files about to be uploaded (and any rejected ones) and ask the
         destination folder. callback(folder) runs only if the user confirms.
         """
-        UploadDialog(valid_files, invalid_files, callback, initial_folder).present(self.parent_window)
+        UploadDialog(valid_files, invalid_files, callback, initial_folder, folders).present(self.parent_window)
 
     def show_invalid_files(self, invalid_files: List[Tuple[str, str]]) -> None:
         """Explain why none of the selected files can be uploaded."""

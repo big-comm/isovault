@@ -12,7 +12,7 @@ def write(path, size):
 
 
 class TestValidateFile:
-    @pytest.mark.parametrize("name", ["a.iso", "a.md5", "a.ISO", "a.MD5", "a.Iso"])
+    @pytest.mark.parametrize("name", ["a.iso", "a.md5", "a.ISO", "a.MD5", "a.Iso", "a.iso.pkgs", "a.iso.torrent"])
     def test_supported_extensions_any_case(self, tmp_path, name):
         ok, _msg = FileValidator.validate_file(write(tmp_path / name, 10))
         assert ok is True

@@ -32,7 +32,7 @@ def uploaded_pages(s3):
 def test_publishes_main_and_every_folder(s3):
     keys = publish_indexes(s3, HTMLGenerator(str, lang="en"))
 
-    assert keys == ["index.html", "Gnome/index.html", "Cinnamon/index.html", "XFCE/index.html"]
+    assert keys == ["index.html", "Gnome/index.html", "Cinnamon/index.html", "XFCE/index.html", "KDE/index.html"]
     assert set(uploaded_pages(s3)) == set(keys)
     assert all(call.args[2] == "text/html" for call in s3.upload_text.call_args_list)
 
@@ -71,3 +71,14 @@ def test_upload_errors_propagate(s3):
     s3.upload_text.side_effect = RuntimeError("denied")
     with pytest.raises(RuntimeError):
         publish_indexes(s3, HTMLGenerator(str, lang="en"))
+
+
+def test_biglinux_style(s3):
+    from services.html_generator import BigLinuxHTMLGenerator
+
+    publish_indexes(s3, BigLinuxHTMLGenerator(str, lang="en"))
+    pages = uploaded_pages(s3)
+
+    assert 'href="Gnome/"' in pages["index.html"]  # folder rows on the main page
+    assert 'href="../"' in pages["XFCE/index.html"]
+    assert "root.iso" in pages["index.html"] and "x.iso" not in pages["index.html"]

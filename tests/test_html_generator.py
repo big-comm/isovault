@@ -140,3 +140,63 @@ class TestEscaping:
         page = generator.generate_folder_index("<b>", [], {})
         assert "<b>" not in page
         assert "&lt;b&gt;" in page
+
+
+class TestKDE:
+    def test_kde_section_on_main_page(self, generator):
+        page = generator.generate_main_index([make_file("KDE/plasma.iso")], {})
+        assert re.findall(r"<h2>(.*?)</h2>", page) == ["KDE"]
+        assert 'class="de-badge kde"' in page
+
+
+class TestBigLinuxStyle:
+    @pytest.fixture
+    def biglinux(self):
+        from services.html_generator import BigLinuxHTMLGenerator
+
+        return BigLinuxHTMLGenerator(lambda key: f"https://iso.example/{key}", lang="en")
+
+    def test_page_is_complete(self, biglinux):
+        page = biglinux.generate_main_index([make_file("a.iso")], {})
+        assert not re.search(r"\$[a-z_]+", page)
+        assert '<body class="light-mode">' in page
+        assert "list.js/1.5.0/list.min.js" in page and 'integrity="sha384-' in page
+        assert "<title>BigLinux Repository</title>" in page
+
+    def test_rows_for_every_file_type(self, biglinux):
+        files = [make_file(n) for n in ("b.iso", "b.iso.md5", "b.iso.pkgs", "b.iso.torrent")]
+        page = biglinux.generate_main_index(files, {})
+        names = re.findall(r'<td class=name><a href="[^"]*">([^<]*)</a>', page)
+        assert names == ["b.iso", "b.iso.md5", "b.iso.pkgs", "b.iso.torrent"]
+        cells = [c.strip() for c in re.findall(r"<td class=icon>(.*?)</td>", page, re.S)]
+        assert cells[0].startswith("<svg") and cells[1:] == ["md5", "pkgs", "torrent"]
+
+    def test_folders_listed_on_main_page(self, biglinux):
+        files = [make_file("KDE/k.iso", size=5 * 1024**3), make_file("r.iso")]
+        page = biglinux.generate_main_index(files, {})
+        assert 'href="KDE/">KDE/</a>' in page
+        assert "<td class=size>5,0G" in page
+        assert 'href="https://iso.example/r.iso"' in page
+        assert "k.iso" not in page  # folder content lives in the folder page
+
+    def test_folder_page(self, biglinux):
+        page = biglinux.generate_folder_index("KDE", [make_file("KDE/k.iso")], {})
+        assert 'href="../">..</a>' in page
+        assert 'href="https://iso.example/KDE/k.iso"' in page
+        assert "<title>KDE - BigLinux Repository</title>" in page
+
+    def test_size_sorts_numerically(self, biglinux):
+        page = biglinux.generate_main_index([make_file("a.iso", size=900), make_file("b.iso", size=10_000)], {})
+        keys = re.findall(r'<span class="bytes" hidden>(\d+)</span>', page)
+        assert keys == sorted(keys) and all(len(k) == 20 for k in keys)
+
+    def test_escaping(self, biglinux):
+        page = biglinux.generate_main_index([make_file('<img src=x onerror="a">.iso')], {})
+        assert "<img src=x" not in page
+
+    def test_factory(self):
+        from services.html_generator import BigLinuxHTMLGenerator, create_html_generator
+
+        assert isinstance(create_html_generator("biglinux", str, "en"), BigLinuxHTMLGenerator)
+        assert isinstance(create_html_generator("bigcommunity", str, "en"), HTMLGenerator)
+        assert isinstance(create_html_generator("unknown", str, "en"), HTMLGenerator)

@@ -1,7 +1,11 @@
 """
 Builds the public index pages published to the bucket.
 
-The page skeleton, CSS and JS live in templates/; this module only renders
+Two looks are available (see config.PAGE_STYLES):
+- "bigcommunity": cards per distribution with the MD5 of every ISO
+- "biglinux": the file table of iso.biglinux.com.br
+
+Page skeletons, CSS and JS live in templates/; this module only renders
 the dynamic parts. Every value coming from the bucket is HTML-escaped.
 """
 
@@ -10,14 +14,11 @@ import os
 from datetime import datetime, timezone
 from html import escape
 from string import Template
-from typing import Callable, Dict, List, Optional
+from typing import Callable, Dict, List, Optional, Sequence, Union
 
-from config import DISTRO_FOLDERS, ROOT_FOLDER, TEMPLATES_DIR
-from utils.helpers import extract_md5, pair_iso_with_md5
+from config import DEFAULT_FOLDERS, DEFAULT_PAGE_STYLE, ROOT_FOLDER, TEMPLATES_DIR
+from utils.helpers import extract_md5, format_size_short, pair_iso_with_md5
 from utils.i18n import _
-
-# Main page shows the root first, then the desktop folders
-_MAIN_PAGE_ORDER = (ROOT_FOLDER,) + tuple(f for f in DISTRO_FOLDERS if f != ROOT_FOLDER)
 
 # (CSS class, Lucide icon) per folder
 _FOLDER_STYLE = {
@@ -25,7 +26,13 @@ _FOLDER_STYLE = {
     "Gnome": ("gnome", "layout-grid"),
     "Cinnamon": ("cinnamon", "layers"),
     "XFCE": ("xfce", "monitor"),
+    "KDE": ("kde", "sparkles"),
 }
+
+
+def _root_first(folders: Sequence[str]) -> List[str]:
+    """Pages list the bucket root first, then the other folders in profile order."""
+    return ([ROOT_FOLDER] if ROOT_FOLDER in folders else []) + [f for f in folders if f != ROOT_FOLDER]
 
 
 def _read_template(name: str) -> str:
@@ -42,14 +49,18 @@ def _page_language() -> str:
 class HTMLGenerator:
     """Renders index.html pages for the whole bucket and for each folder"""
 
-    def __init__(self, public_url: Callable[[str], str], lang: Optional[str] = None):
+    def __init__(
+        self, public_url: Callable[[str], str], lang: Optional[str] = None, folders: Sequence[str] = DEFAULT_FOLDERS
+    ):
         """
         Args:
             public_url: Function that maps an S3 key to its public URL
             lang: Value of <html lang>; defaults to the current UI language
+            folders: Folders of the profile, in display order
         """
         self.public_url = public_url
         self.lang = lang or _page_language()
+        self.folders = _root_first(folders)
         self._page = Template(_read_template("page.html"))
         self._style = _read_template("index.css")
         self._script = _read_template("index.js")
@@ -72,7 +83,7 @@ class HTMLGenerator:
 
         sections = []
         total_isos = 0
-        for folder in _MAIN_PAGE_ORDER:
+        for folder in self.folders:
             pairs = pair_iso_with_md5([f for f in files if f["folder"] == folder])
             if pairs:
                 total_isos += len(pairs)
@@ -209,3 +220,115 @@ class HTMLGenerator:
         if not md5_file:
             return None
         return extract_md5(md5_hashes.get(md5_file["key"], ""))
+
+
+class BigLinuxHTMLGenerator:
+    """
+    File table in the look of iso.biglinux.com.br: every file (ISO, MD5,
+    package list, torrent) with its date and size, plus one row per folder.
+    """
+
+    def __init__(
+        self, public_url: Callable[[str], str], lang: Optional[str] = None, folders: Sequence[str] = DEFAULT_FOLDERS
+    ):
+        self.public_url = public_url
+        self.lang = lang or _page_language()
+        self.folders = _root_first(folders)
+        self._page = Template(_read_template("biglinux/page.html"))
+        self._style = _read_template("biglinux/index.css")
+        self._logo = _read_template("biglinux/logo.svg")
+        self._iso_icon = _read_template("biglinux/iso.svg")
+        self._folder_icon = _read_template("biglinux/folder.svg")
+
+    def generate_main_index(
+        self,
+        files: List[Dict],
+        md5_hashes: Dict[str, str],
+        updated_at: Optional[datetime] = None,
+    ) -> str:
+        """Root files plus a row for every folder that has files (md5_hashes is unused)."""
+        rows = []
+        for folder in self.folders:
+            folder_files = [f for f in files if f["folder"] == folder]
+            if folder != ROOT_FOLDER and folder_files:
+                rows.append(self._render_folder_row(folder, folder_files))
+        rows.extend(self._render_file_row(f) for f in _by_name([f for f in files if f["folder"] == ROOT_FOLDER]))
+        return self._render_page(_("BigLinux Repository"), rows)
+
+    def generate_folder_index(self, folder: str, files: List[Dict], md5_hashes: Dict[str, str]) -> str:
+        """One folder: a ".." row back to the root, then its files."""
+        rows = [self._render_row(self._folder_icon, "../", "..", "", "", -1)]
+        rows.extend(self._render_file_row(f) for f in _by_name(files))
+        return self._render_page(_("{folder_name} - BigLinux Repository").format(folder_name=folder), rows)
+
+    def _render_page(self, title: str, rows: List[str]) -> str:
+        return self._page.substitute(
+            lang=escape(self.lang),
+            title=escape(title),
+            style=self._style,
+            logo=self._logo,
+            filter=escape(_("Filter")),
+            col_type=escape(_("Type")),
+            col_name=escape(_("Folder/File")),
+            col_date=escape(_("Date")),
+            col_size=escape(_("Size")),
+            rows="".join(rows),
+        )
+
+    def _render_folder_row(self, folder: str, files: List[Dict]) -> str:
+        newest = max(f["modified"] for f in files)
+        total = sum(f["size"] for f in files)
+        return self._render_row(
+            self._folder_icon, f"{folder}/", f"{folder}/", _format_date(newest), format_size_short(total), total
+        )
+
+    def _render_file_row(self, file_info: Dict) -> str:
+        name = file_info["name"]
+        if name.lower().endswith(".iso"):
+            icon = self._iso_icon
+        else:  # md5, pkgs, torrent... are shown by extension, like the original page
+            icon = escape(name.rsplit(".", 1)[-1].lower()) if "." in name else ""
+        return self._render_row(
+            icon,
+            self.public_url(file_info["key"]),
+            name,
+            _format_date(file_info["modified"]),
+            format_size_short(file_info["size"]),
+            file_info["size"],
+        )
+
+    @staticmethod
+    def _render_row(icon: str, href: str, name: str, date: str, size: str, size_bytes: int) -> str:
+        # Zero-padded bytes sort correctly as text
+        sort_key = f"{size_bytes:020d}" if size_bytes >= 0 else ""
+        return f"""
+<tr>
+        <td class=icon>
+{icon}
+</td>
+        <td class=name><a href="{escape(href, quote=True)}">{escape(name)}</a></td>
+        <td class=date>{escape(date)}</td>
+        <td class=size>{escape(size)}<span class="bytes" hidden>{sort_key}</span></td>
+    </tr>"""
+
+
+def _format_date(moment: datetime) -> str:
+    return moment.astimezone().strftime("%Y-%m-%d %H:%M:%S")
+
+
+def _by_name(files: List[Dict]) -> List[Dict]:
+    return sorted(files, key=lambda f: f["name"].lower())
+
+
+IndexGenerator = Union[HTMLGenerator, BigLinuxHTMLGenerator]
+
+
+def create_html_generator(
+    style: str,
+    public_url: Callable[[str], str],
+    lang: Optional[str] = None,
+    folders: Sequence[str] = DEFAULT_FOLDERS,
+) -> IndexGenerator:
+    """Generator for the configured page style (unknown styles fall back to the default)."""
+    generators = {"bigcommunity": HTMLGenerator, "biglinux": BigLinuxHTMLGenerator}
+    return generators.get(style, generators[DEFAULT_PAGE_STYLE])(public_url, lang, folders)

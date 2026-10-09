@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: isovault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 13:54-0300\n"
+"POT-Creation-Date: 2026-10-09 14:36-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ru\n"
@@ -142,6 +142,36 @@ msgstr "Копировать"
 #: services/html_generator.py
 msgid "Download ISO"
 msgstr "Скачать ISO"
+
+#: services/html_generator.py
+msgid "BigLinux Repository"
+msgstr "Репозиторий BigLinux"
+
+#: services/html_generator.py
+#, python-brace-format
+msgid "{folder_name} - BigLinux Repository"
+msgstr "{folder_name} - Репозиторий BigLinux"
+
+#: services/html_generator.py
+msgid "Filter"
+msgstr "Фильтр"
+
+#: services/html_generator.py
+msgid "Type"
+msgstr "Тип"
+
+#: services/html_generator.py
+msgid "Folder/File"
+msgstr "Папка/Файл"
+
+#: services/html_generator.py
+msgid "Date"
+msgstr "Дата"
+
+# File: usr/share/isovault/ui/components.py, line: 140
+#: services/html_generator.py ui/file_browser.py
+msgid "Size"
+msgstr "Размер"
 
 # File: usr/share/isovault/ui/dialogs.py, line: 351
 #: ui/components.py ui/dialogs.py
@@ -278,7 +308,7 @@ msgstr "Скопировать ссылку"
 # 
 # File: usr/share/isovault/ui/components.py, line: 291
 # File: usr/share/isovault/ui/dialogs.py, line: 107
-#: ui/file_browser.py ui/window.py
+#: ui/file_browser.py ui/preferences.py ui/window.py
 msgid "Delete"
 msgstr "Удалить"
 
@@ -294,11 +324,6 @@ msgstr "Имя файла"
 #: ui/file_browser.py
 msgid "Distribution"
 msgstr "Дистрибутив"
-
-# File: usr/share/isovault/ui/components.py, line: 140
-#: ui/file_browser.py
-msgid "Size"
-msgstr "Размер"
 
 # File: usr/share/isovault/ui/components.py, line: 148
 #: ui/file_browser.py
@@ -413,10 +438,9 @@ msgstr[0] "{size} в {count} файле"
 msgstr[1] "{size} в {count} файлах"
 msgstr[2] "{size} в {count} файлах"
 
-# File: usr/share/isovault/ui/preferences.py, line: 53
 #: ui/preferences.py
-msgid "S3 Config"
-msgstr "S3 Конфигурация"
+msgid "Profile"
+msgstr "Профиль"
 
 # File: usr/share/isovault/ui/preferences.py, line: 157
 #: ui/preferences.py
@@ -431,6 +455,43 @@ msgstr "Настройки"
 msgid "Storage connection, public download page and application behavior."
 msgstr ""
 "Подключение к хранилищу, публичная страница загрузки и поведение приложения."
+
+#: ui/preferences.py
+msgid ""
+"Each profile is one repository: its storage, public download page and "
+"folders."
+msgstr ""
+"Каждый профиль — это один репозиторий: его хранилище, публичная страница "
+"загрузки и папки."
+
+#: ui/preferences.py
+msgid "Profile Name"
+msgstr "Имя профиля"
+
+#: ui/preferences.py
+msgid "Download Page Style"
+msgstr "Стиль страницы загрузки"
+
+#: ui/preferences.py
+msgid "Look of the index.html pages published to the bucket"
+msgstr "Внешний вид страниц index.html, публикуемых в бакет"
+
+#: ui/preferences.py
+msgid "BigCommunity (cards)"
+msgstr "BigCommunity (карточки)"
+
+#: ui/preferences.py
+msgid "BigLinux (file list)"
+msgstr "BigLinux (список файлов)"
+
+# File: usr/share/isovault/ui/preferences.py, line: 134
+#: ui/preferences.py
+msgid "Base URL"
+msgstr "Базовый URL"
+
+#: ui/preferences.py
+msgid "Folders (comma separated, Root = bucket root)"
+msgstr "Папки (через запятую, Root = корень корзины)"
 
 # File: usr/share/isovault/ui/preferences.py, line: 60
 #: ui/preferences.py
@@ -489,30 +550,25 @@ msgstr "Проверить соединение"
 msgid "Verify S3 credentials and connection"
 msgstr "Проверьте учетные данные S3 и соединение"
 
-# File: usr/share/isovault/ui/preferences.py, line: 128
 #: ui/preferences.py
-msgid "Web Settings"
-msgstr "Веб-настройки"
+msgid "Profiles"
+msgstr "Профили"
 
-# File: usr/share/isovault/ui/preferences.py, line: 129
 #: ui/preferences.py
-msgid "Configure web URLs for public file access"
-msgstr "Настроить веб-URL для публичного доступа к файлам"
+msgid "New Profile"
+msgstr "Новый профиль"
 
-# File: usr/share/isovault/ui/preferences.py, line: 134
 #: ui/preferences.py
-msgid "Base URL"
-msgstr "Базовый URL"
+msgid "Add another repository"
+msgstr "Добавить ещё один репозиторий"
 
-# File: usr/share/isovault/ui/preferences.py, line: 148
 #: ui/preferences.py
-msgid "Show Index Files"
-msgstr "Показать индексные файлы"
+msgid "Delete This Profile"
+msgstr "Удалить этот профиль"
 
-# File: usr/share/isovault/ui/preferences.py, line: 149
 #: ui/preferences.py
-msgid "Display index.html files in the file list"
-msgstr "Отображать файлы index.html в списке файлов"
+msgid "Removes the profile and its saved credentials"
+msgstr "Удаляет профиль и его сохранённые учётные данные"
 
 #: ui/preferences.py
 msgid "Application Behavior"
@@ -545,6 +601,16 @@ msgstr "Автообновление индекса"
 msgid "Automatically update web index after file operations"
 msgstr "Автоматически обновлять веб-индекс после операций с файлами"
 
+# File: usr/share/isovault/ui/preferences.py, line: 148
+#: ui/preferences.py
+msgid "Show Index Files"
+msgstr "Показать индексные файлы"
+
+# File: usr/share/isovault/ui/preferences.py, line: 149
+#: ui/preferences.py
+msgid "Display index.html files in the file list"
+msgstr "Отображать файлы index.html в списке файлов"
+
 # File: usr/share/isovault/ui/preferences.py, line: 224
 # File: usr/share/isovault/ui/preferences.py, line: 232
 # File: usr/share/isovault/ui/preferences.py, line: 356
@@ -558,10 +624,34 @@ msgid "Reset to Defaults"
 msgstr "Сбросить на значения по умолчанию"
 
 #: ui/preferences.py
-msgid "Reset all settings to their default values (S3 credentials are kept)"
+msgid ""
+"Reset the application preferences to their default values (profiles are "
+"kept)"
 msgstr ""
-"Сбросить все настройки на значения по умолчанию (учётные данные S3 "
-"сохраняются)"
+"Сбросить настройки приложения на значения по умолчанию (профили сохраняются)"
+
+#: ui/preferences.py
+msgid "Name of the repository, e.g. BigLinux"
+msgstr "Название репозитория, например BigLinux"
+
+#: ui/preferences.py
+msgid "Create"
+msgstr "Создать"
+
+#: ui/preferences.py
+msgid "Delete Profile"
+msgstr "Удалить профиль"
+
+#: ui/preferences.py
+#, python-brace-format
+msgid ""
+"Delete the profile “{name}” and its saved credentials?\n"
+"\n"
+"The files in the bucket are not touched."
+msgstr ""
+"Удалить профиль «{name}» и его сохранённые учётные данные?\n"
+"\n"
+"Файлы в корзине не затрагиваются."
 
 # File: usr/share/isovault/ui/preferences.py, line: 351
 #: ui/preferences.py
@@ -640,6 +730,10 @@ msgstr "Загрузить в {folder}"
 msgid "Show sidebar"
 msgstr "Показать боковую панель"
 
+#: ui/window.py
+msgid "Switch profile"
+msgstr "Сменить профиль"
+
 # File: usr/share/isovault/ui/window.py, line: 228
 #: ui/window.py
 msgid "Upload ISO"
@@ -648,14 +742,6 @@ msgstr "Загрузить ISO"
 #: ui/window.py
 msgid "Search files..."
 msgstr "Поиск файлов..."
-
-# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
-# 
-# File: usr/share/isovault/ui/components.py, line: 372
-# File: usr/share/isovault/ui/preferences.py, line: 30
-#: ui/window.py
-msgid "Preferences"
-msgstr "Настройки"
 
 # File: usr/share/isovault/ui/components.py, line: 373
 #: ui/window.py
@@ -706,11 +792,6 @@ msgstr "Список"
 msgid "Grid view"
 msgstr "Сетка"
 
-# File: usr/share/isovault/ui/components.py, line: 263
-#: ui/window.py
-msgid "All folders"
-msgstr "Все папки"
-
 # File: usr/share/isovault/ui/window.py, line: 117
 #: ui/window.py
 msgid "Filter by folder"
@@ -736,6 +817,15 @@ msgstr "Ещё"
 #: ui/window.py
 msgid "Warning: Could not connect to S3 storage"
 msgstr "Предупреждение: Не удалось подключиться к хранилищу S3"
+
+#: ui/window.py
+msgid "Manage Profiles"
+msgstr "Управление профилями"
+
+# File: usr/share/isovault/ui/components.py, line: 263
+#: ui/window.py
+msgid "All folders"
+msgstr "Все папки"
 
 #: ui/window.py
 #, python-brace-format

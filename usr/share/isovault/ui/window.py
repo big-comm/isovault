@@ -15,9 +15,9 @@ gi.require_version("Adw", "1")
 
 from gi.repository import Adw, Gio, GLib, GObject, Gtk, Pango  # noqa: E402
 
-from config import APP_ICON, APP_NAME, DISTRO_FOLDERS, REFRESH_DELAY_MS, TOAST_TIMEOUT  # noqa: E402
+from config import APP_ICON, APP_NAME, REFRESH_DELAY_MS, TOAST_TIMEOUT  # noqa: E402
 from models import FileItem, SettingsManager  # noqa: E402
-from services import FileValidator, HTMLGenerator, S3Service, publish_indexes  # noqa: E402
+from services import FileValidator, S3Service, create_html_generator, publish_indexes  # noqa: E402
 from utils.helpers import format_file_size  # noqa: E402
 from utils.i18n import _, ngettext  # noqa: E402
 
@@ -145,12 +145,21 @@ class ISOVaultWindow(Adw.ApplicationWindow):
         icon.set_pixel_size(36)
         name = Gtk.Label(label=APP_NAME, xalign=0)
         name.add_css_class("app-name")
-        org = Gtk.Label(label="BigCommunity", xalign=0)
-        org.add_css_class("dim-label")
-        org.add_css_class("caption")
+        # Active profile under the app name; its menu switches between repositories
+        self.profile_label = Gtk.Label(xalign=0, ellipsize=Pango.EllipsizeMode.END, max_width_chars=18)
+        self.profile_label.add_css_class("caption")
+        profile_content = Gtk.Box(spacing=2)
+        profile_content.append(self.profile_label)
+        profile_content.append(Gtk.Image.new_from_icon_name("pan-down-symbolic"))
+        self.profile_menu = Gio.Menu()
+        self.profile_button = Gtk.MenuButton(
+            child=profile_content, menu_model=self.profile_menu, tooltip_text=_("Switch profile"), halign=Gtk.Align.START
+        )
+        self.profile_button.add_css_class("flat")
+        self.profile_button.add_css_class("profile-button")
         names = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, valign=Gtk.Align.CENTER)
         names.append(name)
-        names.append(org)
+        names.append(self.profile_button)
         identity = Gtk.Box(spacing=10)
         identity.add_css_class("app-identity")
         identity.append(icon)
@@ -178,7 +187,6 @@ class ISOVaultWindow(Adw.ApplicationWindow):
         header.set_title_widget(center)
 
         main_section = Gio.Menu()
-        main_section.append(_("Preferences"), "win.preferences")
         main_section.append(_("Force Update Index"), "win.force-index")
         main_section.append(_("Refresh"), "win.refresh")
         about_section = Gio.Menu()
@@ -198,7 +206,6 @@ class ISOVaultWindow(Adw.ApplicationWindow):
             ("transfers", "isovault-transfers-symbolic", _("Transfers")),
             ("settings", "emblem-system-symbolic", _("Settings")),
             ("statistics", "isovault-statistics-symbolic", _("Statistics")),
-            ("about", "help-about-symbolic", _("About")),
         ):
             label = Gtk.Label(label=title, xalign=0, hexpand=True)
             box = Gtk.Box(spacing=12)
@@ -232,7 +239,7 @@ class ISOVaultWindow(Adw.ApplicationWindow):
         self.page_stack.add_named(self.transfers_page, "transfers")
         self.statistics_page = StatisticsPage()
         self.page_stack.add_named(self.statistics_page, "statistics")
-        self.settings_page = SettingsPage(self.settings_manager, self._on_settings_changed)
+        self.settings_page = SettingsPage(self.settings_manager, self._on_settings_changed, self.switch_profile)
         self.page_stack.add_named(self.settings_page, "settings")
 
         setup = Adw.StatusPage(
@@ -264,7 +271,9 @@ class ISOVaultWindow(Adw.ApplicationWindow):
         self.view_toggle.connect("notify::active-name", lambda group, _p: self.file_list.set_view(group.get_active_name()))
         header.append(self.view_toggle)
 
-        self.folder_dropdown = Gtk.DropDown.new_from_strings([_("All folders"), *DISTRO_FOLDERS])
+        self._folders: List[str] = []
+        self._folder_model = Gtk.StringList()
+        self.folder_dropdown = Gtk.DropDown(model=self._folder_model)
         self.folder_dropdown.set_valign(Gtk.Align.CENTER)
         self.folder_dropdown.set_tooltip_text(_("Filter by folder"))
         self.folder_dropdown.connect("notify::selected", lambda *_args: self._on_folder_changed())
@@ -346,6 +355,17 @@ class ISOVaultWindow(Adw.ApplicationWindow):
             action.connect("activate", handler)
             self.add_action(action)
 
+        manage = Gio.SimpleAction.new("manage-profiles", None)
+        manage.connect("activate", lambda *_args: self.show_page("settings", settings_tab="profile"))
+        self.add_action(manage)
+
+        # Radio items of the profile menu: the state is the active profile id
+        self.profile_action = Gio.SimpleAction.new_stateful(
+            "profile", GLib.VariantType.new("s"), GLib.Variant("s", self.settings_manager.active_profile_id)
+        )
+        self.profile_action.connect("change-state", lambda _a, value: self.switch_profile(value.get_string()))
+        self.add_action(self.profile_action)
+
         # Row "..." menus: the parameter is the S3 key of the file
         for name, handler in (
             ("file-copy-link", self.on_copy_link_clicked),
@@ -359,20 +379,18 @@ class ISOVaultWindow(Adw.ApplicationWindow):
     # Navigation
 
     def _on_nav_activated(self, _listbox, row: Gtk.ListBoxRow) -> None:
-        if row.page == "about":
-            self.dialogs.show_about()
-            # The about dialog doesn't change the page: keep the current one highlighted
-            self.nav_list.select_row(self.nav_rows[self._current_page()])
-            return
         self.show_page(row.page)
         if self.split_view.get_collapsed():
             self.split_view.set_show_sidebar(False)
 
-    def show_page(self, page: str) -> None:
+    def show_page(self, page: str, settings_tab: Optional[str] = None) -> None:
         """
         Show "files", "transfers", "statistics" or "settings" (files falls
-        back to the setup page without credentials).
+        back to the setup page without credentials). settings_tab picks the
+        tab of the settings page ("profile" or "general").
         """
+        if settings_tab:
+            self.settings_page.view_stack.set_visible_child_name(settings_tab)
         if self.page_stack.get_visible_child_name() == "settings" and page != "settings":
             self.settings_page.commit()  # leaving the settings page applies pending edits
         if page == "files" and not self.settings_manager.has_s3_credentials():
@@ -392,8 +410,9 @@ class ISOVaultWindow(Adw.ApplicationWindow):
     # State
 
     def _connect_service(self) -> None:
-        """(Re)create the S3 service from the current settings and load the list."""
+        """(Re)create the S3 service from the active profile and load the list."""
         self.s3_service = None
+        self._apply_profile()
         self._set_files([])
 
         if not self.settings_manager.has_s3_credentials():
@@ -406,7 +425,8 @@ class ISOVaultWindow(Adw.ApplicationWindow):
         try:
             self.s3_service = S3Service(
                 self.settings_manager.get_s3_config(),
-                self.settings_manager.get("web", "base_url"),
+                self.settings_manager.profile["base_url"],
+                self.settings_manager.folders(),
             )
         except Exception as e:
             logger.exception("Could not create S3 client")
@@ -420,9 +440,48 @@ class ISOVaultWindow(Adw.ApplicationWindow):
     def _set_files(self, files: List[dict]) -> None:
         self.file_list.set_files(files)
         everything = self.file_list.all_files()
-        self.storage_card.update(everything)
-        self.statistics_page.update(everything)
+        folders = self.settings_manager.folders()
+        self.storage_card.update(everything, folders)
+        self.statistics_page.update(everything, folders)
         self._update_counts()
+
+    # Profiles
+
+    def switch_profile(self, profile_id: str) -> None:
+        """Make another profile active: its settings, folders and bucket."""
+        self.settings_page.commit()  # pending edits belong to the profile being left
+        if profile_id != self.settings_manager.active_profile_id:
+            self.settings_manager.active_profile_id = profile_id
+            self.settings_manager.save_settings()
+        self.settings_page.load_profile()
+        self._connect_service()
+
+    def _apply_profile(self) -> None:
+        """Show the active profile: header label, profile menu and folder filter."""
+        manager = self.settings_manager
+        self.profile_label.set_text(manager.profile["name"])
+        self.set_title(f"{APP_NAME} – {manager.profile['name']}")
+
+        self.profile_menu.remove_all()
+        profiles = Gio.Menu()
+        for profile_id, profile in manager.profiles.items():
+            item = Gio.MenuItem.new(profile["name"], None)
+            item.set_action_and_target_value("win.profile", GLib.Variant("s", profile_id))
+            profiles.append_item(item)
+        self.profile_menu.append_section(None, profiles)
+        manage = Gio.Menu()
+        manage.append(_("Manage Profiles"), "win.manage-profiles")
+        self.profile_menu.append_section(None, manage)
+        self.profile_action.set_state(GLib.Variant("s", manager.active_profile_id))
+
+        folders = manager.folders()
+        if folders != self._folders:
+            self._folders = folders
+            self._folder_model.splice(0, self._folder_model.get_n_items(), [_("All folders"), *folders])
+            self.folder_dropdown.set_selected(0)
+        if self.s3_service:
+            self.s3_service.folders = tuple(folders)
+            self.s3_service.base_url = manager.profile["base_url"].rstrip("/")
 
     def _update_counts(self) -> None:
         total = self.file_list.total_count
@@ -468,7 +527,7 @@ class ISOVaultWindow(Adw.ApplicationWindow):
     def get_selected_folder(self) -> Optional[str]:
         """Folder chosen in the filter (None = all folders)."""
         selected = self.folder_dropdown.get_selected()
-        return DISTRO_FOLDERS[selected - 1] if selected > 0 else None
+        return self._folders[selected - 1] if 0 < selected <= len(self._folders) else None
 
     def _on_folder_changed(self) -> None:
         self.file_list.set_folder(self.get_selected_folder())
@@ -595,7 +654,11 @@ class ISOVaultWindow(Adw.ApplicationWindow):
             self._upload_files(valid_files, folder)
 
         self.dialogs.choose_upload_folder(
-            valid_files, invalid_files, upload, self.settings_manager.get("general", "last_upload_folder")
+            valid_files,
+            invalid_files,
+            upload,
+            self.settings_manager.get("general", "last_upload_folder"),
+            self.settings_manager.folders(),
         )
 
     def _upload_files(self, file_paths: List[str], folder: str) -> None:
@@ -770,7 +833,14 @@ class ISOVaultWindow(Adw.ApplicationWindow):
             "index",
             _("Public index update"),
             _("Updating index files..."),
-            lambda: publish_indexes(service, HTMLGenerator(service.get_public_url)),
+            lambda: publish_indexes(
+                service,
+                create_html_generator(
+                    self.settings_manager.profile["page_style"],
+                    service.get_public_url,
+                    folders=self.settings_manager.folders(),
+                ),
+            ),
             done,
             _("Failed to update index files"),
         )
@@ -785,7 +855,7 @@ class ISOVaultWindow(Adw.ApplicationWindow):
 
         self._refresh_generation += 1
         generation = self._refresh_generation
-        include_index = self.settings_manager.get("web", "show_index_files")
+        include_index = self.settings_manager.get("ui", "show_index_files")
         self.refresh_spinner.set_visible(True)
 
         def done(files):
@@ -818,9 +888,7 @@ class ISOVaultWindow(Adw.ApplicationWindow):
         if s3_changed:
             self._connect_service()
             return
-
-        if self.s3_service:
-            self.s3_service.base_url = self.settings_manager.get("web", "base_url").rstrip("/")
+        self._apply_profile()  # name, folders or public URL may have changed
         self.refresh_files()
 
     def _on_close_request(self, _window) -> bool:

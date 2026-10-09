@@ -14,6 +14,9 @@ window.isovault-window .sidebar-pane {
 /* Header */
 .main-header .app-name { font-weight: 800; font-size: 1.15em; }
 .upload-button { padding: 6px 16px; border-radius: 10px; }
+/* Profile switcher under the app name: looks like a caption until hovered */
+.profile-button > button { min-height: 0; padding: 0 4px; margin-left: -4px; }
+.profile-button > button label { opacity: 0.75; }
 .search-shortcut { margin-right: 8px; opacity: 0.7; }
 
 /* Sidebar */
@@ -111,23 +114,27 @@ gridview.file-cards > child:selected .file-card { box-shadow: inset 0 0 0 2px @a
 .distro-gnome { color: #813d9c; }
 .distro-cinnamon { color: #c64600; }
 .distro-xfce { color: #1c71d8; }
+.distro-kde { color: #0f6fb3; }
 .distro-root { color: #26a269; }
 
 .file-icon.distro-gnome, .distro-badge.distro-gnome, .legend-dot.distro-gnome { background: alpha(#9141ac, 0.16); }
 .file-icon.distro-cinnamon, .distro-badge.distro-cinnamon, .legend-dot.distro-cinnamon { background: alpha(#e66100, 0.16); }
 .file-icon.distro-xfce, .distro-badge.distro-xfce, .legend-dot.distro-xfce { background: alpha(#3584e4, 0.16); }
+.file-icon.distro-kde, .distro-badge.distro-kde, .legend-dot.distro-kde { background: alpha(#1d99f3, 0.16); }
 .file-icon.distro-root, .distro-badge.distro-root, .legend-dot.distro-root { background: alpha(#2ec27e, 0.16); }
 
 /* Lighter text on dark backgrounds (class set from Adw.StyleManager:dark) */
 window.dark-theme .distro-gnome { color: #dc8add; }
 window.dark-theme .distro-cinnamon { color: #ffa348; }
 window.dark-theme .distro-xfce { color: #99c1f1; }
+window.dark-theme .distro-kde { color: #7cc7ff; }
 window.dark-theme .distro-root { color: #8ff0a4; }
 
 .legend-dot { min-width: 12px; min-height: 12px; border-radius: 999px; }
 .legend-dot.distro-gnome { background: #9141ac; }
 .legend-dot.distro-cinnamon { background: #e66100; }
 .legend-dot.distro-xfce { background: #3584e4; }
+.legend-dot.distro-kde { background: #1d99f3; }
 .legend-dot.distro-root { background: #2ec27e; }
 
 /* Bottom bar: selection summary or running operation
@@ -205,6 +212,7 @@ window.dark-theme .distro-root { color: #8ff0a4; }
 .badge-gnome { color: #b37fd0; background: alpha(#9b59b6, 0.22); }
 .badge-cinnamon { color: #e8894a; background: alpha(#D2691E, 0.22); }
 .badge-xfce { color: #5dade2; background: alpha(#3498db, 0.22); }
+.badge-kde { color: #6cc1ff; background: alpha(#1d99f3, 0.22); }
 .badge-root { color: @accent_color; background: alpha(@accent_bg_color, 0.18); }
 
 .folder-card .folder-path {

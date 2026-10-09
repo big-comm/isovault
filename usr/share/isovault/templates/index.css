@@ -238,6 +238,12 @@ body {
     border: 1px solid rgba(211, 84, 0, 0.3);
 }
 
+.de-badge.kde {
+    background: linear-gradient(135deg, rgba(29, 153, 243, 0.2), rgba(29, 153, 243, 0.05));
+    color: #1d99f3;
+    border: 1px solid rgba(29, 153, 243, 0.3);
+}
+
 .de-badge.root {
     background: linear-gradient(135deg, rgba(10, 132, 255, 0.2), rgba(10, 132, 255, 0.05));
     color: var(--accent-blue);

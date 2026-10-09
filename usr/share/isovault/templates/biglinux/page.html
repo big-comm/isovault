@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="$lang">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>$title</title>
+<style>
+$style
+</style>
+</head>
+<body class="light-mode">
+<div class="app">
+<div class="header">
+<div class="centered">
+    <div class="container-fluid search-bar" id="listjs">
+        <div class="input-group">
+          <input type="search" class="form-control listjs-search" placeholder="$filter" autofocus>
+        </div>
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th class="listjs-sorter" data-sort="icon">$col_type</th>
+              <th class="listjs-sorter" data-sort="name">$col_name</th>
+              <th class="listjs-sorter" data-sort="date">$col_date</th>
+              <th class="listjs-sorter" data-sort="bytes">$col_size</th>
+            </tr>
+          </thead>
+          <tbody class="list">
+$rows
+          </tbody>
+        </table>
+      </div>
+    </div>
+</div>
+</div>
+<a class="logo" href="https://www.biglinux.com.br" title="BigLinux">
+$logo
+</a>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"
+        integrity="sha384-JDmRxRiXkNkskRM5AD4qHRGk9ItwZ9flbqOpsRYs8SOrIRwcMtTGKP2Scnjptzgm"
+        crossorigin="anonymous"></script>
+<script>
+// Filter and sortable columns; "bytes" is a hidden numeric copy of the size
+new List('listjs', {
+    valueNames: ['icon', 'name', 'date', 'bytes'],
+    searchClass: 'listjs-search',
+    sortClass: 'listjs-sorter'
+});
+</script>
+</div>
+</body>
+</html>

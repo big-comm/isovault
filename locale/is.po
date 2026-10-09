@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: isovault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 13:54-0300\n"
+"POT-Creation-Date: 2026-10-09 14:36-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: is\n"
@@ -143,6 +143,36 @@ msgstr "Afrita"
 msgid "Download ISO"
 msgstr "Sækja ISO"
 
+#: services/html_generator.py
+msgid "BigLinux Repository"
+msgstr "BigLinux Geymsla"
+
+#: services/html_generator.py
+#, python-brace-format
+msgid "{folder_name} - BigLinux Repository"
+msgstr "{folder_name} - BigLinux Geymsla"
+
+#: services/html_generator.py
+msgid "Filter"
+msgstr "Sía"
+
+#: services/html_generator.py
+msgid "Type"
+msgstr "Tegund"
+
+#: services/html_generator.py
+msgid "Folder/File"
+msgstr "Mappa/Skrá"
+
+#: services/html_generator.py
+msgid "Date"
+msgstr "Dagsetning"
+
+# File: usr/share/isovault/ui/components.py, line: 140
+#: services/html_generator.py ui/file_browser.py
+msgid "Size"
+msgstr "Stærð"
+
 # File: usr/share/isovault/ui/dialogs.py, line: 351
 #: ui/components.py ui/dialogs.py
 #, python-brace-format
@@ -277,7 +307,7 @@ msgstr "Afrita tengil"
 # 
 # File: usr/share/isovault/ui/components.py, line: 291
 # File: usr/share/isovault/ui/dialogs.py, line: 107
-#: ui/file_browser.py ui/window.py
+#: ui/file_browser.py ui/preferences.py ui/window.py
 msgid "Delete"
 msgstr "Eyða"
 
@@ -293,11 +323,6 @@ msgstr "Skráarnafn"
 #: ui/file_browser.py
 msgid "Distribution"
 msgstr "Dreifing"
-
-# File: usr/share/isovault/ui/components.py, line: 140
-#: ui/file_browser.py
-msgid "Size"
-msgstr "Stærð"
 
 # File: usr/share/isovault/ui/components.py, line: 148
 #: ui/file_browser.py
@@ -409,10 +434,9 @@ msgid_plural "{size} in {count} files"
 msgstr[0] "{size} í {count} skrá"
 msgstr[1] "{size} í {count} skrám"
 
-# File: usr/share/isovault/ui/preferences.py, line: 53
 #: ui/preferences.py
-msgid "S3 Config"
-msgstr "S3 Stillingar"
+msgid "Profile"
+msgstr "Prófíll"
 
 # File: usr/share/isovault/ui/preferences.py, line: 157
 #: ui/preferences.py
@@ -426,6 +450,43 @@ msgstr "Stillingar"
 #: ui/preferences.py
 msgid "Storage connection, public download page and application behavior."
 msgstr "Tenging við geymslu, opinber niðurhalssíða og hegðun forrits."
+
+#: ui/preferences.py
+msgid ""
+"Each profile is one repository: its storage, public download page and "
+"folders."
+msgstr ""
+"Hver prófíll er ein geymsla: gagnageymsla hennar, opin niðurhalssíða og "
+"möppur."
+
+#: ui/preferences.py
+msgid "Profile Name"
+msgstr "Heiti prófíls"
+
+#: ui/preferences.py
+msgid "Download Page Style"
+msgstr "Stíll niðurhalssíðu"
+
+#: ui/preferences.py
+msgid "Look of the index.html pages published to the bucket"
+msgstr "Útlit index.html síðna sem eru birtar í bucket"
+
+#: ui/preferences.py
+msgid "BigCommunity (cards)"
+msgstr "BigCommunity (spjöld)"
+
+#: ui/preferences.py
+msgid "BigLinux (file list)"
+msgstr "BigLinux (skráalisti)"
+
+# File: usr/share/isovault/ui/preferences.py, line: 134
+#: ui/preferences.py
+msgid "Base URL"
+msgstr "Grunnslóð"
+
+#: ui/preferences.py
+msgid "Folders (comma separated, Root = bucket root)"
+msgstr "Möppur (aðskildar með kommu, Root = rót skeiðsins)"
 
 # File: usr/share/isovault/ui/preferences.py, line: 60
 #: ui/preferences.py
@@ -484,30 +545,25 @@ msgstr "Prófa tengingu"
 msgid "Verify S3 credentials and connection"
 msgstr "Staðfesta S3 auðkenni og tengingu"
 
-# File: usr/share/isovault/ui/preferences.py, line: 128
 #: ui/preferences.py
-msgid "Web Settings"
-msgstr "Vefstillingar"
+msgid "Profiles"
+msgstr "Prófílar"
 
-# File: usr/share/isovault/ui/preferences.py, line: 129
 #: ui/preferences.py
-msgid "Configure web URLs for public file access"
-msgstr "Stilltu vefslóðir fyrir opinberan skráar aðgang"
+msgid "New Profile"
+msgstr "Nýr prófíll"
 
-# File: usr/share/isovault/ui/preferences.py, line: 134
 #: ui/preferences.py
-msgid "Base URL"
-msgstr "Grunnslóð"
+msgid "Add another repository"
+msgstr "Bæta við annarri geymslu"
 
-# File: usr/share/isovault/ui/preferences.py, line: 148
 #: ui/preferences.py
-msgid "Show Index Files"
-msgstr "Sýna skráarindexa"
+msgid "Delete This Profile"
+msgstr "Eyða þessum prófíl"
 
-# File: usr/share/isovault/ui/preferences.py, line: 149
 #: ui/preferences.py
-msgid "Display index.html files in the file list"
-msgstr "Sýna index.html skrár í skráarlistanum"
+msgid "Removes the profile and its saved credentials"
+msgstr "Fjarlægir prófílinn og vistað auðkenni hans"
 
 #: ui/preferences.py
 msgid "Application Behavior"
@@ -540,6 +596,16 @@ msgstr "Sjálfvirk Uppfærsluskrá"
 msgid "Automatically update web index after file operations"
 msgstr "Sjálfvirkt uppfærða vefvísir eftir skráaraðgerðir"
 
+# File: usr/share/isovault/ui/preferences.py, line: 148
+#: ui/preferences.py
+msgid "Show Index Files"
+msgstr "Sýna skráarindexa"
+
+# File: usr/share/isovault/ui/preferences.py, line: 149
+#: ui/preferences.py
+msgid "Display index.html files in the file list"
+msgstr "Sýna index.html skrár í skráarlistanum"
+
 # File: usr/share/isovault/ui/preferences.py, line: 224
 # File: usr/share/isovault/ui/preferences.py, line: 232
 # File: usr/share/isovault/ui/preferences.py, line: 356
@@ -553,8 +619,34 @@ msgid "Reset to Defaults"
 msgstr "Endurstilla stillingum"
 
 #: ui/preferences.py
-msgid "Reset all settings to their default values (S3 credentials are kept)"
-msgstr "Endurstilla allar stillingar á sjálfgefin gildi (S3 auðkenni haldast)"
+msgid ""
+"Reset the application preferences to their default values (profiles are "
+"kept)"
+msgstr ""
+"Endurstilla stillingar forritsins á sjálfgefin gildi (prófílar haldast)"
+
+#: ui/preferences.py
+msgid "Name of the repository, e.g. BigLinux"
+msgstr "Heiti geymslunnar, t.d. BigLinux"
+
+#: ui/preferences.py
+msgid "Create"
+msgstr "Búa til"
+
+#: ui/preferences.py
+msgid "Delete Profile"
+msgstr "Eyða prófíl"
+
+#: ui/preferences.py
+#, python-brace-format
+msgid ""
+"Delete the profile “{name}” and its saved credentials?\n"
+"\n"
+"The files in the bucket are not touched."
+msgstr ""
+"Eyða prófílnum „{name}“ og vistuðu auðkenni hans?\n"
+"\n"
+"Skrárnar í skeiðinu verða ekki snertar."
 
 # File: usr/share/isovault/ui/preferences.py, line: 351
 #: ui/preferences.py
@@ -631,6 +723,10 @@ msgstr "Hlaða upp í {folder}"
 msgid "Show sidebar"
 msgstr "Sýna hliðarstiku"
 
+#: ui/window.py
+msgid "Switch profile"
+msgstr "Skipta um prófíl"
+
 # File: usr/share/isovault/ui/window.py, line: 228
 #: ui/window.py
 msgid "Upload ISO"
@@ -639,14 +735,6 @@ msgstr "Hlaða ISO upp"
 #: ui/window.py
 msgid "Search files..."
 msgstr "Leita að skrám..."
-
-# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
-# 
-# File: usr/share/isovault/ui/components.py, line: 372
-# File: usr/share/isovault/ui/preferences.py, line: 30
-#: ui/window.py
-msgid "Preferences"
-msgstr "Valmyndir"
 
 # File: usr/share/isovault/ui/components.py, line: 373
 #: ui/window.py
@@ -697,11 +785,6 @@ msgstr "Listasýn"
 msgid "Grid view"
 msgstr "Reitasýn"
 
-# File: usr/share/isovault/ui/components.py, line: 263
-#: ui/window.py
-msgid "All folders"
-msgstr "Öll möppur"
-
 # File: usr/share/isovault/ui/window.py, line: 117
 #: ui/window.py
 msgid "Filter by folder"
@@ -727,6 +810,15 @@ msgstr "Meira"
 #: ui/window.py
 msgid "Warning: Could not connect to S3 storage"
 msgstr "Aðvörun: Gat ekki tengst S3 geymslu"
+
+#: ui/window.py
+msgid "Manage Profiles"
+msgstr "Sýsla með prófíla"
+
+# File: usr/share/isovault/ui/components.py, line: 263
+#: ui/window.py
+msgid "All folders"
+msgstr "Öll möppur"
 
 #: ui/window.py
 #, python-brace-format

@@ -3,7 +3,7 @@
 import pytest
 
 from tests.factories import make_file
-from utils.helpers import extract_md5, format_file_size, pair_iso_with_md5
+from utils.helpers import extract_md5, format_file_size, format_size_short, pair_iso_with_md5
 
 HASH = "d41d8cd98f00b204e9800998ecf8427e"
 
@@ -24,6 +24,24 @@ class TestFormatFileSize:
     )
     def test_values(self, size, expected):
         assert format_file_size(size) == expected
+
+
+class TestFormatSizeShort:
+    @pytest.mark.parametrize(
+        "size, expected",
+        [
+            (0, "0"),
+            (72, "72"),
+            (1023, "1023"),
+            (4096, "4,0K"),
+            (40 * 1024, "40K"),
+            (int(5.04 * 1024**3), "5,0G"),
+            (int(5.1 * 1024**3), "5,1G"),
+            (12 * 1024**4, "12T"),
+        ],
+    )
+    def test_values(self, size, expected):
+        assert format_size_short(size) == expected
 
 
 class TestExtractMD5:

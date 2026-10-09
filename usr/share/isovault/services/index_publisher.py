@@ -6,8 +6,8 @@ import logging
 from concurrent.futures import ThreadPoolExecutor
 from typing import Dict, List
 
-from config import DISTRO_FOLDERS, INDEX_FILE, ROOT_FOLDER
-from services.html_generator import HTMLGenerator
+from config import INDEX_FILE, ROOT_FOLDER
+from services.html_generator import IndexGenerator
 from services.s3_service import S3Service, object_key
 
 logger = logging.getLogger(__name__)
@@ -15,9 +15,10 @@ logger = logging.getLogger(__name__)
 _MAX_PARALLEL_READS = 8
 
 
-def publish_indexes(s3_service: S3Service, generator: HTMLGenerator) -> List[str]:
+def publish_indexes(s3_service: S3Service, generator: IndexGenerator) -> List[str]:
     """
-    Upload the main index and one index per desktop folder.
+    Upload the main index and one index per folder of the profile
+    (the folders come from the generator).
 
     The bucket is listed once and the checksum files are read in parallel.
     Folder pages are always rewritten, so a folder that became empty doesn't
@@ -33,7 +34,7 @@ def publish_indexes(s3_service: S3Service, generator: HTMLGenerator) -> List[str
     s3_service.upload_text(generator.generate_main_index(files, md5_hashes), INDEX_FILE, "text/html")
     uploaded.append(INDEX_FILE)
 
-    for folder in DISTRO_FOLDERS:
+    for folder in generator.folders:
         if folder == ROOT_FOLDER:  # the main index already is the root page
             continue
         folder_files = [f for f in files if f["folder"] == folder]

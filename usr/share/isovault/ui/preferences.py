@@ -1,8 +1,10 @@
 """
 Settings page shown inside the main window.
 
-Text fields are applied with Enter (or their apply button), when the user
-leaves the page and when the window closes; switches apply immediately.
+"Profile" edits the active profile (repository); "General" holds the
+application preferences shared by every profile. Text fields are applied
+with Enter (or their apply button), when the user leaves the page and when
+the window closes; switches and choices apply immediately.
 """
 
 import threading
@@ -15,33 +17,41 @@ gi.require_version("Adw", "1")
 
 from gi.repository import Adw, GLib, Gtk  # noqa: E402
 
-from models.settings import SettingsManager  # noqa: E402
+from config import PAGE_STYLES  # noqa: E402
+from models.settings import CONNECTION_KEYS, SettingsManager, parse_folders  # noqa: E402
 from services import S3Service  # noqa: E402
 from utils.i18n import _  # noqa: E402
 
 from .pages import page_header  # noqa: E402
 
-# Callback argument: True when the S3 connection settings changed
+# Callback argument: True when the S3 connection of the active profile changed
 SettingsChangedCallback = Callable[[bool], None]
+# Callback argument: id of the profile that should become active
+ProfileSelectedCallback = Callable[[str], None]
 
 
 class SettingsPage(Gtk.Box):
-    """S3 connection, public page and behavior settings"""
+    """Profile (repository) and application settings"""
 
-    def __init__(self, settings_manager: SettingsManager, on_settings_changed: SettingsChangedCallback):
+    def __init__(
+        self,
+        settings_manager: SettingsManager,
+        on_settings_changed: SettingsChangedCallback,
+        on_profile_selected: ProfileSelectedCallback,
+    ):
         super().__init__(orientation=Gtk.Orientation.VERTICAL, spacing=8)
         self.add_css_class("app-page")
         self.add_css_class("settings-page")
         self.settings_manager = settings_manager
         self.on_settings_changed = on_settings_changed
+        self.on_profile_selected = on_profile_selected
         self._updating_ui = False
 
-        # setting key -> entry row, per section
-        self.s3_rows: Dict[str, Adw.EntryRow] = {}
-        self.web_rows: Dict[str, Adw.EntryRow] = {}
+        # profile key -> entry row of the active profile
+        self.profile_rows: Dict[str, Adw.EntryRow] = {}
 
         self.view_stack = Adw.ViewStack(vexpand=True)
-        self.view_stack.add_titled_with_icon(self._create_s3_page(), "s3", _("S3 Config"), "network-server-symbolic")
+        self.view_stack.add_titled_with_icon(self._create_profile_page(), "profile", _("Profile"), "network-server-symbolic")
         self.view_stack.add_titled_with_icon(
             self._create_general_page(), "general", _("General"), "preferences-system-symbolic"
         )
@@ -56,71 +66,80 @@ class SettingsPage(Gtk.Box):
 
         self.append(header)
         self.append(self.view_stack)
+        self.load_profile()
 
-    def _entry_row(self, title: str, password: bool = False) -> Adw.EntryRow:
+    # Construction
+
+    def _entry_row(self, key: str, title: str, password: bool = False) -> Adw.EntryRow:
         row = (Adw.PasswordEntryRow if password else Adw.EntryRow)(title=title, show_apply_button=True)
         row.connect("apply", lambda _row: self.commit())
+        self.profile_rows[key] = row
         return row
 
-    def _create_s3_page(self) -> Adw.PreferencesPage:
+    def _create_profile_page(self) -> Adw.PreferencesPage:
         page = Adw.PreferencesPage()
+
+        repository = Adw.PreferencesGroup(
+            title=_("Profile"),
+            description=_("Each profile is one repository: its storage, public download page and folders."),
+        )
+        repository.add(self._entry_row("name", _("Profile Name")))
+        self._page_styles = list(PAGE_STYLES)
+        self.page_style_row = Adw.ComboRow(
+            title=_("Download Page Style"),
+            subtitle=_("Look of the index.html pages published to the bucket"),
+            model=Gtk.StringList.new([_("BigCommunity (cards)"), _("BigLinux (file list)")]),
+        )
+        self.page_style_row.connect("notify::selected", self._on_page_style_changed)
+        repository.add(self.page_style_row)
+        repository.add(self._entry_row("base_url", _("Base URL")))
+        repository.add(self._entry_row("folders", _("Folders (comma separated, Root = bucket root)")))
+        page.add(repository)
 
         credentials = Adw.PreferencesGroup(
             title=_("CDN77 S3 Credentials"),
             description=_("Configure your CDN77 S3 storage credentials"),
         )
-        self.s3_rows["access_key"] = self._entry_row(_("Access Key"))
-        self.s3_rows["secret_key"] = self._entry_row(_("Secret Key"), password=True)
-        credentials.add(self.s3_rows["access_key"])
-        credentials.add(self.s3_rows["secret_key"])
+        credentials.add(self._entry_row("access_key", _("Access Key")))
+        credentials.add(self._entry_row("secret_key", _("Secret Key"), password=True))
         page.add(credentials)
 
         connection = Adw.PreferencesGroup(
             title=_("S3 Configuration"),
             description=_("S3 endpoint and bucket settings"),
         )
-        for key, title in (
-            ("endpoint_url", _("Endpoint URL")),
-            ("region_name", _("Region")),
-            ("bucket_name", _("Bucket Name")),
-        ):
-            self.s3_rows[key] = self._entry_row(title)
-            connection.add(self.s3_rows[key])
+        connection.add(self._entry_row("endpoint_url", _("Endpoint URL")))
+        connection.add(self._entry_row("region_name", _("Region")))
+        connection.add(self._entry_row("bucket_name", _("Bucket Name")))
 
         self.test_button = Gtk.Button(label=_("Test Connection"), valign=Gtk.Align.CENTER)
         self.test_button.add_css_class("suggested-action")
         self.test_button.connect("clicked", self._on_test_connection)
-        test_row = Adw.ActionRow(
-            title=_("Test Connection"),
-            subtitle=_("Verify S3 credentials and connection"),
-        )
+        test_row = Adw.ActionRow(title=_("Test Connection"), subtitle=_("Verify S3 credentials and connection"))
         test_row.add_suffix(self.test_button)
         connection.add(test_row)
         page.add(connection)
 
-        for key, row in self.s3_rows.items():
-            row.set_text(self.settings_manager.get("s3", key))
+        profiles = Adw.PreferencesGroup(title=_("Profiles"))
+        new_button = Gtk.Button(label=_("New Profile"), valign=Gtk.Align.CENTER)
+        new_button.connect("clicked", self._on_new_profile_clicked)
+        new_row = Adw.ActionRow(title=_("New Profile"), subtitle=_("Add another repository"))
+        new_row.add_suffix(new_button)
+        profiles.add(new_row)
+
+        self.delete_button = Gtk.Button(label=_("Delete"), valign=Gtk.Align.CENTER)
+        self.delete_button.add_css_class("destructive-action")
+        self.delete_button.connect("clicked", self._on_delete_profile_clicked)
+        delete_row = Adw.ActionRow(
+            title=_("Delete This Profile"), subtitle=_("Removes the profile and its saved credentials")
+        )
+        delete_row.add_suffix(self.delete_button)
+        profiles.add(delete_row)
+        page.add(profiles)
         return page
 
     def _create_general_page(self) -> Adw.PreferencesPage:
         page = Adw.PreferencesPage()
-
-        web = Adw.PreferencesGroup(
-            title=_("Web Settings"),
-            description=_("Configure web URLs for public file access"),
-        )
-        self.web_rows["base_url"] = self._entry_row(_("Base URL"))
-        self.web_rows["base_url"].set_text(self.settings_manager.get("web", "base_url"))
-        web.add(self.web_rows["base_url"])
-
-        self.show_index_row = Adw.SwitchRow(
-            title=_("Show Index Files"),
-            subtitle=_("Display index.html files in the file list"),
-            active=self.settings_manager.get("web", "show_index_files"),
-        )
-        self.show_index_row.connect("notify::active", self._on_show_index_toggled)
-        web.add(self.show_index_row)
-        page.add(web)
 
         behavior = Adw.PreferencesGroup(title=_("Application Behavior"))
         self.behavior_rows = {}
@@ -128,6 +147,7 @@ class SettingsPage(Gtk.Box):
             ("general", "auto_refresh", _("Auto Refresh"), _("Automatically refresh file list after operations")),
             ("ui", "confirm_deletions", _("Confirm Deletions"), _("Show confirmation dialog before deleting files")),
             ("ui", "auto_update_index", _("Auto Update Index"), _("Automatically update web index after file operations")),
+            ("ui", "show_index_files", _("Show Index Files"), _("Display index.html files in the file list")),
         ):
             row = Adw.SwitchRow(title=title, subtitle=subtitle, active=self.settings_manager.get(section, key))
             row.connect("notify::active", self._on_behavior_toggled, section, key)
@@ -141,45 +161,107 @@ class SettingsPage(Gtk.Box):
         reset_button.connect("clicked", self._on_reset_clicked)
         reset_row = Adw.ActionRow(
             title=_("Reset to Defaults"),
-            subtitle=_("Reset all settings to their default values (S3 credentials are kept)"),
+            subtitle=_("Reset the application preferences to their default values (profiles are kept)"),
         )
         reset_row.add_suffix(reset_button)
         reset.add(reset_row)
         page.add(reset)
-
         return page
 
-    # Applying changes
+    # Active profile
+
+    def load_profile(self) -> None:
+        """Show the values of the active profile."""
+        profile = self.settings_manager.profile
+        self._updating_ui = True
+        for key, row in self.profile_rows.items():
+            row.set_text(", ".join(parse_folders(profile[key])) if key == "folders" else profile[key])
+        style = profile["page_style"]
+        self.page_style_row.set_selected(self._page_styles.index(style) if style in self._page_styles else 0)
+        self._updating_ui = False
+        self.delete_button.set_sensitive(len(self.settings_manager.profiles) > 1)
 
     def commit(self) -> None:
-        """Save edited text fields and notify the window if anything changed."""
-        s3_changed = self._commit_rows("s3", self.s3_rows)
-        web_changed = self._commit_rows("web", self.web_rows)
-        if s3_changed or web_changed:
-            self.settings_manager.save_settings()
-            self.on_settings_changed(s3_changed)
-
-    def _commit_rows(self, section: str, rows: Dict[str, Adw.EntryRow]) -> bool:
-        changed = False
-        for key, row in rows.items():
+        """Save edited text fields into the active profile and notify the window."""
+        profile = self.settings_manager.profile
+        changed = set()
+        for key, row in self.profile_rows.items():
             value = row.get_text().strip()
-            if value != self.settings_manager.get(section, key):
-                self.settings_manager.set(section, key, value)
-                changed = True
-        return changed
+            current = profile[key]
+            if key == "folders":
+                value, current = ",".join(parse_folders(value)), ",".join(parse_folders(current))
+            elif key == "name" and not value:
+                value = current  # a profile always has a name
+            if value != current:
+                self.settings_manager.set_profile_value(key, value)
+                changed.add(key)
+        if changed:
+            self.settings_manager.save_settings()
+            self.on_settings_changed(bool(changed & set(CONNECTION_KEYS)))
 
-    def _on_show_index_toggled(self, row, _pspec) -> None:
+    def _on_page_style_changed(self, row: Adw.ComboRow, _pspec) -> None:
         if self._updating_ui:
             return
-        self.settings_manager.set("web", "show_index_files", row.get_active())
+        self.settings_manager.set_profile_value("page_style", self._page_styles[row.get_selected()])
         self.settings_manager.save_settings()
-        self.on_settings_changed(False)
+
+    # Creating and deleting profiles
+
+    def _on_new_profile_clicked(self, _button) -> None:
+        entry = Gtk.Entry(placeholder_text=_("Profile Name"), activates_default=True)
+        dialog = Adw.AlertDialog(heading=_("New Profile"), body=_("Name of the repository, e.g. BigLinux"))
+        dialog.set_extra_child(entry)
+        dialog.add_response("cancel", _("Cancel"))
+        dialog.add_response("create", _("Create"))
+        dialog.set_response_appearance("create", Adw.ResponseAppearance.SUGGESTED)
+        dialog.set_default_response("create")
+        dialog.set_close_response("cancel")
+
+        def on_response(_dialog, response):
+            name = entry.get_text().strip()
+            if response == "create" and name:
+                self.create_profile(name)
+
+        dialog.connect("response", on_response)
+        dialog.present(self)
+
+    def create_profile(self, name: str) -> str:
+        """Add a profile and make it active; returns its id."""
+        profile_id = self.settings_manager.add_profile(name)
+        self.settings_manager.save_settings()
+        self.on_profile_selected(profile_id)
+        return profile_id
+
+    def _on_delete_profile_clicked(self, _button) -> None:
+        dialog = Adw.AlertDialog(
+            heading=_("Delete Profile"),
+            body=_("Delete the profile “{name}” and its saved credentials?\n\nThe files in the bucket are not touched.").format(
+                name=self.settings_manager.profile["name"]
+            ),
+        )
+        dialog.add_response("cancel", _("Cancel"))
+        dialog.add_response("delete", _("Delete"))
+        dialog.set_response_appearance("delete", Adw.ResponseAppearance.DESTRUCTIVE)
+        dialog.set_default_response("cancel")
+        dialog.set_close_response("cancel")
+        dialog.connect("response", lambda _d, response: response == "delete" and self.delete_active_profile())
+        dialog.present(self)
+
+    def delete_active_profile(self) -> None:
+        self.settings_manager.remove_profile(self.settings_manager.active_profile_id)
+        self.settings_manager.save_settings()
+        self.load_profile()  # the fields must show the new active profile before it is selected
+        self.on_profile_selected(self.settings_manager.active_profile_id)
+
+    # Application preferences
 
     def _on_behavior_toggled(self, row: Adw.SwitchRow, _pspec, section: str, key: str) -> None:
         if self._updating_ui:
             return
         self.settings_manager.set(section, key, row.get_active())
         self.settings_manager.save_settings()
+        if key == "show_index_files":
+            self.on_settings_changed(False)  # the file list must be reloaded
 
     def _on_reset_clicked(self, _button) -> None:
         dialog = Adw.AlertDialog(
@@ -201,21 +283,17 @@ class SettingsPage(Gtk.Box):
         self.settings_manager.save_settings()
 
         self._updating_ui = True
-        for key, row in self.s3_rows.items():
-            row.set_text(self.settings_manager.get("s3", key))
-        self.web_rows["base_url"].set_text(self.settings_manager.get("web", "base_url"))
-        self.show_index_row.set_active(self.settings_manager.get("web", "show_index_files"))
         for (section, key), row in self.behavior_rows.items():
             row.set_active(self.settings_manager.get(section, key))
         self._updating_ui = False
 
-        self.on_settings_changed(True)
+        self.on_settings_changed(False)
 
     # Connection test
 
     def _on_test_connection(self, button: Gtk.Button) -> None:
         """Test the values currently typed, without saving them."""
-        s3_config = {key: row.get_text().strip() for key, row in self.s3_rows.items()}
+        s3_config = {key: self.profile_rows[key].get_text().strip() for key in CONNECTION_KEYS}
         button.set_sensitive(False)
         button.set_label(_("Testing..."))
 

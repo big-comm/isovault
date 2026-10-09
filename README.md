@@ -4,7 +4,7 @@
 
 # ISOVault
 
-**Manage the BigCommunity ISO images on CDN77 S3 storage — upload, verify and publish them from a native GNOME app.**
+**Manage Linux ISO repositories on S3 storage — upload, verify and publish them from a native GNOME app.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
@@ -20,17 +20,24 @@
 
 ## Overview
 
-ISOVault is the desktop tool the BigCommunity team uses to maintain the ISO
-repository behind [iso.communitybig.org](https://iso.communitybig.org). It
-talks to an S3-compatible bucket on CDN77, keeps each desktop edition in its
-own folder and regenerates the public download page — with the MD5 checksum
-of every image — whenever the bucket changes.
+ISOVault is the desktop tool the BigCommunity and BigLinux teams use to
+maintain their ISO repositories, such as
+[iso.communitybig.org](https://iso.communitybig.org) and
+[iso.biglinux.com.br](https://iso.biglinux.com.br). It talks to
+S3-compatible buckets (CDN77 by default), keeps each desktop edition in its
+own folder and regenerates the public download page whenever the bucket
+changes.
 
 ## Features
 
-- **Upload with a destination picker** — choose GNOME, Cinnamon, XFCE or the
-  bucket root; invalid files are listed before anything is sent, and the last
-  folder used is remembered.
+- **Profiles** — one per repository, each with its own S3 bucket and
+  credentials, public URL, folders and download page style. *BigCommunity*
+  and *BigLinux* profiles are included; switch between them from the header.
+- **Two download page styles** — BigCommunity cards with the MD5 of every
+  image, or the BigLinux file list (ISO, `.md5`, `.pkgs`, `.torrent`).
+- **Upload with a destination picker** — GNOME, Cinnamon, XFCE, KDE Plasma
+  or the bucket root (the folders come from the profile); invalid files are
+  listed before anything is sent, and the last folder used is remembered.
 - **Multiple selection** — check boxes, *Select all*, Shift/Ctrl+click; copy
   links, download or delete many files at once. A failing file never stops the
   rest of a batch.
@@ -78,8 +85,9 @@ makepkg -si
 
 ## Usage
 
-1. Open **Settings** and enter the CDN77 S3 access key, secret key, endpoint
-   and bucket, then press **Test Connection**.
+1. Pick a profile in the header (or create one in **Settings → Profile**),
+   enter the S3 access key, secret key, endpoint and bucket, then press
+   **Test Connection**.
 2. Press **Upload ISO**, pick the `.iso` and its `.md5`, and choose the
    destination folder.
 3. The public index is updated automatically after each change (or from the
@@ -93,7 +101,9 @@ makepkg -si
 | <kbd>Ctrl</kbd>+<kbd>,</kbd> | Preferences |
 | <kbd>Ctrl</kbd>+<kbd>Q</kbd> | Quit |
 
-Settings are stored in `~/.config/isovault.conf`.
+Settings and profiles are stored in `~/.config/isovault.conf` (mode `0600`);
+older single-repository configurations become the *BigCommunity* profile
+automatically.
 
 ## Development
 
@@ -108,9 +118,9 @@ python3 tools/render_preview.py              # preview the public page with samp
 usr/share/isovault/
 ├── main.py         application, CLI options and shortcuts
 ├── config.py       constants (app id, folders, defaults)
-├── models/         settings (private INI file + keyring) and FileItem
+├── models/         settings and profiles (private INI file + keyring), FileItem
 ├── services/       S3 access, HTML generation, index publishing, validation
-├── templates/      HTML, CSS and JS of the public download page
+├── templates/      public download pages (BigCommunity cards, biglinux/ file list)
 ├── ui/             main window, file browser, pages, dialogs, stylesheet
 └── utils/          MD5 parsing/pairing, size formatting, i18n
 ```

@@ -25,6 +25,7 @@ Adw.init()
 import ui.preferences as preferences_module  # noqa: E402
 import ui.window as window_module  # noqa: E402
 from models.settings import SettingsManager  # noqa: E402
+from config import DEFAULT_FOLDERS  # noqa: E402
 from tests.factories import make_file  # noqa: E402
 
 APP_MAIN = os.path.join(os.path.dirname(__file__), "..", "usr", "share", "isovault", "main.py")
@@ -44,9 +45,10 @@ def wait_until(condition, timeout=5.0):
 class FakeS3:
     instances = []
 
-    def __init__(self, s3_config, base_url=""):
+    def __init__(self, s3_config, base_url="", folders=DEFAULT_FOLDERS):
         self.config = s3_config
         self.base_url = base_url
+        self.folders = tuple(folders)
         self.files = [make_file("Gnome/a.iso"), make_file("b.iso")]
         self.uploaded = []
         self.deleted = []
@@ -86,8 +88,8 @@ class FakeS3:
 @pytest.fixture
 def settings(tmp_path):
     manager = SettingsManager(str(tmp_path / "isovault.conf"))
-    manager.set("s3", "access_key", "AK")
-    manager.set("s3", "secret_key", "SK")
+    manager.set_profile_value("access_key", "AK")
+    manager.set_profile_value("secret_key", "SK")
     manager.save_settings()
     return manager
 
@@ -142,7 +144,7 @@ class TestStartup:
 
     def test_folder_filter(self, window):
         calls_before = len(window.s3_service.list_calls)
-        window.folder_dropdown.set_selected(window_module.DISTRO_FOLDERS.index("Gnome") + 1)
+        window.folder_dropdown.set_selected(DEFAULT_FOLDERS.index("Gnome") + 1)
         assert window.file_list.visible_count == 1
         assert window.count_label.get_text() == "1 of 2 files"
         assert len(window.s3_service.list_calls) == calls_before  # filtered locally, no new request
@@ -428,14 +430,14 @@ class TestBatchActions:
 class TestSettings:
     def test_s3_change_recreates_service(self, window, settings):
         old = window.s3_service
-        settings.set("s3", "bucket_name", "other")
+        settings.set_profile_value("bucket_name", "other")
         window._on_settings_changed(s3_changed=True)
         wait_until(lambda: window.s3_service is not old)
         assert window.s3_service.config["bucket_name"] == "other"
 
     def test_base_url_change_updates_service(self, window, settings):
         service = window.s3_service
-        settings.set("web", "base_url", "https://new.example/")
+        settings.set_profile_value("base_url", "https://new.example/")
         window._on_settings_changed(s3_changed=False)
         assert window.s3_service is service
         assert service.base_url == "https://new.example"
@@ -455,18 +457,18 @@ class TestSettingsPage:
 
     def test_leaving_the_page_applies_edits(self, window, settings):
         window.show_page("settings")
-        window.settings_page.web_rows["base_url"].set_text("https://mirror.example/")
+        window.settings_page.profile_rows["base_url"].set_text("https://mirror.example/")
         assert window.s3_service.base_url != "https://mirror.example"
 
         window.nav_list.emit("row-activated", window.nav_rows["files"])
 
-        assert settings.get("web", "base_url") == "https://mirror.example/"
+        assert settings.profile["base_url"] == "https://mirror.example/"
         assert window.s3_service.base_url == "https://mirror.example"
 
     def test_closing_the_window_applies_edits(self, window, settings):
-        window.settings_page.s3_rows["region_name"].set_text("eu-2")
+        window.settings_page.profile_rows["region_name"].set_text("eu-2")
         window._on_close_request(window)
-        assert SettingsManager(settings.config_file).get("s3", "region_name") == "eu-2"
+        assert SettingsManager(settings.config_file).profile["region_name"] == "eu-2"
 
     def test_compact_hides_modified_column(self, window):
         window.present()
@@ -478,14 +480,107 @@ class TestSettingsPage:
         assert all(row.widgets[4].get_visible() for row in window.file_list._row_widgets)
 
 
+class TestPageStyle:
+    def test_setting_selects_the_generator(self, window, settings, monkeypatch):
+        from services.html_generator import BigLinuxHTMLGenerator
+
+        used = []
+        monkeypatch.setattr(window_module, "publish_indexes", lambda service, generator: used.append(generator) or [])
+        window.settings_page.page_style_row.set_selected(1)
+        assert SettingsManager(settings.config_file).profile["page_style"] == "biglinux"
+
+        window.activate_action("win.force-index", None)
+        idle(window)
+        assert isinstance(used[0], BigLinuxHTMLGenerator)
+
+    def test_upload_dialog_offers_kde(self, tmp_path):
+        from ui.upload_dialog import UploadDialog
+
+        path = tmp_path / "plasma.iso"
+        path.write_bytes(b"\0")
+        dialog = UploadDialog([str(path)], [], lambda _folder: None, "KDE")
+        assert "KDE" in dialog.folder_buttons
+        assert dialog.selected_folder == "KDE"
+
+
+class TestProfiles:
+    def test_header_shows_active_profile(self, window):
+        assert window.profile_label.get_text() == "BigCommunity"
+        assert window.profile_action.get_state().get_string() == "bigcommunity"
+        names = [window.profile_menu.get_item_link(0, "section").get_item_attribute_value(i, "label", None).get_string()
+                 for i in range(window.profile_menu.get_item_link(0, "section").get_n_items())]
+        assert names == ["BigCommunity", "BigLinux"]
+
+    def test_switch_to_profile_without_credentials(self, window):
+        window.activate_action("win.profile", GLib.Variant("s", "biglinux"))
+
+        assert window.settings_manager.active_profile_id == "biglinux"
+        assert window.profile_label.get_text() == "BigLinux"
+        assert window.s3_service is None
+        assert window.page_stack.get_visible_child_name() == "setup"
+        assert window.file_list.total_count == 0
+        assert window._folders == ["Root"]
+        assert window.settings_page.profile_rows["base_url"].get_text() == "https://iso.biglinux.com.br"
+
+    def test_switch_connects_to_the_other_bucket(self, window, settings):
+        settings.profiles["biglinux"].update(access_key="BL", secret_key="S", bucket_name="bl-bucket")
+        window.switch_profile("biglinux")
+        wait_until(lambda: window.s3_service is not None and window.file_list.total_count == 2)
+        assert window.s3_service.config["bucket_name"] == "bl-bucket"
+        assert window.s3_service.base_url == "https://iso.biglinux.com.br"
+
+        window.switch_profile("bigcommunity")
+        assert window.s3_service.config["bucket_name"] == "iso-comm"
+
+    def test_pending_edits_stay_with_their_profile(self, window, settings):
+        window.settings_page.profile_rows["base_url"].set_text("https://edited.example")
+        window.switch_profile("biglinux")
+        assert settings.profiles["bigcommunity"]["base_url"] == "https://edited.example"
+        assert settings.profiles["biglinux"]["base_url"] == "https://iso.biglinux.com.br"
+
+    def test_create_and_delete_profile(self, window, settings):
+        profile_id = window.settings_page.create_profile("Mirror")
+        assert settings.active_profile_id == profile_id == "mirror"
+        assert window.profile_label.get_text() == "Mirror"
+        assert window.settings_page.delete_button.get_sensitive()
+
+        window.settings_page.delete_active_profile()
+        assert "mirror" not in settings.profiles
+        assert window.profile_label.get_text() == settings.profile["name"]
+        assert window.settings_page.profile_rows["name"].get_text() == settings.profile["name"]
+
+    def test_folders_follow_the_profile(self, window, settings, monkeypatch):
+        window.settings_page.profile_rows["folders"].set_text("XFCE, Root")
+        window.settings_page.commit()
+        assert window._folders == ["XFCE", "Root"]
+        assert window.s3_service.folders == ("XFCE", "Root")
+
+        offered = []
+        monkeypatch.setattr(window.dialogs, "choose_upload_folder", lambda *args: offered.append(args[4]))
+        path = settings.config_file + ".iso"
+        open(path, "wb").write(b"\0")
+        window._on_files_chosen([path], None)
+        assert offered == [["XFCE", "Root"]]
+
+    def test_publish_uses_profile_style_and_folders(self, window, settings, monkeypatch):
+        used = []
+        monkeypatch.setattr(window_module, "publish_indexes", lambda service, generator: used.append(generator) or [])
+        settings.set_profile_value("folders", "KDE,Root")
+        settings.set_profile_value("page_style", "biglinux")
+        window.activate_action("win.force-index", None)
+        idle(window)
+        assert type(used[0]).__name__ == "BigLinuxHTMLGenerator"
+        assert used[0].folders == ["Root", "KDE"]
+
+
 class TestBehaviorSettings:
     def test_switches_save_immediately(self, settings):
-        dialog = preferences_module.SettingsPage(settings, lambda _changed: None)
+        dialog = preferences_module.SettingsPage(settings, lambda _changed: None, lambda _id: None)
         dialog.behavior_rows[("ui", "confirm_deletions")].set_active(False)
         assert SettingsManager(settings.config_file).get("ui", "confirm_deletions") is False
 
     def test_reset_restores_switches(self, settings):
-        dialog = preferences_module.SettingsPage(settings, lambda _changed: None)
+        dialog = preferences_module.SettingsPage(settings, lambda _changed: None, lambda _id: None)
         row = dialog.behavior_rows[("general", "auto_refresh")]
         row.set_active(False)
         dialog._on_reset_response(None, "reset")
@@ -510,7 +605,7 @@ class TestUploadDialog:
 
     def test_unknown_initial_folder_falls_back(self, tmp_path):
         dialog, _chosen = self._dialog(tmp_path, initial="gone")
-        assert dialog.selected_folder == window_module.DISTRO_FOLDERS[0]
+        assert dialog.selected_folder == DEFAULT_FOLDERS[0]
 
     def test_folders_are_exclusive(self, tmp_path):
         dialog, _chosen = self._dialog(tmp_path, initial="XFCE")
@@ -533,7 +628,7 @@ class TestUploadDialog:
         path = tmp_path / "new.iso"
         path.write_bytes(b"\0")
         shown = []
-        monkeypatch.setattr(window.dialogs, "choose_upload_folder", lambda valid, invalid, cb, initial: shown.append((initial, cb)))
+        monkeypatch.setattr(window.dialogs, "choose_upload_folder", lambda valid, invalid, cb, initial, folders: shown.append((initial, cb)))
 
         window._on_files_chosen([str(path)], str(tmp_path))
         initial, upload = shown[0]
@@ -585,15 +680,22 @@ class TestPages:
         wait_until(lambda: window.transfers_page.active_count == 0)
         assert not window.nav_rows["transfers"].badge.get_visible()
 
-    def test_navigation(self, window, monkeypatch):
+    def test_navigation(self, window):
         window.nav_list.emit("row-activated", window.nav_rows["statistics"])
         assert window.page_stack.get_visible_child_name() == "statistics"
+        assert window.nav_list.get_selected_row() is window.nav_rows["statistics"]
+
+    def test_no_duplicate_entries(self, window, monkeypatch):
+        """Settings lives in the sidebar and About in the menu, each only once."""
+        assert set(window.nav_rows) == {"files", "transfers", "settings", "statistics"}
 
         opened = []
         monkeypatch.setattr(window.dialogs, "show_about", lambda: opened.append("about"))
-        window.nav_list.emit("row-activated", window.nav_rows["about"])
+        window.activate_action("win.about", None)
         assert opened == ["about"]
-        assert window.nav_list.get_selected_row() is window.nav_rows["statistics"]  # page unchanged
+
+        window.activate_action("win.preferences", None)  # Ctrl+, still opens the settings page
+        assert window.page_stack.get_visible_child_name() == "settings"
 
     def test_statistics_and_storage(self, window):
         window.s3_service.files = [
@@ -664,20 +766,20 @@ def _walk(widget):
 class TestPreferences:
     def test_text_fields_apply_on_close(self, settings):
         changes = []
-        dialog = preferences_module.SettingsPage(settings, changes.append)
-        dialog.s3_rows["bucket_name"].set_text("  new-bucket ")
-        dialog.web_rows["base_url"].set_text("https://example.org")
+        dialog = preferences_module.SettingsPage(settings, changes.append, lambda _id: None)
+        dialog.profile_rows["bucket_name"].set_text("  new-bucket ")
+        dialog.profile_rows["base_url"].set_text("https://example.org")
 
-        assert settings.get("s3", "bucket_name") != "new-bucket"  # nothing saved while typing
+        assert settings.profile["bucket_name"] != "new-bucket"  # nothing saved while typing
         dialog.commit()
 
         assert changes == [True]
-        assert SettingsManager(settings.config_file).get("s3", "bucket_name") == "new-bucket"
-        assert settings.get("web", "base_url") == "https://example.org"
+        assert SettingsManager(settings.config_file).profile["bucket_name"] == "new-bucket"
+        assert settings.profile["base_url"] == "https://example.org"
 
     def test_close_without_changes_is_silent(self, settings):
         changes = []
-        dialog = preferences_module.SettingsPage(settings, changes.append)
+        dialog = preferences_module.SettingsPage(settings, changes.append, lambda _id: None)
         dialog.commit()
         assert changes == []
 
@@ -693,15 +795,15 @@ class TestPreferences:
 
         monkeypatch.setattr(preferences_module, "S3Service", Probe)
         results = []
-        dialog = preferences_module.SettingsPage(settings, lambda _changed: None)
+        dialog = preferences_module.SettingsPage(settings, lambda _changed: None, lambda _id: None)
         monkeypatch.setattr(dialog, "_show_test_result", lambda ok, msg: results.append((ok, msg)))
-        dialog.s3_rows["access_key"].set_text("TYPED")
+        dialog.profile_rows["access_key"].set_text("TYPED")
 
         dialog._on_test_connection(dialog.test_button)
         wait_until(lambda: results)
 
         assert seen[0]["access_key"] == "TYPED"
-        assert settings.get("s3", "access_key") == "AK"  # not saved by the test
+        assert settings.profile["access_key"] == "AK"  # not saved by the test
         assert results[0][0] is False and "denied" in results[0][1]
 
 
