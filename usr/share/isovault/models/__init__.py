@@ -6,4 +6,4 @@ Contains data models and settings management.
 from .file_item import FileItem
 from .settings import SettingsManager
 
-__all__ = ['FileItem', 'SettingsManager']
+__all__ = ["FileItem", "SettingsManager"]

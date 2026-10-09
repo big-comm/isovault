@@ -1,39 +1,43 @@
+"""
+Static application configuration.
+
+User-editable settings live in models/settings.py; this module only holds
+constants that never change at runtime.
+"""
+
 import os
 
-# Application Configuration
-APP_CONFIG = {
-    'app_id': 'org.communitybig.isovault',
-    'app_name': 'ISOVault',
-    'version': '1.0.0',
-    'window_title': 'ISOVault - ISO Manager',
-    'window_width': 1200,
-    'window_height': 700,
-    'config_file': os.path.expanduser('~/.config/isovault.conf')
-}
+APP_ID = "org.communitybig.isovault"
+APP_NAME = "ISOVault"
+APP_VERSION = "1.0.0"
+APP_ICON = "isovault"
 
-# Default S3 Configuration (non-sensitive defaults)
+APP_DIR = os.path.dirname(os.path.abspath(__file__))
+TEMPLATES_DIR = os.path.join(APP_DIR, "templates")
+CONFIG_FILE = os.path.expanduser("~/.config/isovault.conf")
+
+DEFAULT_WINDOW_SIZE = (1200, 700)
+
 DEFAULT_S3_CONFIG = {
-    'endpoint_url': 'https://us-1.cdn77-storage.com',
-    'region_name': 'us-1',
-    'bucket_name': 'iso-comm'
+    "access_key": "",
+    "secret_key": "",
+    "endpoint_url": "https://us-1.cdn77-storage.com",
+    "region_name": "us-1",
+    "bucket_name": "iso-comm",
 }
 
-# Supported folders in the bucket
-DISTRO_FOLDERS = ['Gnome', 'Cinnamon', 'XFCE', 'Root']
+DEFAULT_BASE_URL = "https://iso.communitybig.org"
 
-# Default CDN/Web Configuration
-DEFAULT_WEB_CONFIG = {
-    'base_url': 'https://iso.communitybig.org',
-    'index_file': 'index.html'
-}
+# Folders in the bucket. "Root" is the bucket root itself (no key prefix).
+ROOT_FOLDER = "Root"
+DISTRO_FOLDERS = ("Gnome", "Cinnamon", "XFCE", ROOT_FOLDER)
 
-# File validation
-SUPPORTED_EXTENSIONS = ['.iso', '.ISO', '.md5', '.MD5']
-MAX_FILE_SIZE = 10 * 1024 * 1024 * 1024  # 10GB in bytes
+INDEX_FILE = "index.html"
 
-# UI Constants
-UI_CONSTANTS = {
-    'TOAST_TIMEOUT': 3,
-    'PROGRESS_UPDATE_INTERVAL': 100,
-    'REFRESH_DELAY': 500
-}
+# Upload validation (extensions are compared in lowercase)
+SUPPORTED_EXTENSIONS = (".iso", ".md5")
+MAX_FILE_SIZE = 10 * 1024**3  # 10 GiB
+
+# UI timings
+TOAST_TIMEOUT = 3  # seconds
+REFRESH_DELAY_MS = 500

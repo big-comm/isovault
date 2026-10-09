@@ -1,15 +1,23 @@
 """
-Settings management for the application.
-Handles loading, saving and validation of user settings.
+User settings persisted in an INI file (~/.config/isovault.conf).
+
+The file holds the S3 secret, so it is always written with mode 0600.
+When libsecret is available the credentials are also mirrored to the
+system keyring and used as a fallback if the file has none.
 """
 
-import os
 import configparser
-from typing import Dict, Any, Optional
-from config import APP_CONFIG, DEFAULT_S3_CONFIG, DEFAULT_WEB_CONFIG
-from utils.i18n import _
+import copy
+import logging
+import os
+import stat
+import tempfile
+from typing import Any, Dict, Tuple
 
-# Try to import libsecret for additional secure credential storage
+from config import CONFIG_FILE, DEFAULT_BASE_URL, DEFAULT_S3_CONFIG, DEFAULT_WINDOW_SIZE
+
+logger = logging.getLogger(__name__)
+
 try:
     import gi
 
@@ -22,188 +30,177 @@ try:
         {"key_type": Secret.SchemaAttributeType.STRING},
     )
     _HAS_LIBSECRET = True
-except Exception:
+except (ImportError, ValueError):
     _HAS_LIBSECRET = False
+
+CREDENTIAL_KEYS = ("access_key", "secret_key")
+
+# Every known setting and its default value; the type of the default
+# decides how the value is parsed from the file.
+DEFAULT_SETTINGS: Dict[str, Dict[str, Any]] = {
+    "general": {
+        "last_directory": "",
+        "window_width": DEFAULT_WINDOW_SIZE[0],
+        "window_height": DEFAULT_WINDOW_SIZE[1],
+        "auto_refresh": True,
+    },
+    "s3": dict(DEFAULT_S3_CONFIG),
+    "web": {
+        "base_url": DEFAULT_BASE_URL,
+        "show_index_files": False,
+    },
+    "ui": {
+        "confirm_deletions": True,
+        "auto_update_index": True,
+    },
+}
 
 
 class SettingsManager:
-    """Manages application settings and S3 configuration"""
-    
-    def __init__(self):
-        """Initialize settings manager with default values"""
-        self.config_file = APP_CONFIG['config_file']
-        self.settings = self._load_default_settings()
+    """Loads, holds and saves the user settings"""
+
+    def __init__(self, config_file: str = CONFIG_FILE):
+        self.config_file = config_file
+        self.settings = copy.deepcopy(DEFAULT_SETTINGS)
+        self._keyring_cache: Dict[str, str] = {}
         self.load_settings()
-    
-    def _load_default_settings(self) -> Dict[str, Any]:
-        """Load default settings"""
-        return {
-            'general': {
-                'last_directory': None,
-                'window_width': APP_CONFIG['window_width'],
-                'window_height': APP_CONFIG['window_height'],
-                'auto_refresh': True
-            },
-            's3': {
-                'access_key': '',
-                'secret_key': '',
-                'endpoint_url': DEFAULT_S3_CONFIG['endpoint_url'],
-                'region_name': DEFAULT_S3_CONFIG['region_name'],
-                'bucket_name': DEFAULT_S3_CONFIG['bucket_name']
-            },
-            'web': {
-                'base_url': DEFAULT_WEB_CONFIG['base_url'],
-                'index_file': DEFAULT_WEB_CONFIG['index_file'],
-                'show_index_files': False
-            },
-            'ui': {
-                'show_progress_details': True,
-                'confirm_deletions': True,
-                'auto_update_index': True
-            }
-        }
-    
+
     def load_settings(self) -> bool:
-        """Load settings from config file"""
-        try:
-            if not os.path.exists(self.config_file):
-                print(_("Config file not found: {config_file}").format(config_file=self.config_file))
-                return False
-            
-            config = configparser.ConfigParser()
-            config.read(self.config_file)
-            
-            # Load each section
-            for section_name in self.settings.keys():
-                if section_name in config:
-                    for key, value in config[section_name].items():
-                        # Handle boolean values
-                        if isinstance(self.settings[section_name].get(key), bool):
-                            self.settings[section_name][key] = config.getboolean(section_name, key)
-                        # Handle integer values
-                        elif isinstance(self.settings[section_name].get(key), int):
-                            self.settings[section_name][key] = config.getint(section_name, key)
-                        else:
-                            self.settings[section_name][key] = value
-
-            # If config has no credentials, try keyring as additional source
-            if not self.settings["s3"].get("access_key") and _HAS_LIBSECRET:
-                try:
-                    for key_type in ("access_key", "secret_key"):
-                        value = Secret.password_lookup_sync(
-                            _SECRET_SCHEMA, {"key_type": key_type}, None
-                        )
-                        if value:
-                            self.settings["s3"][key_type] = value
-                except Exception:
-                    pass
-
-            print(_("Settings loaded from: {config_file}").format(config_file=self.config_file))
-            return True
-            
-        except Exception as e:
-            print(_("Error loading settings: {error}").format(error=e))
+        """Read the config file over the defaults. Returns False if it doesn't exist or can't be read."""
+        if not os.path.exists(self.config_file):
+            logger.info("Config file not found: %s", self.config_file)
+            self._load_credentials_from_keyring()
             return False
-    
+
+        self._restrict_permissions()
+
+        parser = configparser.ConfigParser(interpolation=None)
+        try:
+            parser.read(self.config_file, encoding="utf-8")
+        except configparser.Error as e:
+            logger.error("Invalid config file %s: %s", self.config_file, e)
+            return False
+
+        for section, defaults in DEFAULT_SETTINGS.items():
+            if not parser.has_section(section):
+                continue
+            for key, default in defaults.items():
+                if not parser.has_option(section, key):
+                    continue
+                try:
+                    if isinstance(default, bool):
+                        value = parser.getboolean(section, key)
+                    elif isinstance(default, int):
+                        value = parser.getint(section, key)
+                    else:
+                        value = parser.get(section, key)
+                except ValueError:
+                    logger.warning("Ignoring invalid value for [%s] %s", section, key)
+                    continue
+                self.settings[section][key] = value
+
+        if not self.settings["s3"]["access_key"]:
+            self._load_credentials_from_keyring()
+
+        return True
+
     def save_settings(self) -> bool:
-        """Save settings to config file"""
+        """Write all settings atomically with mode 0600."""
+        parser = configparser.ConfigParser(interpolation=None)
+        for section, values in self.settings.items():
+            parser[section] = {key: str(value) for key, value in values.items()}
+
+        config_dir = os.path.dirname(self.config_file)
         try:
-            # Create config directory if it doesn't exist
-            os.makedirs(os.path.dirname(self.config_file), exist_ok=True)
-            
-            config = configparser.ConfigParser()
-            
-            # Convert settings to configparser format
-            for section_name, section_data in self.settings.items():
-                config[section_name] = {}
-                for key, value in section_data.items():
-                    if value is not None:
-                        config[section_name][key] = str(value)
-            
-            with open(self.config_file, 'w') as f:
-                config.write(f)
-
-            # Also store credentials in keyring as additional secure layer
-            if _HAS_LIBSECRET:
-                try:
-                    for key_type in ("access_key", "secret_key"):
-                        value = self.settings["s3"].get(key_type, "")
-                        if value:
-                            Secret.password_store_sync(
-                                _SECRET_SCHEMA,
-                                {"key_type": key_type},
-                                Secret.COLLECTION_DEFAULT,
-                                f"isovault-{key_type}",
-                                value,
-                                None,
-                            )
-                except Exception:
-                    pass  # Keyring is optional, config file is the primary store
-
-            print(_("Settings saved to: {config_file}").format(config_file=self.config_file))
-            return True
-            
-        except Exception as e:
-            print(_("Error saving settings: {error}").format(error=e))
+            os.makedirs(config_dir, exist_ok=True)
+            fd, tmp_path = tempfile.mkstemp(dir=config_dir, prefix=".isovault-", suffix=".tmp")
+            try:
+                with os.fdopen(fd, "w", encoding="utf-8") as f:  # mkstemp creates it as 0600
+                    parser.write(f)
+                os.replace(tmp_path, self.config_file)
+            except BaseException:
+                os.unlink(tmp_path)
+                raise
+        except OSError as e:
+            logger.error("Error saving settings to %s: %s", self.config_file, e)
             return False
-    
-    def get_s3_config(self) -> Dict[str, str]:
-        """Get S3 configuration dictionary"""
-        return {
-            'access_key': self.get('s3', 'access_key'),
-            'secret_key': self.get('s3', 'secret_key'),
-            'endpoint_url': self.get('s3', 'endpoint_url'),
-            'region_name': self.get('s3', 'region_name'),
-            'bucket_name': self.get('s3', 'bucket_name')
-        }
-    
-    def get_web_config(self) -> Dict[str, str]:
-        """Get Web configuration dictionary"""
-        return {
-            'base_url': self.get('web', 'base_url'),
-            'index_file': self.get('web', 'index_file'),
-            'show_index_files': self.get('web', 'show_index_files', False)
-        }
-    
-    def get(self, section: str, key: str, default: Any = None) -> Any:
-        """Get a setting value"""
-        return self.settings.get(section, {}).get(key, default)
-    
+
+        self._store_credentials_in_keyring()
+        return True
+
+    def get(self, section: str, key: str) -> Any:
+        """Current value of a setting (KeyError for unknown settings)."""
+        return self.settings[section][key]
+
     def set(self, section: str, key: str, value: Any) -> None:
-        """Set a setting value"""
-        if section not in self.settings:
-            self.settings[section] = {}
+        """Change a setting in memory; call save_settings() to persist."""
+        if key not in DEFAULT_SETTINGS.get(section, {}):
+            raise KeyError(f"Unknown setting [{section}] {key}")
         self.settings[section][key] = value
-    
-    def validate_s3_config(self) -> tuple[bool, str]:
-        """Validate S3 configuration"""
-        s3_config = self.get_s3_config()
-        
-        if not s3_config['access_key']:
-            return False, _("Access key is required")
-        
-        if not s3_config['secret_key']:
-            return False, _("Secret key is required")
-        
-        if not s3_config['endpoint_url']:
-            return False, _("Endpoint URL is required")
-        
-        if not s3_config['bucket_name']:
-            return False, _("Bucket name is required")
-        
-        return True, _("Configuration is valid")
-    
+
+    def reset_to_defaults(self) -> None:
+        """Restore defaults for everything except the S3 credentials."""
+        credentials = {key: self.settings["s3"][key] for key in CREDENTIAL_KEYS}
+        self.settings = copy.deepcopy(DEFAULT_SETTINGS)
+        self.settings["s3"].update(credentials)
+
+    def get_s3_config(self) -> Dict[str, str]:
+        return dict(self.settings["s3"])
+
     def has_s3_credentials(self) -> bool:
-        """Check if S3 credentials are configured"""
-        return bool(self.get('s3', 'access_key') and self.get('s3', 'secret_key'))
-    
-    def get_window_size(self) -> tuple[int, int]:
-        """Get window size from settings"""
-        width = self.get('general', 'window_width', APP_CONFIG['window_width'])
-        height = self.get('general', 'window_height', APP_CONFIG['window_height'])
-        return width, height
-    
+        """True when every value needed to connect is filled in."""
+        s3 = self.settings["s3"]
+        return all(s3[key] for key in ("access_key", "secret_key", "endpoint_url", "bucket_name"))
+
+    def get_window_size(self) -> Tuple[int, int]:
+        return self.settings["general"]["window_width"], self.settings["general"]["window_height"]
+
     def set_window_size(self, width: int, height: int) -> None:
-        """Set window size in settings"""
-        self.set('general', 'window_width', width)
-        self.set('general', 'window_height', height)
+        if width > 0 and height > 0:
+            self.settings["general"]["window_width"] = width
+            self.settings["general"]["window_height"] = height
+
+    # Internals
+
+    def _restrict_permissions(self) -> None:
+        """Older versions wrote the file world-readable; fix it on load."""
+        try:
+            mode = stat.S_IMODE(os.stat(self.config_file).st_mode)
+            if mode & 0o077:
+                os.chmod(self.config_file, 0o600)
+        except OSError as e:
+            logger.warning("Could not restrict permissions of %s: %s", self.config_file, e)
+
+    def _load_credentials_from_keyring(self) -> None:
+        if not _HAS_LIBSECRET:
+            return
+        for key in CREDENTIAL_KEYS:
+            try:
+                value = Secret.password_lookup_sync(_SECRET_SCHEMA, {"key_type": key}, None)
+            except Exception as e:  # keyring is optional
+                logger.debug("Keyring lookup failed: %s", e)
+                return
+            if value:
+                self.settings["s3"][key] = value
+                self._keyring_cache[key] = value
+
+    def _store_credentials_in_keyring(self) -> None:
+        if not _HAS_LIBSECRET:
+            return
+        for key in CREDENTIAL_KEYS:
+            value = self.settings["s3"][key]
+            if not value or self._keyring_cache.get(key) == value:
+                continue
+            try:
+                Secret.password_store_sync(
+                    _SECRET_SCHEMA,
+                    {"key_type": key},
+                    Secret.COLLECTION_DEFAULT,
+                    f"isovault-{key}",
+                    value,
+                    None,
+                )
+                self._keyring_cache[key] = value
+            except Exception as e:  # keyring is optional, the file is the primary store
+                logger.debug("Keyring store failed: %s", e)
+                return

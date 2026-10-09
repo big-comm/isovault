@@ -1,0 +1,17 @@
+/* Row tint per bucket folder (applied to every cell of the row) */
+.folder-gnome,
+.folder-cinnamon,
+.folder-xfce,
+.folder-root {
+    border-radius: 2px;
+    padding: 4px 6px;
+    margin: -4px -6px;
+}
+
+.folder-gnome { background: alpha(#9b59b6, 0.18); }
+.folder-cinnamon { background: alpha(#D2691E, 0.15); }
+.folder-xfce { background: alpha(#3498db, 0.18); }
+.folder-root { background: alpha(@accent_color, 0.10); }
+
+columnview row:hover { background: alpha(@accent_color, 0.05); }
+columnview row:selected { background: alpha(@accent_color, 0.15); }

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="$lang">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$title</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@1.53.0/dist/umd/lucide.min.js"
+            integrity="sha384-9jc6sq4hIHE19IfEOsGFw4OBb8FXKksvsPgSzlLdEJO7Z0GT1a+TUtBYK/+FAk3p"
+            crossorigin="anonymous"></script>
+
+    <style>
+$style
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="https://communitybig.org" class="logo">
+                Big<span class="text-gradient">Community</span>
+            </a>
+            <nav class="header-nav">
+                <a href="https://communitybig.org">$nav_home</a>
+                <a href="https://communitybig.org/download.html">$nav_download</a>
+                <a href="https://github.com/big-comm" target="_blank" rel="noopener">GitHub</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>ISO <span class="text-gradient">Repository</span></h1>
+            <p>$hero_text</p>
+        </div>
+    </section>
+
+    <div class="container">
+$content
+    </div>
+
+    <footer class="footer">
+        <p>$footer_text | <a href="https://communitybig.org">communitybig.org</a></p>
+    </footer>
+
+    <div class="toast" id="toast">
+        <i data-lucide="circle-check"></i>
+        <span>$toast_text</span>
+    </div>
+
+    <script>
+$script
+    </script>
+</body>
+</html>
