@@ -4,7 +4,6 @@ Dialogs used by the main window (file choosers, confirmations, about).
 
 import logging
 import os
-from pathlib import Path
 from typing import Callable, List, Optional, Tuple
 
 import gi
@@ -14,8 +13,10 @@ gi.require_version("Adw", "1")
 
 from gi.repository import Adw, Gio, GLib, Gtk  # noqa: E402
 
-from config import APP_ICON, APP_NAME, APP_VERSION, DISTRO_FOLDERS, SUPPORTED_EXTENSIONS  # noqa: E402
+from config import APP_ICON, APP_NAME, APP_VERSION, SUPPORTED_EXTENSIONS  # noqa: E402
 from utils.i18n import _  # noqa: E402
+
+from .upload_dialog import UploadDialog  # noqa: E402
 
 logger = logging.getLogger(__name__)
 
@@ -106,41 +107,41 @@ class DialogManager:
 
         dialog.save(self.parent_window, None, on_done)
 
+    def choose_download_folder(self, callback: Callable[[str], None]) -> None:
+        """Ask for a local folder to save several files; callback(path) runs only if accepted."""
+        dialog = Gtk.FileDialog(title=_("Choose where to save the files"), modal=True)
+        downloads = GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DOWNLOAD)
+        if downloads and os.path.isdir(downloads):
+            dialog.set_initial_folder(Gio.File.new_for_path(downloads))
+
+        def on_done(dialog, result):
+            try:
+                folder = dialog.select_folder_finish(result)
+            except GLib.Error as e:
+                if not _was_dismissed(e):
+                    self.show_error(_("Download Error"), e.message)
+                return
+
+            path = folder.get_path() if folder else None
+            if path:
+                callback(path)
+            else:
+                self.show_error(_("Download Error"), _("Failed to get save path"))
+
+        dialog.select_folder(self.parent_window, None, on_done)
+
     def choose_upload_folder(
         self,
         valid_files: List[str],
         invalid_files: List[Tuple[str, str]],
         callback: Callable[[str], None],
+        initial_folder: Optional[str] = None,
     ) -> None:
         """
-        Ask the destination folder for the valid files, listing any rejected
-        files in the same dialog. callback(folder) runs only if a folder was chosen.
+        Show the files about to be uploaded (and any rejected ones) and ask the
+        destination folder. callback(folder) runs only if the user confirms.
         """
-        names = [Path(path).name for path in valid_files]
-        if len(names) == 1:
-            body = _("Choose which folder to upload '{filename}' to:").format(filename=names[0])
-        else:
-            body = _("Choose which folder to upload {file_count} files to:\n\n{file_list}").format(
-                file_count=len(names), file_list=_bullet_list(names)
-            )
-
-        if invalid_files:
-            body += "\n\n" + _("Found {invalid_count} invalid files").format(invalid_count=len(invalid_files))
-            body += ":\n" + _bullet_list([f"{name}: {reason}" for name, reason in invalid_files])
-
-        dialog = Adw.AlertDialog(heading=_("Select Destination Folder"), body=body)
-        dialog.add_response("cancel", _("Cancel"))
-        for folder in DISTRO_FOLDERS:
-            dialog.add_response(folder, folder)
-        dialog.set_default_response("cancel")
-        dialog.set_close_response("cancel")
-
-        def on_response(_dialog, response):
-            if response in DISTRO_FOLDERS:
-                callback(response)
-
-        dialog.connect("response", on_response)
-        dialog.present(self.parent_window)
+        UploadDialog(valid_files, invalid_files, callback, initial_folder).present(self.parent_window)
 
     def show_invalid_files(self, invalid_files: List[Tuple[str, str]]) -> None:
         """Explain why none of the selected files can be uploaded."""
@@ -148,14 +149,20 @@ class DialogManager:
         body += ":\n\n" + _bullet_list([f"{name}: {reason}" for name, reason in invalid_files])
         self.show_error(_("File Validation Results"), body)
 
-    def confirm_delete(self, filename: str, callback: Callable[[], None]) -> None:
+    def confirm_delete(self, filenames: List[str], callback: Callable[[], None]) -> None:
         """callback() runs only if the user confirms."""
-        dialog = Adw.AlertDialog(
-            heading=_("Delete File"),
-            body=_("Are you sure you want to delete '{filename}'?\n\nThis action cannot be undone.").format(
-                filename=filename
-            ),
-        )
+        if len(filenames) == 1:
+            heading = _("Delete File")
+            body = _("Are you sure you want to delete '{filename}'?\n\nThis action cannot be undone.").format(
+                filename=filenames[0]
+            )
+        else:
+            heading = _("Delete Files")
+            body = _("Are you sure you want to delete {count} files?\n\n{file_list}\n\nThis action cannot be undone.").format(
+                count=len(filenames), file_list=_bullet_list(filenames)
+            )
+
+        dialog = Adw.AlertDialog(heading=heading, body=body)
         dialog.add_response("cancel", _("Cancel"))
         dialog.add_response("delete", _("Delete"))
         dialog.set_default_response("cancel")

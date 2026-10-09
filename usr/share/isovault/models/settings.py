@@ -40,6 +40,7 @@ CREDENTIAL_KEYS = ("access_key", "secret_key")
 DEFAULT_SETTINGS: Dict[str, Dict[str, Any]] = {
     "general": {
         "last_directory": "",
+        "last_upload_folder": "",
         "window_width": DEFAULT_WINDOW_SIZE[0],
         "window_height": DEFAULT_WINDOW_SIZE[1],
         "auto_refresh": True,

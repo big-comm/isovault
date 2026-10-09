@@ -3,9 +3,10 @@ Main application window.
 """
 
 import logging
+import os
 import threading
 from pathlib import Path
-from typing import Any, Callable, List, Optional
+from typing import Any, Callable, List, NamedTuple, Optional
 
 import gi
 
@@ -24,6 +25,17 @@ from .dialogs import DialogManager  # noqa: E402
 from .preferences import PreferencesDialog  # noqa: E402
 
 logger = logging.getLogger(__name__)
+
+
+class _BatchText(NamedTuple):
+    """Translated messages of a batch operation"""
+
+    progress_one: str  # {filename}
+    progress_many: str  # {current} {total} {filename}
+    done_one: str  # {filename}
+    done_all: str  # {total}
+    failed_one: str  # {filename}
+    summary: str  # {completed} {failed}
 
 
 def call_on_main(func: Callable, *args: Any) -> None:
@@ -110,7 +122,19 @@ class ISOVaultWindow(Adw.ApplicationWindow):
         filter_group.add(self.folder_dropdown)
         box.append(filter_group)
 
-        # Actions on the selected file
+        # Selection: counter plus select all / none
+        self.selection_group = Adw.PreferencesGroup(title=_("Selection"))
+        self.select_all_button = Gtk.Button(label=_("Select All"))
+        self.select_all_button.connect("clicked", lambda _button: self.file_list.select_all())
+        self.select_none_button = Gtk.Button(label=_("Select None"))
+        self.select_none_button.connect("clicked", lambda _button: self.file_list.unselect_all())
+        selection_buttons = Gtk.Box(spacing=6, homogeneous=True)
+        selection_buttons.append(self.select_all_button)
+        selection_buttons.append(self.select_none_button)
+        self.selection_group.add(selection_buttons)
+        box.append(self.selection_group)
+
+        # Actions on the selected files
         actions_group = Adw.PreferencesGroup()
         self.copy_link_row = self._action_row(_("Copy Link"), _("Copy public URL"), "edit-copy-symbolic", self.on_copy_link_clicked)
         self.download_row = self._action_row(_("Download"), _("Save file locally"), "folder-download-symbolic", self.on_download_clicked)
@@ -172,7 +196,7 @@ class ISOVaultWindow(Adw.ApplicationWindow):
         menu.append_section(None, about_section)
         header.pack_end(Gtk.MenuButton(icon_name="open-menu-symbolic", menu_model=menu, tooltip_text=_("Application menu")))
 
-        self.file_list = FileListComponent(on_selection_changed=lambda _selected: self._update_sensitivity())
+        self.file_list = FileListComponent(on_selection_changed=lambda _count: self._update_sensitivity())
 
         toolbar = Adw.ToolbarView()
         toolbar.add_top_bar(header)
@@ -234,7 +258,21 @@ class ISOVaultWindow(Adw.ApplicationWindow):
 
     def _update_sensitivity(self) -> None:
         connected = self.s3_service is not None
-        has_selection = self.file_list.get_selected_file() is not None
+        selected = self.file_list.selected_count
+        total = self.file_list.file_model.get_n_items()
+        has_selection = selected > 0
+
+        if has_selection:
+            self.selection_group.set_description(
+                ngettext("{selected} of {total} file selected", "{selected} of {total} files selected", total).format(
+                    selected=selected, total=total
+                )
+            )
+        else:
+            self.selection_group.set_description(_("No files selected"))
+        self.select_all_button.set_sensitive(selected < total)
+        self.select_none_button.set_sensitive(has_selection)
+
         self.upload_button.set_sensitive(connected and not self._busy)
         self.copy_link_row.set_sensitive(connected and has_selection)
         self.download_row.set_sensitive(connected and has_selection and not self._busy)
@@ -319,96 +357,149 @@ class ISOVaultWindow(Adw.ApplicationWindow):
             self.dialogs.show_invalid_files(invalid_files)
             return
 
+        def upload(folder: str) -> None:
+            self.settings_manager.set("general", "last_upload_folder", folder)
+            self.settings_manager.save_settings()
+            self._upload_files(valid_files, folder)
+
         self.dialogs.choose_upload_folder(
-            valid_files, invalid_files, lambda folder: self._upload_files(valid_files, folder)
+            valid_files, invalid_files, upload, self.settings_manager.get("general", "last_upload_folder")
         )
 
     def _upload_files(self, file_paths: List[str], folder: str) -> None:
         """Upload files one after another; a failed file doesn't stop the rest."""
         service = self.s3_service
-        total = len(file_paths)
+        self._run_batch(
+            [Path(path).name for path in file_paths],
+            lambda index, report: service.upload_file(file_paths[index], folder, report),
+            _BatchText(
+                progress_one=_("Uploading {filename}..."),
+                progress_many=_("Uploading {current}/{total}: {filename}"),
+                done_one=_("Successfully uploaded {filename}"),
+                done_all=_("Successfully uploaded all {total} files!"),
+                failed_one=_("Failed to upload {filename}"),
+                summary=_("Upload complete: {completed} successful, {failed} failed"),
+            ),
+            on_finished=self._after_bucket_changed,
+        )
+
+    # Selected file actions
+
+    def on_copy_link_clicked(self) -> None:
+        selected = self.file_list.get_selected_files()
+        if not selected or not self.s3_service:
+            return
+        urls = [self.s3_service.get_public_url(item.key) for item in selected]
+        self.get_clipboard().set("\n".join(urls))
+        if len(urls) == 1:
+            self.show_toast(_("Link copied: {url}").format(url=urls[0]))
+        else:
+            self.show_toast(ngettext("{count} link copied", "{count} links copied", len(urls)).format(count=len(urls)))
+
+    def on_download_clicked(self) -> None:
+        selected = self.file_list.get_selected_files()
+        if len(selected) == 1:
+            item = selected[0]
+            self.dialogs.choose_download_path(item.name, lambda path: self._download_files(selected, [path]))
+        elif selected:
+            self.dialogs.choose_download_folder(
+                lambda folder: self._download_files(selected, [os.path.join(folder, item.name) for item in selected])
+            )
+
+    def _download_files(self, items: List[FileItem], save_paths: List[str]) -> None:
+        """Download each item to the matching path. In a folder download, existing files are not overwritten."""
+        service = self.s3_service
+        overwrite = len(items) == 1  # the save dialog already asked about overwriting
+
+        def step(index, report):
+            if not overwrite and os.path.exists(save_paths[index]):
+                raise FileExistsError(_("File already exists"))
+            service.download_file(items[index].key, save_paths[index], report)
+
+        self._run_batch(
+            [item.name for item in items],
+            step,
+            _BatchText(
+                progress_one=_("Downloading {filename}..."),
+                progress_many=_("Downloading {current}/{total}: {filename}"),
+                done_one=_("Successfully downloaded {filename}"),
+                done_all=_("Successfully downloaded all {total} files!"),
+                failed_one=_("Failed to download {filename}"),
+                summary=_("Download complete: {completed} successful, {failed} failed"),
+            ),
+            on_finished=None,
+        )
+
+    def on_delete_clicked(self) -> None:
+        selected = self.file_list.get_selected_files()
+        if not selected:
+            return
+        if self.settings_manager.get("ui", "confirm_deletions"):
+            self.dialogs.confirm_delete([item.name for item in selected], lambda: self._delete_files(selected))
+        else:
+            self._delete_files(selected)
+
+    def _delete_files(self, items: List[FileItem]) -> None:
+        service = self.s3_service
+        self._run_batch(
+            [item.name for item in items],
+            lambda index, _report: service.delete_file(items[index].key),
+            _BatchText(
+                progress_one=_("Deleting {filename}..."),
+                progress_many=_("Deleting {current}/{total}: {filename}"),
+                done_one=_("Successfully deleted {filename}"),
+                done_all=_("Successfully deleted all {total} files!"),
+                failed_one=_("Failed to delete {filename}"),
+                summary=_("Delete complete: {completed} successful, {failed} failed"),
+            ),
+            on_finished=self._after_bucket_changed,
+        )
+
+    def _run_batch(
+        self,
+        names: List[str],
+        step: Callable[[int, Callable[[float], None]], None],
+        text: "_BatchText",
+        on_finished: Optional[Callable[[], None]],
+    ) -> None:
+        """
+        Run step(index, progress_callback) for each file in one worker thread.
+
+        A failing file doesn't stop the others; the result is summarized in a
+        toast. on_finished runs if at least one file succeeded.
+        """
+        total = len(names)
+
+        def progress_message(index: int) -> str:
+            if total == 1:
+                return text.progress_one.format(filename=names[0])
+            return text.progress_many.format(current=index + 1, total=total, filename=names[index])
 
         def work():
             failures = []
-            for index, path in enumerate(file_paths):
-                name = Path(path).name
-                if total > 1:
-                    message = _("Uploading {current}/{total}: {filename}").format(current=index + 1, total=total, filename=name)
-                else:
-                    message = _("Uploading {filename}...").format(filename=name)
-                call_on_main(self.status_label.set_text, message)
+            for index, name in enumerate(names):
+                call_on_main(self.status_label.set_text, progress_message(index))
                 try:
-                    service.upload_file(path, folder, self._progress_reporter(index * 100 / total, 100 / total))
+                    step(index, self._progress_reporter(index * 100 / total, 100 / total))
                 except Exception as e:
-                    logger.exception("Upload of %s failed", path)
+                    logger.exception("%s failed", progress_message(index))
                     failures.append((name, str(e)))
             return failures
 
         def done(failures):
             if not failures:
                 if total == 1:
-                    self.show_toast(_("Successfully uploaded {filename}").format(filename=Path(file_paths[0]).name))
+                    self.show_toast(text.done_one.format(filename=names[0]))
                 else:
-                    self.show_toast(_("Successfully uploaded all {total} files!").format(total=total))
+                    self.show_toast(text.done_all.format(total=total))
             elif total == 1:
-                self.show_toast(_("Failed to upload {filename}").format(filename=failures[0][0]) + f": {failures[0][1]}")
+                self.show_toast(text.failed_one.format(filename=failures[0][0]) + f": {failures[0][1]}")
             else:
-                self.show_toast(
-                    _("Upload complete: {completed} successful, {failed} failed").format(
-                        completed=total - len(failures), failed=len(failures)
-                    )
-                )
-            if len(failures) < total:
-                self._after_bucket_changed()
+                self.show_toast(text.summary.format(completed=total - len(failures), failed=len(failures)))
+            if on_finished and len(failures) < total:
+                on_finished()
 
-        self._start_operation(_("Uploading {filename}...").format(filename=Path(file_paths[0]).name), work, done, _("Upload failed"))
-
-    # Selected file actions
-
-    def on_copy_link_clicked(self) -> None:
-        selected = self.file_list.get_selected_file()
-        if not selected or not self.s3_service:
-            return
-        url = self.s3_service.get_public_url(selected.key)
-        self.get_clipboard().set(url)
-        self.show_toast(_("Link copied: {url}").format(url=url))
-
-    def on_download_clicked(self) -> None:
-        selected = self.file_list.get_selected_file()
-        if selected:
-            self.dialogs.choose_download_path(selected.name, lambda path: self._download_file(selected, path))
-
-    def _download_file(self, file_item: FileItem, save_path: str) -> None:
-        service = self.s3_service
-        self._start_operation(
-            _("Downloading {filename}...").format(filename=file_item.name),
-            lambda: service.download_file(file_item.key, save_path, self._progress_reporter()),
-            lambda _result: self.show_toast(_("Successfully downloaded {filename}").format(filename=file_item.name)),
-            _("Download failed for {filename}").format(filename=file_item.name),
-        )
-
-    def on_delete_clicked(self) -> None:
-        selected = self.file_list.get_selected_file()
-        if not selected:
-            return
-        if self.settings_manager.get("ui", "confirm_deletions"):
-            self.dialogs.confirm_delete(selected.name, lambda: self._delete_file(selected))
-        else:
-            self._delete_file(selected)
-
-    def _delete_file(self, file_item: FileItem) -> None:
-        service = self.s3_service
-
-        def done(_result):
-            self.show_toast(_("Successfully deleted {filename}").format(filename=file_item.name))
-            self._after_bucket_changed()
-
-        self._start_operation(
-            _("Deleting {filename}...").format(filename=file_item.name),
-            lambda: service.delete_file(file_item.key),
-            done,
-            _("Delete failed for {filename}").format(filename=file_item.name),
-        )
+        self._start_operation(progress_message(0), work, done, text.failed_one.format(filename=names[0]))
 
     # Index pages
 

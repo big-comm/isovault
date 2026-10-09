@@ -52,6 +52,7 @@ class FakeS3:
         self.deleted = []
         self.list_calls = []
         self.fail_uploads = set()
+        self.fail_deletes = set()
         self.list_error = None
         FakeS3.instances.append(self)
 
@@ -69,9 +70,13 @@ class FakeS3:
         self.uploaded.append((os.path.basename(path), folder))
 
     def delete_file(self, key):
+        if key in self.fail_deletes:
+            raise RuntimeError("delete refused")
         self.deleted.append(key)
 
     def download_file(self, key, path, progress_callback=None):
+        with open(path, "w") as f:
+            f.write(key)
         progress_callback(100)
 
     def get_public_url(self, key):
@@ -192,17 +197,6 @@ class TestOperations:
         idle(window)
         assert window.toasts[-1] == "It failed: kaput"
 
-    def test_delete_without_confirmation(self, window, settings, published):
-        settings.set("ui", "confirm_deletions", False)
-        window.file_list.selection_model.set_selected(0)
-        selected = window.file_list.get_selected_file()
-
-        window.on_delete_clicked()
-        idle(window)
-
-        assert window.s3_service.deleted == [selected.key]
-        assert published == [window.s3_service]
-
     def test_manual_index_update_reports_success(self, window, published):
         window.activate_action("win.force-index", None)
         idle(window)
@@ -239,6 +233,141 @@ class TestOperations:
         assert window.status_label.get_text() == "2 files"
 
 
+def row_check_boxes(win):
+    """Check buttons of the visible rows, top to bottom."""
+    found, stack = [], [win.file_list.column_view]
+    while stack:
+        widget = stack.pop(0)
+        if isinstance(widget, Gtk.CheckButton):
+            found.append(widget)
+        child = widget.get_first_child()
+        while child is not None:
+            stack.append(child)
+            child = child.get_next_sibling()
+    return found
+
+
+def file_names(win):
+    return [item.name for item in win.file_list.get_selected_files()]
+
+
+class TestSelection:
+    def test_nothing_selected_at_start(self, window):
+        assert window.file_list.selected_count == 0
+        assert window.selection_group.get_description() == "No files selected"
+        assert not window.delete_row.get_sensitive()
+        assert not window.select_none_button.get_sensitive()
+        assert window.select_all_button.get_sensitive()
+
+    def test_select_all_and_none(self, window):
+        window.select_all_button.emit("clicked")
+        assert file_names(window) == ["a.iso", "b.iso"]
+        assert window.selection_group.get_description() == "2 of 2 files selected"
+        assert window.delete_row.get_sensitive()
+        assert not window.select_all_button.get_sensitive()
+
+        window.select_none_button.emit("clicked")
+        assert window.file_list.selected_count == 0
+        assert not window.delete_row.get_sensitive()
+
+    def test_check_boxes_follow_and_drive_selection(self, window):
+        window.present()
+        wait_until(lambda: len(row_check_boxes(window)) == 2)
+        checks = dict(zip(["a.iso", "b.iso"], row_check_boxes(window)))  # rows are in list order
+
+        checks["a.iso"].set_active(True)
+        checks["b.iso"].set_active(True)  # adds to the selection instead of replacing it
+        assert file_names(window) == ["a.iso", "b.iso"]
+
+        checks["a.iso"].set_active(False)
+        assert file_names(window) == ["b.iso"]
+
+        window.file_list.select_all()
+        assert all(check.get_active() for check in checks.values())
+        window.file_list.unselect_all()
+        assert not any(check.get_active() for check in checks.values())
+
+    def test_selection_survives_refresh(self, window):
+        window.file_list.selection_model.select_item(1, True)
+        assert file_names(window) == ["b.iso"]
+
+        window.s3_service.files.insert(0, make_file("XFCE/new.iso"))
+        window.refresh_files()
+        wait_until(lambda: window.file_list.file_model.get_n_items() == 3)
+
+        assert file_names(window) == ["b.iso"]
+
+
+class TestBatchActions:
+    def test_delete_several_without_confirmation(self, window, settings, published):
+        settings.set("ui", "confirm_deletions", False)
+        window.file_list.select_all()
+
+        window.on_delete_clicked()
+        idle(window)
+
+        assert window.s3_service.deleted == ["Gnome/a.iso", "b.iso"]
+        assert window.toasts[-1] == "Successfully deleted all 2 files!"
+        assert published == [window.s3_service]  # index updated once
+
+    def test_delete_asks_once_for_all_files(self, window, monkeypatch):
+        asked = []
+        monkeypatch.setattr(window.dialogs, "confirm_delete", lambda names, callback: asked.append(names))
+        window.file_list.select_all()
+
+        window.on_delete_clicked()
+
+        assert asked == [["a.iso", "b.iso"]]
+        assert window.s3_service.deleted == []
+
+    def test_delete_partial_failure(self, window, settings, published):
+        settings.set("ui", "confirm_deletions", False)
+        window.s3_service.fail_deletes = {"b.iso"}
+        window.file_list.select_all()
+
+        window.on_delete_clicked()
+        idle(window)
+
+        assert window.s3_service.deleted == ["Gnome/a.iso"]
+        assert window.toasts[-1] == "Delete complete: 1 successful, 1 failed"
+        assert published == [window.s3_service]
+
+    def test_copy_several_links(self, window, monkeypatch):
+        copied = []
+        monkeypatch.setattr(window, "get_clipboard", lambda: type("Clip", (), {"set": lambda _self, text: copied.append(text)})())
+        window.s3_service.base_url = "https://cdn"
+        window.file_list.select_all()
+
+        window.on_copy_link_clicked()
+
+        assert copied == ["https://cdn/Gnome/a.iso\nhttps://cdn/b.iso"]
+        assert window.toasts[-1] == "2 links copied"
+
+    def test_download_several_into_folder(self, window, monkeypatch, tmp_path):
+        (tmp_path / "b.iso").write_text("keep me")
+        monkeypatch.setattr(window.dialogs, "choose_download_folder", lambda callback: callback(str(tmp_path)))
+        window.file_list.select_all()
+
+        window.on_download_clicked()
+        idle(window)
+
+        assert (tmp_path / "a.iso").read_text() == "Gnome/a.iso"
+        assert (tmp_path / "b.iso").read_text() == "keep me"  # never overwritten
+        assert window.toasts[-1] == "Download complete: 1 successful, 1 failed"
+
+    def test_download_single_uses_save_dialog(self, window, monkeypatch, tmp_path):
+        target = tmp_path / "chosen.iso"
+        target.write_text("old")  # the save dialog already confirmed overwriting
+        monkeypatch.setattr(window.dialogs, "choose_download_path", lambda name, callback: callback(str(target)))
+        window.file_list.selection_model.select_item(0, True)
+
+        window.on_download_clicked()
+        idle(window)
+
+        assert target.read_text() == "Gnome/a.iso"
+        assert window.toasts[-1] == "Successfully downloaded a.iso"
+
+
 class TestSettings:
     def test_s3_change_recreates_service(self, window, settings):
         old = window.s3_service
@@ -268,6 +397,61 @@ class TestSettings:
         window._on_close_request(window)
         reloaded = SettingsManager(settings.config_file)
         assert reloaded.get_window_size() == (900, 640)
+
+
+class TestUploadDialog:
+    def _dialog(self, tmp_path, initial=None, invalid=()):
+        from ui.upload_dialog import UploadDialog
+
+        paths = []
+        for name, size in (("a.iso", 2048), ("a.iso.md5", 70)):
+            (tmp_path / name).write_bytes(b"\0" * size)
+            paths.append(str(tmp_path / name))
+        chosen = []
+        return UploadDialog(paths, list(invalid), chosen.append, initial), chosen
+
+    def test_preselects_last_folder(self, tmp_path):
+        dialog, _chosen = self._dialog(tmp_path, initial="XFCE")
+        assert dialog.selected_folder == "XFCE"
+        assert dialog.upload_button.get_label() == "Upload to XFCE"
+
+    def test_unknown_initial_folder_falls_back(self, tmp_path):
+        dialog, _chosen = self._dialog(tmp_path, initial="gone")
+        assert dialog.selected_folder == window_module.DISTRO_FOLDERS[0]
+
+    def test_folders_are_exclusive(self, tmp_path):
+        dialog, _chosen = self._dialog(tmp_path, initial="XFCE")
+        dialog.folder_buttons["Root"].set_active(True)
+        assert [f for f, b in dialog.folder_buttons.items() if b.get_active()] == ["Root"]
+        assert dialog.upload_button.get_label() == "Upload to Root"
+
+    def test_upload_returns_chosen_folder(self, tmp_path):
+        dialog, chosen = self._dialog(tmp_path, initial="Gnome")
+        dialog.folder_buttons["Cinnamon"].set_active(True)
+        dialog.upload_button.emit("clicked")
+        assert chosen == ["Cinnamon"]
+
+    def test_cancel_uploads_nothing(self, tmp_path):
+        dialog, chosen = self._dialog(tmp_path)
+        dialog.close()
+        assert chosen == []
+
+    def test_window_remembers_folder(self, window, tmp_path, settings, monkeypatch):
+        path = tmp_path / "new.iso"
+        path.write_bytes(b"\0")
+        shown = []
+        monkeypatch.setattr(window.dialogs, "choose_upload_folder", lambda valid, invalid, cb, initial: shown.append((initial, cb)))
+
+        window._on_files_chosen([str(path)], str(tmp_path))
+        initial, upload = shown[0]
+        assert initial == ""
+        upload("XFCE")
+        idle(window)
+
+        assert settings.get("general", "last_upload_folder") == "XFCE"
+        assert window.s3_service.uploaded == [("new.iso", "XFCE")]
+        window._on_files_chosen([str(path)], str(tmp_path))
+        assert shown[1][0] == "XFCE"
 
 
 class TestPreferences:
