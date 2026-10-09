@@ -2,475 +2,240 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the isovault package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
-#, fuzzy
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: isovault\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-09 01:06-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language: is\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n%10!=1 || n%100==11);\n"
 "X-Generator: attranslate\n"
-# 
+
 # File: usr/share/isovault/main.py, line: 46
-#: NEEDS WORK
+#: main.py
 msgid "Show version information"
 msgstr "Sýna útgáfuupplýsingar"
-# 
+
 # File: usr/share/isovault/main.py, line: 55
-#: NEEDS WORK
+#: main.py
 msgid "Enable debug mode"
 msgstr "Virkja villuhamar"
-# 
-# File: usr/share/isovault/main.py, line: 63
-#: NEEDS WORK
-#, python-brace-format
-msgid "Starting {app_name} v{version}"
-msgstr "Byrjar {app_name} v{version}"
-# 
-# File: usr/share/isovault/main.py, line: 81
-#: NEEDS WORK
-#, python-brace-format
-msgid "Shutting down {app_name}"
-msgstr "Að loka {app_name}"
-# 
-# File: usr/share/isovault/main.py, line: 101
-#: NEEDS WORK
-msgid "Debug mode enabled"
-msgstr "Villtengja virkjuð"
-# 
-# File: usr/share/isovault/main.py, line: 184
-#: NEEDS WORK
-#, python-brace-format
-msgid "Warning: Could not apply CSS: {error}"
-msgstr "Aðvörun: Gekk ekki að beita CSS: {error}"
-# 
-# File: usr/share/isovault/main.py, line: 198
-#: NEEDS WORK
-#, python-brace-format
-msgid "Warning: Could not set keyboard shortcuts: {error}"
-msgstr "Viðvörun: Gekk ekki að stilla lyklaborðsnöfn: {error}"
-# 
-# File: usr/share/isovault/main.py, line: 217
-#: NEEDS WORK
-#, python-brace-format
-msgid ""
-"\n"
-"Received signal {signum}, shutting down gracefully..."
-msgstr "Móttók merki {signum}, að loka á faglegan hátt..."
-# 
-# File: usr/share/isovault/main.py, line: 242
-#: NEEDS WORK
-msgid "Error: Missing required dependencies:"
-msgstr "Villa: Vantar nauðsynlegar háðingar:"
-# 
-# File: usr/share/isovault/main.py, line: 245
-#: NEEDS WORK
-#, python-brace-format
-msgid ""
-"\n"
-"Install them with: pip install {deps}"
-msgstr "Settu þau upp með: pip install {deps}"
-# 
-# File: usr/share/isovault/main.py, line: 257
-#: NEEDS WORK
-#, python-brace-format
-msgid "Warning: Could not set application name: {error}"
-msgstr "Aðvörun: Gaf ekki að stilla forritsnafn: {error}"
-# 
-# File: usr/share/isovault/main.py, line: 264
-#: NEEDS WORK
-#, python-brace-format
-msgid "Warning: Could not set signal handlers: {error}"
-msgstr "Aðvörun: Gat ekki stillt merki meðhöndlara: {error}"
-# 
-# File: usr/share/isovault/main.py, line: 271
-#: NEEDS WORK
-#, python-brace-format
-msgid "Warning: Could not create config directory: {error}"
-msgstr "Aðvörun: Gat ekki búið til stillingaskrá: {error}"
-# 
-# File: usr/share/isovault/main.py, line: 288
-#: NEEDS WORK
-msgid ""
-"\n"
-"Interrupted by user"
-msgstr "Riftið af notanda"
-# 
-# File: usr/share/isovault/main.py, line: 291
-#: NEEDS WORK
-#, python-brace-format
-msgid "Fatal error: {error}"
-msgstr "Alvarleg villa: {error}"
-# 
-# File: usr/share/isovault/models/settings.py, line: 54
-#: NEEDS WORK
-#, python-brace-format
-msgid "Config file not found: {config_file}"
-msgstr "Config skrá fannst ekki: {config_file}"
-# 
-# File: usr/share/isovault/models/settings.py, line: 73
-#: NEEDS WORK
-#, python-brace-format
-msgid "Settings loaded from: {config_file}"
-msgstr "Stillingar hlaðnar frá: {config_file}"
-# 
-# File: usr/share/isovault/models/settings.py, line: 77
-#: NEEDS WORK
-#, python-brace-format
-msgid "Error loading settings: {error}"
-msgstr "Villa að hlaða stillingum: {error}"
-# 
-# File: usr/share/isovault/models/settings.py, line: 98
-#: NEEDS WORK
-#, python-brace-format
-msgid "Settings saved to: {config_file}"
-msgstr "Stillingar vistaðar í: {config_file}"
-# 
-# File: usr/share/isovault/models/settings.py, line: 102
-#: NEEDS WORK
-#, python-brace-format
-msgid "Error saving settings: {error}"
-msgstr "Villa að vista stillingar: {error}"
-# 
-# File: usr/share/isovault/models/settings.py, line: 138
-#: NEEDS WORK
-msgid "Access key is required"
-msgstr "Aðgangslykill er nauðsynlegur"
-# 
-# File: usr/share/isovault/models/settings.py, line: 141
-#: NEEDS WORK
-msgid "Secret key is required"
-msgstr "Lykillykill er nauðsynlegur"
-# 
-# File: usr/share/isovault/models/settings.py, line: 144
-#: NEEDS WORK
-msgid "Endpoint URL is required"
-msgstr "Endpoint URL er nauðsynlegur"
-# 
-# File: usr/share/isovault/models/settings.py, line: 147
-#: NEEDS WORK
-msgid "Bucket name is required"
-msgstr "Nafn á fötu er nauðsynlegt"
-# 
-# File: usr/share/isovault/models/settings.py, line: 149
-#: NEEDS WORK
-msgid "Configuration is valid"
-msgstr "Skilgreining er gild."
-# 
-# File: usr/share/isovault/utils/helpers.py, line: 57
-#: NEEDS WORK
-#, python-brace-format
-msgid "Error processing item {item}: {error}"
-msgstr "Villa að vinna úr hlut {item}: {error}"
-# 
-# File: usr/share/isovault/utils/helpers.py, line: 86
-#: NEEDS WORK
-msgid "No S3 service configured"
-msgstr "Engin S3 ekki stillt"
-# 
-# File: usr/share/isovault/utils/helpers.py, line: 90
-#: NEEDS WORK
-msgid "Timeout"
-msgstr "Tími útrunnin"
-# 
-# File: usr/share/isovault/utils/helpers.py, line: 96
-#: NEEDS WORK
-msgid "Connection successful"
-msgstr "Tengist í gagni"
-# 
-# File: usr/share/isovault/utils/helpers.py, line: 98
-#: NEEDS WORK
-msgid "Connection failed"
-msgstr "Tengingar mistókst"
-# 
-# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
-# 
-# File: usr/share/isovault/utils/helpers.py, line: 100
-# File: usr/share/isovault/ui/preferences.py, line: 320
-#: NEEDS WORK
-#, python-brace-format
-msgid "Connection error: {error}"
-msgstr "Tengingarvilla: {error}"
-# 
-# File: usr/share/isovault/utils/helpers.py, line: 108
-#: NEEDS WORK
-msgid "Connection timeout"
-msgstr "Tengja tími útrýmingar"
-# 
-# File: usr/share/isovault/utils/helpers.py, line: 113
-#: NEEDS WORK
-#, python-brace-format
-msgid "Test error: {error}"
-msgstr "Prófun villa: {error}"
-# 
-# File: usr/share/isovault/utils/helpers.py, line: 127
-#: NEEDS WORK
-msgid "URL is required"
-msgstr "URL er nauðsynlegur"
-# 
-# File: usr/share/isovault/utils/helpers.py, line: 130
-#: NEEDS WORK
-msgid "URL must start with http:// or https://"
-msgstr "Vefslóðin verður að byrja á http:// eða https://"
-# 
-# File: usr/share/isovault/utils/helpers.py, line: 142
-#: NEEDS WORK
-msgid "Invalid URL format"
-msgstr "Ógildur URL sniðið"
-# 
-# File: usr/share/isovault/utils/helpers.py, line: 144
-#: NEEDS WORK
-msgid "Valid URL format"
-msgstr "Gildandi URL sniðið"
-# 
-# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
-# 
-# File: usr/share/isovault/utils/helpers.py, line: 275
-# File: usr/share/isovault/services/html_generator.py, line: 608
-#: NEEDS WORK
-#, python-brace-format
-msgid "Error extracting MD5 from {filename}: {error}"
-msgstr "Villa að draga MD5 úr {filename}: {error}"
-# 
+
 # File: usr/share/isovault/services/file_validator.py, line: 27
-#: NEEDS WORK
+#: services/file_validator.py
 msgid "File does not exist"
 msgstr "Skrá er ekki til."
-# 
+
 # File: usr/share/isovault/services/file_validator.py, line: 31
-#: NEEDS WORK
+#: services/file_validator.py
 msgid "Path is not a file"
 msgstr "Slóðin er ekki skrá."
-# 
+
 # File: usr/share/isovault/services/file_validator.py, line: 37
-#: NEEDS WORK
+#: services/file_validator.py
 #, python-brace-format
 msgid "Unsupported file type. Only {supported} are allowed"
 msgstr "Ógildur skráargerð. Aðeins {supported} eru leyfðar."
-# 
+
+# File: usr/share/isovault/services/file_validator.py, line: 46
+#: services/file_validator.py
+msgid "File is empty"
+msgstr "Skrá er tóm."
+
 # File: usr/share/isovault/services/file_validator.py, line: 43
-#: NEEDS WORK
+#: services/file_validator.py
 #, python-brace-format
 msgid "File too large. Maximum size: {max_size}GB"
 msgstr "Skrá of stór. Hámarksstærð: {max_size}GB"
-# 
-# File: usr/share/isovault/services/file_validator.py, line: 46
-#: NEEDS WORK
-msgid "File is empty"
-msgstr "Skrá er tóm."
-# 
+
 # File: usr/share/isovault/services/file_validator.py, line: 48
-#: NEEDS WORK
+#: services/file_validator.py
 msgid "File is valid"
 msgstr "Skjal er gilt."
-# 
-# File: usr/share/isovault/services/file_validator.py, line: 88
-#: NEEDS WORK
-msgid "ISO Image"
-msgstr "ISO mynd"
-# 
+
+# File: usr/share/isovault/services/html_generator.py, line: 354
+#: services/html_generator.py
+msgid "No ISO files available yet"
+msgstr "Engar ISO skrár eru ekki tiltækar enn."
+
+# File: usr/share/isovault/services/html_generator.py, line: 51
+#: services/html_generator.py
+msgid "BigCommunity ISO Repository"
+msgstr "BigCommunity ISO Geymsla"
+
+#: services/html_generator.py
+msgid "All Folders"
+msgstr "Allar möppur"
+
+# File: usr/share/isovault/services/html_generator.py, line: 413
+#: services/html_generator.py
+msgid "No files in this folder"
+msgstr "Engin engin í þessari möppu"
+
+# File: usr/share/isovault/services/html_generator.py, line: 70
+#: services/html_generator.py
+#, python-brace-format
+msgid "{folder_name} - BigCommunity ISO Repository"
+msgstr "{folder_name} - Stórsamfélag ISO Geymsla"
+
+#: services/html_generator.py
+msgid "Home"
+msgstr "Heim"
+
+# File: usr/share/isovault/ui/components.py, line: 284
+#: services/html_generator.py ui/window.py
+msgid "Download"
+msgstr "Sækja"
+
+#: services/html_generator.py
+msgid ""
+"Direct download of BigCommunity ISO images with integrity verification."
+msgstr "Bein niðurhal á BigCommunity ISO-myndum með heilleikaprófun."
+
+# File: usr/share/isovault/services/html_generator.py, line: 463
+#: services/html_generator.py
+msgid "Generated by ISOVault"
+msgstr "Myndað af ISOVault"
+
+#: services/html_generator.py
+msgid "MD5 copied!"
+msgstr "MD5 afritað!"
+
+#: services/html_generator.py
+msgid "ISO files available"
+msgstr "ISO skrár í boði"
+
+# File: usr/share/isovault/services/html_generator.py, line: 331
+#: services/html_generator.py
+msgid "Updated"
+msgstr "Uppfært"
+
+# File: usr/share/isovault/services/html_generator.py, line: 338
+#: services/html_generator.py
+msgid "Search ISOs..."
+msgstr "Leita að ISO..."
+
+#: services/html_generator.py
+msgid "images"
+msgstr "myndir"
+
 # #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
 # 
 # File: usr/share/isovault/services/file_validator.py, line: 90
 # File: usr/share/isovault/services/html_generator.py, line: 443
-#: NEEDS WORK
+#: services/html_generator.py
 msgid "MD5 Checksum"
 msgstr "MD5 summa"
-# 
-# File: usr/share/isovault/services/file_validator.py, line: 92
-#: NEEDS WORK
-msgid "Unknown"
-msgstr "Óþekkt"
-# 
-# File: usr/share/isovault/services/file_validator.py, line: 98
-#: NEEDS WORK
-msgid "0 B"
-msgstr "0 B"
-# 
-# File: usr/share/isovault/services/file_validator.py, line: 100
-#: NEEDS WORK
-msgid "B"
-msgstr "B"
-# 
-# File: usr/share/isovault/services/file_validator.py, line: 100
-#: NEEDS WORK
-msgid "KB"
-msgstr "KB"
-# 
-# File: usr/share/isovault/services/file_validator.py, line: 100
-#: NEEDS WORK
-msgid "MB"
-msgstr "MB"
-# 
-# File: usr/share/isovault/services/file_validator.py, line: 100
-#: NEEDS WORK
-msgid "GB"
-msgstr "GB"
-# 
-# File: usr/share/isovault/services/file_validator.py, line: 100
-#: NEEDS WORK
-msgid "TB"
-msgstr "TB"
-# 
-# File: usr/share/isovault/services/file_validator.py, line: 108
-#: NEEDS WORK
-#, python-brace-format
-msgid "{size:.1f} {unit}"
-msgstr "{size:.1f} {unit}"
-# 
-# File: usr/share/isovault/services/html_generator.py, line: 51
-#: NEEDS WORK
-msgid "BigCommunity ISO Repository"
-msgstr "BigCommunity ISO Geymsla"
-# 
-# File: usr/share/isovault/services/html_generator.py, line: 70
-#: NEEDS WORK
-#, python-brace-format
-msgid "{folder_name} - BigCommunity ISO Repository"
-msgstr "{folder_name} - Stórsamfélag ISO Geymsla"
-# 
-# File: usr/share/isovault/services/html_generator.py, line: 325
-# File: usr/share/isovault/services/html_generator.py, line: 388
-#: NEEDS WORK
-msgid "Linux Distribution ISO Repository"
-msgstr "Linux dreifingar ISO geymsla"
-# 
-# File: usr/share/isovault/services/html_generator.py, line: 331
-#: NEEDS WORK
-#, python-brace-format
-msgid "{total_isos} ISO files available"
-msgstr "{total_isos} ISO skrár í boði"
-# 
-# File: usr/share/isovault/services/html_generator.py, line: 331
-#: NEEDS WORK
-msgid "Updated"
-msgstr "Uppfært"
-# 
-# File: usr/share/isovault/services/html_generator.py, line: 338
-#: NEEDS WORK
-msgid "Search ISOs..."
-msgstr "Leita að ISO..."
-# 
-# File: usr/share/isovault/services/html_generator.py, line: 354
-#: NEEDS WORK
-msgid "No ISO files available yet"
-msgstr "Engar ISO skrár eru ekki tiltækar enn."
-# 
-# File: usr/share/isovault/services/html_generator.py, line: 394
-#: NEEDS WORK
-msgid "← Back to All Folders"
-msgstr "← Tilbaka í alla möppur"
-# 
-# File: usr/share/isovault/services/html_generator.py, line: 413
-#: NEEDS WORK
-msgid "No files in this folder"
-msgstr "Engin engin í þessari möppu"
-# 
+
+#: services/html_generator.py
+msgid "Copy"
+msgstr "Afrita"
+
 # File: usr/share/isovault/services/html_generator.py, line: 452
 # File: usr/share/isovault/services/html_generator.py, line: 474
-#: NEEDS WORK
+#: services/html_generator.py
 msgid "Download ISO"
 msgstr "Sækja ISO"
-# 
-# File: usr/share/isovault/services/html_generator.py, line: 463
-#: NEEDS WORK
-msgid "Generated by ISOVault"
-msgstr "Myndað af ISOVault"
-# 
-# File: usr/share/isovault/services/html_generator.py, line: 472
-#: NEEDS WORK
-msgid "Downloading..."
-msgstr "Sæki..."
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 129
-# File: usr/share/isovault/services/s3_service.py, line: 191
-#: NEEDS WORK
-msgid "No S3 connection available"
-msgstr "Engin S3 tengingur ekki tiltækur"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 135
-#: NEEDS WORK
+
+# File: usr/share/isovault/ui/components.py, line: 123
+#: ui/components.py
+msgid "File Name"
+msgstr "Skráarnafn"
+
+# File: usr/share/isovault/ui/components.py, line: 132
+#: ui/components.py
+msgid "Folder"
+msgstr "Skráarsafn"
+
+# File: usr/share/isovault/ui/components.py, line: 140
+#: ui/components.py
+msgid "Size"
+msgstr "Stærð"
+
+# File: usr/share/isovault/ui/components.py, line: 148
+#: ui/components.py
+msgid "Modified"
+msgstr "Breytt"
+
+#: ui/components.py
+msgid "Select"
+msgstr "Velja"
+
+# File: usr/share/isovault/ui/dialogs.py, line: 351
+#: ui/dialogs.py ui/upload_dialog.py
 #, python-brace-format
-msgid "Upload validation failed: {message}"
-msgstr "Hlaða upp staðfesting mistókst: {message}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 139
-#: NEEDS WORK
-#, python-brace-format
-msgid "Invalid folder. Must be one of: {folders}"
-msgstr "Ógildur möppur. Verður að vera einn af: {folders}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 174
-#: NEEDS WORK
-#, python-brace-format
-msgid "Upload failed: {error}"
-msgstr "Hleðsla mistókst: {error}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 177
-#: NEEDS WORK
-#, python-brace-format
-msgid "Upload error: {error}"
-msgstr "Hlaða upp villa: {error}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 245
-#: NEEDS WORK
-#, python-brace-format
-msgid "Error listing files: {error}"
-msgstr "Villa að lista skrár: {error}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 270
-#: NEEDS WORK
-#, python-brace-format
-msgid "Delete failed: {error}"
-msgstr "Eyða mistókst: {error}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 316
-#: NEEDS WORK
-#, python-brace-format
-msgid "Download failed: {error}"
-msgstr "Niðurhal mistókst: {error}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 339
-#: NEEDS WORK
-#, python-brace-format
-msgid "Error getting file info: {error}"
-msgstr "Villa að fá skráarupplýsingar: {error}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 379
-#: NEEDS WORK
-#, python-brace-format
-msgid "Error uploading content: {error}"
-msgstr "Villa að hlaða efni: {error}"
-# 
-# File: usr/share/isovault/services/s3_service.py, line: 395
-#: NEEDS WORK
-#, python-brace-format
-msgid "Error reading file content: {error}"
-msgstr "Villa ekki hægt að lesa skráarinnihald: {error}"
-# 
+msgid "... and {more_count} more files"
+msgstr "... og {more_count} fleiri skrár"
+
+# File: usr/share/isovault/ui/dialogs.py, line: 177
+#: ui/dialogs.py
+msgid "Supported files (ISO, MD5)"
+msgstr "Stuðningsfærir skrár (ISO, MD5)"
+
+# File: usr/share/isovault/ui/dialogs.py, line: 186
+#: ui/dialogs.py
+msgid "All files"
+msgstr "Öll skrár"
+
 # File: usr/share/isovault/ui/dialogs.py, line: 40
-#: NEEDS WORK
+#: ui/dialogs.py
 msgid "Select ISO or MD5 files to upload"
 msgstr "Veldu ISO eða MD5 skrár til að hlaða upp"
-# 
+
+# File: usr/share/isovault/ui/dialogs.py, line: 211
+#: ui/dialogs.py
+msgid "Upload Error"
+msgstr "Hlaða upp villa"
+
+# File: usr/share/isovault/ui/dialogs.py, line: 211
+#: ui/dialogs.py
+msgid "Failed to get file paths"
+msgstr "Ekki tókst að sækja skráarleiðir"
+
 # File: usr/share/isovault/ui/dialogs.py, line: 68
-#: NEEDS WORK
+#: ui/dialogs.py
 #, python-brace-format
 msgid "Save {filename}"
 msgstr "Vista {filename}"
-# 
+
+# File: usr/share/isovault/ui/dialogs.py, line: 227
+#: ui/dialogs.py
+msgid "Download Error"
+msgstr "Niðurhal Villa"
+
+# File: usr/share/isovault/ui/dialogs.py, line: 227
+#: ui/dialogs.py
+msgid "Failed to get save path"
+msgstr "Ekki tókst að fá vista leið."
+
+#: ui/dialogs.py
+msgid "Choose where to save the files"
+msgstr "Veldu hvar skrárnar eru vistaðar"
+
+# File: usr/share/isovault/ui/dialogs.py, line: 353
+#: ui/dialogs.py
+#, python-brace-format
+msgid "Found {invalid_count} invalid files"
+msgstr "Fundin {invalid_count} ógild fílur"
+
+# File: usr/share/isovault/ui/dialogs.py, line: 359
+#: ui/dialogs.py
+msgid "File Validation Results"
+msgstr "Skrá staðfestingarniðurstöður"
+
 # File: usr/share/isovault/ui/dialogs.py, line: 102
-#: NEEDS WORK
+#: ui/dialogs.py
 msgid "Delete File"
 msgstr "Eyða skrá"
-# 
+
 # File: usr/share/isovault/ui/dialogs.py, line: 103
-#: NEEDS WORK
+#: ui/dialogs.py
 #, python-brace-format
 msgid ""
 "Are you sure you want to delete '{filename}'?\n"
@@ -480,425 +245,182 @@ msgstr ""
 "Ertu viss um að þú viljir eyða '{filename}'?\n"
 "\n"
 "Þessi aðgerð er ekki hægt að afturkalla."
-# 
+
+#: ui/dialogs.py
+msgid "Delete Files"
+msgstr "Eyða skrám"
+
+#: ui/dialogs.py
+#, python-brace-format
+msgid ""
+"Are you sure you want to delete {count} files?\n"
+"\n"
+"{file_list}\n"
+"\n"
+"This action cannot be undone."
+msgstr ""
+"Ertu viss um að þú viljir eyða {count} skrám?\n"
+"\n"
+"{file_list}\n"
+"\n"
+"Þessa aðgerð er ekki hægt að afturkalla."
+
 # #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
 # 
 # File: usr/share/isovault/ui/preferences.py, line: 355
 # File: usr/share/isovault/ui/dialogs.py, line: 106
 # File: usr/share/isovault/ui/dialogs.py, line: 244
 # File: usr/share/isovault/ui/dialogs.py, line: 275
-#: NEEDS WORK
+#: ui/dialogs.py ui/preferences.py ui/upload_dialog.py
 msgid "Cancel"
 msgstr "Hætta við"
-# 
+
 # #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
 # 
 # File: usr/share/isovault/ui/components.py, line: 291
 # File: usr/share/isovault/ui/dialogs.py, line: 107
-#: NEEDS WORK
+#: ui/dialogs.py ui/window.py
 msgid "Delete"
 msgstr "Eyða"
-# 
+
 # File: usr/share/isovault/ui/dialogs.py, line: 125
-#: NEEDS WORK
+#: ui/dialogs.py
 msgid "ISO file manager for CDN77 storage"
 msgstr "ISO skráarstjóri fyrir CDN77 geymslu"
-# 
+
 # #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
 # 
 # File: usr/share/isovault/ui/preferences.py, line: 336
 # File: usr/share/isovault/ui/dialogs.py, line: 144
 # File: usr/share/isovault/ui/dialogs.py, line: 164
 # File: usr/share/isovault/ui/dialogs.py, line: 363
-#: NEEDS WORK
+#: ui/dialogs.py ui/preferences.py
 msgid "OK"
 msgstr "Í lagi"
-# 
-# File: usr/share/isovault/ui/dialogs.py, line: 177
-#: NEEDS WORK
-msgid "Supported files (ISO, MD5)"
-msgstr "Stuðningsfærir skrár (ISO, MD5)"
-# 
-# File: usr/share/isovault/ui/dialogs.py, line: 186
-#: NEEDS WORK
-msgid "All files"
-msgstr "Öll skrár"
-# 
-# File: usr/share/isovault/ui/dialogs.py, line: 211
-#: NEEDS WORK
-msgid "Upload Error"
-msgstr "Hlaða upp villa"
-# 
-# File: usr/share/isovault/ui/dialogs.py, line: 211
-#: NEEDS WORK
-msgid "Failed to get file paths"
-msgstr "Ekki tókst að sækja skráarleiðir"
-# 
-# File: usr/share/isovault/ui/dialogs.py, line: 213
-#: NEEDS WORK
-msgid "Upload"
-msgstr "Hlaða upp"
-# 
-# File: usr/share/isovault/ui/dialogs.py, line: 213
-#: NEEDS WORK
-msgid "No files selected"
-msgstr "Engin valin ekki valin"
-# 
-# File: usr/share/isovault/ui/dialogs.py, line: 227
-#: NEEDS WORK
-msgid "Download Error"
-msgstr "Niðurhal Villa"
-# 
-# File: usr/share/isovault/ui/dialogs.py, line: 227
-#: NEEDS WORK
-msgid "Failed to get save path"
-msgstr "Ekki tókst að fá vista leið."
-# 
-# File: usr/share/isovault/ui/dialogs.py, line: 234
-#: NEEDS WORK
-#, python-brace-format
-msgid "Showing folder selection for: {file_path}"
-msgstr "Sýna val á möppu fyrir: {file_path}"
-# 
-# File: usr/share/isovault/ui/dialogs.py, line: 237
-# File: usr/share/isovault/ui/dialogs.py, line: 266
-#: NEEDS WORK
-msgid "Select Destination Folder"
-msgstr "Veldu áfangastaðaskrá."
-# 
-# File: usr/share/isovault/ui/dialogs.py, line: 238
-#: NEEDS WORK
-#, python-brace-format
-msgid "Choose which folder to upload '{filename}' to:"
-msgstr "Veldu hvaða möppu á að hlaða '{filename}' í:"
-# 
-# File: usr/share/isovault/ui/dialogs.py, line: 256
-#: NEEDS WORK
-#, python-brace-format
-msgid "Showing folder selection for {file_count} files: {file_names}"
-msgstr "Sýna val á möppu fyrir {file_count} skrár: {file_names}"
-# 
-# File: usr/share/isovault/ui/dialogs.py, line: 263
-#: NEEDS WORK
-#, python-brace-format
-msgid ""
-"\n"
-"... and {more_count} more files"
-msgstr "... og {more_count} fleiri skrár"
-# 
-# File: usr/share/isovault/ui/dialogs.py, line: 267
-#: NEEDS WORK
-#, python-brace-format
-msgid ""
-"Choose which folder to upload {file_count} files to:\n"
-"\n"
-"{file_list}"
-msgstr ""
-"Veldu hvaða möppu á að hlaða {file_count} skrám í:\n"
-"\n"
-"{file_list}"
-# 
-# File: usr/share/isovault/ui/dialogs.py, line: 285
-#: NEEDS WORK
-#, python-brace-format
-msgid "Single folder dialog response: '{response}' for file: {file_path}"
-msgstr "Einstaka möppu svörun: '{response}' fyrir skrá: {file_path}"
-# 
-# File: usr/share/isovault/ui/dialogs.py, line: 294
-#: NEEDS WORK
-#, python-brace-format
-msgid "Selected folder: {folder}"
-msgstr "Valin val: {folder}"
-# 
-# File: usr/share/isovault/ui/dialogs.py, line: 297
-# File: usr/share/isovault/ui/dialogs.py, line: 319
-#: NEEDS WORK
-#, python-brace-format
-msgid "Unknown response: {response}"
-msgstr "Ókunnug svör: {response}"
-# 
-# File: usr/share/isovault/ui/dialogs.py, line: 298
-# File: usr/share/isovault/ui/dialogs.py, line: 320
-#: NEEDS WORK
-msgid "Error"
-msgstr "Villa"
-# 
-# File: usr/share/isovault/ui/dialogs.py, line: 298
-# File: usr/share/isovault/ui/dialogs.py, line: 320
-#: NEEDS WORK
-#, python-brace-format
-msgid "Unknown folder selection: {response}"
-msgstr "Óþekkt möppuvalkostur: {response}"
-# 
-# File: usr/share/isovault/ui/dialogs.py, line: 300
-#: NEEDS WORK
-msgid "Upload cancelled by user"
-msgstr "Upphleðslu hætt af notanda"
-# 
-# File: usr/share/isovault/ui/dialogs.py, line: 305
-#: NEEDS WORK
-#, python-brace-format
-msgid "Multiple folder dialog response: '{response}' for {file_count} files"
-msgstr "Fjölmappa gluggasvörun: '{response}' fyrir {file_count} skrár"
-# 
-# File: usr/share/isovault/ui/dialogs.py, line: 314
-#: NEEDS WORK
-#, python-brace-format
-msgid "Selected folder: {folder} for {file_count} files"
-msgstr "Valin mappa: {folder} fyrir {file_count} skrár"
-# 
-# File: usr/share/isovault/ui/dialogs.py, line: 322
-#: NEEDS WORK
-msgid "Batch upload cancelled by user"
-msgstr "Batch útskrift hætt af notanda"
-# 
-# File: usr/share/isovault/ui/dialogs.py, line: 351
-#: NEEDS WORK
-#, python-brace-format
-msgid "... and {more_count} more files"
-msgstr "... og {more_count} fleiri skrár"
-# 
-# File: usr/share/isovault/ui/dialogs.py, line: 353
-#: NEEDS WORK
-#, python-brace-format
-msgid "Found {invalid_count} invalid files"
-msgstr "Fundin {invalid_count} ógild fílur"
-# 
-# File: usr/share/isovault/ui/dialogs.py, line: 355
-#: NEEDS WORK
-#, python-brace-format
-msgid " ({valid_count} valid files will be uploaded)"
-msgstr "({valid_count} gilt skrá verða hlaðið upp)"
-# 
-# File: usr/share/isovault/ui/dialogs.py, line: 359
-#: NEEDS WORK
-msgid "File Validation Results"
-msgstr "Skrá staðfestingarniðurstöður"
-# 
-# File: usr/share/isovault/ui/dialogs.py, line: 363
-#: NEEDS WORK
-msgid "Continue"
-msgstr "Halda áfram"
-# 
+
 # #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
 # 
 # File: usr/share/isovault/ui/components.py, line: 372
 # File: usr/share/isovault/ui/preferences.py, line: 30
-#: NEEDS WORK
+#: ui/preferences.py ui/window.py
 msgid "Preferences"
 msgstr "Valmyndir"
-# 
+
 # File: usr/share/isovault/ui/preferences.py, line: 53
-#: NEEDS WORK
+#: ui/preferences.py
 msgid "S3 Config"
 msgstr "S3 Stillingar"
-# 
+
 # File: usr/share/isovault/ui/preferences.py, line: 60
-#: NEEDS WORK
+#: ui/preferences.py
 msgid "CDN77 S3 Credentials"
 msgstr "CDN77 S3 auðkenni"
-# 
+
 # File: usr/share/isovault/ui/preferences.py, line: 61
-#: NEEDS WORK
+#: ui/preferences.py
 msgid "Configure your CDN77 S3 storage credentials"
 msgstr "Stilltuðu S3 geymsluheimildir þínar fyrir CDN77"
-# 
+
 # File: usr/share/isovault/ui/preferences.py, line: 66
-#: NEEDS WORK
+#: ui/preferences.py
 msgid "Access Key"
 msgstr "Aðgangslykill"
-# 
+
 # File: usr/share/isovault/ui/preferences.py, line: 73
-#: NEEDS WORK
+#: ui/preferences.py
 msgid "Secret Key"
 msgstr "Lykilinn"
-# 
+
 # File: usr/share/isovault/ui/preferences.py, line: 80
-#: NEEDS WORK
+#: ui/preferences.py
 msgid "S3 Configuration"
 msgstr "S3 Skilgreining"
-# 
+
 # File: usr/share/isovault/ui/preferences.py, line: 81
-#: NEEDS WORK
+#: ui/preferences.py
 msgid "S3 endpoint and bucket settings"
 msgstr "S3 endapunktur og fötu stillingar"
-# 
+
 # File: usr/share/isovault/ui/preferences.py, line: 86
-#: NEEDS WORK
+#: ui/preferences.py
 msgid "Endpoint URL"
 msgstr "Endapunkt URL"
-# 
+
 # File: usr/share/isovault/ui/preferences.py, line: 93
-#: NEEDS WORK
+#: ui/preferences.py
 msgid "Region"
 msgstr "Svæði"
-# 
+
 # File: usr/share/isovault/ui/preferences.py, line: 100
-#: NEEDS WORK
+#: ui/preferences.py
 msgid "Bucket Name"
 msgstr "Skeiðsnafn"
-# 
+
 # File: usr/share/isovault/ui/preferences.py, line: 107
 # File: usr/share/isovault/ui/preferences.py, line: 110
 # File: usr/share/isovault/ui/preferences.py, line: 328
-#: NEEDS WORK
+#: ui/preferences.py
 msgid "Test Connection"
 msgstr "Prófa tengingu"
-# 
+
 # File: usr/share/isovault/ui/preferences.py, line: 108
-#: NEEDS WORK
+#: ui/preferences.py
 msgid "Verify S3 credentials and connection"
 msgstr "Staðfesta S3 auðkenni og tengingu"
-# 
-# File: usr/share/isovault/ui/preferences.py, line: 121
-#: NEEDS WORK
-msgid "Web Config"
-msgstr "Vefstilling"
-# 
-# File: usr/share/isovault/ui/preferences.py, line: 128
-#: NEEDS WORK
-msgid "Web Settings"
-msgstr "Vefstillingar"
-# 
-# File: usr/share/isovault/ui/preferences.py, line: 129
-#: NEEDS WORK
-msgid "Configure web URLs for public file access"
-msgstr "Stilltu vefslóðir fyrir opinberan skráar aðgang"
-# 
-# File: usr/share/isovault/ui/preferences.py, line: 134
-#: NEEDS WORK
-msgid "Base URL"
-msgstr "Grunnslóð"
-# 
-# File: usr/share/isovault/ui/preferences.py, line: 141
-#: NEEDS WORK
-msgid "Index File"
-msgstr "Vísitöflufáls"
-# 
-# File: usr/share/isovault/ui/preferences.py, line: 148
-#: NEEDS WORK
-msgid "Show Index Files"
-msgstr "Sýna skráarindexa"
-# 
-# File: usr/share/isovault/ui/preferences.py, line: 149
-#: NEEDS WORK
-msgid "Display index.html files in the file list"
-msgstr "Sýna index.html skrár í skráarlistanum"
-# 
+
 # File: usr/share/isovault/ui/preferences.py, line: 157
-#: NEEDS WORK
+#: ui/preferences.py
 msgid "General"
 msgstr "Almennt"
-# 
-# File: usr/share/isovault/ui/preferences.py, line: 164
-#: NEEDS WORK
-msgid "Application Behavior"
-msgstr "Forrit hegðun"
-# 
-# File: usr/share/isovault/ui/preferences.py, line: 169
-#: NEEDS WORK
-msgid "Auto Refresh"
-msgstr "Sjálfvirk endurnýjun"
-# 
-# File: usr/share/isovault/ui/preferences.py, line: 170
-#: NEEDS WORK
-msgid "Automatically refresh file list after operations"
-msgstr "Sjálfvirkt endurnýja skráarlista eftir aðgerðir"
-# 
-# File: usr/share/isovault/ui/preferences.py, line: 178
-#: NEEDS WORK
-msgid "Interface"
-msgstr "Viðmót"
-# 
-# File: usr/share/isovault/ui/preferences.py, line: 185
-#: NEEDS WORK
-msgid "Progress and Feedback"
-msgstr "Framvöxtur og Endurgjöf"
-# 
-# File: usr/share/isovault/ui/preferences.py, line: 190
-#: NEEDS WORK
-msgid "Show Progress Details"
-msgstr "Sýna framvindu upplýsingar"
-# 
-# File: usr/share/isovault/ui/preferences.py, line: 191
-#: NEEDS WORK
-msgid "Display detailed progress information during operations"
-msgstr "Sýna ítarlegar framvinduupplýsingar meðan á aðgerðum stendur"
-# 
-# File: usr/share/isovault/ui/preferences.py, line: 198
-#: NEEDS WORK
-msgid "Safety"
-msgstr "Öryggi"
-# 
-# File: usr/share/isovault/ui/preferences.py, line: 203
-#: NEEDS WORK
-msgid "Confirm Deletions"
-msgstr "Staðfesta eyðingar"
-# 
-# File: usr/share/isovault/ui/preferences.py, line: 204
-#: NEEDS WORK
-msgid "Show confirmation dialog before deleting files"
-msgstr "Sýna staðfestingarglugga áður en skráum er eytt"
-# 
-# File: usr/share/isovault/ui/preferences.py, line: 211
-#: NEEDS WORK
-msgid "Automation"
-msgstr "Sjálfvirkni"
-# 
-# File: usr/share/isovault/ui/preferences.py, line: 216
-#: NEEDS WORK
-msgid "Auto Update Index"
-msgstr "Sjálfvirk Uppfærsluskrá"
-# 
-# File: usr/share/isovault/ui/preferences.py, line: 217
-#: NEEDS WORK
-msgid "Automatically update web index after file operations"
-msgstr "Sjálfvirkt uppfærða vefvísir eftir skráaraðgerðir"
-# 
+
+# File: usr/share/isovault/ui/preferences.py, line: 128
+#: ui/preferences.py
+msgid "Web Settings"
+msgstr "Vefstillingar"
+
+# File: usr/share/isovault/ui/preferences.py, line: 129
+#: ui/preferences.py
+msgid "Configure web URLs for public file access"
+msgstr "Stilltu vefslóðir fyrir opinberan skráar aðgang"
+
+# File: usr/share/isovault/ui/preferences.py, line: 134
+#: ui/preferences.py
+msgid "Base URL"
+msgstr "Grunnslóð"
+
+# File: usr/share/isovault/ui/preferences.py, line: 148
+#: ui/preferences.py
+msgid "Show Index Files"
+msgstr "Sýna skráarindexa"
+
+# File: usr/share/isovault/ui/preferences.py, line: 149
+#: ui/preferences.py
+msgid "Display index.html files in the file list"
+msgstr "Sýna index.html skrár í skráarlistanum"
+
 # File: usr/share/isovault/ui/preferences.py, line: 224
 # File: usr/share/isovault/ui/preferences.py, line: 232
 # File: usr/share/isovault/ui/preferences.py, line: 356
-#: NEEDS WORK
+#: ui/preferences.py
 msgid "Reset"
 msgstr "Endurstilla"
-# 
+
 # File: usr/share/isovault/ui/preferences.py, line: 229
-#: NEEDS WORK
+#: ui/preferences.py
 msgid "Reset to Defaults"
 msgstr "Endurstilla stillingum"
-# 
-# File: usr/share/isovault/ui/preferences.py, line: 230
-#: NEEDS WORK
-msgid "Reset all settings to their default values"
-msgstr "Endurstilltu allar stillingar á sjálfgefin gildi."
-# 
-# File: usr/share/isovault/ui/preferences.py, line: 295
-#: NEEDS WORK
-msgid "Testing..."
-msgstr "Prófun..."
-# 
-# File: usr/share/isovault/ui/preferences.py, line: 313
-#: NEEDS WORK
-msgid "Connection successful!"
-msgstr "Tengist í samband!"
-# 
-# File: usr/share/isovault/ui/preferences.py, line: 313
-#: NEEDS WORK
-msgid "Connection failed. Check your credentials."
-msgstr "Tengist ekki tenging. Athugaðu auðkenni þín."
-# 
-# File: usr/share/isovault/ui/preferences.py, line: 332
-#: NEEDS WORK
-msgid "Connection Test Result"
-msgstr "Sambandstestniðurstaða"
-# 
+
+#: ui/preferences.py
+msgid "Reset all settings to their default values (S3 credentials are kept)"
+msgstr "Endurstilla allar stillingar á sjálfgefin gildi (S3 auðkenni haldast)"
+
 # File: usr/share/isovault/ui/preferences.py, line: 351
-#: NEEDS WORK
+#: ui/preferences.py
 msgid "Reset Settings"
 msgstr "Endurstilla stillingar"
-# 
+
 # File: usr/share/isovault/ui/preferences.py, line: 352
-#: NEEDS WORK
+#: ui/preferences.py
 msgid ""
 "Are you sure you want to reset all settings to their default values?\n"
 "\n"
@@ -907,291 +429,370 @@ msgstr ""
 "Ertu viss um að þú viljir endurstilla allar stillingar í þeirra sjálfgefnar gildi?\n"
 "\n"
 "Þessi aðgerð er ekki hægt að afturkalla."
+
+# File: usr/share/isovault/ui/preferences.py, line: 295
+#: ui/preferences.py
+msgid "Testing..."
+msgstr "Prófun..."
+
+# File: usr/share/isovault/ui/preferences.py, line: 313
+#: ui/preferences.py
+msgid "Connection successful!"
+msgstr "Tengist í samband!"
+
+# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
 # 
+# File: usr/share/isovault/utils/helpers.py, line: 100
+# File: usr/share/isovault/ui/preferences.py, line: 320
+#: ui/preferences.py
+#, python-brace-format
+msgid "Connection error: {error}"
+msgstr "Tengingarvilla: {error}"
+
+# File: usr/share/isovault/ui/preferences.py, line: 332
+#: ui/preferences.py
+msgid "Connection Test Result"
+msgstr "Sambandstestniðurstaða"
+
+#: ui/upload_dialog.py
+msgid "Upload Files"
+msgstr "Hlaða upp skrám"
+
+#: ui/upload_dialog.py
+#, python-brace-format
+msgid "{count} file to upload"
+msgid_plural "{count} files to upload"
+msgstr[0] "{count} skrá til að hlaða upp"
+msgstr[1] "{count} skrár til að hlaða upp"
+
+#: ui/upload_dialog.py
+#, python-brace-format
+msgid "Total: {size}"
+msgstr "Samtals: {size}"
+
+#: ui/upload_dialog.py
+#, python-brace-format
+msgid "{count} file will be skipped"
+msgid_plural "{count} files will be skipped"
+msgstr[0] "{count} skrá verður sleppt"
+msgstr[1] "{count} skrám verður sleppt"
+
+#: ui/upload_dialog.py
+msgid "Only non-empty ISO and MD5 files can be uploaded"
+msgstr "Aðeins ISO og MD5 skrár sem eru ekki tómar er hægt að hlaða upp"
+
+#: ui/upload_dialog.py
+msgid "Destination Folder"
+msgstr "Áfangamappa"
+
+#: ui/upload_dialog.py
+#, python-brace-format
+msgid "Upload to {folder}"
+msgstr "Hlaða upp í {folder}"
+
 # File: usr/share/isovault/ui/window.py, line: 117
-#: NEEDS WORK
+#: ui/window.py
 msgid "Filter by folder"
 msgstr "Sía eftir möppu"
-# 
+
 # File: usr/share/isovault/ui/components.py, line: 263
-#: NEEDS WORK
+#: ui/window.py
 msgid "All folders"
 msgstr "Öll möppur"
-# 
+
+#: ui/window.py
+msgid "Selection"
+msgstr "Val"
+
+#: ui/window.py
+msgid "Select All"
+msgstr "Velja allt"
+
+#: ui/window.py
+msgid "Select None"
+msgstr "Velja ekkert"
+
 # File: usr/share/isovault/ui/components.py, line: 277
-#: NEEDS WORK
+#: ui/window.py
 msgid "Copy Link"
 msgstr "Afrita tengil"
-# 
+
 # File: usr/share/isovault/ui/window.py, line: 130
-#: NEEDS WORK
+#: ui/window.py
 msgid "Copy public URL"
 msgstr "Afrita opinbera tengill"
-# 
-# File: usr/share/isovault/ui/components.py, line: 284
-#: NEEDS WORK
-msgid "Download"
-msgstr "Sækja"
-# 
+
 # File: usr/share/isovault/ui/window.py, line: 143
-#: NEEDS WORK
+#: ui/window.py
 msgid "Save file locally"
 msgstr "Vista skrá á staðnum"
-# 
+
 # File: usr/share/isovault/ui/window.py, line: 156
-#: NEEDS WORK
+#: ui/window.py
 msgid "Remove from storage"
 msgstr "Fjarlægja úr geymslu"
-# 
+
+# File: usr/share/isovault/ui/preferences.py, line: 169
+#: ui/window.py
+msgid "Auto Refresh"
+msgstr "Sjálfvirk endurnýjun"
+
+# File: usr/share/isovault/ui/preferences.py, line: 203
+#: ui/window.py
+msgid "Confirm Deletions"
+msgstr "Staðfesta eyðingar"
+
+# File: usr/share/isovault/ui/preferences.py, line: 216
+#: ui/window.py
+msgid "Auto Update Index"
+msgstr "Sjálfvirk Uppfærsluskrá"
+
 # File: usr/share/isovault/ui/window.py, line: 228
-#: NEEDS WORK
+#: ui/window.py
 msgid "Upload ISO"
 msgstr "Hlaða ISO upp"
-# 
-# File: usr/share/isovault/ui/components.py, line: 365
-#: NEEDS WORK
-msgid "Application menu"
-msgstr "Forritavalmynd"
-# 
+
 # File: usr/share/isovault/ui/components.py, line: 373
-#: NEEDS WORK
+#: ui/window.py
 msgid "Force Update Index"
 msgstr "Þvinga uppfærslu á skráningu"
-# 
+
 # File: usr/share/isovault/ui/components.py, line: 374
-#: NEEDS WORK
+#: ui/window.py
 msgid "Refresh"
 msgstr "Endurnýja"
-# 
+
 # File: usr/share/isovault/ui/components.py, line: 379
-#: NEEDS WORK
+#: ui/window.py
 msgid "About"
 msgstr "Um umsjón"
-# 
+
+# File: usr/share/isovault/ui/components.py, line: 365
+#: ui/window.py
+msgid "Application menu"
+msgstr "Forritavalmynd"
+
 # File: usr/share/isovault/ui/window.py, line: 108
-#: NEEDS WORK
+#: ui/window.py
 msgid "Ready"
 msgstr "Klárur"
-# 
+
 # File: usr/share/isovault/ui/window.py, line: 139
-#: NEEDS WORK
+#: ui/window.py
 msgid "Please configure S3 credentials in Preferences"
 msgstr "Vinsamlegast stilltu S3 auðkenni í Stillingum"
-# 
-# File: usr/share/isovault/ui/window.py, line: 366
-#: NEEDS WORK
-msgid "Connection test failed"
-msgstr "Tengingarpróf mistókst"
-# 
+
 # File: usr/share/isovault/ui/window.py, line: 195
-#: NEEDS WORK
+#: ui/window.py
 msgid "Warning: Could not connect to S3 storage"
 msgstr "Aðvörun: Gat ekki tengst S3 geymslu"
-# 
+
+#: ui/window.py
+#, python-brace-format
+msgid "{selected} of {total} file selected"
+msgid_plural "{selected} of {total} files selected"
+msgstr[0] "{selected} af {total} skrá valin"
+msgstr[1] "{selected} af {total} skrám valdar"
+
+# File: usr/share/isovault/ui/dialogs.py, line: 213
+#: ui/window.py
+msgid "No files selected"
+msgstr "Engin valin ekki valin"
+
+#: ui/window.py
+msgid "Another operation is in progress"
+msgstr "Önnur aðgerð er í gangi"
+
 # File: usr/share/isovault/ui/window.py, line: 210
 # File: usr/share/isovault/ui/window.py, line: 590
-#: NEEDS WORK
+#: ui/window.py
 msgid "Please configure S3 credentials first"
 msgstr "Vinsamlegast stilltu S3 auðkenni fyrst"
-# 
-# File: usr/share/isovault/ui/window.py, line: 230
-#: NEEDS WORK
-#, python-brace-format
-msgid "Link copied: {url}"
-msgstr "Tengill afritaður: {url}"
-# 
+
 # File: usr/share/isovault/ui/window.py, line: 291
-#: NEEDS WORK
+#: ui/window.py
 #, python-brace-format
 msgid "Uploading {filename}..."
 msgstr "Hlaða upp {filename}..."
-# 
-# File: usr/share/isovault/ui/window.py, line: 479
-#: NEEDS WORK
-#, python-brace-format
-msgid "Upload failed for {filename}"
-msgstr "Hleðsla mistókst fyrir {filename}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 308
-#: NEEDS WORK
-#, python-brace-format
-msgid "Starting batch upload: {file_count} files to folder: {folder}"
-msgstr "Byrjar hópupphleðslu: {file_count} skrár í möppu: {folder}"
-# 
+
 # File: usr/share/isovault/ui/window.py, line: 336
-#: NEEDS WORK
+#: ui/window.py
 #, python-brace-format
 msgid "Uploading {current}/{total}: {filename}"
 msgstr "Hladdu {current}/{total}: {filename}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 533
-#: NEEDS WORK
-#, python-brace-format
-msgid "Batch upload error for {filename}"
-msgstr "Hraunupphleðsla villa fyrir {filename}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 385
-#: NEEDS WORK
-#, python-brace-format
-msgid "Successfully uploaded all {total} files!"
-msgstr "Skráning allra {total} skráa tókst!"
-# 
-# File: usr/share/isovault/ui/window.py, line: 387
-#: NEEDS WORK
-#, python-brace-format
-msgid "Upload complete: {completed} successful, {failed} failed"
-msgstr "Hlaða upp lokið: {completed} árangursríkt, {failed} mistókst"
-# 
+
 # File: usr/share/isovault/ui/window.py, line: 407
-#: NEEDS WORK
+#: ui/window.py
 #, python-brace-format
 msgid "Successfully uploaded {filename}"
 msgstr "Sukrandið {filename} hefur verið hlaðið upp."
-# 
+
+# File: usr/share/isovault/ui/window.py, line: 385
+#: ui/window.py
+#, python-brace-format
+msgid "Successfully uploaded all {total} files!"
+msgstr "Skráning allra {total} skráa tókst!"
+
 # File: usr/share/isovault/ui/window.py, line: 417
-#: NEEDS WORK
+#: ui/window.py
 #, python-brace-format
 msgid "Failed to upload {filename}"
 msgstr "Mistók að hlaða upp {filename}"
-# 
+
+# File: usr/share/isovault/ui/window.py, line: 387
+#: ui/window.py
+#, python-brace-format
+msgid "Upload complete: {completed} successful, {failed} failed"
+msgstr "Hlaða upp lokið: {completed} árangursríkt, {failed} mistókst"
+
+# File: usr/share/isovault/ui/window.py, line: 230
+#: ui/window.py
+#, python-brace-format
+msgid "Link copied: {url}"
+msgstr "Tengill afritaður: {url}"
+
+#: ui/window.py
+#, python-brace-format
+msgid "{count} link copied"
+msgid_plural "{count} links copied"
+msgstr[0] "{count} hlekkur afritaður"
+msgstr[1] "{count} hlekkir afritaðir"
+
+#: ui/window.py
+msgid "File already exists"
+msgstr "Skráin er þegar til"
+
 # File: usr/share/isovault/ui/window.py, line: 423
-#: NEEDS WORK
+#: ui/window.py
 #, python-brace-format
 msgid "Downloading {filename}..."
 msgstr "Sæki {filename}..."
-# 
-# File: usr/share/isovault/ui/window.py, line: 611
-#: NEEDS WORK
+
+#: ui/window.py
 #, python-brace-format
-msgid "Download failed for {filename}"
-msgstr "Niðurhal mistókst fyrir {filename}"
-# 
+msgid "Downloading {current}/{total}: {filename}"
+msgstr "Sæki {current}/{total}: {filename}"
+
 # File: usr/share/isovault/ui/window.py, line: 439
-#: NEEDS WORK
+#: ui/window.py
 #, python-brace-format
 msgid "Successfully downloaded {filename}"
 msgstr "Sukrandið {filename} var niðurhalað."
-# 
+
+#: ui/window.py
+#, python-brace-format
+msgid "Successfully downloaded all {total} files!"
+msgstr "Öllum {total} skrám var hlaðið niður!"
+
 # File: usr/share/isovault/ui/window.py, line: 441
-#: NEEDS WORK
+#: ui/window.py
 #, python-brace-format
 msgid "Failed to download {filename}"
 msgstr "Ekki tókst að hlaða niður {filename}"
-# 
+
+#: ui/window.py
+#, python-brace-format
+msgid "Download complete: {completed} successful, {failed} failed"
+msgstr "Niðurhali lokið: {completed} tókst, {failed} mistókst"
+
 # File: usr/share/isovault/ui/window.py, line: 452
-#: NEEDS WORK
+#: ui/window.py
 #, python-brace-format
 msgid "Deleting {filename}..."
 msgstr "Eyða {filename}..."
-# 
-# File: usr/share/isovault/ui/window.py, line: 646
-#: NEEDS WORK
+
+#: ui/window.py
 #, python-brace-format
-msgid "Delete failed for {filename}"
-msgstr "Eyða mistókst fyrir {filename}"
-# 
+msgid "Deleting {current}/{total}: {filename}"
+msgstr "Eyði {current}/{total}: {filename}"
+
 # File: usr/share/isovault/ui/window.py, line: 465
-#: NEEDS WORK
+#: ui/window.py
 #, python-brace-format
 msgid "Successfully deleted {filename}"
 msgstr "Sukrandið eytt {filename}"
-# 
+
+#: ui/window.py
+#, python-brace-format
+msgid "Successfully deleted all {total} files!"
+msgstr "Öllum {total} skrám var eytt!"
+
 # File: usr/share/isovault/ui/window.py, line: 475
-#: NEEDS WORK
+#: ui/window.py
 #, python-brace-format
 msgid "Failed to delete {filename}"
 msgstr "Ekki tókst að eyða {filename}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 485
-#: NEEDS WORK
+
+#: ui/window.py
 #, python-brace-format
-msgid "Refreshing files for folder: {folder}"
-msgstr "Endurnýja skrár fyrir möppu: {folder}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 487
-#: NEEDS WORK
-msgid "Loading files..."
-msgstr "Hlaða skráum..."
-# 
-# File: usr/share/isovault/ui/window.py, line: 686
-#: NEEDS WORK
-msgid "Failed to refresh file list"
-msgstr "Mistók að endurnýja skráarlista"
-# 
-# File: usr/share/isovault/ui/window.py, line: 507
-#: NEEDS WORK
-msgid "Failed to connect to S3 storage. Check credentials and connection."
-msgstr "Tenging að S3 geymslu mistókst. Athugaðu auðkenni og tengingu."
-# 
-# File: usr/share/isovault/ui/window.py, line: 522
-#: NEEDS WORK
-#, python-brace-format
-msgid "1 file{folder_text}"
-msgstr "1 skrá{folder_text}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 524
-#: NEEDS WORK
-#, python-brace-format
-msgid "{count} files{folder_text}"
-msgstr "{count} skrár{folder_text}"
-# 
-# File: usr/share/isovault/ui/window.py, line: 748
-#: NEEDS WORK
-msgid "Failed to update index files"
-msgstr "Mistók að uppfæra skráarvísana"
-# 
-# File: usr/share/isovault/ui/window.py, line: 593
-#: NEEDS WORK
-msgid "Updating index files..."
-msgstr "Að uppfæra skráarvísana..."
-# 
+msgid "Delete complete: {completed} successful, {failed} failed"
+msgstr "Eyðingu lokið: {completed} tókst, {failed} mistókst"
+
 # File: usr/share/isovault/ui/window.py, line: 599
-#: NEEDS WORK
+#: ui/window.py
 msgid "Index files updated!"
 msgstr "Skráarskrár uppfærðar!"
-# 
-# File: usr/share/isovault/ui/window.py, line: 637
-#: NEEDS WORK
-msgid "S3 credentials removed"
-msgstr "S3 auðkenni fjarlægð"
-# 
-# File: usr/share/isovault/ui/window.py, line: 839
-#: NEEDS WORK
-msgid "An unexpected error occurred"
-msgstr "Ósýnileg villa kom upp"
-# 
-# File: usr/share/isovault/ui/components.py, line: 33
-#: NEEDS WORK
-msgid "Progress"
-msgstr "Framvinda"
-# 
-# File: usr/share/isovault/ui/components.py, line: 43
-#: NEEDS WORK
+
+# File: usr/share/isovault/ui/window.py, line: 593
+#: ui/window.py
+msgid "Updating index files..."
+msgstr "Að uppfæra skráarvísana..."
+
+# File: usr/share/isovault/ui/window.py, line: 748
+#: ui/window.py
+msgid "Failed to update index files"
+msgstr "Mistók að uppfæra skráarvísana"
+
+# File: usr/share/isovault/ui/window.py, line: 487
+#: ui/window.py
+msgid "Loading files..."
+msgstr "Hlaða skráum..."
+
+# File: usr/share/isovault/ui/window.py, line: 686
+#: ui/window.py
+msgid "Failed to refresh file list"
+msgstr "Mistók að endurnýja skráarlista"
+
+# File: usr/share/isovault/ui/window.py, line: 507
+#: ui/window.py
+msgid "Failed to connect to S3 storage. Check credentials and connection."
+msgstr "Tenging að S3 geymslu mistókst. Athugaðu auðkenni og tengingu."
+
+#: ui/window.py
 #, python-brace-format
-msgid "Progress update: {progress:.1f}%"
-msgstr "Framvísun uppfærsla: {progress:.1f}%"
-# 
-# File: usr/share/isovault/ui/components.py, line: 50
-#: NEEDS WORK
-msgid "Hiding progress"
-msgstr "Fela framvindu"
-# 
-# File: usr/share/isovault/ui/components.py, line: 123
-#: NEEDS WORK
-msgid "File Name"
-msgstr "Skráarnafn"
-# 
-# File: usr/share/isovault/ui/components.py, line: 132
-#: NEEDS WORK
-msgid "Folder"
-msgstr "Skráarsafn"
-# 
-# File: usr/share/isovault/ui/components.py, line: 140
-#: NEEDS WORK
-msgid "Size"
-msgstr "Stærð"
-# 
-# File: usr/share/isovault/ui/components.py, line: 148
-#: NEEDS WORK
-msgid "Modified"
-msgstr "Breytt"
+msgid "{count} file in {folder}"
+msgid_plural "{count} files in {folder}"
+msgstr[0] "{count} skrá í {folder}"
+msgstr[1] "{count} skrár í {folder}"
+
+#: ui/window.py
+#, python-brace-format
+msgid "{count} file"
+msgid_plural "{count} files"
+msgstr[0] "{count} skrá"
+msgstr[1] "{count} skrár"
+
+# File: usr/share/isovault/services/file_validator.py, line: 100
+#: utils/helpers.py
+msgid "B"
+msgstr "B"
+
+# File: usr/share/isovault/services/file_validator.py, line: 100
+#: utils/helpers.py
+msgid "KB"
+msgstr "KB"
+
+# File: usr/share/isovault/services/file_validator.py, line: 100
+#: utils/helpers.py
+msgid "MB"
+msgstr "MB"
+
+# File: usr/share/isovault/services/file_validator.py, line: 100
+#: utils/helpers.py
+msgid "GB"
+msgstr "GB"
+
+# File: usr/share/isovault/services/file_validator.py, line: 100
+#: utils/helpers.py
+msgid "TB"
+msgstr "TB"
