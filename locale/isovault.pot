@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: isovault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 01:06-0300\n"
+"POT-Creation-Date: 2026-10-09 11:37-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -121,6 +121,11 @@ msgstr ""
 msgid "Download ISO"
 msgstr ""
 
+#: ui/components.py ui/dialogs.py
+#, python-brace-format
+msgid "... and {more_count} more files"
+msgstr ""
+
 #: ui/components.py
 msgid "File Name"
 msgstr ""
@@ -141,10 +146,45 @@ msgstr ""
 msgid "Select"
 msgstr ""
 
-#: ui/dialogs.py ui/upload_dialog.py
-#, python-brace-format
-msgid "... and {more_count} more files"
+#: ui/delete_dialog.py
+msgid "Delete File"
 msgstr ""
+
+#: ui/delete_dialog.py
+msgid "Delete Files"
+msgstr ""
+
+#: ui/delete_dialog.py
+#, python-brace-format
+msgid "{count} file will be deleted"
+msgid_plural "{count} files will be deleted"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ui/delete_dialog.py ui/upload_dialog.py
+#, python-brace-format
+msgid "Total: {size}"
+msgstr ""
+
+#: ui/delete_dialog.py
+msgid "This action cannot be undone."
+msgstr ""
+
+#: ui/delete_dialog.py
+msgid ""
+"The files are removed from the storage and from the public download page."
+msgstr ""
+
+#: ui/delete_dialog.py ui/preferences.py ui/upload_dialog.py
+msgid "Cancel"
+msgstr ""
+
+#: ui/delete_dialog.py
+#, python-brace-format
+msgid "Delete {count} file"
+msgid_plural "Delete {count} files"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ui/dialogs.py
 msgid "Supported files (ISO, MD5)"
@@ -190,40 +230,6 @@ msgstr ""
 
 #: ui/dialogs.py
 msgid "File Validation Results"
-msgstr ""
-
-#: ui/dialogs.py
-msgid "Delete File"
-msgstr ""
-
-#: ui/dialogs.py
-#, python-brace-format
-msgid ""
-"Are you sure you want to delete '{filename}'?\n"
-"\n"
-"This action cannot be undone."
-msgstr ""
-
-#: ui/dialogs.py
-msgid "Delete Files"
-msgstr ""
-
-#: ui/dialogs.py
-#, python-brace-format
-msgid ""
-"Are you sure you want to delete {count} files?\n"
-"\n"
-"{file_list}\n"
-"\n"
-"This action cannot be undone."
-msgstr ""
-
-#: ui/dialogs.py ui/preferences.py ui/upload_dialog.py
-msgid "Cancel"
-msgstr ""
-
-#: ui/dialogs.py ui/window.py
-msgid "Delete"
 msgstr ""
 
 #: ui/dialogs.py
@@ -363,11 +369,6 @@ msgstr[1] ""
 
 #: ui/upload_dialog.py
 #, python-brace-format
-msgid "Total: {size}"
-msgstr ""
-
-#: ui/upload_dialog.py
-#, python-brace-format
 msgid "{count} file will be skipped"
 msgid_plural "{count} files will be skipped"
 msgstr[0] ""
@@ -416,6 +417,10 @@ msgstr ""
 
 #: ui/window.py
 msgid "Save file locally"
+msgstr ""
+
+#: ui/window.py
+msgid "Delete"
 msgstr ""
 
 #: ui/window.py

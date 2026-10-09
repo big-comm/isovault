@@ -42,7 +42,7 @@ class PreferencesDialog(Adw.PreferencesDialog):
         self.connect("closed", self._on_closed)
 
     def _create_s3_page(self) -> Adw.PreferencesPage:
-        page = Adw.PreferencesPage(title=_("S3 Config"), icon_name="network-server-symbolic")
+        page = Adw.PreferencesPage(name="s3", title=_("S3 Config"), icon_name="network-server-symbolic")
 
         credentials = Adw.PreferencesGroup(
             title=_("CDN77 S3 Credentials"),
@@ -82,7 +82,7 @@ class PreferencesDialog(Adw.PreferencesDialog):
         return page
 
     def _create_general_page(self) -> Adw.PreferencesPage:
-        page = Adw.PreferencesPage(title=_("General"), icon_name="preferences-system-symbolic")
+        page = Adw.PreferencesPage(name="general", title=_("General"), icon_name="preferences-system-symbolic")
 
         web = Adw.PreferencesGroup(
             title=_("Web Settings"),

@@ -435,7 +435,7 @@ class ISOVaultWindow(Adw.ApplicationWindow):
         if not selected:
             return
         if self.settings_manager.get("ui", "confirm_deletions"):
-            self.dialogs.confirm_delete([item.name for item in selected], lambda: self._delete_files(selected))
+            self.dialogs.confirm_delete(selected, lambda: self._delete_files(selected))
         else:
             self._delete_files(selected)
 

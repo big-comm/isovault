@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: isovault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 01:06-0300\n"
+"POT-Creation-Date: 2026-10-09 11:37-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pl\n"
@@ -145,6 +145,12 @@ msgstr "Kopiuj"
 msgid "Download ISO"
 msgstr "Pobierz ISO"
 
+# File: usr/share/isovault/ui/dialogs.py, line: 351
+#: ui/components.py ui/dialogs.py
+#, python-brace-format
+msgid "... and {more_count} more files"
+msgstr "... i {more_count} innych plików"
+
 # File: usr/share/isovault/ui/components.py, line: 123
 #: ui/components.py
 msgid "File Name"
@@ -169,11 +175,54 @@ msgstr "Zmodyfikowany"
 msgid "Select"
 msgstr "Zaznacz"
 
-# File: usr/share/isovault/ui/dialogs.py, line: 351
-#: ui/dialogs.py ui/upload_dialog.py
+# File: usr/share/isovault/ui/dialogs.py, line: 102
+#: ui/delete_dialog.py
+msgid "Delete File"
+msgstr "Usuń plik"
+
+#: ui/delete_dialog.py
+msgid "Delete Files"
+msgstr "Usuń pliki"
+
+#: ui/delete_dialog.py
 #, python-brace-format
-msgid "... and {more_count} more files"
-msgstr "... i {more_count} innych plików"
+msgid "{count} file will be deleted"
+msgid_plural "{count} files will be deleted"
+msgstr[0] "{count} plik zostanie usunięty"
+msgstr[1] "{count} pliki zostaną usunięte"
+msgstr[2] "{count} plików zostanie usuniętych"
+
+#: ui/delete_dialog.py ui/upload_dialog.py
+#, python-brace-format
+msgid "Total: {size}"
+msgstr "Razem: {size}"
+
+#: ui/delete_dialog.py
+msgid "This action cannot be undone."
+msgstr "Tej czynności nie można cofnąć."
+
+#: ui/delete_dialog.py
+msgid ""
+"The files are removed from the storage and from the public download page."
+msgstr "Pliki są usuwane z magazynu i z publicznej strony pobierania."
+
+# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
+# 
+# File: usr/share/isovault/ui/preferences.py, line: 355
+# File: usr/share/isovault/ui/dialogs.py, line: 106
+# File: usr/share/isovault/ui/dialogs.py, line: 244
+# File: usr/share/isovault/ui/dialogs.py, line: 275
+#: ui/delete_dialog.py ui/preferences.py ui/upload_dialog.py
+msgid "Cancel"
+msgstr "Anuluj"
+
+#: ui/delete_dialog.py
+#, python-brace-format
+msgid "Delete {count} file"
+msgid_plural "Delete {count} files"
+msgstr[0] "Usuń {count} plik"
+msgstr[1] "Usuń {count} pliki"
+msgstr[2] "Usuń {count} plików"
 
 # File: usr/share/isovault/ui/dialogs.py, line: 177
 #: ui/dialogs.py
@@ -230,60 +279,6 @@ msgstr "Znaleziono {invalid_count} nieprawidłowych plików"
 #: ui/dialogs.py
 msgid "File Validation Results"
 msgstr "Wyniki walidacji plików"
-
-# File: usr/share/isovault/ui/dialogs.py, line: 102
-#: ui/dialogs.py
-msgid "Delete File"
-msgstr "Usuń plik"
-
-# File: usr/share/isovault/ui/dialogs.py, line: 103
-#: ui/dialogs.py
-#, python-brace-format
-msgid ""
-"Are you sure you want to delete '{filename}'?\n"
-"\n"
-"This action cannot be undone."
-msgstr ""
-"Czy na pewno chcesz usunąć '{filename}'?\n"
-"\n"
-"Tej akcji nie można cofnąć."
-
-#: ui/dialogs.py
-msgid "Delete Files"
-msgstr "Usuń pliki"
-
-#: ui/dialogs.py
-#, python-brace-format
-msgid ""
-"Are you sure you want to delete {count} files?\n"
-"\n"
-"{file_list}\n"
-"\n"
-"This action cannot be undone."
-msgstr ""
-"Czy na pewno chcesz usunąć pliki ({count})?\n"
-"\n"
-"{file_list}\n"
-"\n"
-"Tej czynności nie można cofnąć."
-
-# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
-# 
-# File: usr/share/isovault/ui/preferences.py, line: 355
-# File: usr/share/isovault/ui/dialogs.py, line: 106
-# File: usr/share/isovault/ui/dialogs.py, line: 244
-# File: usr/share/isovault/ui/dialogs.py, line: 275
-#: ui/dialogs.py ui/preferences.py ui/upload_dialog.py
-msgid "Cancel"
-msgstr "Anuluj"
-
-# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
-# 
-# File: usr/share/isovault/ui/components.py, line: 291
-# File: usr/share/isovault/ui/dialogs.py, line: 107
-#: ui/dialogs.py ui/window.py
-msgid "Delete"
-msgstr "Usuń"
 
 # File: usr/share/isovault/ui/dialogs.py, line: 125
 #: ui/dialogs.py
@@ -472,11 +467,6 @@ msgstr[2] "{count} plików do przesłania"
 
 #: ui/upload_dialog.py
 #, python-brace-format
-msgid "Total: {size}"
-msgstr "Razem: {size}"
-
-#: ui/upload_dialog.py
-#, python-brace-format
 msgid "{count} file will be skipped"
 msgid_plural "{count} files will be skipped"
 msgstr[0] "{count} plik zostanie pominięty"
@@ -532,6 +522,14 @@ msgstr "Skopiuj publiczny adres URL"
 #: ui/window.py
 msgid "Save file locally"
 msgstr "Zapisz plik lokalnie"
+
+# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
+# 
+# File: usr/share/isovault/ui/components.py, line: 291
+# File: usr/share/isovault/ui/dialogs.py, line: 107
+#: ui/window.py
+msgid "Delete"
+msgstr "Usuń"
 
 # File: usr/share/isovault/ui/window.py, line: 156
 #: ui/window.py

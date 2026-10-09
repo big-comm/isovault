@@ -312,12 +312,12 @@ class TestBatchActions:
 
     def test_delete_asks_once_for_all_files(self, window, monkeypatch):
         asked = []
-        monkeypatch.setattr(window.dialogs, "confirm_delete", lambda names, callback: asked.append(names))
+        monkeypatch.setattr(window.dialogs, "confirm_delete", lambda items, callback: asked.append(items))
         window.file_list.select_all()
 
         window.on_delete_clicked()
 
-        assert asked == [["a.iso", "b.iso"]]
+        assert [[item.name for item in items] for items in asked] == [["a.iso", "b.iso"]]
         assert window.s3_service.deleted == []
 
     def test_delete_partial_failure(self, window, settings, published):
@@ -452,6 +452,55 @@ class TestUploadDialog:
         assert window.s3_service.uploaded == [("new.iso", "XFCE")]
         window._on_files_chosen([str(path)], str(tmp_path))
         assert shown[1][0] == "XFCE"
+
+
+class TestDeleteDialog:
+    def _dialog(self, *keys):
+        from models import FileItem
+        from ui.delete_dialog import DeleteDialog
+
+        items = [FileItem.from_dict(make_file(key, size=1024**3)) for key in keys]
+        confirmed = []
+        return DeleteDialog(items, lambda: confirmed.append(True)), confirmed
+
+    def test_labels_for_several_files(self):
+        dialog, _confirmed = self._dialog("Gnome/a.iso", "Gnome/a.iso.md5", "b.iso")
+        assert dialog.get_title() == "Delete Files"
+        assert dialog.delete_button.get_label() == "Delete 3 files"
+
+    def test_labels_for_one_file(self):
+        dialog, _confirmed = self._dialog("b.iso")
+        assert dialog.get_title() == "Delete File"
+        assert dialog.delete_button.get_label() == "Delete 1 file"
+
+    def test_lists_name_folder_and_size(self):
+        dialog, _confirmed = self._dialog("XFCE/x.iso")
+        rows = [w for w in _walk(dialog.get_child()) if isinstance(w, Adw.ActionRow)]
+        assert [(r.get_title(), r.get_subtitle()) for r in rows] == [("x.iso", "XFCE · 1.0 GB")]
+
+    def test_enter_does_not_delete(self):
+        dialog, _confirmed = self._dialog("b.iso")
+        assert dialog.get_default_widget() is dialog.cancel_button
+
+    def test_confirm_and_cancel(self):
+        dialog, confirmed = self._dialog("b.iso")
+        dialog.cancel_button.emit("clicked")
+        assert confirmed == []
+
+        dialog, confirmed = self._dialog("b.iso")
+        dialog.delete_button.emit("clicked")
+        assert confirmed == [True]
+
+
+def _walk(widget):
+    stack = [widget]
+    while stack:
+        current = stack.pop(0)
+        yield current
+        child = current.get_first_child()
+        while child is not None:
+            stack.append(child)
+            child = child.get_next_sibling()
 
 
 class TestPreferences:

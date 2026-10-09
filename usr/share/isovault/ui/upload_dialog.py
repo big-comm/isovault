@@ -17,8 +17,7 @@ from config import DISTRO_FOLDERS, ROOT_FOLDER  # noqa: E402
 from utils.helpers import format_file_size  # noqa: E402
 from utils.i18n import _, ngettext  # noqa: E402
 
-_MAX_LISTED_FILES = 6
-
+from .components import file_list_group  # noqa: E402
 
 class UploadDialog(Adw.Dialog):
     """Pick the destination folder for files about to be uploaded"""
@@ -68,31 +67,11 @@ class UploadDialog(Adw.Dialog):
 
     def _build_files_section(self, paths: List[str]) -> Gtk.Widget:
         sizes = [os.path.getsize(path) for path in paths]
-        group = Adw.PreferencesGroup(
-            title=ngettext("{count} file to upload", "{count} files to upload", len(paths)).format(count=len(paths)),
-            description=_("Total: {size}").format(size=format_file_size(sum(sizes))),
+        return file_list_group(
+            ngettext("{count} file to upload", "{count} files to upload", len(paths)).format(count=len(paths)),
+            _("Total: {size}").format(size=format_file_size(sum(sizes))),
+            [(Path(path).name, format_file_size(size)) for path, size in zip(paths, sizes)],
         )
-
-        for path, size in list(zip(paths, sizes))[:_MAX_LISTED_FILES]:
-            name = Path(path).name
-            row = Adw.ActionRow(title=name, subtitle=format_file_size(size), title_lines=1)
-            row.set_tooltip_text(name)
-            is_iso = name.lower().endswith(".iso")
-            icon = Gtk.Image.new_from_icon_name("media-optical-symbolic" if is_iso else "text-x-generic-symbolic")
-            icon.add_css_class("file-type-icon")
-            row.add_prefix(icon)
-            group.add(row)
-
-        hidden = len(paths) - _MAX_LISTED_FILES
-        if hidden > 0:
-            more = Gtk.Label(
-                label=_("... and {more_count} more files").format(more_count=hidden),
-                xalign=0,
-                margin_top=6,
-            )
-            more.add_css_class("dim-label")
-            group.add(more)
-        return group
 
     def _build_rejected_section(self, invalid_files: List[Tuple[str, str]]) -> Gtk.Widget:
         expander = Adw.ExpanderRow(

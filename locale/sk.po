@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: isovault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 01:06-0300\n"
+"POT-Creation-Date: 2026-10-09 11:37-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: sk\n"
@@ -143,6 +143,12 @@ msgstr "Kopírovať"
 msgid "Download ISO"
 msgstr "Stiahnuť ISO"
 
+# File: usr/share/isovault/ui/dialogs.py, line: 351
+#: ui/components.py ui/dialogs.py
+#, python-brace-format
+msgid "... and {more_count} more files"
+msgstr "... a {more_count} ďalších súborov"
+
 # File: usr/share/isovault/ui/components.py, line: 123
 #: ui/components.py
 msgid "File Name"
@@ -167,11 +173,54 @@ msgstr "Upravené"
 msgid "Select"
 msgstr "Vybrať"
 
-# File: usr/share/isovault/ui/dialogs.py, line: 351
-#: ui/dialogs.py ui/upload_dialog.py
+# File: usr/share/isovault/ui/dialogs.py, line: 102
+#: ui/delete_dialog.py
+msgid "Delete File"
+msgstr "Vymazať súbor"
+
+#: ui/delete_dialog.py
+msgid "Delete Files"
+msgstr "Odstrániť súbory"
+
+#: ui/delete_dialog.py
 #, python-brace-format
-msgid "... and {more_count} more files"
-msgstr "... a {more_count} ďalších súborov"
+msgid "{count} file will be deleted"
+msgid_plural "{count} files will be deleted"
+msgstr[0] "{count} súbor bude odstránený"
+msgstr[1] "{count} súbory budú odstránené"
+msgstr[2] "{count} súborov bude odstránených"
+
+#: ui/delete_dialog.py ui/upload_dialog.py
+#, python-brace-format
+msgid "Total: {size}"
+msgstr "Spolu: {size}"
+
+#: ui/delete_dialog.py
+msgid "This action cannot be undone."
+msgstr "Túto akciu nie je možné vrátiť späť."
+
+#: ui/delete_dialog.py
+msgid ""
+"The files are removed from the storage and from the public download page."
+msgstr "Súbory sa odstránia z úložiska aj z verejnej stránky na stiahnutie."
+
+# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
+# 
+# File: usr/share/isovault/ui/preferences.py, line: 355
+# File: usr/share/isovault/ui/dialogs.py, line: 106
+# File: usr/share/isovault/ui/dialogs.py, line: 244
+# File: usr/share/isovault/ui/dialogs.py, line: 275
+#: ui/delete_dialog.py ui/preferences.py ui/upload_dialog.py
+msgid "Cancel"
+msgstr "Zrušiť"
+
+#: ui/delete_dialog.py
+#, python-brace-format
+msgid "Delete {count} file"
+msgid_plural "Delete {count} files"
+msgstr[0] "Odstrániť {count} súbor"
+msgstr[1] "Odstrániť {count} súbory"
+msgstr[2] "Odstrániť {count} súborov"
 
 # File: usr/share/isovault/ui/dialogs.py, line: 177
 #: ui/dialogs.py
@@ -228,60 +277,6 @@ msgstr "Nájdených {invalid_count} neplatných súborov"
 #: ui/dialogs.py
 msgid "File Validation Results"
 msgstr "Výsledky overenia súboru"
-
-# File: usr/share/isovault/ui/dialogs.py, line: 102
-#: ui/dialogs.py
-msgid "Delete File"
-msgstr "Vymazať súbor"
-
-# File: usr/share/isovault/ui/dialogs.py, line: 103
-#: ui/dialogs.py
-#, python-brace-format
-msgid ""
-"Are you sure you want to delete '{filename}'?\n"
-"\n"
-"This action cannot be undone."
-msgstr ""
-"Ste si istí, že chcete odstrániť '{filename}'?\n"
-"\n"
-"Túto akciu nie je možné vrátiť späť."
-
-#: ui/dialogs.py
-msgid "Delete Files"
-msgstr "Odstrániť súbory"
-
-#: ui/dialogs.py
-#, python-brace-format
-msgid ""
-"Are you sure you want to delete {count} files?\n"
-"\n"
-"{file_list}\n"
-"\n"
-"This action cannot be undone."
-msgstr ""
-"Naozaj chcete odstrániť súbory ({count})?\n"
-"\n"
-"{file_list}\n"
-"\n"
-"Túto akciu nie je možné vrátiť späť."
-
-# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
-# 
-# File: usr/share/isovault/ui/preferences.py, line: 355
-# File: usr/share/isovault/ui/dialogs.py, line: 106
-# File: usr/share/isovault/ui/dialogs.py, line: 244
-# File: usr/share/isovault/ui/dialogs.py, line: 275
-#: ui/dialogs.py ui/preferences.py ui/upload_dialog.py
-msgid "Cancel"
-msgstr "Zrušiť"
-
-# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
-# 
-# File: usr/share/isovault/ui/components.py, line: 291
-# File: usr/share/isovault/ui/dialogs.py, line: 107
-#: ui/dialogs.py ui/window.py
-msgid "Delete"
-msgstr "Odstrániť"
 
 # File: usr/share/isovault/ui/dialogs.py, line: 125
 #: ui/dialogs.py
@@ -470,11 +465,6 @@ msgstr[2] "{count} súborov na nahranie"
 
 #: ui/upload_dialog.py
 #, python-brace-format
-msgid "Total: {size}"
-msgstr "Spolu: {size}"
-
-#: ui/upload_dialog.py
-#, python-brace-format
 msgid "{count} file will be skipped"
 msgid_plural "{count} files will be skipped"
 msgstr[0] "{count} súbor bude preskočený"
@@ -530,6 +520,14 @@ msgstr "Kopírovať verejnú URL adresu"
 #: ui/window.py
 msgid "Save file locally"
 msgstr "Uložiť súbor lokálne"
+
+# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
+# 
+# File: usr/share/isovault/ui/components.py, line: 291
+# File: usr/share/isovault/ui/dialogs.py, line: 107
+#: ui/window.py
+msgid "Delete"
+msgstr "Odstrániť"
 
 # File: usr/share/isovault/ui/window.py, line: 156
 #: ui/window.py

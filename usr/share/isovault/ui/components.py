@@ -2,16 +2,44 @@
 Reusable UI components for the main window.
 """
 
-from typing import Callable, List
+from typing import Callable, List, Tuple
 
 import gi
 
 gi.require_version("Gtk", "4.0")
+gi.require_version("Adw", "1")
 
-from gi.repository import Gio, GObject, Gtk, Pango  # noqa: E402
+from gi.repository import Adw, Gio, GObject, Gtk, Pango  # noqa: E402
 
 from models import FileItem  # noqa: E402
 from utils.i18n import _  # noqa: E402
+
+_MAX_LISTED_FILES = 6
+
+
+def file_list_group(title: str, description: str, files: List[Tuple[str, str]]) -> Adw.PreferencesGroup:
+    """
+    Boxed list of files used by the upload and delete dialogs.
+
+    Args:
+        files: (file name, subtitle) pairs; only the first few are listed
+    """
+    group = Adw.PreferencesGroup(title=title, description=description)
+    for name, subtitle in files[:_MAX_LISTED_FILES]:
+        row = Adw.ActionRow(title=name, subtitle=subtitle, title_lines=1)
+        row.set_tooltip_text(name)
+        is_iso = name.lower().endswith(".iso")
+        icon = Gtk.Image.new_from_icon_name("media-optical-symbolic" if is_iso else "text-x-generic-symbolic")
+        icon.add_css_class("file-type-icon")
+        row.add_prefix(icon)
+        group.add(row)
+
+    hidden = len(files) - _MAX_LISTED_FILES
+    if hidden > 0:
+        more = Gtk.Label(label=_("... and {more_count} more files").format(more_count=hidden), xalign=0, margin_top=6)
+        more.add_css_class("dim-label")
+        group.add(more)
+    return group
 
 
 class ProgressManager:

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: isovault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 01:06-0300\n"
+"POT-Creation-Date: 2026-10-09 11:37-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nl\n"
@@ -144,6 +144,12 @@ msgstr "Kopiëren"
 msgid "Download ISO"
 msgstr "Download ISO"
 
+# File: usr/share/isovault/ui/dialogs.py, line: 351
+#: ui/components.py ui/dialogs.py
+#, python-brace-format
+msgid "... and {more_count} more files"
+msgstr "... en {more_count} andere bestanden"
+
 # File: usr/share/isovault/ui/components.py, line: 123
 #: ui/components.py
 msgid "File Name"
@@ -168,11 +174,54 @@ msgstr "Gewijzigd"
 msgid "Select"
 msgstr "Selecteren"
 
-# File: usr/share/isovault/ui/dialogs.py, line: 351
-#: ui/dialogs.py ui/upload_dialog.py
+# File: usr/share/isovault/ui/dialogs.py, line: 102
+#: ui/delete_dialog.py
+msgid "Delete File"
+msgstr "Verwijder Bestand"
+
+#: ui/delete_dialog.py
+msgid "Delete Files"
+msgstr "Bestanden verwijderen"
+
+#: ui/delete_dialog.py
 #, python-brace-format
-msgid "... and {more_count} more files"
-msgstr "... en {more_count} andere bestanden"
+msgid "{count} file will be deleted"
+msgid_plural "{count} files will be deleted"
+msgstr[0] "{count} bestand wordt verwijderd"
+msgstr[1] "{count} bestanden worden verwijderd"
+
+#: ui/delete_dialog.py ui/upload_dialog.py
+#, python-brace-format
+msgid "Total: {size}"
+msgstr "Totaal: {size}"
+
+#: ui/delete_dialog.py
+msgid "This action cannot be undone."
+msgstr "Deze actie kan niet ongedaan worden gemaakt."
+
+#: ui/delete_dialog.py
+msgid ""
+"The files are removed from the storage and from the public download page."
+msgstr ""
+"De bestanden worden verwijderd uit de opslag en van de openbare "
+"downloadpagina."
+
+# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
+# 
+# File: usr/share/isovault/ui/preferences.py, line: 355
+# File: usr/share/isovault/ui/dialogs.py, line: 106
+# File: usr/share/isovault/ui/dialogs.py, line: 244
+# File: usr/share/isovault/ui/dialogs.py, line: 275
+#: ui/delete_dialog.py ui/preferences.py ui/upload_dialog.py
+msgid "Cancel"
+msgstr "Annuleren"
+
+#: ui/delete_dialog.py
+#, python-brace-format
+msgid "Delete {count} file"
+msgid_plural "Delete {count} files"
+msgstr[0] "{count} bestand verwijderen"
+msgstr[1] "{count} bestanden verwijderen"
 
 # File: usr/share/isovault/ui/dialogs.py, line: 177
 #: ui/dialogs.py
@@ -229,60 +278,6 @@ msgstr "Gevonden {invalid_count} ongeldige bestanden"
 #: ui/dialogs.py
 msgid "File Validation Results"
 msgstr "Bestand Validatieresultaten"
-
-# File: usr/share/isovault/ui/dialogs.py, line: 102
-#: ui/dialogs.py
-msgid "Delete File"
-msgstr "Verwijder Bestand"
-
-# File: usr/share/isovault/ui/dialogs.py, line: 103
-#: ui/dialogs.py
-#, python-brace-format
-msgid ""
-"Are you sure you want to delete '{filename}'?\n"
-"\n"
-"This action cannot be undone."
-msgstr ""
-"Weet u zeker dat u '{filename}' wilt verwijderen?\n"
-"\n"
-"Deze actie kan niet ongedaan worden gemaakt."
-
-#: ui/dialogs.py
-msgid "Delete Files"
-msgstr "Bestanden verwijderen"
-
-#: ui/dialogs.py
-#, python-brace-format
-msgid ""
-"Are you sure you want to delete {count} files?\n"
-"\n"
-"{file_list}\n"
-"\n"
-"This action cannot be undone."
-msgstr ""
-"Weet u zeker dat u {count} bestanden wilt verwijderen?\n"
-"\n"
-"{file_list}\n"
-"\n"
-"Deze actie kan niet ongedaan worden gemaakt."
-
-# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
-# 
-# File: usr/share/isovault/ui/preferences.py, line: 355
-# File: usr/share/isovault/ui/dialogs.py, line: 106
-# File: usr/share/isovault/ui/dialogs.py, line: 244
-# File: usr/share/isovault/ui/dialogs.py, line: 275
-#: ui/dialogs.py ui/preferences.py ui/upload_dialog.py
-msgid "Cancel"
-msgstr "Annuleren"
-
-# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
-# 
-# File: usr/share/isovault/ui/components.py, line: 291
-# File: usr/share/isovault/ui/dialogs.py, line: 107
-#: ui/dialogs.py ui/window.py
-msgid "Delete"
-msgstr "Verwijderen"
 
 # File: usr/share/isovault/ui/dialogs.py, line: 125
 #: ui/dialogs.py
@@ -470,11 +465,6 @@ msgstr[1] "{count} bestanden om te uploaden"
 
 #: ui/upload_dialog.py
 #, python-brace-format
-msgid "Total: {size}"
-msgstr "Totaal: {size}"
-
-#: ui/upload_dialog.py
-#, python-brace-format
 msgid "{count} file will be skipped"
 msgid_plural "{count} files will be skipped"
 msgstr[0] "{count} bestand wordt overgeslagen"
@@ -529,6 +519,14 @@ msgstr "Kopieer openbare URL"
 #: ui/window.py
 msgid "Save file locally"
 msgstr "Sla bestand lokaal op"
+
+# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
+# 
+# File: usr/share/isovault/ui/components.py, line: 291
+# File: usr/share/isovault/ui/dialogs.py, line: 107
+#: ui/window.py
+msgid "Delete"
+msgstr "Verwijderen"
 
 # File: usr/share/isovault/ui/window.py, line: 156
 #: ui/window.py

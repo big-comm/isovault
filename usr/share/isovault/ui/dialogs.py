@@ -14,8 +14,10 @@ gi.require_version("Adw", "1")
 from gi.repository import Adw, Gio, GLib, Gtk  # noqa: E402
 
 from config import APP_ICON, APP_NAME, APP_VERSION, SUPPORTED_EXTENSIONS  # noqa: E402
+from models import FileItem  # noqa: E402
 from utils.i18n import _  # noqa: E402
 
+from .delete_dialog import DeleteDialog  # noqa: E402
 from .upload_dialog import UploadDialog  # noqa: E402
 
 logger = logging.getLogger(__name__)
@@ -149,27 +151,9 @@ class DialogManager:
         body += ":\n\n" + _bullet_list([f"{name}: {reason}" for name, reason in invalid_files])
         self.show_error(_("File Validation Results"), body)
 
-    def confirm_delete(self, filenames: List[str], callback: Callable[[], None]) -> None:
-        """callback() runs only if the user confirms."""
-        if len(filenames) == 1:
-            heading = _("Delete File")
-            body = _("Are you sure you want to delete '{filename}'?\n\nThis action cannot be undone.").format(
-                filename=filenames[0]
-            )
-        else:
-            heading = _("Delete Files")
-            body = _("Are you sure you want to delete {count} files?\n\n{file_list}\n\nThis action cannot be undone.").format(
-                count=len(filenames), file_list=_bullet_list(filenames)
-            )
-
-        dialog = Adw.AlertDialog(heading=heading, body=body)
-        dialog.add_response("cancel", _("Cancel"))
-        dialog.add_response("delete", _("Delete"))
-        dialog.set_default_response("cancel")
-        dialog.set_close_response("cancel")
-        dialog.set_response_appearance("delete", Adw.ResponseAppearance.DESTRUCTIVE)
-        dialog.connect("response", lambda _d, response: response == "delete" and callback())
-        dialog.present(self.parent_window)
+    def confirm_delete(self, items: List[FileItem], callback: Callable[[], None]) -> None:
+        """List the files that will be deleted; callback() runs only if the user confirms."""
+        DeleteDialog(items, callback).present(self.parent_window)
 
     def show_about(self) -> None:
         dialog = Adw.AboutDialog(

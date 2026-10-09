@@ -69,3 +69,33 @@ columnview row:selected { background: alpha(@accent_color, 0.15); }
     font-size: 0.85em;
     font-weight: normal;
 }
+
+/* Delete dialog */
+.delete-dialog .file-type-icon {
+    color: @error_color;
+}
+
+.delete-warning {
+    padding: 14px 16px;
+    border-radius: 12px;
+    background: alpha(@error_bg_color, 0.14);
+    box-shadow: inset 0 0 0 1px alpha(@error_bg_color, 0.35);
+}
+
+.delete-warning-icon {
+    min-width: 40px;
+    min-height: 40px;
+    border-radius: 10px;
+    color: @error_color;
+    background: alpha(@error_bg_color, 0.22);
+}
+
+/* Solid red confirmation, like the solid "Upload to" button */
+.delete-dialog button.destructive-action {
+    background: @destructive_bg_color;
+    color: @destructive_fg_color;
+}
+
+.delete-dialog button.destructive-action:hover {
+    background: mix(@destructive_bg_color, white, 0.08);
+}

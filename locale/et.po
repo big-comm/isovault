@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: isovault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 01:06-0300\n"
+"POT-Creation-Date: 2026-10-09 11:37-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: et\n"
@@ -145,6 +145,12 @@ msgstr "Kopeeri"
 msgid "Download ISO"
 msgstr "Laadi ISO"
 
+# File: usr/share/isovault/ui/dialogs.py, line: 351
+#: ui/components.py ui/dialogs.py
+#, python-brace-format
+msgid "... and {more_count} more files"
+msgstr "... ja {more_count} muud faili"
+
 # File: usr/share/isovault/ui/components.py, line: 123
 #: ui/components.py
 msgid "File Name"
@@ -169,11 +175,52 @@ msgstr "Muudetud"
 msgid "Select"
 msgstr "Vali"
 
-# File: usr/share/isovault/ui/dialogs.py, line: 351
-#: ui/dialogs.py ui/upload_dialog.py
+# File: usr/share/isovault/ui/dialogs.py, line: 102
+#: ui/delete_dialog.py
+msgid "Delete File"
+msgstr "Kustuta fail"
+
+#: ui/delete_dialog.py
+msgid "Delete Files"
+msgstr "Kustuta failid"
+
+#: ui/delete_dialog.py
 #, python-brace-format
-msgid "... and {more_count} more files"
-msgstr "... ja {more_count} muud faili"
+msgid "{count} file will be deleted"
+msgid_plural "{count} files will be deleted"
+msgstr[0] "{count} fail kustutatakse"
+msgstr[1] "{count} faili kustutatakse"
+
+#: ui/delete_dialog.py ui/upload_dialog.py
+#, python-brace-format
+msgid "Total: {size}"
+msgstr "Kokku: {size}"
+
+#: ui/delete_dialog.py
+msgid "This action cannot be undone."
+msgstr "Seda toimingut ei saa tagasi võtta."
+
+#: ui/delete_dialog.py
+msgid ""
+"The files are removed from the storage and from the public download page."
+msgstr "Failid eemaldatakse salvestusruumist ja avalikult allalaadimislehelt."
+
+# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
+# 
+# File: usr/share/isovault/ui/preferences.py, line: 355
+# File: usr/share/isovault/ui/dialogs.py, line: 106
+# File: usr/share/isovault/ui/dialogs.py, line: 244
+# File: usr/share/isovault/ui/dialogs.py, line: 275
+#: ui/delete_dialog.py ui/preferences.py ui/upload_dialog.py
+msgid "Cancel"
+msgstr "Tühista"
+
+#: ui/delete_dialog.py
+#, python-brace-format
+msgid "Delete {count} file"
+msgid_plural "Delete {count} files"
+msgstr[0] "Kustuta {count} fail"
+msgstr[1] "Kustuta {count} faili"
 
 # File: usr/share/isovault/ui/dialogs.py, line: 177
 #: ui/dialogs.py
@@ -230,60 +277,6 @@ msgstr "Leitud {invalid_count} kehtetut faili"
 #: ui/dialogs.py
 msgid "File Validation Results"
 msgstr "Faili valideerimise tulemused"
-
-# File: usr/share/isovault/ui/dialogs.py, line: 102
-#: ui/dialogs.py
-msgid "Delete File"
-msgstr "Kustuta fail"
-
-# File: usr/share/isovault/ui/dialogs.py, line: 103
-#: ui/dialogs.py
-#, python-brace-format
-msgid ""
-"Are you sure you want to delete '{filename}'?\n"
-"\n"
-"This action cannot be undone."
-msgstr ""
-"Kas olete kindel, et soovite kustutada '{filename}'?\n"
-"\n"
-"Seda toimingut ei saa tagasi võtta."
-
-#: ui/dialogs.py
-msgid "Delete Files"
-msgstr "Kustuta failid"
-
-#: ui/dialogs.py
-#, python-brace-format
-msgid ""
-"Are you sure you want to delete {count} files?\n"
-"\n"
-"{file_list}\n"
-"\n"
-"This action cannot be undone."
-msgstr ""
-"Kas oled kindel, et soovid kustutada {count} faili?\n"
-"\n"
-"{file_list}\n"
-"\n"
-"Seda toimingut ei saa tagasi võtta."
-
-# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
-# 
-# File: usr/share/isovault/ui/preferences.py, line: 355
-# File: usr/share/isovault/ui/dialogs.py, line: 106
-# File: usr/share/isovault/ui/dialogs.py, line: 244
-# File: usr/share/isovault/ui/dialogs.py, line: 275
-#: ui/dialogs.py ui/preferences.py ui/upload_dialog.py
-msgid "Cancel"
-msgstr "Tühista"
-
-# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
-# 
-# File: usr/share/isovault/ui/components.py, line: 291
-# File: usr/share/isovault/ui/dialogs.py, line: 107
-#: ui/dialogs.py ui/window.py
-msgid "Delete"
-msgstr "Kustuta"
 
 # File: usr/share/isovault/ui/dialogs.py, line: 125
 #: ui/dialogs.py
@@ -469,11 +462,6 @@ msgstr[1] "{count} faili üleslaadimiseks"
 
 #: ui/upload_dialog.py
 #, python-brace-format
-msgid "Total: {size}"
-msgstr "Kokku: {size}"
-
-#: ui/upload_dialog.py
-#, python-brace-format
 msgid "{count} file will be skipped"
 msgid_plural "{count} files will be skipped"
 msgstr[0] "{count} fail jäetakse vahele"
@@ -528,6 +516,14 @@ msgstr "Kopeeri avalik URL"
 #: ui/window.py
 msgid "Save file locally"
 msgstr "Salvesta fail kohalikult"
+
+# #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
+# 
+# File: usr/share/isovault/ui/components.py, line: 291
+# File: usr/share/isovault/ui/dialogs.py, line: 107
+#: ui/window.py
+msgid "Delete"
+msgstr "Kustuta"
 
 # File: usr/share/isovault/ui/window.py, line: 156
 #: ui/window.py
