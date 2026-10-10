@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: isovault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-10 17:02-0300\n"
+"POT-Creation-Date: 2026-10-10 18:24-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ko\n"
@@ -542,6 +542,10 @@ msgstr "지역"
 msgid "Bucket Name"
 msgstr "버킷 이름"
 
+#: ui/preferences.py
+msgid "Find Buckets"
+msgstr "버킷 찾기"
+
 # File: usr/share/isovault/ui/preferences.py, line: 107
 # File: usr/share/isovault/ui/preferences.py, line: 110
 # File: usr/share/isovault/ui/preferences.py, line: 328
@@ -672,15 +676,9 @@ msgstr ""
 "\n"
 "이 작업은 실행 취소할 수 없습니다."
 
-# File: usr/share/isovault/ui/preferences.py, line: 295
 #: ui/preferences.py
-msgid "Testing..."
-msgstr "테스트 중..."
-
-# File: usr/share/isovault/ui/preferences.py, line: 313
-#: ui/preferences.py
-msgid "Connection successful!"
-msgstr "연결 성공!"
+msgid "Enter the access key, secret key and endpoint URL first."
+msgstr "먼저 액세스 키, 비밀 키, 엔드포인트 URL을 입력하세요."
 
 # #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
 # 
@@ -690,6 +688,37 @@ msgstr "연결 성공!"
 #, python-brace-format
 msgid "Connection error: {error}"
 msgstr "연결 오류: {error}"
+
+#: ui/preferences.py
+msgid "No bucket found"
+msgstr "버킷을 찾을 수 없음"
+
+#: ui/preferences.py
+msgid ""
+"These keys can't list any bucket. Buckets shared by another account don't "
+"appear in the list, so ask the storage administrator for the bucket name (on"
+" CDN77: CDN Resources → Origin)."
+msgstr ""
+"이 키로는 버킷을 나열할 수 없습니다. 다른 계정에서 공유한 버킷은 목록에 표시되지 않으므로 스토리지 관리자에게 버킷 이름을 "
+"문의하세요(CDN77: CDN Resources → Origin)."
+
+#: ui/preferences.py ui/window.py
+msgid "Choose the bucket"
+msgstr "버킷 선택"
+
+#: ui/preferences.py
+msgid "Buckets these keys can access"
+msgstr "이 키로 접근할 수 있는 버킷"
+
+# File: usr/share/isovault/ui/preferences.py, line: 295
+#: ui/preferences.py
+msgid "Testing..."
+msgstr "테스트 중..."
+
+# File: usr/share/isovault/ui/preferences.py, line: 313
+#: ui/preferences.py
+msgid "Connection successful!"
+msgstr "연결 성공!"
 
 # File: usr/share/isovault/ui/preferences.py, line: 332
 #: ui/preferences.py
@@ -767,17 +796,8 @@ msgid "ISO Files"
 msgstr "ISO 파일"
 
 #: ui/window.py
-msgid "Connect to your storage"
-msgstr "저장소에 연결"
-
-# File: usr/share/isovault/ui/window.py, line: 139
-#: ui/window.py
-msgid "Please configure S3 credentials in Preferences"
-msgstr "환경 설정에서 S3 자격 증명을 구성해 주십시오."
-
-#: ui/window.py
-msgid "Open Preferences"
-msgstr "환경설정 열기"
+msgid "Open Settings"
+msgstr "설정 열기"
 
 #: ui/window.py
 msgid "Manage your ISO files and make them available for download."
@@ -816,6 +836,24 @@ msgstr "더 보기"
 #: ui/window.py
 msgid "Warning: Could not connect to S3 storage"
 msgstr "경고: S3 저장소에 연결할 수 없습니다."
+
+#: ui/window.py
+msgid "Connect to your storage"
+msgstr "저장소에 연결"
+
+#: ui/window.py
+msgid "Enter the access key and secret key of this profile in Settings."
+msgstr "설정에서 이 프로필의 액세스 키와 비밀 키를 입력하세요."
+
+#: ui/window.py
+msgid ""
+"The keys are set, but this profile has no bucket. Enter its name in Settings"
+" or use “Find Buckets”."
+msgstr "키는 설정되었지만 이 프로필에 버킷이 없습니다. 설정에서 버킷 이름을 입력하거나 “버킷 찾기”를 사용하세요."
+
+#: ui/window.py
+msgid "Enter the endpoint URL of this profile in Settings."
+msgstr "설정에서 이 프로필의 엔드포인트 URL을 입력하세요."
 
 #: ui/window.py
 msgid "Manage Profiles"

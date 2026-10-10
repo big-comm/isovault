@@ -147,6 +147,9 @@ class SettingsManager:
                 profile = dict(NEW_PROFILE)
                 profile.update({key: parser.get(section, key) for key in PROFILE_KEYS if parser.has_option(section, key)})
                 profile["name"] = profile["name"] or profile_id
+                # Built-in profiles saved before their bucket was known get it now
+                if not profile["bucket_name"] and profile_id in BUILTIN_PROFILES:
+                    profile["bucket_name"] = BUILTIN_PROFILES[profile_id]["bucket_name"]
                 self.profiles[profile_id] = profile
         if self.profiles:
             return
@@ -265,6 +268,11 @@ class SettingsManager:
     def get_s3_config(self) -> Dict[str, str]:
         profile = self.profiles[self.active_profile_id]
         return {key: profile[key] for key in CONNECTION_KEYS}
+
+    def missing_connection_fields(self) -> List[str]:
+        """Required connection values the active profile doesn't have yet."""
+        s3 = self.get_s3_config()
+        return [key for key in ("access_key", "secret_key", "endpoint_url", "bucket_name") if not s3[key]]
 
     def has_s3_credentials(self) -> bool:
         """True when the active profile has every value needed to connect."""

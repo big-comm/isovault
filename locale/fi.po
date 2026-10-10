@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: isovault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-10 17:02-0300\n"
+"POT-Creation-Date: 2026-10-10 18:24-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fi\n"
@@ -553,6 +553,10 @@ msgstr "Alue"
 msgid "Bucket Name"
 msgstr "Säiliön nimi"
 
+#: ui/preferences.py
+msgid "Find Buckets"
+msgstr "Etsi säiliöt"
+
 # File: usr/share/isovault/ui/preferences.py, line: 107
 # File: usr/share/isovault/ui/preferences.py, line: 110
 # File: usr/share/isovault/ui/preferences.py, line: 328
@@ -684,15 +688,9 @@ msgstr ""
 "\n"
 "Tätä toimintoa ei voi peruuttaa."
 
-# File: usr/share/isovault/ui/preferences.py, line: 295
 #: ui/preferences.py
-msgid "Testing..."
-msgstr "Testaus..."
-
-# File: usr/share/isovault/ui/preferences.py, line: 313
-#: ui/preferences.py
-msgid "Connection successful!"
-msgstr "Yhteys onnistui!"
+msgid "Enter the access key, secret key and endpoint URL first."
+msgstr "Syötä ensin pääsyoikeus, salainen avain ja päätepisteen URL."
 
 # #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
 # 
@@ -702,6 +700,38 @@ msgstr "Yhteys onnistui!"
 #, python-brace-format
 msgid "Connection error: {error}"
 msgstr "Yhteysvirhe: {error}"
+
+#: ui/preferences.py
+msgid "No bucket found"
+msgstr "Säiliötä ei löytynyt"
+
+#: ui/preferences.py
+msgid ""
+"These keys can't list any bucket. Buckets shared by another account don't "
+"appear in the list, so ask the storage administrator for the bucket name (on"
+" CDN77: CDN Resources → Origin)."
+msgstr ""
+"Näillä avaimilla ei voi listata yhtään säiliötä. Toisen tilin jakamat "
+"säiliöt eivät näy luettelossa, joten kysy säiliön nimeä tallennustilan "
+"ylläpitäjältä (CDN77:ssä: CDN Resources → Origin)."
+
+#: ui/preferences.py ui/window.py
+msgid "Choose the bucket"
+msgstr "Valitse säiliö"
+
+#: ui/preferences.py
+msgid "Buckets these keys can access"
+msgstr "Säiliöt, joihin nämä avaimet pääsevät käsiksi"
+
+# File: usr/share/isovault/ui/preferences.py, line: 295
+#: ui/preferences.py
+msgid "Testing..."
+msgstr "Testaus..."
+
+# File: usr/share/isovault/ui/preferences.py, line: 313
+#: ui/preferences.py
+msgid "Connection successful!"
+msgstr "Yhteys onnistui!"
 
 # File: usr/share/isovault/ui/preferences.py, line: 332
 #: ui/preferences.py
@@ -781,16 +811,7 @@ msgid "ISO Files"
 msgstr "ISO-tiedostot"
 
 #: ui/window.py
-msgid "Connect to your storage"
-msgstr "Yhdistä tallennustilaasi"
-
-# File: usr/share/isovault/ui/window.py, line: 139
-#: ui/window.py
-msgid "Please configure S3 credentials in Preferences"
-msgstr "Ole hyvä ja määritä S3-tunnistetiedot asetuksissa."
-
-#: ui/window.py
-msgid "Open Preferences"
+msgid "Open Settings"
 msgstr "Avaa asetukset"
 
 #: ui/window.py
@@ -830,6 +851,26 @@ msgstr "Lisää"
 #: ui/window.py
 msgid "Warning: Could not connect to S3 storage"
 msgstr "Varoitus: Yhteyttä S3-tallennustilaan ei voitu muodostaa"
+
+#: ui/window.py
+msgid "Connect to your storage"
+msgstr "Yhdistä tallennustilaasi"
+
+#: ui/window.py
+msgid "Enter the access key and secret key of this profile in Settings."
+msgstr "Syötä tämän profiilin pääsyoikeus ja salainen avain Asetuksissa."
+
+#: ui/window.py
+msgid ""
+"The keys are set, but this profile has no bucket. Enter its name in Settings"
+" or use “Find Buckets”."
+msgstr ""
+"Avaimet on asetettu, mutta tällä profiililla ei ole säiliötä. Syötä sen nimi"
+" Asetuksissa tai käytä ”Etsi säiliöt”."
+
+#: ui/window.py
+msgid "Enter the endpoint URL of this profile in Settings."
+msgstr "Syötä tämän profiilin päätepisteen URL Asetuksissa."
 
 #: ui/window.py
 msgid "Manage Profiles"

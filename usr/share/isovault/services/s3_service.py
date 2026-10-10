@@ -60,6 +60,23 @@ class _ProgressTracker:
         self._callback(percent)
 
 
+def list_buckets(s3_config: Dict[str, str]) -> List[str]:
+    """
+    Buckets the credentials can list (no bucket name needed). Providers only
+    list buckets owned by the key's account, so buckets shared by another
+    account (e.g. through a bucket policy) don't appear here.
+    """
+    client = boto3.client(
+        "s3",
+        endpoint_url=s3_config["endpoint_url"],
+        aws_access_key_id=s3_config["access_key"],
+        aws_secret_access_key=s3_config["secret_key"],
+        region_name=s3_config.get("region_name") or None,
+        config=_CLIENT_CONFIG,
+    )
+    return sorted(bucket["Name"] for bucket in client.list_buckets().get("Buckets", []))
+
+
 class S3Service:
     """S3 operations on a single bucket"""
 

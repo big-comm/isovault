@@ -233,3 +233,19 @@ class TestPublicUrl:
 
     def test_fallback_without_base_url(self, client):
         assert S3Service(S3_CONFIG).get_public_url("a.iso") == "https://bucket/a.iso"
+
+
+class TestListBuckets:
+    def test_lists_names_without_a_bucket(self):
+        from services.s3_service import list_buckets
+
+        with patch("services.s3_service.boto3.client") as factory:
+            factory.return_value.list_buckets.return_value = {"Buckets": [{"Name": "b"}, {"Name": "a"}]}
+            assert list_buckets({**S3_CONFIG, "bucket_name": ""}) == ["a", "b"]
+
+    def test_provider_that_lists_nothing(self):
+        from services.s3_service import list_buckets
+
+        with patch("services.s3_service.boto3.client") as factory:
+            factory.return_value.list_buckets.return_value = {"Buckets": []}
+            assert list_buckets(S3_CONFIG) == []

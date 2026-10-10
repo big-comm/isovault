@@ -67,6 +67,7 @@ BUILTIN_PROFILES = {
     "biglinux": {
         **NEW_PROFILE,
         "name": "BigLinux",
+        "bucket_name": "isos-s3",  # origin of iso.biglinux.com.br on CDN77
         "base_url": "https://iso.biglinux.com.br",
         "page_style": "biglinux",
         "folders": ROOT_FOLDER,

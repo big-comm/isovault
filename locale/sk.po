@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: isovault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-10 17:02-0300\n"
+"POT-Creation-Date: 2026-10-10 18:24-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: sk\n"
@@ -559,6 +559,10 @@ msgstr "Oblasť"
 msgid "Bucket Name"
 msgstr "Názov vedra"
 
+#: ui/preferences.py
+msgid "Find Buckets"
+msgstr "Nájsť vedrá"
+
 # File: usr/share/isovault/ui/preferences.py, line: 107
 # File: usr/share/isovault/ui/preferences.py, line: 110
 # File: usr/share/isovault/ui/preferences.py, line: 328
@@ -690,15 +694,9 @@ msgstr ""
 "\n"
 "Túto akciu nie je možné vrátiť späť."
 
-# File: usr/share/isovault/ui/preferences.py, line: 295
 #: ui/preferences.py
-msgid "Testing..."
-msgstr "Testovanie..."
-
-# File: usr/share/isovault/ui/preferences.py, line: 313
-#: ui/preferences.py
-msgid "Connection successful!"
-msgstr "Pripojenie úspešné!"
+msgid "Enter the access key, secret key and endpoint URL first."
+msgstr "Najprv zadajte prístupový kľúč, tajný kľúč a URL koncového bodu."
 
 # #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
 # 
@@ -708,6 +706,38 @@ msgstr "Pripojenie úspešné!"
 #, python-brace-format
 msgid "Connection error: {error}"
 msgstr "Chyba pripojenia: {error}"
+
+#: ui/preferences.py
+msgid "No bucket found"
+msgstr "Nenašlo sa žiadne vedro"
+
+#: ui/preferences.py
+msgid ""
+"These keys can't list any bucket. Buckets shared by another account don't "
+"appear in the list, so ask the storage administrator for the bucket name (on"
+" CDN77: CDN Resources → Origin)."
+msgstr ""
+"Tieto kľúče nedokážu zobraziť žiadne vedro. Vedrá zdieľané iným účtom sa v "
+"zozname nezobrazujú, preto sa opýtajte správcu úložiska na názov vedra (v "
+"CDN77: CDN Resources → Origin)."
+
+#: ui/preferences.py ui/window.py
+msgid "Choose the bucket"
+msgstr "Vyberte vedro"
+
+#: ui/preferences.py
+msgid "Buckets these keys can access"
+msgstr "Vedrá, ku ktorým majú tieto kľúče prístup"
+
+# File: usr/share/isovault/ui/preferences.py, line: 295
+#: ui/preferences.py
+msgid "Testing..."
+msgstr "Testovanie..."
+
+# File: usr/share/isovault/ui/preferences.py, line: 313
+#: ui/preferences.py
+msgid "Connection successful!"
+msgstr "Pripojenie úspešné!"
 
 # File: usr/share/isovault/ui/preferences.py, line: 332
 #: ui/preferences.py
@@ -789,17 +819,8 @@ msgid "ISO Files"
 msgstr "ISO súbory"
 
 #: ui/window.py
-msgid "Connect to your storage"
-msgstr "Pripojte sa k svojmu úložisku"
-
-# File: usr/share/isovault/ui/window.py, line: 139
-#: ui/window.py
-msgid "Please configure S3 credentials in Preferences"
-msgstr "Prosím, nakonfigurujte S3 poverenia v Predvoľbách"
-
-#: ui/window.py
-msgid "Open Preferences"
-msgstr "Otvoriť predvoľby"
+msgid "Open Settings"
+msgstr "Otvoriť nastavenia"
 
 #: ui/window.py
 msgid "Manage your ISO files and make them available for download."
@@ -838,6 +859,26 @@ msgstr "Viac"
 #: ui/window.py
 msgid "Warning: Could not connect to S3 storage"
 msgstr "Upozornenie: Nepodarilo sa pripojiť k úložisku S3"
+
+#: ui/window.py
+msgid "Connect to your storage"
+msgstr "Pripojte sa k svojmu úložisku"
+
+#: ui/window.py
+msgid "Enter the access key and secret key of this profile in Settings."
+msgstr "Zadajte v Nastaveniach prístupový kľúč a tajný kľúč tohto profilu."
+
+#: ui/window.py
+msgid ""
+"The keys are set, but this profile has no bucket. Enter its name in Settings"
+" or use “Find Buckets”."
+msgstr ""
+"Kľúče sú nastavené, ale tento profil nemá vedro. Zadajte jeho názov v "
+"Nastaveniach alebo použite „Nájsť vedrá“."
+
+#: ui/window.py
+msgid "Enter the endpoint URL of this profile in Settings."
+msgstr "Zadajte v Nastaveniach URL koncového bodu tohto profilu."
 
 #: ui/window.py
 msgid "Manage Profiles"

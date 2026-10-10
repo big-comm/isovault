@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: isovault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-10 17:02-0300\n"
+"POT-Creation-Date: 2026-10-10 18:24-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: he\n"
@@ -548,6 +548,10 @@ msgstr "אזור"
 msgid "Bucket Name"
 msgstr "שם דלי"
 
+#: ui/preferences.py
+msgid "Find Buckets"
+msgstr "חיפוש דליים"
+
 # File: usr/share/isovault/ui/preferences.py, line: 107
 # File: usr/share/isovault/ui/preferences.py, line: 110
 # File: usr/share/isovault/ui/preferences.py, line: 328
@@ -678,15 +682,9 @@ msgstr ""
 "\n"
 "פעולה זו אינה ניתנת לביטול."
 
-# File: usr/share/isovault/ui/preferences.py, line: 295
 #: ui/preferences.py
-msgid "Testing..."
-msgstr "בדיקה..."
-
-# File: usr/share/isovault/ui/preferences.py, line: 313
-#: ui/preferences.py
-msgid "Connection successful!"
-msgstr "חיבור הצליח!"
+msgid "Enter the access key, secret key and endpoint URL first."
+msgstr "יש להזין תחילה את מפתח הגישה, המפתח הסודי וכתובת ה-URL של נקודת הקצה."
 
 # #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
 # 
@@ -696,6 +694,38 @@ msgstr "חיבור הצליח!"
 #, python-brace-format
 msgid "Connection error: {error}"
 msgstr "שגיאת חיבור: {error}"
+
+#: ui/preferences.py
+msgid "No bucket found"
+msgstr "לא נמצא דלי"
+
+#: ui/preferences.py
+msgid ""
+"These keys can't list any bucket. Buckets shared by another account don't "
+"appear in the list, so ask the storage administrator for the bucket name (on"
+" CDN77: CDN Resources → Origin)."
+msgstr ""
+"המפתחות האלה אינם יכולים לרשום אף דלי. דליים ששותפו על ידי חשבון אחר אינם "
+"מופיעים ברשימה, לכן יש לבקש את שם הדלי ממנהל האחסון (ב-CDN77: CDN Resources "
+"→ Origin)."
+
+#: ui/preferences.py ui/window.py
+msgid "Choose the bucket"
+msgstr "בחירת דלי"
+
+#: ui/preferences.py
+msgid "Buckets these keys can access"
+msgstr "דליים שהמפתחות האלה יכולים לגשת אליהם"
+
+# File: usr/share/isovault/ui/preferences.py, line: 295
+#: ui/preferences.py
+msgid "Testing..."
+msgstr "בדיקה..."
+
+# File: usr/share/isovault/ui/preferences.py, line: 313
+#: ui/preferences.py
+msgid "Connection successful!"
+msgstr "חיבור הצליח!"
 
 # File: usr/share/isovault/ui/preferences.py, line: 332
 #: ui/preferences.py
@@ -775,17 +805,8 @@ msgid "ISO Files"
 msgstr "קובצי ISO"
 
 #: ui/window.py
-msgid "Connect to your storage"
-msgstr "התחברו לאחסון שלכם"
-
-# File: usr/share/isovault/ui/window.py, line: 139
-#: ui/window.py
-msgid "Please configure S3 credentials in Preferences"
-msgstr "אנא הגדר את אישורי S3 בהעדפות"
-
-#: ui/window.py
-msgid "Open Preferences"
-msgstr "פתח העדפות"
+msgid "Open Settings"
+msgstr "פתיחת הגדרות"
 
 #: ui/window.py
 msgid "Manage your ISO files and make them available for download."
@@ -824,6 +845,26 @@ msgstr "עוד"
 #: ui/window.py
 msgid "Warning: Could not connect to S3 storage"
 msgstr "אזהרה: לא ניתן להתחבר לאחסון S3"
+
+#: ui/window.py
+msgid "Connect to your storage"
+msgstr "התחברו לאחסון שלכם"
+
+#: ui/window.py
+msgid "Enter the access key and secret key of this profile in Settings."
+msgstr "יש להזין את מפתח הגישה והמפתח הסודי של פרופיל זה בהגדרות."
+
+#: ui/window.py
+msgid ""
+"The keys are set, but this profile has no bucket. Enter its name in Settings"
+" or use “Find Buckets”."
+msgstr ""
+"המפתחות הוגדרו, אך לפרופיל זה אין דלי. יש להזין את שמו בהגדרות או להשתמש "
+"ב“חיפוש דליים”."
+
+#: ui/window.py
+msgid "Enter the endpoint URL of this profile in Settings."
+msgstr "יש להזין את כתובת ה-URL של נקודת הקצה של פרופיל זה בהגדרות."
 
 #: ui/window.py
 msgid "Manage Profiles"

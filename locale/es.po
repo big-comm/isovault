@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: isovault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-10 17:02-0300\n"
+"POT-Creation-Date: 2026-10-10 18:24-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: es\n"
@@ -558,6 +558,10 @@ msgstr "Región"
 msgid "Bucket Name"
 msgstr "Nombre del bucket"
 
+#: ui/preferences.py
+msgid "Find Buckets"
+msgstr "Buscar buckets"
+
 # File: usr/share/isovault/ui/preferences.py, line: 107
 # File: usr/share/isovault/ui/preferences.py, line: 110
 # File: usr/share/isovault/ui/preferences.py, line: 328
@@ -693,15 +697,11 @@ msgstr ""
 "\n"
 "Esta acción no se puede deshacer."
 
-# File: usr/share/isovault/ui/preferences.py, line: 295
 #: ui/preferences.py
-msgid "Testing..."
-msgstr "Pruebas..."
-
-# File: usr/share/isovault/ui/preferences.py, line: 313
-#: ui/preferences.py
-msgid "Connection successful!"
-msgstr "¡Conexión exitosa!"
+msgid "Enter the access key, secret key and endpoint URL first."
+msgstr ""
+"Introduce primero la clave de acceso, la clave secreta y la URL de punto "
+"final."
 
 # #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
 # 
@@ -711,6 +711,38 @@ msgstr "¡Conexión exitosa!"
 #, python-brace-format
 msgid "Connection error: {error}"
 msgstr "Error de conexión: {error}"
+
+#: ui/preferences.py
+msgid "No bucket found"
+msgstr "No se encontró ningún bucket"
+
+#: ui/preferences.py
+msgid ""
+"These keys can't list any bucket. Buckets shared by another account don't "
+"appear in the list, so ask the storage administrator for the bucket name (on"
+" CDN77: CDN Resources → Origin)."
+msgstr ""
+"Estas claves no pueden listar ningún bucket. Los buckets compartidos por "
+"otra cuenta no aparecen en la lista, así que pide al administrador del "
+"almacenamiento el nombre del bucket (en CDN77: CDN Resources → Origin)."
+
+#: ui/preferences.py ui/window.py
+msgid "Choose the bucket"
+msgstr "Elige el bucket"
+
+#: ui/preferences.py
+msgid "Buckets these keys can access"
+msgstr "Buckets a los que estas claves tienen acceso"
+
+# File: usr/share/isovault/ui/preferences.py, line: 295
+#: ui/preferences.py
+msgid "Testing..."
+msgstr "Pruebas..."
+
+# File: usr/share/isovault/ui/preferences.py, line: 313
+#: ui/preferences.py
+msgid "Connection successful!"
+msgstr "¡Conexión exitosa!"
 
 # File: usr/share/isovault/ui/preferences.py, line: 332
 #: ui/preferences.py
@@ -790,17 +822,8 @@ msgid "ISO Files"
 msgstr "Archivos ISO"
 
 #: ui/window.py
-msgid "Connect to your storage"
-msgstr "Conecte con su almacenamiento"
-
-# File: usr/share/isovault/ui/window.py, line: 139
-#: ui/window.py
-msgid "Please configure S3 credentials in Preferences"
-msgstr "Por favor, configure las credenciales de S3 en Preferencias"
-
-#: ui/window.py
-msgid "Open Preferences"
-msgstr "Abrir preferencias"
+msgid "Open Settings"
+msgstr "Abrir ajustes"
 
 #: ui/window.py
 msgid "Manage your ISO files and make them available for download."
@@ -839,6 +862,27 @@ msgstr "Más"
 #: ui/window.py
 msgid "Warning: Could not connect to S3 storage"
 msgstr "Advertencia: No se pudo conectar al almacenamiento S3"
+
+#: ui/window.py
+msgid "Connect to your storage"
+msgstr "Conecte con su almacenamiento"
+
+#: ui/window.py
+msgid "Enter the access key and secret key of this profile in Settings."
+msgstr ""
+"Introduce la clave de acceso y la clave secreta de este perfil en Ajustes."
+
+#: ui/window.py
+msgid ""
+"The keys are set, but this profile has no bucket. Enter its name in Settings"
+" or use “Find Buckets”."
+msgstr ""
+"Las claves están configuradas, pero este perfil no tiene bucket. Introduce "
+"su nombre en Ajustes o usa «Buscar buckets»."
+
+#: ui/window.py
+msgid "Enter the endpoint URL of this profile in Settings."
+msgstr "Introduce la URL de punto final de este perfil en Ajustes."
 
 #: ui/window.py
 msgid "Manage Profiles"

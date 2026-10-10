@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: isovault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-10 17:02-0300\n"
+"POT-Creation-Date: 2026-10-10 18:24-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: zh\n"
@@ -542,6 +542,10 @@ msgstr "区域"
 msgid "Bucket Name"
 msgstr "存储桶名称"
 
+#: ui/preferences.py
+msgid "Find Buckets"
+msgstr "查找存储桶"
+
 # File: usr/share/isovault/ui/preferences.py, line: 107
 # File: usr/share/isovault/ui/preferences.py, line: 110
 # File: usr/share/isovault/ui/preferences.py, line: 328
@@ -672,15 +676,9 @@ msgstr ""
 "\n"
 "此操作无法撤消。"
 
-# File: usr/share/isovault/ui/preferences.py, line: 295
 #: ui/preferences.py
-msgid "Testing..."
-msgstr "测试中..."
-
-# File: usr/share/isovault/ui/preferences.py, line: 313
-#: ui/preferences.py
-msgid "Connection successful!"
-msgstr "连接成功！"
+msgid "Enter the access key, secret key and endpoint URL first."
+msgstr "请先输入访问密钥、密钥和端点 URL。"
 
 # #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
 # 
@@ -690,6 +688,37 @@ msgstr "连接成功！"
 #, python-brace-format
 msgid "Connection error: {error}"
 msgstr "连接错误：{error}"
+
+#: ui/preferences.py
+msgid "No bucket found"
+msgstr "未找到存储桶"
+
+#: ui/preferences.py
+msgid ""
+"These keys can't list any bucket. Buckets shared by another account don't "
+"appear in the list, so ask the storage administrator for the bucket name (on"
+" CDN77: CDN Resources → Origin)."
+msgstr ""
+"这些密钥无法列出任何存储桶。其他账户共享的存储桶不会出现在列表中，请向存储管理员询问存储桶名称（在 CDN77 中：CDN Resources → "
+"Origin）。"
+
+#: ui/preferences.py ui/window.py
+msgid "Choose the bucket"
+msgstr "选择存储桶"
+
+#: ui/preferences.py
+msgid "Buckets these keys can access"
+msgstr "这些密钥可访问的存储桶"
+
+# File: usr/share/isovault/ui/preferences.py, line: 295
+#: ui/preferences.py
+msgid "Testing..."
+msgstr "测试中..."
+
+# File: usr/share/isovault/ui/preferences.py, line: 313
+#: ui/preferences.py
+msgid "Connection successful!"
+msgstr "连接成功！"
 
 # File: usr/share/isovault/ui/preferences.py, line: 332
 #: ui/preferences.py
@@ -767,17 +796,8 @@ msgid "ISO Files"
 msgstr "ISO 文件"
 
 #: ui/window.py
-msgid "Connect to your storage"
-msgstr "连接到您的存储"
-
-# File: usr/share/isovault/ui/window.py, line: 139
-#: ui/window.py
-msgid "Please configure S3 credentials in Preferences"
-msgstr "请在首选项中配置 S3 凭据"
-
-#: ui/window.py
-msgid "Open Preferences"
-msgstr "打开首选项"
+msgid "Open Settings"
+msgstr "打开设置"
 
 #: ui/window.py
 msgid "Manage your ISO files and make them available for download."
@@ -816,6 +836,24 @@ msgstr "更多"
 #: ui/window.py
 msgid "Warning: Could not connect to S3 storage"
 msgstr "警告：无法连接到 S3 存储"
+
+#: ui/window.py
+msgid "Connect to your storage"
+msgstr "连接到您的存储"
+
+#: ui/window.py
+msgid "Enter the access key and secret key of this profile in Settings."
+msgstr "请在设置中输入此配置文件的访问密钥和密钥。"
+
+#: ui/window.py
+msgid ""
+"The keys are set, but this profile has no bucket. Enter its name in Settings"
+" or use “Find Buckets”."
+msgstr "密钥已设置，但此配置文件没有存储桶。请在设置中输入其名称，或使用“查找存储桶”。"
+
+#: ui/window.py
+msgid "Enter the endpoint URL of this profile in Settings."
+msgstr "请在设置中输入此配置文件的端点 URL。"
 
 #: ui/window.py
 msgid "Manage Profiles"

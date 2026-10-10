@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: isovault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-10 17:02-0300\n"
+"POT-Creation-Date: 2026-10-10 18:24-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: hr\n"
@@ -560,6 +560,10 @@ msgstr "Regija"
 msgid "Bucket Name"
 msgstr "Ime spremnika"
 
+#: ui/preferences.py
+msgid "Find Buckets"
+msgstr "Pronađi spremnike"
+
 # File: usr/share/isovault/ui/preferences.py, line: 107
 # File: usr/share/isovault/ui/preferences.py, line: 110
 # File: usr/share/isovault/ui/preferences.py, line: 328
@@ -691,15 +695,9 @@ msgstr ""
 "\n"
 "Ova radnja se ne može poništiti."
 
-# File: usr/share/isovault/ui/preferences.py, line: 295
 #: ui/preferences.py
-msgid "Testing..."
-msgstr "Testiranje..."
-
-# File: usr/share/isovault/ui/preferences.py, line: 313
-#: ui/preferences.py
-msgid "Connection successful!"
-msgstr "Veza uspješna!"
+msgid "Enter the access key, secret key and endpoint URL first."
+msgstr "Prvo unesite pristupni ključ, tajni ključ i URL krajnje točke."
 
 # #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
 # 
@@ -709,6 +707,38 @@ msgstr "Veza uspješna!"
 #, python-brace-format
 msgid "Connection error: {error}"
 msgstr "Greška u vezi: {error}"
+
+#: ui/preferences.py
+msgid "No bucket found"
+msgstr "Spremnik nije pronađen"
+
+#: ui/preferences.py
+msgid ""
+"These keys can't list any bucket. Buckets shared by another account don't "
+"appear in the list, so ask the storage administrator for the bucket name (on"
+" CDN77: CDN Resources → Origin)."
+msgstr ""
+"Ovi ključevi ne mogu navesti nijedan spremnik. Spremnici koje dijeli drugi "
+"račun ne pojavljuju se na popisu, zato upitajte administratora pohrane za "
+"ime spremnika (na CDN77: CDN Resources → Origin)."
+
+#: ui/preferences.py ui/window.py
+msgid "Choose the bucket"
+msgstr "Odaberite spremnik"
+
+#: ui/preferences.py
+msgid "Buckets these keys can access"
+msgstr "Spremnici kojima ovi ključevi mogu pristupiti"
+
+# File: usr/share/isovault/ui/preferences.py, line: 295
+#: ui/preferences.py
+msgid "Testing..."
+msgstr "Testiranje..."
+
+# File: usr/share/isovault/ui/preferences.py, line: 313
+#: ui/preferences.py
+msgid "Connection successful!"
+msgstr "Veza uspješna!"
 
 # File: usr/share/isovault/ui/preferences.py, line: 332
 #: ui/preferences.py
@@ -790,16 +820,7 @@ msgid "ISO Files"
 msgstr "ISO datoteke"
 
 #: ui/window.py
-msgid "Connect to your storage"
-msgstr "Povežite se s pohranom"
-
-# File: usr/share/isovault/ui/window.py, line: 139
-#: ui/window.py
-msgid "Please configure S3 credentials in Preferences"
-msgstr "Molimo konfigurirajte S3 vjerodajnice u Postavkama"
-
-#: ui/window.py
-msgid "Open Preferences"
+msgid "Open Settings"
 msgstr "Otvori postavke"
 
 #: ui/window.py
@@ -840,6 +861,26 @@ msgstr "Više"
 #: ui/window.py
 msgid "Warning: Could not connect to S3 storage"
 msgstr "Upozorenje: Nije moguće povezati se na S3 pohranu"
+
+#: ui/window.py
+msgid "Connect to your storage"
+msgstr "Povežite se s pohranom"
+
+#: ui/window.py
+msgid "Enter the access key and secret key of this profile in Settings."
+msgstr "Unesite pristupni ključ i tajni ključ ovog profila u Postavkama."
+
+#: ui/window.py
+msgid ""
+"The keys are set, but this profile has no bucket. Enter its name in Settings"
+" or use “Find Buckets”."
+msgstr ""
+"Ključevi su postavljeni, ali ovaj profil nema spremnik. Unesite njegovo ime "
+"u Postavkama ili upotrijebite „Pronađi spremnike“."
+
+#: ui/window.py
+msgid "Enter the endpoint URL of this profile in Settings."
+msgstr "Unesite URL krajnje točke ovog profila u Postavkama."
 
 #: ui/window.py
 msgid "Manage Profiles"

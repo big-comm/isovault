@@ -242,17 +242,13 @@ class ISOVaultWindow(Adw.ApplicationWindow):
         self.settings_page = SettingsPage(self.settings_manager, self._on_settings_changed, self.switch_profile)
         self.page_stack.add_named(self.settings_page, "settings")
 
-        setup = Adw.StatusPage(
-            icon_name="network-server-symbolic",
-            title=_("Connect to your storage"),
-            description=_("Please configure S3 credentials in Preferences"),
-        )
-        open_preferences = Gtk.Button(label=_("Open Preferences"), halign=Gtk.Align.CENTER)
-        open_preferences.add_css_class("pill")
-        open_preferences.add_css_class("suggested-action")
-        open_preferences.connect("clicked", lambda _b: self.activate_action("win.preferences", None))
-        setup.set_child(open_preferences)
-        self.page_stack.add_named(setup, "setup")
+        self.setup_page = Adw.StatusPage(icon_name="network-server-symbolic")
+        open_settings = Gtk.Button(label=_("Open Settings"), halign=Gtk.Align.CENTER)
+        open_settings.add_css_class("pill")
+        open_settings.add_css_class("suggested-action")
+        open_settings.connect("clicked", lambda _b: self.show_page("settings", settings_tab="profile"))
+        self.setup_page.set_child(open_settings)
+        self.page_stack.add_named(self.setup_page, "setup")
 
         content = Gtk.Box()
         content.add_css_class("app-content")
@@ -418,9 +414,10 @@ class ISOVaultWindow(Adw.ApplicationWindow):
         self._set_files([])
 
         if not self.settings_manager.has_s3_credentials():
+            message = self._update_setup_page()
             if self._current_page() == "files":
                 self.show_page("files")
-            self.show_toast(_("Please configure S3 credentials in Preferences"))
+            self.show_toast(message)
             self._update_sensitivity()
             return
 
@@ -438,6 +435,25 @@ class ISOVaultWindow(Adw.ApplicationWindow):
             self.show_page("files")
         self._update_sensitivity()
         self.refresh_files()
+
+    def _update_setup_page(self) -> str:
+        """Tell exactly what the active profile is missing; returns the description."""
+        missing = self.settings_manager.missing_connection_fields()
+        if "access_key" in missing or "secret_key" in missing:
+            title = _("Connect to your storage")
+            description = _("Enter the access key and secret key of this profile in Settings.")
+        elif "bucket_name" in missing:
+            title = _("Choose the bucket")
+            description = _(
+                "The keys are set, but this profile has no bucket. Enter its name in Settings or use "
+                "“Find Buckets”."
+            )
+        else:
+            title = _("Connect to your storage")
+            description = _("Enter the endpoint URL of this profile in Settings.")
+        self.setup_page.set_title(title)
+        self.setup_page.set_description(description)
+        return description
 
     def _set_files(self, files: List[dict]) -> None:
         folders = self.settings_manager.folders()

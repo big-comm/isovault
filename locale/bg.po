@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: isovault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-10 17:02-0300\n"
+"POT-Creation-Date: 2026-10-10 18:24-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: bg\n"
@@ -556,6 +556,10 @@ msgstr "Регион"
 msgid "Bucket Name"
 msgstr "Име на кофа"
 
+#: ui/preferences.py
+msgid "Find Buckets"
+msgstr "Намиране на кофи"
+
 # File: usr/share/isovault/ui/preferences.py, line: 107
 # File: usr/share/isovault/ui/preferences.py, line: 110
 # File: usr/share/isovault/ui/preferences.py, line: 328
@@ -688,15 +692,9 @@ msgstr ""
 "\n"
 "Тази операция не може да бъде отменена."
 
-# File: usr/share/isovault/ui/preferences.py, line: 295
 #: ui/preferences.py
-msgid "Testing..."
-msgstr "Тестване..."
-
-# File: usr/share/isovault/ui/preferences.py, line: 313
-#: ui/preferences.py
-msgid "Connection successful!"
-msgstr "Свързването е успешно!"
+msgid "Enter the access key, secret key and endpoint URL first."
+msgstr "Първо въведете ключа за достъп, тайния ключ и URL на крайната точка."
 
 # #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
 # 
@@ -706,6 +704,38 @@ msgstr "Свързването е успешно!"
 #, python-brace-format
 msgid "Connection error: {error}"
 msgstr "Грешка при свързване: {error}"
+
+#: ui/preferences.py
+msgid "No bucket found"
+msgstr "Няма намерена кофа"
+
+#: ui/preferences.py
+msgid ""
+"These keys can't list any bucket. Buckets shared by another account don't "
+"appear in the list, so ask the storage administrator for the bucket name (on"
+" CDN77: CDN Resources → Origin)."
+msgstr ""
+"Тези ключове не могат да изброят нито една кофа. Кофите, споделени от друг "
+"акаунт, не се показват в списъка, затова попитайте администратора на "
+"хранилището за името на кофата (в CDN77: CDN Resources → Origin)."
+
+#: ui/preferences.py ui/window.py
+msgid "Choose the bucket"
+msgstr "Изберете кофата"
+
+#: ui/preferences.py
+msgid "Buckets these keys can access"
+msgstr "Кофи, до които тези ключове имат достъп"
+
+# File: usr/share/isovault/ui/preferences.py, line: 295
+#: ui/preferences.py
+msgid "Testing..."
+msgstr "Тестване..."
+
+# File: usr/share/isovault/ui/preferences.py, line: 313
+#: ui/preferences.py
+msgid "Connection successful!"
+msgstr "Свързването е успешно!"
 
 # File: usr/share/isovault/ui/preferences.py, line: 332
 #: ui/preferences.py
@@ -785,17 +815,8 @@ msgid "ISO Files"
 msgstr "ISO файлове"
 
 #: ui/window.py
-msgid "Connect to your storage"
-msgstr "Свържете се с хранилището си"
-
-# File: usr/share/isovault/ui/window.py, line: 139
-#: ui/window.py
-msgid "Please configure S3 credentials in Preferences"
-msgstr "Моля, конфигурирайте S3 удостоверения в Настройки"
-
-#: ui/window.py
-msgid "Open Preferences"
-msgstr "Отвори настройките"
+msgid "Open Settings"
+msgstr "Отваряне на настройките"
 
 #: ui/window.py
 msgid "Manage your ISO files and make them available for download."
@@ -834,6 +855,26 @@ msgstr "Още"
 #: ui/window.py
 msgid "Warning: Could not connect to S3 storage"
 msgstr "Внимание: Неуспешно свързване с S3 хранилище"
+
+#: ui/window.py
+msgid "Connect to your storage"
+msgstr "Свържете се с хранилището си"
+
+#: ui/window.py
+msgid "Enter the access key and secret key of this profile in Settings."
+msgstr "Въведете ключа за достъп и тайния ключ на този профил в Настройки."
+
+#: ui/window.py
+msgid ""
+"The keys are set, but this profile has no bucket. Enter its name in Settings"
+" or use “Find Buckets”."
+msgstr ""
+"Ключовете са зададени, но този профил няма кофа. Въведете името ѝ в "
+"Настройки или използвайте „Намиране на кофи“."
+
+#: ui/window.py
+msgid "Enter the endpoint URL of this profile in Settings."
+msgstr "Въведете URL на крайната точка на този профил в Настройки."
 
 #: ui/window.py
 msgid "Manage Profiles"

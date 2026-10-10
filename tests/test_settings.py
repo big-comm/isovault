@@ -202,6 +202,25 @@ class TestProfiles:
         manager.active_profile_id = "biglinux"  # no bucket and no keys yet
         assert manager.has_s3_credentials() is False
 
+    def test_biglinux_comes_with_its_bucket(self, config_file):
+        assert SettingsManager(config_file).profiles["biglinux"]["bucket_name"] == "isos-s3"
+
+    def test_saved_builtin_profile_without_bucket_gets_it(self, config_file):
+        """Regression: profiles saved before the BigLinux bucket was known stayed empty."""
+        write_config(config_file, "[profile:biglinux]\nname = BigLinux\nbucket_name = \n[profile:mine]\nname = Mine\n")
+        manager = SettingsManager(config_file)
+        assert manager.profiles["biglinux"]["bucket_name"] == "isos-s3"
+        assert manager.profiles["mine"]["bucket_name"] == ""  # only built-in profiles have a known bucket
+
+    def test_missing_connection_fields(self, config_file):
+        manager = SettingsManager(config_file)
+        manager.active_profile_id = "biglinux"
+        assert manager.missing_connection_fields() == ["access_key", "secret_key"]
+        manager.set_profile_value("access_key", "a")
+        manager.set_profile_value("secret_key", "b")
+        manager.set_profile_value("bucket_name", "")
+        assert manager.missing_connection_fields() == ["bucket_name"]
+
     def test_reset_keeps_profiles(self, config_file):
         manager = SettingsManager(config_file)
         manager.active_profile_id = "biglinux"

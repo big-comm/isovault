@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: isovault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-10 17:02-0300\n"
+"POT-Creation-Date: 2026-10-10 18:24-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: hu\n"
@@ -556,6 +556,10 @@ msgstr "Régió"
 msgid "Bucket Name"
 msgstr "Tárhely neve"
 
+#: ui/preferences.py
+msgid "Find Buckets"
+msgstr "Tárolók keresése"
+
 # File: usr/share/isovault/ui/preferences.py, line: 107
 # File: usr/share/isovault/ui/preferences.py, line: 110
 # File: usr/share/isovault/ui/preferences.py, line: 328
@@ -688,15 +692,10 @@ msgstr ""
 "\n"
 "Ez a művelet nem vonható vissza."
 
-# File: usr/share/isovault/ui/preferences.py, line: 295
 #: ui/preferences.py
-msgid "Testing..."
-msgstr "Tesztelés..."
-
-# File: usr/share/isovault/ui/preferences.py, line: 313
-#: ui/preferences.py
-msgid "Connection successful!"
-msgstr "Kapcsolat sikeres!"
+msgid "Enter the access key, secret key and endpoint URL first."
+msgstr ""
+"Először adja meg a hozzáférési kulcsot, a titkos kulcsot és a végpont URL-t."
 
 # #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
 # 
@@ -706,6 +705,38 @@ msgstr "Kapcsolat sikeres!"
 #, python-brace-format
 msgid "Connection error: {error}"
 msgstr "Kapcsolati hiba: {error}"
+
+#: ui/preferences.py
+msgid "No bucket found"
+msgstr "Nem található tároló"
+
+#: ui/preferences.py
+msgid ""
+"These keys can't list any bucket. Buckets shared by another account don't "
+"appear in the list, so ask the storage administrator for the bucket name (on"
+" CDN77: CDN Resources → Origin)."
+msgstr ""
+"Ezekkel a kulcsokkal egyetlen tároló sem listázható. A más fiók által "
+"megosztott tárolók nem jelennek meg a listában, ezért kérdezze meg a tárhely"
+" rendszergazdáját a tároló nevéről (CDN77-en: CDN Resources → Origin)."
+
+#: ui/preferences.py ui/window.py
+msgid "Choose the bucket"
+msgstr "Válassza ki a tárolót"
+
+#: ui/preferences.py
+msgid "Buckets these keys can access"
+msgstr "Tárolók, amelyekhez ezek a kulcsok hozzáférnek"
+
+# File: usr/share/isovault/ui/preferences.py, line: 295
+#: ui/preferences.py
+msgid "Testing..."
+msgstr "Tesztelés..."
+
+# File: usr/share/isovault/ui/preferences.py, line: 313
+#: ui/preferences.py
+msgid "Connection successful!"
+msgstr "Kapcsolat sikeres!"
 
 # File: usr/share/isovault/ui/preferences.py, line: 332
 #: ui/preferences.py
@@ -785,16 +816,7 @@ msgid "ISO Files"
 msgstr "ISO-fájlok"
 
 #: ui/window.py
-msgid "Connect to your storage"
-msgstr "Csatlakozás a tárhelyhez"
-
-# File: usr/share/isovault/ui/window.py, line: 139
-#: ui/window.py
-msgid "Please configure S3 credentials in Preferences"
-msgstr "Kérjük, állítsa be az S3 hitelesítő adatokat a Beállításokban."
-
-#: ui/window.py
-msgid "Open Preferences"
+msgid "Open Settings"
 msgstr "Beállítások megnyitása"
 
 #: ui/window.py
@@ -834,6 +856,27 @@ msgstr "Továbbiak"
 #: ui/window.py
 msgid "Warning: Could not connect to S3 storage"
 msgstr "Figyelmeztetés: Nem sikerült csatlakozni az S3 tárolóhoz"
+
+#: ui/window.py
+msgid "Connect to your storage"
+msgstr "Csatlakozás a tárhelyhez"
+
+#: ui/window.py
+msgid "Enter the access key and secret key of this profile in Settings."
+msgstr ""
+"Adja meg a profil hozzáférési kulcsát és titkos kulcsát a Beállításokban."
+
+#: ui/window.py
+msgid ""
+"The keys are set, but this profile has no bucket. Enter its name in Settings"
+" or use “Find Buckets”."
+msgstr ""
+"A kulcsok be vannak állítva, de ennek a profilnak nincs tárolója. Adja meg a"
+" nevét a Beállításokban, vagy használja a „Tárolók keresése” funkciót."
+
+#: ui/window.py
+msgid "Enter the endpoint URL of this profile in Settings."
+msgstr "Adja meg a profil végpont URL-jét a Beállításokban."
 
 #: ui/window.py
 msgid "Manage Profiles"

@@ -644,6 +644,60 @@ class TestProfiles:
         assert used[0].folders == ["Root", "KDE"]
 
 
+class TestMissingBucket:
+    def test_setup_page_says_what_is_missing(self, window, settings):
+        window.switch_profile("biglinux")  # no keys yet
+        assert window.setup_page.get_title() == "Connect to your storage"
+
+        settings.profiles["biglinux"].update(access_key="A", secret_key="S", bucket_name="")
+        window.settings_page.load_profile()  # the fields are the source of pending edits
+        window.switch_profile("biglinux")
+        assert window.page_stack.get_visible_child_name() == "setup"
+        assert window.setup_page.get_title() == "Choose the bucket"
+        assert "Find Buckets" in window.toasts[-1]
+
+    def test_open_settings_goes_to_profile_tab(self, window):
+        window.switch_profile("biglinux")
+        window.settings_page.view_stack.set_visible_child_name("general")
+        button = window.setup_page.get_child()
+        button.emit("clicked")
+        assert window.page_stack.get_visible_child_name() == "settings"
+        assert window.settings_page.view_stack.get_visible_child_name() == "profile"
+
+    def _page(self, settings, monkeypatch, buckets=(), error=None):
+        page = preferences_module.SettingsPage(settings, lambda _changed: None, lambda _id: None)
+        shown = []
+        monkeypatch.setattr(page, "_show_message", lambda heading, body, error=False: shown.append(heading))
+        monkeypatch.setattr(page, "_choose_bucket", lambda names: shown.append(list(names)))
+
+        def fake_list(config):
+            if error:
+                raise RuntimeError(error)
+            return list(buckets)
+
+        monkeypatch.setattr(preferences_module, "list_buckets", fake_list)
+        return page, shown
+
+    def test_find_buckets_offers_the_list(self, settings, monkeypatch):
+        page, shown = self._page(settings, monkeypatch, buckets=["isos-s3", "repo-s3"])
+        page.find_buckets_button.emit("clicked")
+        wait_until(lambda: shown)
+        assert shown == [["isos-s3", "repo-s3"]]
+        assert page.find_buckets_button.get_sensitive()
+
+    def test_find_buckets_explains_an_empty_list(self, settings, monkeypatch):
+        page, shown = self._page(settings, monkeypatch)
+        page.find_buckets_button.emit("clicked")
+        wait_until(lambda: shown)
+        assert shown == ["No bucket found"]
+
+    def test_find_buckets_needs_keys(self, tmp_path, monkeypatch):
+        empty = SettingsManager(str(tmp_path / "empty.conf"))
+        page, shown = self._page(empty, monkeypatch, buckets=["x"])
+        page.find_buckets_button.emit("clicked")
+        assert shown == ["Find Buckets"]
+
+
 class TestBehaviorSettings:
     def test_switches_save_immediately(self, settings):
         dialog = preferences_module.SettingsPage(settings, lambda _changed: None, lambda _id: None)

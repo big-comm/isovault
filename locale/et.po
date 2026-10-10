@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: isovault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-10 17:02-0300\n"
+"POT-Creation-Date: 2026-10-10 18:24-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: et\n"
@@ -554,6 +554,10 @@ msgstr "Regioon"
 msgid "Bucket Name"
 msgstr "Konteineri nimi"
 
+#: ui/preferences.py
+msgid "Find Buckets"
+msgstr "Otsi konteinereid"
+
 # File: usr/share/isovault/ui/preferences.py, line: 107
 # File: usr/share/isovault/ui/preferences.py, line: 110
 # File: usr/share/isovault/ui/preferences.py, line: 328
@@ -684,15 +688,9 @@ msgstr ""
 "\n"
 "Seda toimingut ei saa tagasi võtta."
 
-# File: usr/share/isovault/ui/preferences.py, line: 295
 #: ui/preferences.py
-msgid "Testing..."
-msgstr "Testimine..."
-
-# File: usr/share/isovault/ui/preferences.py, line: 313
-#: ui/preferences.py
-msgid "Connection successful!"
-msgstr "Ühendus õnnestus!"
+msgid "Enter the access key, secret key and endpoint URL first."
+msgstr "Sisesta esmalt juurdepääsuvõti, salajane võti ja lõpp-punkti URL."
 
 # #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
 # 
@@ -702,6 +700,38 @@ msgstr "Ühendus õnnestus!"
 #, python-brace-format
 msgid "Connection error: {error}"
 msgstr "Ühenduse viga: {error}"
+
+#: ui/preferences.py
+msgid "No bucket found"
+msgstr "Konteinerit ei leitud"
+
+#: ui/preferences.py
+msgid ""
+"These keys can't list any bucket. Buckets shared by another account don't "
+"appear in the list, so ask the storage administrator for the bucket name (on"
+" CDN77: CDN Resources → Origin)."
+msgstr ""
+"Need võtmed ei suuda ühtegi konteinerit loetleda. Teise konto jagatud "
+"konteinerid loendis ei kuvata, seega küsi konteineri nime salvestusruumi "
+"haldurilt (CDN77-s: CDN Resources → Origin)."
+
+#: ui/preferences.py ui/window.py
+msgid "Choose the bucket"
+msgstr "Vali konteiner"
+
+#: ui/preferences.py
+msgid "Buckets these keys can access"
+msgstr "Konteinerid, millele need võtmed juurde pääsevad"
+
+# File: usr/share/isovault/ui/preferences.py, line: 295
+#: ui/preferences.py
+msgid "Testing..."
+msgstr "Testimine..."
+
+# File: usr/share/isovault/ui/preferences.py, line: 313
+#: ui/preferences.py
+msgid "Connection successful!"
+msgstr "Ühendus õnnestus!"
 
 # File: usr/share/isovault/ui/preferences.py, line: 332
 #: ui/preferences.py
@@ -781,17 +811,8 @@ msgid "ISO Files"
 msgstr "ISO-failid"
 
 #: ui/window.py
-msgid "Connect to your storage"
-msgstr "Ühenda oma salvestusruumiga"
-
-# File: usr/share/isovault/ui/window.py, line: 139
-#: ui/window.py
-msgid "Please configure S3 credentials in Preferences"
-msgstr "Palun seadistage S3 mandaadid eelistustes."
-
-#: ui/window.py
-msgid "Open Preferences"
-msgstr "Ava eelistused"
+msgid "Open Settings"
+msgstr "Ava seaded"
 
 #: ui/window.py
 msgid "Manage your ISO files and make them available for download."
@@ -830,6 +851,27 @@ msgstr "Rohkem"
 #: ui/window.py
 msgid "Warning: Could not connect to S3 storage"
 msgstr "Hoiatus: Ei õnnestunud luua ühendust S3 salvestusega"
+
+#: ui/window.py
+msgid "Connect to your storage"
+msgstr "Ühenda oma salvestusruumiga"
+
+#: ui/window.py
+msgid "Enter the access key and secret key of this profile in Settings."
+msgstr ""
+"Sisesta selle profiili juurdepääsuvõti ja salajane võti jaotises Seaded."
+
+#: ui/window.py
+msgid ""
+"The keys are set, but this profile has no bucket. Enter its name in Settings"
+" or use “Find Buckets”."
+msgstr ""
+"Võtmed on seatud, kuid sellel profiilil pole konteinerit. Sisesta selle nimi"
+" jaotises Seaded või kasuta valikut „Otsi konteinereid“."
+
+#: ui/window.py
+msgid "Enter the endpoint URL of this profile in Settings."
+msgstr "Sisesta selle profiili lõpp-punkti URL jaotises Seaded."
 
 #: ui/window.py
 msgid "Manage Profiles"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: isovault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-10 17:02-0300\n"
+"POT-Creation-Date: 2026-10-10 18:24-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ru\n"
@@ -559,6 +559,10 @@ msgstr "Регион"
 msgid "Bucket Name"
 msgstr "Имя корзины"
 
+#: ui/preferences.py
+msgid "Find Buckets"
+msgstr "Найти корзины"
+
 # File: usr/share/isovault/ui/preferences.py, line: 107
 # File: usr/share/isovault/ui/preferences.py, line: 110
 # File: usr/share/isovault/ui/preferences.py, line: 328
@@ -690,15 +694,9 @@ msgstr ""
 "\n"
 "Это действие нельзя отменить."
 
-# File: usr/share/isovault/ui/preferences.py, line: 295
 #: ui/preferences.py
-msgid "Testing..."
-msgstr "Тестирование..."
-
-# File: usr/share/isovault/ui/preferences.py, line: 313
-#: ui/preferences.py
-msgid "Connection successful!"
-msgstr "Подключение успешно!"
+msgid "Enter the access key, secret key and endpoint URL first."
+msgstr "Сначала введите ключ доступа, секретный ключ и URL конечной точки."
 
 # #-#-#-#-#  isovault.pot (isovault)  #-#-#-#-#
 # 
@@ -708,6 +706,38 @@ msgstr "Подключение успешно!"
 #, python-brace-format
 msgid "Connection error: {error}"
 msgstr "Ошибка подключения: {error}"
+
+#: ui/preferences.py
+msgid "No bucket found"
+msgstr "Корзина не найдена"
+
+#: ui/preferences.py
+msgid ""
+"These keys can't list any bucket. Buckets shared by another account don't "
+"appear in the list, so ask the storage administrator for the bucket name (on"
+" CDN77: CDN Resources → Origin)."
+msgstr ""
+"С этими ключами не удаётся получить список корзин. Корзины, к которым открыт"
+" доступ из другого аккаунта, в списке не отображаются, поэтому узнайте имя "
+"корзины у администратора хранилища (в CDN77: CDN Resources → Origin)."
+
+#: ui/preferences.py ui/window.py
+msgid "Choose the bucket"
+msgstr "Выберите корзину"
+
+#: ui/preferences.py
+msgid "Buckets these keys can access"
+msgstr "Корзины, доступные для этих ключей"
+
+# File: usr/share/isovault/ui/preferences.py, line: 295
+#: ui/preferences.py
+msgid "Testing..."
+msgstr "Тестирование..."
+
+# File: usr/share/isovault/ui/preferences.py, line: 313
+#: ui/preferences.py
+msgid "Connection successful!"
+msgstr "Подключение успешно!"
 
 # File: usr/share/isovault/ui/preferences.py, line: 332
 #: ui/preferences.py
@@ -789,16 +819,7 @@ msgid "ISO Files"
 msgstr "Файлы ISO"
 
 #: ui/window.py
-msgid "Connect to your storage"
-msgstr "Подключитесь к хранилищу"
-
-# File: usr/share/isovault/ui/window.py, line: 139
-#: ui/window.py
-msgid "Please configure S3 credentials in Preferences"
-msgstr "Пожалуйста, настройте учетные данные S3 в Настройках"
-
-#: ui/window.py
-msgid "Open Preferences"
+msgid "Open Settings"
 msgstr "Открыть настройки"
 
 #: ui/window.py
@@ -838,6 +859,26 @@ msgstr "Ещё"
 #: ui/window.py
 msgid "Warning: Could not connect to S3 storage"
 msgstr "Предупреждение: Не удалось подключиться к хранилищу S3"
+
+#: ui/window.py
+msgid "Connect to your storage"
+msgstr "Подключитесь к хранилищу"
+
+#: ui/window.py
+msgid "Enter the access key and secret key of this profile in Settings."
+msgstr "Введите ключ доступа и секретный ключ этого профиля в Настройках."
+
+#: ui/window.py
+msgid ""
+"The keys are set, but this profile has no bucket. Enter its name in Settings"
+" or use “Find Buckets”."
+msgstr ""
+"Ключи заданы, но у этого профиля нет корзины. Введите её имя в Настройках "
+"или воспользуйтесь «Найти корзины»."
+
+#: ui/window.py
+msgid "Enter the endpoint URL of this profile in Settings."
+msgstr "Введите URL конечной точки этого профиля в Настройках."
 
 #: ui/window.py
 msgid "Manage Profiles"

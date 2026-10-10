@@ -20,6 +20,7 @@ from gi.repository import Adw, GLib, Gtk  # noqa: E402
 from config import PAGE_STYLES  # noqa: E402
 from models.settings import CONNECTION_KEYS, SettingsManager, parse_folders  # noqa: E402
 from services import S3Service  # noqa: E402
+from services.s3_service import list_buckets  # noqa: E402
 from utils.i18n import _  # noqa: E402
 
 from .pages import page_header  # noqa: E402
@@ -110,7 +111,14 @@ class SettingsPage(Gtk.Box):
         )
         connection.add(self._entry_row("endpoint_url", _("Endpoint URL")))
         connection.add(self._entry_row("region_name", _("Region")))
-        connection.add(self._entry_row("bucket_name", _("Bucket Name")))
+        bucket_row = self._entry_row("bucket_name", _("Bucket Name"))
+        self.find_buckets_button = Gtk.Button(
+            icon_name="system-search-symbolic", valign=Gtk.Align.CENTER, tooltip_text=_("Find Buckets")
+        )
+        self.find_buckets_button.add_css_class("flat")
+        self.find_buckets_button.connect("clicked", self._on_find_buckets)
+        bucket_row.add_suffix(self.find_buckets_button)
+        connection.add(bucket_row)
 
         self.test_button = Gtk.Button(label=_("Test Connection"), valign=Gtk.Align.CENTER)
         self.test_button.add_css_class("suggested-action")
@@ -288,6 +296,73 @@ class SettingsPage(Gtk.Box):
         self._updating_ui = False
 
         self.on_settings_changed(False)
+
+    # Finding buckets
+
+    def _on_find_buckets(self, button: Gtk.Button) -> None:
+        """List the buckets the typed credentials can see and let the user pick one."""
+        s3_config = {key: self.profile_rows[key].get_text().strip() for key in CONNECTION_KEYS}
+        if not all(s3_config[key] for key in ("access_key", "secret_key", "endpoint_url")):
+            self._show_message(_("Find Buckets"), _("Enter the access key, secret key and endpoint URL first."))
+            return
+        button.set_sensitive(False)
+
+        def find():
+            try:
+                result = (list_buckets(s3_config), None)
+            except Exception as e:
+                result = ([], str(e))
+            GLib.idle_add(self._show_buckets, *result)
+
+        threading.Thread(target=find, daemon=True).start()
+
+    def _show_buckets(self, buckets, error) -> bool:
+        self.find_buckets_button.set_sensitive(True)
+        if error:
+            self._show_message(_("Find Buckets"), _("Connection error: {error}").format(error=error), error=True)
+        elif not buckets:
+            self._show_message(
+                _("No bucket found"),
+                _(
+                    "These keys can't list any bucket. Buckets shared by another account don't appear in "
+                    "the list, so ask the storage administrator for the bucket name (on CDN77: CDN "
+                    "Resources → Origin)."
+                ),
+            )
+        else:
+            self._choose_bucket(buckets)
+        return False
+
+    def _choose_bucket(self, buckets) -> None:
+        listbox = Gtk.ListBox(selection_mode=Gtk.SelectionMode.NONE)
+        listbox.add_css_class("boxed-list")
+        for name in buckets:
+            row = Adw.ActionRow(title=name, activatable=True)
+            row.add_prefix(Gtk.Image.new_from_icon_name("drive-harddisk-symbolic"))
+            row.bucket = name
+            listbox.append(row)
+
+        dialog = Adw.AlertDialog(heading=_("Choose the bucket"), body=_("Buckets these keys can access"))
+        dialog.set_extra_child(listbox)
+        dialog.add_response("cancel", _("Cancel"))
+        dialog.set_close_response("cancel")
+
+        def on_row_activated(_listbox, row):
+            self.profile_rows["bucket_name"].set_text(row.bucket)
+            dialog.close()
+            self.commit()
+
+        listbox.connect("row-activated", on_row_activated)
+        dialog.present(self)
+
+    def _show_message(self, heading: str, body: str, error: bool = False) -> None:
+        dialog = Adw.AlertDialog(heading=heading, body=body)
+        dialog.add_response("ok", _("OK"))
+        dialog.set_default_response("ok")
+        dialog.set_close_response("ok")
+        if error:
+            dialog.set_response_appearance("ok", Adw.ResponseAppearance.DESTRUCTIVE)
+        dialog.present(self)
 
     # Connection test
 
