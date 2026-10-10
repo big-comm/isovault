@@ -15,7 +15,7 @@ gi.require_version("Adw", "1")
 
 from gi.repository import Adw, Gio, GLib, GObject, Gtk, Pango  # noqa: E402
 
-from config import APP_ICON, APP_NAME, REFRESH_DELAY_MS, TOAST_TIMEOUT  # noqa: E402
+from config import APP_ICON, APP_NAME, REFRESH_DELAY_MS, ROOT_FOLDER, TOAST_TIMEOUT  # noqa: E402
 from models import FileItem, SettingsManager  # noqa: E402
 from services import FileValidator, S3Service, create_html_generator, publish_indexes  # noqa: E402
 from utils.helpers import format_file_size  # noqa: E402
@@ -282,7 +282,9 @@ class ISOVaultWindow(Adw.ApplicationWindow):
         self.refresh_spinner = Adw.Spinner(visible=False, valign=Gtk.Align.CENTER)
         header.append(self.refresh_spinner)
 
-        self.file_list = FileBrowser(on_selection_changed=lambda _count: self._update_sensitivity())
+        self.file_list = FileBrowser(
+            on_selection_changed=lambda _count: self._update_sensitivity(), on_open_folder=self.open_folder
+        )
 
         page = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=16)
         page.add_css_class("app-page")
@@ -438,9 +440,9 @@ class ISOVaultWindow(Adw.ApplicationWindow):
         self.refresh_files()
 
     def _set_files(self, files: List[dict]) -> None:
-        self.file_list.set_files(files)
-        everything = self.file_list.all_files()
         folders = self.settings_manager.folders()
+        self.file_list.set_files(files, folders)
+        everything = self.file_list.all_files()
         self.storage_card.update(everything, folders)
         self.statistics_page.update(everything, folders)
         self._update_counts()
@@ -490,7 +492,8 @@ class ISOVaultWindow(Adw.ApplicationWindow):
         badge.set_text(str(total))
         badge.set_visible(total > 0)
 
-        if visible == total:
+        # The root holds every folder, so its view counts the whole bucket
+        if visible == total or (self.get_selected_folder() == ROOT_FOLDER and not self.search_entry.get_text()):
             self.count_label.set_text(self._files_status_text(total, None))
         else:
             self.count_label.set_text(
@@ -528,6 +531,14 @@ class ISOVaultWindow(Adw.ApplicationWindow):
         """Folder chosen in the filter (None = all folders)."""
         selected = self.folder_dropdown.get_selected()
         return self._folders[selected - 1] if 0 < selected <= len(self._folders) else None
+
+    def open_folder(self, folder: str) -> None:
+        """Show one folder (used by the folder entries of the root view)."""
+        if folder in self._folders:
+            self.folder_dropdown.set_selected(self._folders.index(folder) + 1)
+        else:  # a folder found in the bucket but not listed in the profile
+            self.file_list.set_folder(folder)
+            self._update_counts()
 
     def _on_folder_changed(self) -> None:
         self.file_list.set_folder(self.get_selected_folder())

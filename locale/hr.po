@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: isovault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 15:21-0300\n"
+"POT-Creation-Date: 2026-10-10 17:02-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: hr\n"
@@ -304,6 +304,19 @@ msgstr "ISO upravitelj datoteka za CDN77 pohranu"
 msgid "OK"
 msgstr "U redu"
 
+#. TRANSLATORS: shown after a folder name ("KDE · empty")
+#: ui/file_browser.py
+msgid "empty"
+msgstr "prazna"
+
+#: ui/file_browser.py ui/window.py
+#, python-brace-format
+msgid "{count} file"
+msgid_plural "{count} files"
+msgstr[0] "{count} datoteka"
+msgstr[1] "{count} datoteke"
+msgstr[2] "{count} datoteka"
+
 # File: usr/share/isovault/ui/components.py, line: 277
 #: ui/file_browser.py ui/window.py
 msgid "Copy Link"
@@ -338,6 +351,10 @@ msgstr "Izmijenjeno"
 #: ui/file_browser.py
 msgid "Actions"
 msgstr "Radnje"
+
+#: ui/file_browser.py
+msgid "Open folder"
+msgstr "Otvori mapu"
 
 #: ui/file_browser.py
 msgid "Select"
@@ -1011,14 +1028,6 @@ msgid_plural "{count} files in {folder}"
 msgstr[0] "{count} datoteka u {folder}"
 msgstr[1] "{count} datoteke u {folder}"
 msgstr[2] "{count} datoteka u {folder}"
-
-#: ui/window.py
-#, python-brace-format
-msgid "{count} file"
-msgid_plural "{count} files"
-msgstr[0] "{count} datoteka"
-msgstr[1] "{count} datoteke"
-msgstr[2] "{count} datoteka"
 
 # File: usr/share/isovault/services/file_validator.py, line: 100
 #: utils/helpers.py

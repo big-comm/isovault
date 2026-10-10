@@ -357,6 +357,77 @@ class TestSelection:
         assert file_names(window) == ["b.iso"]
 
 
+def visible_names(win):
+    model = win.file_list.sort_model
+    return [model.get_item(i).name for i in range(model.get_n_items())]
+
+
+class TestRootFolder:
+    def _show_root(self, window):
+        window.folder_dropdown.set_selected(DEFAULT_FOLDERS.index("Root") + 1)
+
+    def test_root_lists_folders_then_its_files(self, window):
+        self._show_root(window)
+        assert visible_names(window) == ["Cinnamon", "Gnome", "KDE", "XFCE", "b.iso"]
+        gnome = window.file_list.sort_model.get_item(1)
+        assert (gnome.is_folder, gnome.file_count, gnome.size) == (True, 1, 1024)
+        from ui.file_browser import display_name
+
+        assert display_name(gnome) == "Gnome · 1 file"
+        assert display_name(window.file_list.sort_model.get_item(2)) == "KDE · empty"
+        assert window.count_label.get_text() == "2 files"  # the root holds the whole bucket
+
+    def test_folder_entries_are_not_files(self, window):
+        self._show_root(window)
+        assert window.file_list.total_count == 2
+        assert window.file_list.visible_count == 1
+        assert [item.name for item in window.file_list.all_files()] == ["a.iso", "b.iso"]
+
+        window.file_list.select_all()
+        assert file_names(window) == ["b.iso"]
+        window.file_list.selection_model.select_all()  # Ctrl+A selects every row...
+        assert file_names(window) == ["b.iso"]  # ...but only files can be acted on
+
+    def test_delete_never_touches_folder_entries(self, window, settings):
+        settings.set("ui", "confirm_deletions", False)
+        self._show_root(window)
+        window.file_list.selection_model.select_all()
+        window.on_delete_clicked()
+        idle(window)
+        assert window.s3_service.deleted == ["b.iso"]
+
+    def test_opening_a_folder(self, window):
+        self._show_root(window)
+        window.file_list.list_view.emit("activate", 1)  # double click on "Gnome"
+        assert window.get_selected_folder() == "Gnome"
+        assert visible_names(window) == ["a.iso"]
+
+    def test_open_button_and_grid(self, window):
+        window.present()
+        self._show_root(window)
+        wait_until(lambda: any(isinstance(w, Gtk.Button) and w.get_visible() and w.has_css_class("row-menu-button")
+                               for w in _walk(window.file_list.list_view)))
+        button = next(w for w in _walk(window.file_list.list_view)
+                      if isinstance(w, Gtk.Button) and w.get_visible() and w.has_css_class("row-menu-button"))
+        button.emit("clicked")
+        assert window.get_selected_folder() in DEFAULT_FOLDERS
+
+        self._show_root(window)
+        window.view_toggle.set_active_name("grid")
+        wait_until(lambda: any(isinstance(w, Gtk.Label) and w.get_text().startswith("Gnome · ")
+                               for w in _walk(window.file_list.grid_view)))
+
+    def test_folder_outside_the_profile(self, window):
+        window.s3_service.files.append(make_file("Extra/e.iso"))
+        window.refresh_files()
+        wait_until(lambda: window.file_list.total_count == 3)
+        self._show_root(window)
+        assert "Extra" in visible_names(window)
+
+        window.open_folder("Extra")
+        assert visible_names(window) == ["e.iso"]
+
+
 class TestBatchActions:
     def test_delete_several_without_confirmation(self, window, settings, published):
         settings.set("ui", "confirm_deletions", False)

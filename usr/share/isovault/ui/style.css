@@ -88,6 +88,18 @@ listview.file-rows > row:selected { background: alpha(@accent_bg_color, 0.10); }
 
 .row-menu > button:hover { background: alpha(currentColor, 0.07); }
 
+/* "Open folder" button of the folder entries in the root view */
+.row-menu-button {
+    min-width: 28px;
+    min-height: 28px;
+    padding: 0;
+    border-radius: 8px;
+    background: transparent;
+    box-shadow: inset 0 0 0 1px alpha(currentColor, 0.12);
+}
+
+.row-menu-button:hover { background: alpha(currentColor, 0.07); }
+
 /* Grid of cards */
 gridview.file-cards { background: transparent; padding: 4px; }
 gridview.file-cards > child { padding: 6px; background: transparent; }

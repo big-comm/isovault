@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: isovault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 15:21-0300\n"
+"POT-Creation-Date: 2026-10-10 17:02-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: hu\n"
@@ -303,6 +303,18 @@ msgstr "ISO fájlkezelő a CDN77 tároláshoz"
 msgid "OK"
 msgstr "Rendben"
 
+#. TRANSLATORS: shown after a folder name ("KDE · empty")
+#: ui/file_browser.py
+msgid "empty"
+msgstr "üres"
+
+#: ui/file_browser.py ui/window.py
+#, python-brace-format
+msgid "{count} file"
+msgid_plural "{count} files"
+msgstr[0] "{count} fájl"
+msgstr[1] "{count} fájl"
+
 # File: usr/share/isovault/ui/components.py, line: 277
 #: ui/file_browser.py ui/window.py
 msgid "Copy Link"
@@ -337,6 +349,10 @@ msgstr "Módosított"
 #: ui/file_browser.py
 msgid "Actions"
 msgstr "Műveletek"
+
+#: ui/file_browser.py
+msgid "Open folder"
+msgstr "Mappa megnyitása"
 
 #: ui/file_browser.py
 msgid "Select"
@@ -1003,13 +1019,6 @@ msgid "{count} file in {folder}"
 msgid_plural "{count} files in {folder}"
 msgstr[0] "{count} fájl a(z) {folder} mappában"
 msgstr[1] "{count} fájl a(z) {folder} mappában"
-
-#: ui/window.py
-#, python-brace-format
-msgid "{count} file"
-msgid_plural "{count} files"
-msgstr[0] "{count} fájl"
-msgstr[1] "{count} fájl"
 
 # File: usr/share/isovault/services/file_validator.py, line: 100
 #: utils/helpers.py

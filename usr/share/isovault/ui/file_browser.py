@@ -4,9 +4,12 @@ File browser: the bucket files as a table or a grid of cards.
 Model chain: ListStore (every file) -> FilterListModel (folder + search)
 -> SortListModel -> MultiSelection. Both views share the same selection,
 so switching between list and grid keeps the checked files.
+
+The store also holds one entry per folder; they are only shown when the
+bucket root is browsed, like a file manager, and never count as files.
 """
 
-from typing import Callable, Dict, List, Optional
+from typing import Callable, Dict, List, Optional, Sequence
 
 import gi
 
@@ -15,8 +18,10 @@ gi.require_version("Adw", "1")
 
 from gi.repository import Adw, Gio, GLib, GObject, Gtk, Pango  # noqa: E402
 
+from config import ROOT_FOLDER  # noqa: E402
 from models import FileItem  # noqa: E402
-from utils.i18n import _  # noqa: E402
+from utils.helpers import format_file_size  # noqa: E402
+from utils.i18n import _, ngettext  # noqa: E402
 
 # Fixed widths so the header lines up with the rows
 _WIDTHS = {"check": 40, "icon": 36, "folder": 120, "size": 90, "modified": 150, "actions": 52}
@@ -59,8 +64,19 @@ class SquareBin(Gtk.Widget):
 
 
 def format_date(item: FileItem) -> str:
-    """Local date and time in the user's locale format."""
-    return item.modified.astimezone().strftime("%x %H:%M")
+    """Local date and time in the user's locale format ("—" for an empty folder)."""
+    return item.modified.astimezone().strftime("%x %H:%M") if item.modified else "—"
+
+
+def display_name(item: FileItem) -> str:
+    """File name, or "Gnome · 4 files" for a folder entry."""
+    if not item.is_folder:
+        return item.name
+    if not item.file_count:
+        # TRANSLATORS: shown after a folder name ("KDE · empty")
+        return f"{item.name} · {_('empty')}"
+    count = ngettext("{count} file", "{count} files", item.file_count).format(count=item.file_count)
+    return f"{item.name} · {count}"
 
 
 def distro_badge(folder: str) -> Gtk.Label:
@@ -71,13 +87,19 @@ def distro_badge(folder: str) -> Gtk.Label:
 
 
 def file_icon(item: FileItem, pixel_size: int = 16) -> Gtk.Widget:
-    """Colored disc for ISOs, plain document for checksum files."""
+    """Colored folder or disc, plain document for checksums and other files."""
     is_iso = item.name.lower().endswith(".iso")
-    image = Gtk.Image.new_from_icon_name("media-optical-symbolic" if is_iso else "text-x-generic-symbolic")
+    if item.is_folder:
+        icon, css_class = "folder-symbolic", f"distro-{item.opens_folder.lower()}"
+    elif is_iso:
+        icon, css_class = "media-optical-symbolic", f"distro-{item.folder.lower()}"
+    else:
+        icon, css_class = "text-x-generic-symbolic", "checksum"
+    image = Gtk.Image.new_from_icon_name(icon)
     image.set_pixel_size(pixel_size)
     box = Gtk.Box(halign=Gtk.Align.CENTER, valign=Gtk.Align.CENTER)
     box.add_css_class("file-icon")
-    box.add_css_class(f"distro-{item.folder.lower()}" if is_iso else "checksum")
+    box.add_css_class(css_class)
     box.append(image)
     return box
 
@@ -99,12 +121,18 @@ def row_menu(key: str) -> Gio.Menu:
 class FileBrowser:
     """Filterable, sortable file list with list and grid views"""
 
-    def __init__(self, on_selection_changed: Callable[[int], None]):
+    def __init__(
+        self,
+        on_selection_changed: Callable[[int], None],
+        on_open_folder: Optional[Callable[[str], None]] = None,
+    ):
         """
         Args:
             on_selection_changed: Called with the number of selected files
+            on_open_folder: Called with a folder name when a folder entry is opened
         """
         self._on_selection_changed = on_selection_changed
+        self._on_open_folder = on_open_folder or self.set_folder
         self._folder: Optional[str] = None
         self._search = ""
         self.sort_key = "modified"
@@ -195,6 +223,7 @@ class FileBrowser:
         factory.connect("bind", self._on_row_bind)
         view = Gtk.ListView(model=self.selection_model, factory=factory, show_separators=True)
         view.add_css_class("file-rows")
+        view.connect("activate", lambda _view, position: self._activate(position))  # double click / Enter
         return view
 
     def _on_row_setup(self, _factory, list_item: Gtk.ListItem) -> None:
@@ -226,26 +255,37 @@ class FileBrowser:
 
         menu = Gtk.MenuButton(icon_name="view-more-symbolic", valign=Gtk.Align.CENTER, halign=Gtk.Align.CENTER)
         menu.add_css_class("row-menu")
-        menu.set_size_request(_WIDTHS["actions"], -1)
-        row.append(menu)
+        open_button = self._make_open_button(list_item)
+        actions = Gtk.Box(halign=Gtk.Align.CENTER, width_request=_WIDTHS["actions"])
+        actions.append(menu)
+        actions.append(open_button)
+        row.append(actions)
 
         modified.set_visible(not self._compact)
-        row.widgets = (icon_slot, name, badge_slot, size, modified, menu)
+        row.widgets = (icon_slot, name, badge_slot, size, modified, menu, open_button, check)
         self._row_widgets.append(row)
         list_item.set_child(row)
 
     def _on_row_bind(self, _factory, list_item: Gtk.ListItem) -> None:
         item = list_item.get_item()
-        icon_slot, name, badge_slot, size, modified, menu = list_item.get_child().widgets
-        _replace_child(icon_slot, file_icon(item))
-        _replace_child(badge_slot, distro_badge(item.folder))
-        name.set_text(item.name)
-        name.set_tooltip_text(item.name)
+        icon_slot, name, badge_slot, size, modified, menu, open_button, check = list_item.get_child().widgets
+        self._bind_common(item, icon_slot, name, badge_slot, size, modified, menu, open_button, check, pixel_size=16)
+        menu.set_tooltip_text(_("Actions"))
+
+    def _bind_common(self, item, icon_slot, name, badge_slot, size, modified, menu, open_button, check, pixel_size):
+        """Fill a row or card; folder entries get an open button instead of the file menu."""
+        _replace_child(icon_slot, file_icon(item, pixel_size=pixel_size))
+        _replace_child(badge_slot, distro_badge(item.opens_folder or item.folder))
+        name.set_text(display_name(item))
+        name.set_tooltip_text(display_name(item))
         size.set_text(item.size_formatted)
         modified.set_text(format_date(item))
-        menu.set_menu_model(row_menu(item.key))
-        menu.set_tooltip_text(_("Actions"))
-        list_item.get_child().get_first_child().update_property([Gtk.AccessibleProperty.LABEL], [item.name])
+        menu.set_visible(not item.is_folder)
+        open_button.set_visible(item.is_folder)
+        check.set_visible(not item.is_folder)  # folders are browsed, not selected
+        if not item.is_folder:
+            menu.set_menu_model(row_menu(item.key))
+        check.update_property([Gtk.AccessibleProperty.LABEL], [item.name])
 
     # Grid view
 
@@ -255,15 +295,20 @@ class FileBrowser:
         factory.connect("bind", self._on_card_bind)
         view = Gtk.GridView(model=self.selection_model, factory=factory, min_columns=2, max_columns=6)
         view.add_css_class("file-cards")
+        view.connect("activate", lambda _view, position: self._activate(position))
         return view
 
     def _on_card_setup(self, _factory, list_item: Gtk.ListItem) -> None:
         check = self._make_check(list_item)
         menu = Gtk.MenuButton(icon_name="view-more-symbolic", halign=Gtk.Align.END, hexpand=True)
         menu.add_css_class("row-menu")
+        open_button = self._make_open_button(list_item)
+        open_button.set_halign(Gtk.Align.END)
+        open_button.set_hexpand(True)
         top = Gtk.Box()
         top.append(check)
         top.append(menu)
+        top.append(open_button)
 
         # The icon area takes the spare height, so content stays centered in the square
         icon_slot = Gtk.Box(halign=Gtk.Align.CENTER, valign=Gtk.Align.CENTER, vexpand=True, margin_bottom=4)
@@ -287,21 +332,29 @@ class FileBrowser:
         card.add_css_class("file-card")
         for widget in (top, icon_slot, name, meta, modified):
             card.append(widget)
-        card.widgets = (icon_slot, name, badge_slot, size, modified, menu)
+        card.widgets = (icon_slot, name, badge_slot, size, modified, menu, open_button, check)
         list_item.set_child(SquareBin(card))
 
     def _on_card_bind(self, _factory, list_item: Gtk.ListItem) -> None:
         item = list_item.get_item()
-        icon_slot, name, badge_slot, size, modified, menu = list_item.get_child().child.widgets
-        _replace_child(icon_slot, file_icon(item, pixel_size=32))
-        _replace_child(badge_slot, distro_badge(item.folder))
-        name.set_text(item.name)
-        name.set_tooltip_text(item.name)
-        size.set_text(item.size_formatted)
-        modified.set_text(format_date(item))
-        menu.set_menu_model(row_menu(item.key))
+        icon_slot, name, badge_slot, size, modified, menu, open_button, check = list_item.get_child().child.widgets
+        self._bind_common(item, icon_slot, name, badge_slot, size, modified, menu, open_button, check, pixel_size=32)
 
     # Selection
+
+    def _make_open_button(self, list_item: Gtk.ListItem) -> Gtk.Button:
+        button = Gtk.Button(icon_name="go-next-symbolic", valign=Gtk.Align.CENTER, tooltip_text=_("Open folder"))
+        button.add_css_class("row-menu-button")
+        button.connect("clicked", lambda _b: self._activate(list_item.get_position()))
+        return button
+
+    def _activate(self, position: int) -> None:
+        """Open a folder entry (files have their own menu, so activating them does nothing)."""
+        if position == Gtk.INVALID_LIST_POSITION:
+            return
+        item = self.sort_model.get_item(position)
+        if item is not None and item.is_folder:
+            self._on_open_folder(item.opens_folder)
 
     def _make_check(self, list_item: Gtk.ListItem) -> Gtk.CheckButton:
         check = Gtk.CheckButton(halign=Gtk.Align.CENTER, valign=Gtk.Align.CENTER, tooltip_text=_("Select"))
@@ -338,29 +391,48 @@ class FileBrowser:
 
     @property
     def selected_count(self) -> int:
-        return self.selection_model.get_selection().get_size()
+        return len(self.get_selected_files())
 
     @property
     def visible_count(self) -> int:
-        return self.sort_model.get_n_items()
+        """Files currently shown (folder entries don't count)."""
+        return sum(1 for i in range(self.sort_model.get_n_items()) if not self.sort_model.get_item(i).is_folder)
 
     def get_selected_files(self) -> List[FileItem]:
-        """Selected files, in display order."""
+        """Selected files, in display order; folder entries are never part of it."""
         selection = self.selection_model.get_selection()
-        return [self.sort_model.get_item(selection.get_nth(i)) for i in range(selection.get_size())]
+        items = (self.sort_model.get_item(selection.get_nth(i)) for i in range(selection.get_size()))
+        return [item for item in items if not item.is_folder]
 
     def select_all(self) -> None:
-        self.selection_model.select_all()
+        """Select every visible file (not the folder entries)."""
+        files = Gtk.Bitset.new_empty()
+        for position in range(self.sort_model.get_n_items()):
+            if not self.sort_model.get_item(position).is_folder:
+                files.add(position)
+        self.selection_model.set_selection(files, Gtk.Bitset.new_range(0, self.sort_model.get_n_items()))
 
     def unselect_all(self) -> None:
         self.selection_model.unselect_all()
 
     # Data, filtering and sorting
 
-    def set_files(self, files: List[dict]) -> None:
-        """Replace every file, keeping the selection (by key) of files that still exist."""
+    def set_files(self, files: List[dict], folders: Sequence[str] = ()) -> None:
+        """
+        Replace every file, keeping the selection (by key) of files that still
+        exist. folders are the profile folders; they get an entry in the root
+        view even when empty, and so does any other folder found in the bucket.
+        """
         selected_keys = {item.key for item in self.get_selected_files()}
-        self.store.splice(0, self.store.get_n_items(), [FileItem.from_dict(data) for data in files])
+        items = [FileItem.from_dict(data) for data in files]
+        names = [f for f in folders if f != ROOT_FOLDER]
+        names += sorted({item.folder for item in items} - set(names) - {ROOT_FOLDER})
+        entries = []
+        for name in names:
+            content = [item for item in items if item.folder == name]
+            size = format_file_size(sum(f.size for f in content))
+            entries.append(FileItem.folder_entry(name, content, ROOT_FOLDER, size))
+        self.store.splice(0, self.store.get_n_items(), entries + items)
         if selected_keys:
             keep = Gtk.Bitset.new_empty()
             for position in range(self.sort_model.get_n_items()):
@@ -370,14 +442,16 @@ class FileBrowser:
         self._selection_changed()
 
     def all_files(self) -> List[FileItem]:
-        return [self.store.get_item(i) for i in range(self.store.get_n_items())]
+        """Every file of the bucket (without the folder entries)."""
+        items = (self.store.get_item(i) for i in range(self.store.get_n_items()))
+        return [item for item in items if not item.is_folder]
 
     def find(self, key: str) -> Optional[FileItem]:
         return next((item for item in self.all_files() if item.key == key), None)
 
     @property
     def total_count(self) -> int:
-        return self.store.get_n_items()
+        return len(self.all_files())
 
     def set_folder(self, folder: Optional[str]) -> None:
         self._folder = folder
@@ -388,6 +462,8 @@ class FileBrowser:
         self._filter.changed(Gtk.FilterChange.DIFFERENT)
 
     def _matches(self, item: FileItem) -> bool:
+        if item.is_folder and self._folder != ROOT_FOLDER:
+            return False  # folder entries only exist inside the root view
         if self._folder and item.folder != self._folder:
             return False
         return not self._search or self._search in item.name.lower()
@@ -403,6 +479,10 @@ class FileBrowser:
         self._update_sort_arrows()
 
     def _compare(self, a: FileItem, b: FileItem, _data=None) -> int:
+        if a.is_folder != b.is_folder:
+            return -1 if a.is_folder else 1  # folders always come first
+        if a.is_folder:
+            return (a.name.lower() > b.name.lower()) - (a.name.lower() < b.name.lower())
         values = {
             "name": lambda item: item.name.lower(),
             "folder": lambda item: (item.folder.lower(), item.name.lower()),

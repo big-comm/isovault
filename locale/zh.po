@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: isovault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 15:21-0300\n"
+"POT-Creation-Date: 2026-10-10 17:02-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: zh\n"
@@ -297,6 +297,17 @@ msgstr "CDN77存储的ISO文件管理器"
 msgid "OK"
 msgstr "好的"
 
+#. TRANSLATORS: shown after a folder name ("KDE · empty")
+#: ui/file_browser.py
+msgid "empty"
+msgstr "空"
+
+#: ui/file_browser.py ui/window.py
+#, python-brace-format
+msgid "{count} file"
+msgid_plural "{count} files"
+msgstr[0] "{count} 个文件"
+
 # File: usr/share/isovault/ui/components.py, line: 277
 #: ui/file_browser.py ui/window.py
 msgid "Copy Link"
@@ -331,6 +342,10 @@ msgstr "已修改"
 #: ui/file_browser.py
 msgid "Actions"
 msgstr "操作"
+
+#: ui/file_browser.py
+msgid "Open folder"
+msgstr "打开文件夹"
 
 #: ui/file_browser.py
 msgid "Select"
@@ -980,12 +995,6 @@ msgstr "无法连接到 S3 存储。请检查凭据和连接。"
 msgid "{count} file in {folder}"
 msgid_plural "{count} files in {folder}"
 msgstr[0] "{folder} 中有 {count} 个文件"
-
-#: ui/window.py
-#, python-brace-format
-msgid "{count} file"
-msgid_plural "{count} files"
-msgstr[0] "{count} 个文件"
 
 # File: usr/share/isovault/services/file_validator.py, line: 100
 #: utils/helpers.py

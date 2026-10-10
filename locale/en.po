@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: isovault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 15:21-0300\n"
+"POT-Creation-Date: 2026-10-10 17:02-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: en\n"
@@ -301,6 +301,18 @@ msgstr "ISO file manager for CDN77 storage"
 msgid "OK"
 msgstr "OK"
 
+#. TRANSLATORS: shown after a folder name ("KDE · empty")
+#: ui/file_browser.py
+msgid "empty"
+msgstr "empty"
+
+#: ui/file_browser.py ui/window.py
+#, python-brace-format
+msgid "{count} file"
+msgid_plural "{count} files"
+msgstr[0] "{count} file"
+msgstr[1] "{count} files"
+
 # File: usr/share/isovault/ui/window.py, line: 129
 #: ui/file_browser.py ui/window.py
 msgid "Copy Link"
@@ -335,6 +347,10 @@ msgstr "Modified"
 #: ui/file_browser.py
 msgid "Actions"
 msgstr "Actions"
+
+#: ui/file_browser.py
+msgid "Open folder"
+msgstr "Open folder"
 
 #: ui/file_browser.py
 msgid "Select"
@@ -1005,13 +1021,6 @@ msgid "{count} file in {folder}"
 msgid_plural "{count} files in {folder}"
 msgstr[0] "{count} file in {folder}"
 msgstr[1] "{count} files in {folder}"
-
-#: ui/window.py
-#, python-brace-format
-msgid "{count} file"
-msgid_plural "{count} files"
-msgstr[0] "{count} file"
-msgstr[1] "{count} files"
 
 # File: usr/share/isovault/services/file_validator.py, line: 100
 #: utils/helpers.py
