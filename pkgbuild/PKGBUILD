@@ -1,11 +1,17 @@
 # Maintainer: Tales A. Mendonça <talesam@gmail.com>
 
-pkgname=pkgbuild-template-translate
-pkgdesc="Package template for BigCommunity"
+pkgname=isovault
+pkgdesc="Manage ISO images on CDN77 S3 storage"
 # Uncomment and edit the following lines as needed
-#depends=('')
+depends=(
+    'gtk4'
+    'libadwaita'
+    'python'
+    'python-boto3'
+    'python-gobject'
+)
 #makedepends=('')
-#optdepends=('')
+optdepends=('libsecret: mirror S3 credentials in the system keyring')
 #conflicts=('')
 #provides=('')
 #replaces=('')
